@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="graph_frame">
+		<title>Graph</title>
+		<size>815,440</size>
+		<id_arg>0</id_arg>
+		<object class="wxPanel" name="l_id_graph_wxpanel" variable="lp_graph_wxpanel" member="yes">
+			<object class="wxBoxSizer" variable="lp_graph_wxboxsizer" member="yes" />
+		</object>
+		<object class="wxTimer" name="l_id_update_wxtimer" variable="lp_update_wxtimer" member="yes">
+			<interval>10</interval>
+			<handler function="on_update_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

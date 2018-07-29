@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxPanel" name="data_plot">
+		<id_arg>0</id_arg>
+		<object class="wxBoxSizer" variable="lp_graph_wxboxsizer" member="yes">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="l_id_graph_name_wxstatictext" variable="lp_graph_name_wxstatictext" member="yes">
+					<label>Graph</label>
+				</object>
+				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="mpWindow" name="l_id_graph_mpwindow" variable="lp_graph_mpwindow" member="yes">
+					<object class="mpAxis" name="l_id_x_axis_mpscalex" variable="lp_x_axis_mpscalex" member="yes">
+						<mLabel>time</mLabel>
+					</object>
+					<object class="mpAxis" name="l_id_y_axis_mpscalex" variable="lp_y_axis_mpscalex" member="yes">
+						<mType>Y-Axis</mType>
+						<mLabel>value</mLabel>
+						<mAlign>mpALIGN_BORDER_LEFT</mAlign>
+					</object>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxGrid" name="l_id_graph_signal_wxgrid" variable="lp_graph_signal_wxgrid" member="yes">
+					<rows>1</rows>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+			</object>
+		</object>
+		<object class="wxTimer" name="l_id_redraw_wxtimer" variable="lp_redraw_wxtimer" member="yes">
+			<interval>20</interval>
+			<handler function="on_redraw_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="main_frame">
+		<title>usart terminal</title>
+		<size>815,440</size>
+		<id_arg>0</id_arg>
+		<object class="wxPanel" name="l_id_main_wxpanel" variable="lp_main_wxpanel" member="yes">
+			<object class="wxBoxSizer" variable="lp_main_wxboxsizer" member="yes">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<object class="wxBoxSizer" variable="lp_main_setting_wxboxsizer" member="yes">
+						<object class="sizeritem">
+							<object class="wxStaticText" name="l_id_port_wxstatictext" variable="lp_port_wxstatictext" member="yes">
+								<label>Com</label>
+							</object>
+							<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="l_id_port_wxchoice" variable="lp_port_wxchoice" member="yes">
+								<selection>1</selection>
+								<tooltip>Commuication port</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="l_id_speed_wxchoice" variable="lp_speed_wxchoice" member="yes">
+								<content>
+									<item>110</item>
+									<item>300</item>
+									<item>1200</item>
+									<item>2400</item>
+									<item>4800</item>
+									<item>9600</item>
+									<item>14400</item>
+									<item>19200</item>
+									<item>38400</item>
+									<item>57600</item>
+									<item>115200</item>
+									<item>128000</item>
+									<item>256000</item>
+								</content>
+								<selection>5</selection>
+								<size>61,21</size>
+								<tooltip>Communication speed</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="l_id_length_wxchoice" variable="lp_length_wxchoice" member="yes">
+								<content>
+									<item>5</item>
+									<item>6</item>
+									<item>7</item>
+									<item>8</item>
+									<item>9</item>
+								</content>
+								<selection>3</selection>
+								<size>31,21</size>
+								<tooltip>Bit length</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="l_id_parity_wxchoice" variable="lp_parity_wxchoice" member="yes">
+								<content>
+									<item>0 none</item>
+									<item>1 odd</item>
+									<item>2 even</item>
+									<item>3 char</item>
+									<item>4 space</item>
+								</content>
+								<selection>0</selection>
+								<size>61,21</size>
+								<tooltip>Parity</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="l_id_stop_bit_wxchoice" variable="lp_stop_bit_wxchoice" member="yes">
+								<content>
+									<item>0</item>
+									<item>1</item>
+									<item>2</item>
+								</content>
+								<selection>0</selection>
+								<size>31,21</size>
+								<tooltip>Stop bits 0 - 1, 1 - 1.5, 2 - 2</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="l_id_clear_wxbutton" variable="lp_clear_wxbutton" member="yes">
+								<label>Clc</label>
+								<handler function="main_panel_clear_button_click" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="l_id_close_wxbutton" variable="lp_close_wxbutton" member="yes">
+								<label>Close</label>
+								<enabled>0</enabled>
+								<handler function="main_panel_close_button_click" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxALIGN_TOP</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="l_id_open_wxbutton" variable="lp_open_wxbutton" member="yes">
+								<label>Open</label>
+								<handler function="main_panel_open_button_click" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxALL|wxALIGN_TOP</flag>
+							<border>5</border>
+						</object>
+					</object>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+				</object>
+				<object class="sizeritem">
+					<object class="wxBoxSizer" variable="lp_main_control_wxboxsizer" member="yes">
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="lp_text_control_wxstaticboxsizer" member="yes">
+								<label>Text mode</label>
+								<object class="sizeritem">
+									<object class="wxCheckBox" name="l_id_text_cr_wxcheckbox" variable="lp_text_cr_wxcheckbox" member="yes">
+										<label>CR</label>
+										<tooltip>Add CR (0x0D) on the end of string</tooltip>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxCheckBox" name="l_id_text_lf_wxcheckbox" variable="lp_text_lf_wxcheckbox" member="yes">
+										<label>LF</label>
+										<tooltip>Add LF (0x0A) on the end of string</tooltip>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="lp_port_control_wxstaticboxsizer" member="yes">
+								<label>Port control</label>
+								<object class="sizeritem">
+									<object class="wxCheckBox" name="l_id_port_control_dtr_wxcheckbox" variable="lp_port_control_dtr_wxcheckbox" member="yes">
+										<label>DTR</label>
+										<enabled>0</enabled>
+										<handler function="on_port_control_dtr_wxcheckbox_click" entry="EVT_CHECKBOX" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxCheckBox" name="l_id_port_control_rts_wxcheckbox" variable="lp_port_control_rts_wxcheckbox" member="yes">
+										<label>RTS</label>
+										<checked>1</checked>
+										<enabled>0</enabled>
+										<handler function="on_port_control_rts_wxcheckbox_click" entry="EVT_CHECKBOX" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxCheckBox" name="l_id_port_control_tx_wxcheckbox" variable="lp_port_control_tx_wxcheckbox" member="yes">
+										<label>Tx</label>
+										<checked>1</checked>
+										<enabled>0</enabled>
+										<handler function="on_port_control_tx_wxcheckbox_click" entry="EVT_CHECKBOX" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="lp_port_state_wxstaticboxsizer" member="yes">
+								<label>Port state</label>
+								<object class="sizeritem">
+									<object class="wxLed" name="l_id_port_state_cts_wxled" variable="lp_port_state_cts_wxled" member="yes">
+										<disable_colour>#808080</disable_colour>
+										<on_colour>#00FF00</on_colour>
+										<off_colour>#FF0000</off_colour>
+										<enabled>0</enabled>
+									</object>
+									<flag>wxALL|wxSHAPED|wxFIXED_MINSIZE</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="l_id_port_state_cts_wxstatictext" variable="lp_port_state_cts_wxstatictext" member="yes">
+										<label>CTS</label>
+									</object>
+									<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxLed" name="l_id_port_state_dsr_wxled" variable="lp_port_state_dsr_wxled" member="yes">
+										<disable_colour>#808080</disable_colour>
+										<on_colour>#00FF00</on_colour>
+										<off_colour>#FF0000</off_colour>
+										<enabled>0</enabled>
+									</object>
+									<flag>wxALL|wxSHAPED|wxFIXED_MINSIZE</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="l_id_port_state_dsr_wxstatictext" variable="lp_port_state_dsr_wxstatictext" member="yes">
+										<label>DSR</label>
+									</object>
+									<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxLed" name="l_id_port_state_ring_wxled" variable="lp_port_state_ring_wxled" member="yes">
+										<disable_colour>#808080</disable_colour>
+										<on_colour>#00FF00</on_colour>
+										<off_colour>#FF0000</off_colour>
+										<enabled>0</enabled>
+									</object>
+									<flag>wxALL|wxSHAPED|wxFIXED_MINSIZE</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="l_id_port_state_ring_wxstatictext" variable="lp_port_state_ring_wxstatictext" member="yes">
+										<label>RING</label>
+									</object>
+									<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxLed" name="l_id_port_state_rlsd_wxled" variable="lp_port_state_rlsd_wxled" member="yes">
+										<disable_colour>#808080</disable_colour>
+										<on_colour>#00FF00</on_colour>
+										<off_colour>#FF0000</off_colour>
+										<enabled>0</enabled>
+									</object>
+									<flag>wxALL|wxSHAPED|wxFIXED_MINSIZE</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="l_id_port_state_rlsd_wxstatictext" variable="lp_port_state_rlsd_wxstatictext" member="yes">
+										<label>RLSD</label>
+									</object>
+									<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticBoxSizer" variable="lp_script_wxstaticboxsizer" member="yes">
+								<label>Script</label>
+								<object class="sizeritem">
+									<object class="wxTextCtrl" name="l_id_script_path_wxtextctrl" variable="lp_script_path_wxtextctrl" member="yes" />
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="l_id_script_load_wxbutton" variable="lp_script_load_wxbutton" member="yes">
+										<label>Load</label>
+										<handler function="on_script_load_wxbutton_click" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="l_id_script_run_wxbutton" variable="lp_script_run_wxbutton" member="yes">
+										<label>Run</label>
+										<handler function="on_script_run_wxbutton_click" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+				</object>
+				<object class="sizeritem">
+					<object class="wxBoxSizer" variable="lp_main_command_wxboxsizer" member="yes">
+						<object class="sizeritem">
+							<object class="wxTextCtrl" name="l_id_command_wxtextctrl" variable="lp_command_wxtextctrl" member="yes">
+								<maxlength>2048</maxlength>
+								<font>
+									<size>10</size>
+									<style>normal</style>
+									<weight>normal</weight>
+									<underlined>0</underlined>
+									<family>swiss</family>
+									<face>Lucida Console</face>
+								</font>
+							</object>
+							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxCheckBox" name="l_id_hex_wxcheckbox" variable="lp_hex_wxcheckbox" member="yes">
+								<label>HEX</label>
+								<tooltip>Hex imput type (0x24 0x35 -&gt; 2435 send 2 byte)</tooltip>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxButton" name="l_id_send_wxbutton" variable="lp_send_wxbutton" member="yes">
+								<label>Send</label>
+								<enabled>0</enabled>
+								<handler function="main_panel_send_button_click" entry="EVT_BUTTON" />
+							</object>
+							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP</flag>
+							<border>5</border>
+						</object>
+					</object>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+				</object>
+				<object class="sizeritem">
+					<object class="wxTextCtrl" name="l_id_console_wxtextctrl" variable="lp_console_wxtextctrl" member="yes">
+						<font>
+							<size>10</size>
+							<style>normal</style>
+							<weight>normal</weight>
+							<underlined>0</underlined>
+							<family>swiss</family>
+							<face>Lucida Console</face>
+						</font>
+						<style>wxTE_MULTILINE</style>
+					</object>
+					<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="lp_top_wxmenubar" member="yes">
+			<object class="wxMenu" variable="lp_file_wxmenu" member="yes">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="l_id_file_quit_item_wxmenu" variable="lp_file_quit_item_wxmenu" member="yes">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="menu_bar_file_quit_item_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="lp_help_wxmenu" member="yes">
+				<label>Help</label>
+				<object class="wxMenuItem" name="l_id_help_about_item_wxmenu" variable="lp_help_about_item_wxmenu" member="yes">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<handler function="menu_bar_help_about_item_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="l_id_bot_wxstatusbar" variable="lp_bot_wxstatusbar" member="yes">
+			<fields>3</fields>
+			<widths>-1,-1,-8</widths>
+			<styles>wxSB_NORMAL,wxSB_NORMAL,wxSB_NORMAL</styles>
+		</object>
+		<object class="wxFileDialog" variable="lp_script_wxfiledialog" member="yes">
+			<message>Select file</message>
+			<style>wxFD_DEFAULT_STYLE|wxFD_OPEN</style>
+		</object>
+		<object class="wxTimer" name="l_id_dialog_caller_wxtimer" variable="lp_dialog_caller_wxtimer" member="yes">
+			<interval>100</interval>
+			<handler function="on_dialog_caller_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+		<object class="wxTimer" name="l_id_wx_gui_sync_wxtimer" variable="lp_wx_gui_sync_wxtimer" member="yes">
+			<handler function="on_wx_gui_sync_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

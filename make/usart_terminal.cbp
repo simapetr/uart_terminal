@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="uart_terminal" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="output/bin/Debug/uart_terminal" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="output/bin/Debug/" />
+				<Option object_output="output/obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="$(#wx)/lib/gcc_lib/mswd" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx)/lib/gcc_lib/mswd" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="libwxmsw30ud.a" />
+					<Add library="libwxpngd.a" />
+					<Add library="libwxjpegd.a" />
+					<Add library="libwxtiffd.a" />
+					<Add library="libwxzlibd.a" />
+					<Add library="libjerryscriptd.a" />
+					<Add directory="$(#wx)/lib/gcc_lib" />
+					<Add directory="lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="output/bin/Release/uart_terminal" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="output/bin/Release/" />
+				<Option object_output="output/obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="$(#wx)/lib/gcc_lib/msw" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(#wx)/lib/gcc_lib/msw" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libwxmsw30u.a" />
+					<Add library="libwxpng.a" />
+					<Add library="libwxjpeg.a" />
+					<Add library="libwxtiff.a" />
+					<Add library="libwxzlib.a" />
+					<Add library="libjerryscript.a" />
+					<Add directory="$(#wx)/lib/gcc_lib" />
+					<Add directory="lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DNO_LIB" />
+			<Add directory="$(#wx)/include" />
+			<Add directory="$(#wx)/contrib/include" />
+			<Add directory="../hardware/drivers/uart" />
+			<Add directory="../infrastructure/main" />
+			<Add directory="../infrastructure/config" />
+			<Add directory="../infrastructure/jerryscript" />
+			<Add directory="../infrastructure/jerryscript/class" />
+			<Add directory="../infrastructure/data_plot" />
+			<Add directory="../application/uart_terminal" />
+			<Add directory="../application/graph" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#wx)/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
+			<Add library="libkernel32.a" />
+			<Add library="libuser32.a" />
+			<Add library="libgdi32.a" />
+			<Add library="libwinspool.a" />
+			<Add library="libcomdlg32.a" />
+			<Add library="libadvapi32.a" />
+			<Add library="libshell32.a" />
+			<Add library="libole32.a" />
+			<Add library="liboleaut32.a" />
+			<Add library="libuuid.a" />
+			<Add library="libcomctl32.a" />
+			<Add library="libwsock32.a" />
+			<Add library="libodbc32.a" />
+		</Linker>
+		<Unit filename="../application/graph/ap_graph_frame_cpp.cpp" />
+		<Unit filename="../application/graph/ap_graph_frame_h.h" />
+		<Unit filename="../application/graph/ap_graph_frame_rc.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../application/graph/ap_graph_frame_wxs.wxs" />
+		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" />
+		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_h.h" />
+		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_rc.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_wxs.wxs" />
+		<Unit filename="../application/uart_terminal/icon/ap_ut_icon_app_xpm.xpm" />
+		<Unit filename="../hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp" />
+		<Unit filename="../hardware/drivers/uart/hw_dr_uart_driver_h.h" />
+		<Unit filename="../infrastructure/config/in_config_ini_wrapper_cpp.cpp" />
+		<Unit filename="../infrastructure/config/in_config_ini_wrapper_h.h" />
+		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_cpp.cpp" />
+		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_h.h" />
+		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_wxs.wxs" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_date_c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_fatal_c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_io_c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_h.h" />
+		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
+		<Unit filename="../infrastructure/main/in_main_app_h.h" />
+		<Unit filename="../infrastructure/wx/led.cpp" />
+		<Unit filename="../infrastructure/wx/mathplot.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="../infrastructure/main/in_main_app_cpp.cpp" main="main_frame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="../application/uart_terminal/ap_uart_terminal_frame_wxs.wxs" src="../application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" hdr="../application/uart_terminal/ap_uart_terminal_frame_h.h" fwddecl="0" i18n="1" name="main_frame" language="CPP" />
+					<wxFrame wxs="../application/graph/ap_graph_frame_wxs.wxs" src="../application/graph/ap_graph_frame_cpp.cpp" hdr="../application/graph/ap_graph_frame_h.h" fwddecl="0" i18n="1" name="graph_frame" language="CPP" />
+					<wxPanel wxs="../infrastructure/data_plot/in_data_plot_graph_wxs.wxs" src="../infrastructure/data_plot/in_data_plot_graph_cpp.cpp" hdr="../infrastructure/data_plot/in_data_plot_graph_h.h" fwddecl="0" i18n="1" name="data_plot" language="CPP" />
+				</resources>
+			</wxsmith>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general use_at_in_tags="1" />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

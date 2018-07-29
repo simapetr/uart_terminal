@@ -1,0 +1,17 @@
+EXPORTS
+    _ZN9uart_port10write_dataEPhj @1
+    _ZN9uart_port10write_dataEh @2
+    _ZN9uart_port13get_bus_arrayEv @3
+    _ZN9uart_port13wait_rx_eventEv @4
+    _ZN9uart_port14get_last_errorEv @5
+    _ZN9uart_port4openEP10uart_cfg_t @6
+    _ZN9uart_port5closeEv @7
+    _ZN9uart_port5flushEv @8
+    _ZN9uart_port8get_portEv @9
+    _ZN9uart_port9get_stateEv @10
+    _ZN9uart_port9read_dataEPSs @11
+    _ZN9uart_port9read_dataEPh @12
+    _ZN9uart_portC1Ev @13
+    _ZN9uart_portC2Ev @14
+    _ZN9uart_portD1Ev @15
+    _ZN9uart_portD2Ev @16

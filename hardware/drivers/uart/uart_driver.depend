@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1523806629 source:d:\project\uart\hardware\drivers\uart\hw_dr_uart_driver_cpp.cpp
+	"hw_dr_uart_driver_h.h"
+	<stdio.h>
+	<commdlg.h>
+	<windef.h>
+
+1523803628 d:\project\uart\hardware\drivers\uart\hw_dr_uart_driver_h.h
+	<stdint.h>
+	<windows.h>
+	<string>
+
