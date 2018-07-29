@@ -20,21 +20,11 @@
    * Basic communication for windows serial port
    *
    * Supported function:
-   * - USART transmitting data in ASCI and HEX
-   * - USART reading data in ASCI and HEX
+   * - UART transmitting data in ASCI and HEX
+   * - UART reading data in ASCI and HEX
+   * - UART control line read and write
+   * - Load JavaScript
    *
-   * Change description:
-   * - V1.1 Correct basic data send preprocessing.
-   * - V1.2 Correct Baudrate setting for seal com port or USB->serial converter.
-   * - V1.3 Correct port setting in CDB struct and update com timeout for correct port close.
-   * - V1.4 Update project struct implement new objective driver, add block component logic and 9bit character length.
-   * - V1.5 Update UART driver, read event bugfix, add check available port from windows registry and update for read packet.
-   * - V1.6 Add CR & LF for text mode
-   * - V1.7 Fix Create text string.
-   *
-   * <b>Copyright Notice</b>
-   *
-   * Copyright (C) 2015 PORTTRONIC All rights reserved.
    */
 
 /**
