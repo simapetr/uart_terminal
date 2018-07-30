@@ -28,9 +28,13 @@ Building
 --------
 
 Builded in Code::Blocks by MinGW 4.6.2.
-For compilation is necesery wxWidget 3.0.4
-Build commands
-SET PATH=C:\MinGW\bin;C:\MinGW\mingw32\bin
-mingw32-make -f makefile.gcc SHARED=0 MONOLITHIC=1 UNICODE=1 BUILD=release
-mingw32-make -f makefile.gcc SHARED=0 MONOLITHIC=1 UNICODE=1 BUILD=debug
 
+For compilation is necesery wxWidget 3.0.4
+
+Build commands
+
+SET PATH=C:\MinGW\bin;C:\MinGW\mingw32\bin
+
+mingw32-make -f makefile.gcc SHARED=0 MONOLITHIC=1 UNICODE=1 BUILD=release
+
+mingw32-make -f makefile.gcc SHARED=0 MONOLITHIC=1 UNICODE=1 BUILD=debug
