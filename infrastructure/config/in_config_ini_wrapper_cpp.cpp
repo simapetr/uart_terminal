@@ -40,7 +40,7 @@
 
 /** @brief Constructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -59,7 +59,7 @@ wxFile config_wxfile;
 
 /** @brief Destructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -71,8 +71,8 @@ config_ini::~config_ini( void )
 
 /** @brief Read value from INI
  *
- * @param  path_str : Path for read key
- * @param  default_value_str : Default value when key not found
+ * @param [IN] path_str : Path for read key
+ * @param [IN] default_value_str : Default value when key not found
  * @return int32_t : reader value
  *
  */
@@ -88,8 +88,8 @@ int32_t return_value_i32;
 
 /** @brief Read string value from INI
  *
- * @param  path_str : Path for read key
- * @param  default_value_str : Default value when key not found
+ * @param [IN] path_str : Path for read key
+ * @param [IN] default_value_str : Default value when key not found
  * @return wxString : reader string value
  *
  */
@@ -103,8 +103,8 @@ wxString config_ini::get_string( wxString path_str, wxString default_value_str )
 
 /** @brief Set value in to INI
  *
- * @param  path_str : Path for read key
- * @param  value_i32 : Setting value
+ * @param [IN] path_str : Path for read key
+ * @param [IN] value_i32 : Setting value
  * @return void
  *
  */
@@ -119,8 +119,8 @@ void config_ini::set_value( wxString path_str, int32_t value_i32 )
 
 /** @brief Set string value in to INI
  *
- * @param  path_str : Path for read key
- * @param  value_str : Setting string value
+ * @param [IN] path_str : Path for read key
+ * @param [IN] value_str : Setting string value
  * @return void
  *
  */

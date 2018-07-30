@@ -64,10 +64,10 @@ END_EVENT_TABLE()
 
 /** @brief Constructor
  *
- * @param  p_parent_wxwindow : Pointer on Windows window
- * @param  draph_range_d : Graph range
- * @param  buffer_length_d : buffer length in (s)
- * @param  time_step_d : Time stamp in (s)
+ * @param [IN] p_parent_wxwindow : Pointer on Windows window
+ * @param [IN] draph_range_d : Graph range
+ * @param [IN] buffer_length_d : buffer length in (s)
+ * @param [IN] time_step_d : Time stamp in (s)
  * @return void
  *
  */
@@ -124,7 +124,7 @@ double data_buffer_cnt_d;
 
 /** @brief Destructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -137,6 +137,14 @@ data_plot::~data_plot()
     this->lv_graph_data_plot_buffer.clear();
     return;
 }
+
+/** @brief Insert signal in to graph
+ *
+ * @param [IN] signal_label_str : Signal name
+ * @param [IN] signal_style_pen : Signal style
+ * @return void
+ *
+ */
 
 void data_plot::insert_signal (wxString signal_label_str, wxPen signal_style_pen)
 {
@@ -160,10 +168,25 @@ uint32_t end_index_ui32 = 0;
     return;
 }
 
+/** @brief Get number of signal in graph
+ *
+ * @param void
+ * @return uint32_t : Number of signal in graph
+ *
+ */
+
 uint32_t data_plot::get_signal (void)
 {
     return this->lv_graph_data_plot_buffer.size();
 }
+
+/** @brief Insert data in to specific signal buffer
+ *
+ * @param [IN] index_ui32 : Signal data indec
+ * @param [IN] data_d : data
+ * @return uint8_t : status
+ *
+ */
 
 uint8_t data_plot::insert_data (uint32_t index_ui32, double data_d)
 {
@@ -179,6 +202,13 @@ uint32_t buffer_size_ui32 = this->lv_graph_data_plot_buffer.size();
     return status_value_ui8;
 }
 
+/** @brief Increment time X scale (call after insert all single data)
+ *
+ * @param void
+ * @return void
+ *
+ */
+
 void data_plot::time_increment(void)
 {
     this->l_time_base_cnt_d += this->l_time_step_d;
@@ -187,6 +217,13 @@ void data_plot::time_increment(void)
     this->l_redraw_b = true;
     return;
 }
+
+/** @brief Add new signal and redraw graph
+ *
+ * @param [IN] event : standard event input data
+ * @return void
+ *
+ */
 
 void data_plot::on_redraw_wxtimer_trigger(wxTimerEvent& event)
 {

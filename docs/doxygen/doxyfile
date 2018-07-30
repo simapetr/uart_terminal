@@ -91,39 +91,39 @@ WARN_IF_UNDOCUMENTED   = NO
 WARN_IF_DOC_ERROR      = YES
 WARN_NO_PARAMDOC       = YES
 WARN_FORMAT            = "$file:$line: $text"
-WARN_LOGFILE            = "D:\temp\uart\uart_terminal\make\doxygen\doxygen.log"
+WARN_LOGFILE            = "D:\project\uart_terminal\make\doxygen\doxygen.log"
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 INPUT                  = \
+	"..\..\infrastructure\jerryscript\in_jerryscript_date_c.c" \
+	"..\..\infrastructure\jerryscript\in_jerryscript_fatal_c.c" \
+	"..\..\infrastructure\jerryscript\in_jerryscript_io_c.c" \
+	"..\..\infrastructure\jerryscript\in_jerryscript_port_cpp.cpp" \
+	"..\..\infrastructure\jerryscript\in_jerryscript_port_h.h" \
+	"..\..\infrastructure\main\in_main_app_cpp.cpp" \
+	"..\..\application\uart_terminal\ap_uart_terminal_frame_cpp.cpp" \
+	"..\..\infrastructure\main\in_main_app_h.h" \
+	"..\..\application\uart_terminal\ap_uart_terminal_frame_h.h" \
+	"..\..\infrastructure\wx\led.cpp" \
+	"..\..\infrastructure\wx\mathplot.cpp" \
+	"..\..\hardware\drivers\uart\hw_dr_uart_driver_cpp.cpp" \
+	"..\..\hardware\drivers\uart\hw_dr_uart_driver_h.h" \
+	"..\..\infrastructure\config\in_config_ini_wrapper_cpp.cpp" \
+	"..\..\infrastructure\config\in_config_ini_wrapper_h.h" \
+	"..\..\application\graph\ap_graph_frame_cpp.cpp" \
+	"..\..\infrastructure\data_plot\in_data_plot_graph_cpp.cpp" \
+	"..\..\infrastructure\data_plot\in_data_plot_graph_h.h" \
+	"..\..\infrastructure\jerryscript\class\in_js_class_file_js_cpp.cpp" \
+	"..\..\application\graph\ap_graph_frame_h.h" \
+	"..\..\infrastructure\jerryscript\class\in_js_class_file_js_h.h" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_graph_js_cpp.cpp" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_graph_js_h.h" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_gui_js_cpp.cpp" \
-	"..\..\infrastructure\data_plot\in_data_plot_graph_cpp.cpp" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_gui_js_h.h" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_uart_js_cpp.cpp" \
-	"..\..\infrastructure\config\in_config_ini_wrapper_cpp.cpp" \
 	"..\..\infrastructure\jerryscript\class\in_js_class_uart_js_h.h" \
-	"..\..\infrastructure\jerryscript\class\in_js_class_file_js_h.h" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_core_h.h" \
-	"..\..\application\uart_terminal\ap_uart_terminal_frame_cpp.cpp" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_date_c.c" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_fatal_c.c" \
-	"..\..\hardware\drivers\uart\hw_dr_uart_driver_h.h" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_io_c.c" \
-	"..\..\infrastructure\config\in_config_ini_wrapper_h.h" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_port_cpp.cpp" \
-	"..\..\infrastructure\jerryscript\in_jerryscript_port_h.h" \
-	"..\..\application\uart_terminal\ap_uart_terminal_frame_h.h" \
-	"..\..\infrastructure\main\in_main_app_cpp.cpp" \
-	"..\..\infrastructure\main\in_main_app_h.h" \
-	"..\..\hardware\drivers\uart\hw_dr_uart_driver_cpp.cpp" \
-	"..\..\infrastructure\wx\led.cpp" \
-	"..\..\infrastructure\data_plot\in_data_plot_graph_h.h" \
-	"..\..\infrastructure\wx\mathplot.cpp" \
-	"..\..\application\graph\ap_graph_frame_cpp.cpp" \
-	"..\..\infrastructure\jerryscript\class\in_js_class_file_js_cpp.cpp" \
-	"..\..\application\graph\ap_graph_frame_h.h" 
+	"..\..\infrastructure\jerryscript\in_jerryscript_core_h.h" 
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          =
 RECURSIVE              = NO

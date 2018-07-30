@@ -101,22 +101,22 @@ $(document).ready(function(){initNavTree('group___u_a_r_t.html','');});
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">UART<div class="ingroups"><a class="el" href="group___infrastructure.html">Infrastructure</a> &raquo; <a class="el" href="group___jerry_script.html">JerryScript</a> &raquo; <a class="el" href="group___class.html">Class</a><a class="el" href="group___hardware.html">Hardware</a> &raquo;  &#124; <a class="el" href="group___driver.html">Driver</a></div></div>  </div>
+<div class="title">UART<div class="ingroups"><a class="el" href="group___hardware.html">Hardware</a> &raquo; <a class="el" href="group___driver.html">Driver</a><a class="el" href="group___infrastructure.html">Infrastructure</a> &raquo; <a class="el" href="group___jerry_script.html">JerryScript</a> &raquo;  &#124; <a class="el" href="group___class.html">Class</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>UART class definition.  
+<p>UART communication bus.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuart__js__c.html">uart_js_c</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuart__cfg__t.html">uart_cfg_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuart__event__buffer__t.html">uart_event_buffer_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuart__port.html">uart_port</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuart__js__c.html">uart_js_c</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -162,27 +162,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gabb9f3f59d21669facb9bee1ad21ed392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gabb9f3f59d21669facb9bee1ad21ed392">uart_js_c::reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port)</td></tr>
-<tr class="memdesc:gabb9f3f59d21669facb9bee1ad21ed392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#gabb9f3f59d21669facb9bee1ad21ed392">More...</a><br /></td></tr>
-<tr class="separator:gabb9f3f59d21669facb9bee1ad21ed392"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga338531eac56a2676eb69a07dadfa6142"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga338531eac56a2676eb69a07dadfa6142">uart_js_c::open</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga338531eac56a2676eb69a07dadfa6142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open UART port (JS method "open")  <a href="#ga338531eac56a2676eb69a07dadfa6142">More...</a><br /></td></tr>
-<tr class="separator:ga338531eac56a2676eb69a07dadfa6142"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga84cb45518b1ec0bf8560cc7d7486846c">uart_js_c::close</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close UART port (JS method "close")  <a href="#ga84cb45518b1ec0bf8560cc7d7486846c">More...</a><br /></td></tr>
-<tr class="separator:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14df4251d5e379171436b0ecaf55f106"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga14df4251d5e379171436b0ecaf55f106">uart_js_c::reg_event</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga14df4251d5e379171436b0ecaf55f106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "reg_event")  <a href="#ga14df4251d5e379171436b0ecaf55f106">More...</a><br /></td></tr>
-<tr class="separator:ga14df4251d5e379171436b0ecaf55f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2726117bb8af50deb7b932b68c07f1ea"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga2726117bb8af50deb7b932b68c07f1ea">uart_js_c::write</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga2726117bb8af50deb7b932b68c07f1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write UART string (JS method "write")  <a href="#ga2726117bb8af50deb7b932b68c07f1ea">More...</a><br /></td></tr>
-<tr class="separator:ga2726117bb8af50deb7b932b68c07f1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0074b9985040f4906c912cef12d16538"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga0074b9985040f4906c912cef12d16538">uart_js_c::get_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga0074b9985040f4906c912cef12d16538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UART control line status (JS method "get_ctrl")  <a href="#ga0074b9985040f4906c912cef12d16538">More...</a><br /></td></tr>
-<tr class="separator:ga0074b9985040f4906c912cef12d16538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf782349500b77ad99de17c0013a0a965"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaf782349500b77ad99de17c0013a0a965">uart_js_c::set_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:gaf782349500b77ad99de17c0013a0a965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "set_ctrl")  <a href="#gaf782349500b77ad99de17c0013a0a965">More...</a><br /></td></tr>
-<tr class="separator:gaf782349500b77ad99de17c0013a0a965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf889424015e87dc73f0a460ec8c1ef33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaf889424015e87dc73f0a460ec8c1ef33">uart_port::uart_port</a> (void)</td></tr>
 <tr class="memdesc:gaf889424015e87dc73f0a460ec8c1ef33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#gaf889424015e87dc73f0a460ec8c1ef33">More...</a><br /></td></tr>
 <tr class="separator:gaf889424015e87dc73f0a460ec8c1ef33"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,10 +219,31 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa71949e90a185cad0572ab24167fdbe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaa71949e90a185cad0572ab24167fdbe6">uart_port::set_com_ctrl</a> (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)</td></tr>
 <tr class="memdesc:gaa71949e90a185cad0572ab24167fdbe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set com state.  <a href="#gaa71949e90a185cad0572ab24167fdbe6">More...</a><br /></td></tr>
 <tr class="separator:gaa71949e90a185cad0572ab24167fdbe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb9f3f59d21669facb9bee1ad21ed392"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gabb9f3f59d21669facb9bee1ad21ed392">uart_js_c::reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port)</td></tr>
+<tr class="memdesc:gabb9f3f59d21669facb9bee1ad21ed392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#gabb9f3f59d21669facb9bee1ad21ed392">More...</a><br /></td></tr>
+<tr class="separator:gabb9f3f59d21669facb9bee1ad21ed392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga338531eac56a2676eb69a07dadfa6142"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga338531eac56a2676eb69a07dadfa6142">uart_js_c::open</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga338531eac56a2676eb69a07dadfa6142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open UART port (JS method "open")  <a href="#ga338531eac56a2676eb69a07dadfa6142">More...</a><br /></td></tr>
+<tr class="separator:ga338531eac56a2676eb69a07dadfa6142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga84cb45518b1ec0bf8560cc7d7486846c">uart_js_c::close</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close UART port (JS method "close")  <a href="#ga84cb45518b1ec0bf8560cc7d7486846c">More...</a><br /></td></tr>
+<tr class="separator:ga84cb45518b1ec0bf8560cc7d7486846c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14df4251d5e379171436b0ecaf55f106"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga14df4251d5e379171436b0ecaf55f106">uart_js_c::reg_event</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga14df4251d5e379171436b0ecaf55f106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "reg_event")  <a href="#ga14df4251d5e379171436b0ecaf55f106">More...</a><br /></td></tr>
+<tr class="separator:ga14df4251d5e379171436b0ecaf55f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2726117bb8af50deb7b932b68c07f1ea"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga2726117bb8af50deb7b932b68c07f1ea">uart_js_c::write</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga2726117bb8af50deb7b932b68c07f1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write UART string (JS method "write")  <a href="#ga2726117bb8af50deb7b932b68c07f1ea">More...</a><br /></td></tr>
+<tr class="separator:ga2726117bb8af50deb7b932b68c07f1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0074b9985040f4906c912cef12d16538"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga0074b9985040f4906c912cef12d16538">uart_js_c::get_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga0074b9985040f4906c912cef12d16538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UART control line status (JS method "get_ctrl")  <a href="#ga0074b9985040f4906c912cef12d16538">More...</a><br /></td></tr>
+<tr class="separator:ga0074b9985040f4906c912cef12d16538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf782349500b77ad99de17c0013a0a965"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaf782349500b77ad99de17c0013a0a965">uart_js_c::set_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:gaf782349500b77ad99de17c0013a0a965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "set_ctrl")  <a href="#gaf782349500b77ad99de17c0013a0a965">More...</a><br /></td></tr>
+<tr class="separator:gaf782349500b77ad99de17c0013a0a965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>UART class definition. </p>
-<p>UART communication bus.</p>
+<p>UART communication bus. </p>
+<p>UART class definition.</p>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="ga774c05acf2ff61d45be790d3563cc54d"></a>
 <div class="memitem">
@@ -383,7 +383,8 @@ Functions</h2></td></tr>
 <p>Associate driver event function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">function_uart_event_fct</td><td>: Pointer on event function </td></tr>
+    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_parameter_void : Input thread parameter </td></tr>
     <tr><td class="paramname">p_parametr_void</td><td>: parameter for event function <ul>
 <li>0 : Event is registered </li>
 <li>1 : Event stored </li>
@@ -412,7 +413,7 @@ Functions</h2></td></tr>
 <p>Delete associated event function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">function_uart_event_fct</td><td>: Pointer on event function </td></tr>
+    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
   </table>
   </dd>
 </dl>
@@ -520,7 +521,7 @@ Functions</h2></td></tr>
 <p>Get com state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin_uart_com_ctrl_in</td><td>: Pin ID </td></tr>
+    <tr><td class="paramname">[IN]</td><td>pin_uart_com_ctrl_in : Pin ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -736,7 +737,7 @@ Functions</h2></td></tr>
 <p>Open and set UART port communication. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">port_ui8</td><td>: UART pot number (0 - 255) </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_data_uart_cfg : UART port configuration struct </td></tr>
   </table>
   </dd>
 </dl>
@@ -761,7 +762,7 @@ Functions</h2></td></tr>
 <p>Read character. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_data_ui8</td><td>: Pointer on character buffer </td></tr>
+    <tr><td class="paramname">[OUT]</td><td>p_data_ui8 : Pointer on character buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -790,7 +791,7 @@ Functions</h2></td></tr>
 <p>Read data from character buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_data_str</td><td>: Pointer on character string buffer </td></tr>
+    <tr><td class="paramname">[OUT]</td><td>p_data_str : Pointer on character string buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -912,7 +913,8 @@ Functions</h2></td></tr>
 <p>Set com state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin_uart_com_ctrl_out</td><td>: Pin ID </td></tr>
+    <tr><td class="paramname">[IN]</td><td>pin_uart_com_ctrl_out : Pin ID </td></tr>
+    <tr><td class="paramname">[IN]</td><td>state_ui8 : UART control pin state </td></tr>
   </table>
   </dd>
 </dl>
@@ -1103,7 +1105,7 @@ Functions</h2></td></tr>
 <p>Write character. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data_ui8</td><td>: Data character </td></tr>
+    <tr><td class="paramname">[IN]</td><td>data_ui8 : Data character </td></tr>
   </table>
   </dd>
 </dl>
@@ -1142,8 +1144,8 @@ Functions</h2></td></tr>
 <p>Write data string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_data_sui8</td><td>: Pointer on data buffer </td></tr>
-    <tr><td class="paramname">len_ui32</td><td>: Buffer length </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_data_sui8 : Pointer on data buffer </td></tr>
+    <tr><td class="paramname">[IN]</td><td>len_ui32 : Buffer length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1185,7 +1187,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jul 29 2018 23:17:20 for usart_terminal by
+    <li class="footer">Generated on Mon Jul 30 2018 20:42:38 for usart_terminal by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

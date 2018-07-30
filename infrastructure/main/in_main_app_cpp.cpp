@@ -5,7 +5,6 @@
   * @version V1.1
   * @date    04.03.2014
   * @brief   Application window creator
-  *            - OnInit
   ****************************************************************************
   * @attention
   * <h2><center>&copy; COPYRIGHT PORTTRONIC</center></h2>
@@ -17,13 +16,19 @@
    *
    * <b>Introduction</b>
    *
-   * Basic communication for windows serial port
+   * This is windows terminl for UART communication with JavaScript support.
    *
    * Supported function:
-   * - UART transmitting data in ASCI and HEX
-   * - UART reading data in ASCI and HEX
-   * - UART control line read and write
+   * - Set UART communication parameter
+   * - Direct read and write data in text and HEX format
+   * - Control DTR, RTS and Tx(break) line
+   * - Read CTS, DSR, RING and RLSD
    * - Load JavaScript
+   *
+   * Used technology:
+   * - wxWidget 3.0 GUI (https://github.com/wxWidgets/wxWidgets)
+   * - Jerry script ECMAScript 5.1 (https://github.com/jerryscript-project/jerryscript)
+   * - Windows file access
    *
    */
 
@@ -62,7 +67,7 @@ IMPLEMENT_APP(main_app);
 
 /** @brief Windows window constructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */

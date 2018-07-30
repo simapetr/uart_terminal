@@ -49,7 +49,7 @@
 
 /** @brief Constructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -68,7 +68,7 @@ uart_port::uart_port(void)
 
 /** @brief Destructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -80,7 +80,7 @@ uart_port::~uart_port(void)
 
 /** @brief Get UART port list
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -128,7 +128,7 @@ LONG registry_read_res_long = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"HARDWARE\\DEVI
 
 /** @brief Get pointer on port array
  *
- * @param  void
+ * @param void
  * @return string : Pointer on available port array
  *
  */
@@ -140,7 +140,7 @@ string* uart_port::get_bus_array(void)
 
 /** @brief Open and set UART port communication
  *
- * @param  port_ui8 : UART pot number (0 - 255)
+ * @param [IN] p_data_uart_cfg : UART port configuration struct
  * @return Status
  *
  */
@@ -253,7 +253,7 @@ size_t port_position_size = string::npos;
 
 /** @brief Close UART port communication
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -283,7 +283,8 @@ void uart_port::close ( void )
 
 /** @brief Associate driver event function
  *
- * @param  function_uart_event_fct : Pointer on event function
+ * @param [IN] function_uart_event_fct : Pointer on event function
+ * @param [IN] p_parameter_void : Input thread parameter
  * @param  p_parametr_void : parameter for event function
  *    @arg 0 : Event is registered
  *    @arg 1 : Event stored
@@ -317,7 +318,7 @@ uart_event_buffer_t data_bkp_uart_event_buffer;
 
 /** @brief Delete associated event function
  *
- * @param  function_uart_event_fct : Pointer on event function
+ * @param [IN] function_uart_event_fct : Pointer on event function
  * @return uint8_t : Status event registration
  *    @arg 0 : Event was not associated
  *    @arg 1 : Event deleted
@@ -342,7 +343,7 @@ uint8_t event_counter_ui8 = 0;
 
 /** @brief Delete all associated event
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -355,7 +356,7 @@ void uart_port::delete_event_all (void)
 
 /** @brief Get port status (call after construction object for test correct open)
  *
- * @param  void
+ * @param void
  * @return uint8_t : uart_status_t
  *
  */
@@ -367,7 +368,7 @@ uart_status_t uart_port::get_state(void)
 
 /** @brief Get port last error
  *
- * @param  void
+ * @param void
  * @return uint32_t : Port last error
  *
  */
@@ -379,7 +380,7 @@ uint32_t uart_port::get_last_error(void)
 
 /** @brief Wait for receive data
  *
- * @param  void
+ * @param void
  * @return uint32_t : Com status mask
  *
  */
@@ -498,7 +499,7 @@ DWORD read_bites_dword = 0;
 
 /** @brief Erase communication buffer
  *
- * @param  void
+ * @param void
  * @return uint8_t : status
  *    @arg 0 : Clear procedure fail
  *    @arg 1 : Buffer is empty
@@ -513,7 +514,7 @@ uint8_t uart_port::flush (void)
 
 /** @brief Write character
  *
- * @param  data_ui8 : Data character
+ * @param [IN] data_ui8 : Data character
  * @return uint8_t : status
  *    @arg 0 : Data not send
  *    @arg 1 : Data send correctly
@@ -543,8 +544,8 @@ DWORD write_bite_dword = 0;
 
 /** @brief Write data string
  *
- * @param  p_data_sui8 : Pointer on data buffer
- * @param  len_ui32 : Buffer length
+ * @param [IN] p_data_sui8 : Pointer on data buffer
+ * @param [IN] len_ui32 : Buffer length
  * @return uint8_t : status
  *    @arg 0 : Data not send
  *    @arg 1 : Data send correctly
@@ -574,7 +575,7 @@ DWORD write_bite_dword = 0;
 
 /** @brief Read character
  *
- * @param  p_data_ui8 : Pointer on character buffer
+ * @param [OUT] p_data_ui8 : Pointer on character buffer
  * @return uint8_t : status
  *    @arg 0 : Data buffer is empty
  *    @arg 1 : Data buffer not empty
@@ -596,7 +597,7 @@ uint8_t status_value_ui8 = 0;
 
 /** @brief Read data from character buffer
  *
- * @param  p_data_str : Pointer on character string buffer
+ * @param [OUT] p_data_str : Pointer on character string buffer
  * @return uint8_t : status
  *    @arg 0 : Data buffer is empty
  *    @arg 1 : Data buffer not empty
@@ -619,7 +620,7 @@ uint8_t status_value_ui8 = 0;
 
 /** @brief Get com state
  *
- * @param  pin_uart_com_ctrl_in : Pin ID
+ * @param [IN] pin_uart_com_ctrl_in : Pin ID
  * @return uint8_t : Pin state
  *
  */
@@ -666,7 +667,8 @@ DWORD status_dword;
 
 /** @brief Set com state
  *
- * @param  pin_uart_com_ctrl_out : Pin ID
+ * @param [IN] pin_uart_com_ctrl_out : Pin ID
+ * @param [IN] state_ui8 : UART control pin state
  * @return uint8_t : Pin state
  *
  */
@@ -729,6 +731,13 @@ void uart_port::set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t 
     }
     return;
 }
+
+/** @brief UART read thread
+ *
+ * @param [IN] parametr_pvoid : Create parameter
+ * @return DWORD : Thread terminate status
+ *
+ */
 
 DWORD WINAPI uart_port::uart_thread(PVOID parametr_pvoid)
 {

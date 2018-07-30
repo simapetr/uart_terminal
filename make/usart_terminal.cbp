@@ -105,6 +105,7 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="../application/graph/ap_graph_frame_wxs.wxs" />
+		<Unit filename="../application/graph/icon/lp_signal_value_xpm.xpm" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_h.h" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_rc.rc">

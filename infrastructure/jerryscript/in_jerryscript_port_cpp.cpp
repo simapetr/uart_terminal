@@ -22,8 +22,6 @@
 #include "in_jerryscript_port_h.h"
 #include "in_jerryscript_core_h.h"
 
-
-
 /**
   * @addtogroup Infrastructure
   * @{
@@ -49,7 +47,7 @@
 
 /** @brief Constructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */
@@ -91,7 +89,7 @@ jerry_value_t name_jerry_value;
 
 /** @brief Destructor
  *
- * @param  void
+ * @param void
  * @return void
  *
  */

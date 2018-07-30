@@ -1,8 +1,5 @@
 var group___u_a_r_t =
 [
-    [ "uart_js_c", "classuart__js__c.html", [
-      [ "reg_host_class", "group___u_a_r_t.html#gabb9f3f59d21669facb9bee1ad21ed392", null ]
-    ] ],
     [ "uart_cfg_t", "structuart__cfg__t.html", [
       [ "baudrate_ui32", "structuart__cfg__t.html#aad4209ebb7eb6cd75275b1388e59db8f", null ],
       [ "bit_length_ui8", "structuart__cfg__t.html#a535acebd40a3e2a1bc97d6500c54ea70", null ],
@@ -35,6 +32,9 @@ var group___u_a_r_t =
       [ "wait_rx_event", "group___u_a_r_t.html#ga0edf631c0d9ad02b81de0cee0a0ddb93", null ],
       [ "write_data", "group___u_a_r_t.html#ga72cb7ce349132f57cfda6cb929f72bc5", null ],
       [ "write_data", "group___u_a_r_t.html#gabf69d3ab755d9fb473ece854ad748843", null ]
+    ] ],
+    [ "uart_js_c", "classuart__js__c.html", [
+      [ "reg_host_class", "group___u_a_r_t.html#gabb9f3f59d21669facb9bee1ad21ed392", null ]
     ] ],
     [ "uart_event_fct", "group___u_a_r_t.html#ga774c05acf2ff61d45be790d3563cc54d", null ],
     [ "uart_com_ctrl_in_t", "group___u_a_r_t.html#gab7285632f807ad04f00f44a206440a18", null ],

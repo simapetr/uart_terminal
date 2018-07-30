@@ -1,454 +1,564 @@
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:37: warning: missing title after \defgroup Class
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:43: warning: missing title after \defgroup Graph
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:37: warning: missing title after \defgroup Class
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:43: warning: missing title after \defgroup GUI
-D:/temp/uart/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:28: warning: missing title after \defgroup Transmitter_box
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:30: warning: missing title after \defgroup JerryScript
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:36: warning: missing title after \defgroup Class
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:42: warning: missing title after \defgroup UART
-D:/temp/uart/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:30: warning: missing title after \defgroup configuration
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_core_h.h:51: warning: missing title after \defgroup Core
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:32: warning: missing title after \defgroup Application
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:38: warning: missing title after \defgroup UART_terminal
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:51: warning: missing title after \defgroup Date
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:48: warning: missing title after \defgroup Fatal
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:50: warning: missing title after \defgroup IO
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:33: warning: missing title after \defgroup JavaScript
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:39: warning: missing title after \defgroup Port
-D:/temp/uart/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:44: warning: missing title after \defgroup Infrastructure
-D:/temp/uart/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:50: warning: missing title after \defgroup Main
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:27: warning: missing title after \defgroup Hardware
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:33: warning: missing title after \defgroup Driver
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:39: warning: missing title after \defgroup UART
-D:/temp/uart/uart_terminal/infrastructure/data_plot/in_data_plot_graph_h.h:121: warning: end of file while inside a group
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:51: warning: missing title after \defgroup Date
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:48: warning: missing title after \defgroup Fatal
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:50: warning: missing title after \defgroup IO
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:31: warning: missing title after \defgroup JavaScript
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:37: warning: missing title after \defgroup Port
+D:/project/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:49: warning: missing title after \defgroup Infrastructure
+D:/project/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:55: warning: missing title after \defgroup Main
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:32: warning: missing title after \defgroup Application
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:38: warning: missing title after \defgroup UART_terminal
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:27: warning: missing title after \defgroup Hardware
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:33: warning: missing title after \defgroup Driver
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:39: warning: missing title after \defgroup UART
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:30: warning: missing title after \defgroup configuration
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:28: warning: missing title after \defgroup Application
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:34: warning: missing title after \defgroup Graph
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:28: warning: missing title after \defgroup Transmitter_box
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_h.h:121: warning: end of file while inside a group
 
-D:/temp/uart/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:28: warning: missing title after \defgroup Application
-D:/temp/uart/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:34: warning: missing title after \defgroup Graph
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:37: warning: missing title after \defgroup Class
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:43: warning: missing title after \defgroup File
-D:/temp/uart/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:3: warning: the name `in_config_ini_wrapper__cpp.cpp' supplied as the second argument in the \file statement is not an input file
-D:/temp/uart/uart_terminal/infrastructure/config/in_config_ini_wrapper_h.h:6: warning: the name `in_config_ini_wrapper__cpp.cpp' supplied as the second argument in the \file statement is not an input file
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:20: warning: documented symbol `wxLed::wxLed' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:25: warning: documented symbol `wxLed::wxLed' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:30: warning: documented symbol `wxLed::~wxLed' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:35: warning: documented symbol `bool wxLed::Create' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:51: warning: documented symbol `void wxLed::Enable' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:60: warning: documented symbol `void wxLed::Disable' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:66: warning: documented symbol `void wxLed::Switch' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:78: warning: documented symbol `void wxLed::SwitchOn' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:87: warning: documented symbol `void wxLed::SwitchOff' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:96: warning: documented symbol `void wxLed::SetOnColour' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:104: warning: documented symbol `void wxLed::SetOffColour' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:111: warning: documented symbol `void wxLed::SetDisableColour' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:118: warning: documented symbol `void wxLed::SetOnOrOff' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:131: warning: documented symbol `bool wxLed::IsEnabled' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:136: warning: documented symbol `bool wxLed::IsOn' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:141: warning: documented symbol `void wxLed::OnPaint' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/led.cpp:155: warning: documented symbol `void wxLed::SetBitmap' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:72: warning: documented symbol `double mpWindow::zoomIncrementalFactor' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:80: warning: documented symbol `mpLayer::mpLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:90: warning: documented symbol `wxBitmap mpLayer::GetColourSquare' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:108: warning: documented symbol `mpInfoLayer::mpInfoLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:118: warning: documented symbol `mpInfoLayer::mpInfoLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:128: warning: documented symbol `mpInfoLayer::~mpInfoLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:133: warning: documented symbol `void mpInfoLayer::UpdateInfo' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:138: warning: documented symbol `bool mpInfoLayer::Inside' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:143: warning: documented symbol `void mpInfoLayer::Move' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:149: warning: documented symbol `void mpInfoLayer::UpdateReference' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:156: warning: documented symbol `void mpInfoLayer::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:188: warning: documented symbol `wxPoint mpInfoLayer::GetPosition' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:193: warning: documented symbol `wxSize mpInfoLayer::GetSize' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:198: warning: documented symbol `mpInfoCoords::mpInfoCoords' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:203: warning: documented symbol `mpInfoCoords::mpInfoCoords' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:208: warning: documented symbol `mpInfoCoords::~mpInfoCoords' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:213: warning: documented symbol `void mpInfoCoords::UpdateInfo' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:229: warning: documented symbol `void mpInfoCoords::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:263: warning: documented symbol `mpInfoLegend::mpInfoLegend' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:268: warning: documented symbol `mpInfoLegend::mpInfoLegend' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:273: warning: documented symbol `mpInfoLegend::~mpInfoLegend' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:278: warning: documented symbol `void mpInfoLegend::UpdateInfo' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:283: warning: documented symbol `void mpInfoLegend::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:365: warning: documented symbol `mpFX::mpFX' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:372: warning: documented symbol `void mpFX::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:433: warning: documented symbol `mpFY::mpFY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:440: warning: documented symbol `void mpFY::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:494: warning: documented symbol `mpFXY::mpFXY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:501: warning: documented symbol `void mpFXY::UpdateViewBoundary' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:511: warning: documented symbol `void mpFXY::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:664: warning: documented symbol `mpProfile::mpProfile' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:671: warning: documented symbol `void mpProfile::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:719: warning: documented symbol `mpScaleX::mpScaleX' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:731: warning: documented symbol `void mpScaleX::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:961: warning: documented symbol `mpScaleY::mpScaleY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:972: warning: documented symbol `void mpScaleY::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1212: warning: documented symbol `mpWindow::~mpWindow' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1226: warning: documented symbol `void mpWindow::OnMouseRightDown' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1239: warning: documented symbol `void mpWindow::OnMouseWheel' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1283: warning: documented symbol `void mpWindow::OnMouseMove' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1354: warning: documented symbol `void mpWindow::OnMouseLeftDown' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1371: warning: documented symbol `void mpWindow::OnMouseLeftRelease' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1392: warning: documented symbol `void mpWindow::Fit' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1400: warning: documented symbol `void mpWindow::Fit' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1457: warning: documented symbol `void mpWindow::DoZoomInXCalc' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1473: warning: documented symbol `void mpWindow::DoZoomInYCalc' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1489: warning: documented symbol `void mpWindow::DoZoomOutXCalc' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1505: warning: documented symbol `void mpWindow::DoZoomOutYCalc' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1522: warning: documented symbol `void mpWindow::ZoomIn' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1557: warning: documented symbol `void mpWindow::ZoomOut' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1590: warning: documented symbol `void mpWindow::ZoomInX' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1596: warning: documented symbol `void mpWindow::ZoomOutX' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1602: warning: documented symbol `void mpWindow::ZoomInY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1608: warning: documented symbol `void mpWindow::ZoomOutY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1614: warning: documented symbol `void mpWindow::ZoomRect' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1635: warning: documented symbol `void mpWindow::LockAspect' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1644: warning: documented symbol `void mpWindow::OnShowPopupMenu' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1660: warning: documented symbol `void mpWindow::OnLockAspect' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1665: warning: documented symbol `void mpWindow::OnMouseHelp' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1675: warning: documented symbol `void mpWindow::OnFit' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1680: warning: documented symbol `void mpWindow::OnCenter' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1689: warning: documented symbol `void mpWindow::OnZoomIn' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1694: warning: documented symbol `void mpWindow::OnZoomOut' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1699: warning: documented symbol `void mpWindow::OnSize' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1708: warning: documented symbol `bool mpWindow::AddLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1718: warning: documented symbol `bool mpWindow::DelLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1740: warning: documented symbol `void mpWindow::DelAllLayers' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1756: warning: documented symbol `void mpWindow::OnPaint' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1884: warning: documented symbol `void mpWindow::SetMPScrollbars' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:1923: warning: documented symbol `bool mpWindow::UpdateBBox' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2007: warning: documented symbol `void mpWindow::UpdateAll' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2049: warning: documented symbol `void mpWindow::DoScrollCalc' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2073: warning: documented symbol `void mpWindow::OnScrollThumbTrack' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2078: warning: documented symbol `void mpWindow::OnScrollPageUp' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2092: warning: documented symbol `void mpWindow::OnScrollPageDown' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2109: warning: documented symbol `void mpWindow::OnScrollLineUp' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2122: warning: documented symbol `void mpWindow::OnScrollLineDown' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2139: warning: documented symbol `void mpWindow::OnScrollTop' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2144: warning: documented symbol `void mpWindow::OnScrollBottom' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2156: warning: documented symbol `void mpWindow::SetScaleX' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2164: warning: documented symbol `unsigned int mpWindow::CountLayers' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2176: warning: documented symbol `mpLayer * mpWindow::GetLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2182: warning: documented symbol `mpLayer * mpWindow::GetLayerByName' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2190: warning: documented symbol `void mpWindow::GetBoundingBox' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2198: warning: documented symbol `bool mpWindow::SaveScreenshot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2242: warning: documented symbol `void mpWindow::SetMargins' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2250: warning: documented symbol `mpInfoLayer * mpWindow::IsInsideInfoLayer' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2270: warning: documented symbol `void mpWindow::SetLayerVisible' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2279: warning: documented symbol `bool mpWindow::IsLayerVisible' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2285: warning: documented symbol `void mpWindow::SetLayerVisible' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2294: warning: documented symbol `bool mpWindow::IsLayerVisible' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2300: warning: documented symbol `void mpWindow::SetColourTheme' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2385: warning: documented symbol `mpFXYVector::mpFXYVector' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2395: warning: documented symbol `void mpFXYVector::Rewind' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2400: warning: documented symbol `bool mpFXYVector::GetNextXY' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2412: warning: documented symbol `void mpFXYVector::Clear' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2418: warning: documented symbol `void mpFXYVector::SetData' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2475: warning: documented symbol `mpText::mpText' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2495: warning: documented symbol `void mpText::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2522: warning: documented symbol `mpPrintout::mpPrintout' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2528: warning: documented symbol `bool mpPrintout::OnPrintPage' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2586: warning: documented symbol `bool mpPrintout::HasPage' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2595: warning: documented symbol `void mpMovableObject::TranslatePoint' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2605: warning: documented symbol `void mpMovableObject::ShapeUpdated' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2643: warning: documented symbol `void mpMovableObject::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2743: warning: documented symbol `void mpCovarianceEllipse::RecalculateShape' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2840: warning: documented symbol `void mpPolygon::setPoints' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2867: warning: documented symbol `void mpBitmapLayer::GetBitmapCopy' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2873: warning: documented symbol `void mpBitmapLayer::SetBitmap' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/wx/mathplot.cpp:2890: warning: documented symbol `void mpBitmapLayer::Plot' was not declared or defined.
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: The following parameters of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: The following parameters of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:54: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::reg_host_class(void *p_gui_main_frame_void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:54: warning: The following parameters of graph_js_c::reg_host_class(void *p_gui_main_frame_void) are not documented:
-  parameter 'p_gui_main_frame_void'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: The following parameters of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: The following parameters of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:104: warning: argument 'void' of command @param is not found in the argument list of graph_frame::~graph_frame()
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: The following parameters of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: The following parameters of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: The following parameters of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: The following parameters of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: The following parameters of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: The following parameters of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: The following parameters of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: The following parameters of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:54: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::reg_host_class(void *p_gui_main_frame_void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:54: warning: The following parameters of main_frame_js_c::reg_host_class(void *p_gui_main_frame_void) are not documented:
-  parameter 'p_gui_main_frame_void'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: The following parameters of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: The following parameters of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:125: warning: argument 'void' of command @param is not found in the argument list of data_plot::~data_plot(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: The following parameters of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:254: warning: argument 'void' of command @param is not found in the argument list of uart_port::close(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:343: warning: argument 'void' of command @param is not found in the argument list of uart_port::delete_event_all(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:499: warning: argument 'void' of command @param is not found in the argument list of uart_port::flush(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:129: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_bus_array(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: The following parameters of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:368: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_last_error(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:81: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_port(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:356: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_state(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: The following parameters of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:141: warning: argument 'port_ui8' of command @param is not found in the argument list of uart_port::open(uart_cfg_t *p_data_uart_cfg)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:141: warning: The following parameters of uart_port::open(uart_cfg_t *p_data_uart_cfg) are not documented:
-  parameter 'p_data_uart_cfg'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: The following parameters of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:53: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_host_class(uart_port *p_com_uart_port)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:53: warning: The following parameters of uart_js_c::reg_host_class(uart_port *p_com_uart_port) are not documented:
-  parameter 'p_com_uart_port'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:667: warning: The following parameters of uart_port::set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8) are not documented:
-  parameter 'state_ui8'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: The following parameters of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:50: warning: argument 'void' of command @param is not found in the argument list of uart_port::uart_port(void)
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:380: warning: argument 'void' of command @param is not found in the argument list of uart_port::wait_rx_event(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: The following parameters of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
-  parameter 'funct_ui32'
-  parameter 'this_ui32'
-  parameter 'p_args_ui32'
-  parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:69: warning: argument 'void' of command @param is not found in the argument list of uart_port::~uart_port(void)
-D:/temp/uart/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:41: warning: argument 'void' of command @param is not found in the argument list of config_ini::config_ini(void)
-D:/temp/uart/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:60: warning: argument 'void' of command @param is not found in the argument list of config_ini::~config_ini(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:427: warning: argument 'void' of command @param is not found in the argument list of main_frame::clear(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:530: warning: argument 'void' of command @param is not found in the argument list of main_frame::close_port(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:375: warning: argument 'IN' of command @param is not found in the argument list of main_frame::console_rx_enable(bool status_b)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:375: warning: The following parameters of main_frame::console_rx_enable(bool status_b) are not documented:
-  parameter 'status_b'
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:614: warning: argument 'void' of command @param is not found in the argument list of main_frame::get_config(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:567: warning: argument 'void' of command @param is not found in the argument list of main_frame::get_open_status(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:388: warning: argument 'void' of command @param is not found in the argument list of main_frame::is_console_rx_enable(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:440: warning: argument 'void' of command @param is not found in the argument list of main_frame::open_port(void)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:400: warning: argument 'IN' of command @param is not found in the argument list of main_frame::printf(wxString console_text_str)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:400: warning: The following parameters of main_frame::printf(wxString console_text_str) are not documented:
-  parameter 'console_text_str'
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:579: warning: argument 'IN' of command @param is not found in the argument list of main_frame::set_config(uart_cfg_t data_uart_cfg)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:579: warning: The following parameters of main_frame::set_config(uart_cfg_t data_uart_cfg) are not documented:
-  parameter 'data_uart_cfg'
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:414: warning: argument 'IN' of command @param is not found in the argument list of main_frame::status(wxString status_text_str)
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:414: warning: The following parameters of main_frame::status(wxString status_text_str) are not documented:
-  parameter 'status_text_str'
-D:/temp/uart/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:340: warning: argument 'void' of command @param is not found in the argument list of main_frame::~main_frame()
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:104: warning: argument 'void' of command @param is not found in the argument list of jerry_port_get_current_time(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:62: warning: argument 'OUT' of command @param is not found in the argument list of jerry_port_get_time_zone(jerry_time_zone_t *p_data_jerry_time_zone)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:62: warning: The following parameters of jerry_port_get_time_zone(jerry_time_zone_t *p_data_jerry_time_zone) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:37: warning: missing title after \defgroup Class
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:43: warning: missing title after \defgroup File
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:37: warning: missing title after \defgroup Class
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:43: warning: missing title after \defgroup Graph
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:31: warning: missing title after \defgroup JerryScript
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:37: warning: missing title after \defgroup Class
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:43: warning: missing title after \defgroup GUI
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:30: warning: missing title after \defgroup JerryScript
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:36: warning: missing title after \defgroup Class
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:42: warning: missing title after \defgroup UART
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_core_h.h:51: warning: missing title after \defgroup Core
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:3: warning: the name `in_config_ini_wrapper__cpp.cpp' supplied as the second argument in the \file statement is not an input file
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_h.h:6: warning: the name `in_config_ini_wrapper__cpp.cpp' supplied as the second argument in the \file statement is not an input file
+D:/project/uart_terminal/infrastructure/wx/led.cpp:20: warning: documented symbol `wxLed::wxLed' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:25: warning: documented symbol `wxLed::wxLed' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:30: warning: documented symbol `wxLed::~wxLed' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:35: warning: documented symbol `bool wxLed::Create' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:51: warning: documented symbol `void wxLed::Enable' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:60: warning: documented symbol `void wxLed::Disable' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:66: warning: documented symbol `void wxLed::Switch' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:78: warning: documented symbol `void wxLed::SwitchOn' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:87: warning: documented symbol `void wxLed::SwitchOff' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:96: warning: documented symbol `void wxLed::SetOnColour' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:104: warning: documented symbol `void wxLed::SetOffColour' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:111: warning: documented symbol `void wxLed::SetDisableColour' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:118: warning: documented symbol `void wxLed::SetOnOrOff' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:131: warning: documented symbol `bool wxLed::IsEnabled' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:136: warning: documented symbol `bool wxLed::IsOn' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:141: warning: documented symbol `void wxLed::OnPaint' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/led.cpp:155: warning: documented symbol `void wxLed::SetBitmap' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:72: warning: documented symbol `double mpWindow::zoomIncrementalFactor' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:80: warning: documented symbol `mpLayer::mpLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:90: warning: documented symbol `wxBitmap mpLayer::GetColourSquare' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:108: warning: documented symbol `mpInfoLayer::mpInfoLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:118: warning: documented symbol `mpInfoLayer::mpInfoLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:128: warning: documented symbol `mpInfoLayer::~mpInfoLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:133: warning: documented symbol `void mpInfoLayer::UpdateInfo' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:138: warning: documented symbol `bool mpInfoLayer::Inside' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:143: warning: documented symbol `void mpInfoLayer::Move' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:149: warning: documented symbol `void mpInfoLayer::UpdateReference' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:156: warning: documented symbol `void mpInfoLayer::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:188: warning: documented symbol `wxPoint mpInfoLayer::GetPosition' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:193: warning: documented symbol `wxSize mpInfoLayer::GetSize' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:198: warning: documented symbol `mpInfoCoords::mpInfoCoords' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:203: warning: documented symbol `mpInfoCoords::mpInfoCoords' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:208: warning: documented symbol `mpInfoCoords::~mpInfoCoords' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:213: warning: documented symbol `void mpInfoCoords::UpdateInfo' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:229: warning: documented symbol `void mpInfoCoords::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:263: warning: documented symbol `mpInfoLegend::mpInfoLegend' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:268: warning: documented symbol `mpInfoLegend::mpInfoLegend' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:273: warning: documented symbol `mpInfoLegend::~mpInfoLegend' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:278: warning: documented symbol `void mpInfoLegend::UpdateInfo' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:283: warning: documented symbol `void mpInfoLegend::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:365: warning: documented symbol `mpFX::mpFX' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:372: warning: documented symbol `void mpFX::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:433: warning: documented symbol `mpFY::mpFY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:440: warning: documented symbol `void mpFY::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:494: warning: documented symbol `mpFXY::mpFXY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:501: warning: documented symbol `void mpFXY::UpdateViewBoundary' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:511: warning: documented symbol `void mpFXY::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:664: warning: documented symbol `mpProfile::mpProfile' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:671: warning: documented symbol `void mpProfile::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:719: warning: documented symbol `mpScaleX::mpScaleX' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:731: warning: documented symbol `void mpScaleX::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:961: warning: documented symbol `mpScaleY::mpScaleY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:972: warning: documented symbol `void mpScaleY::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1212: warning: documented symbol `mpWindow::~mpWindow' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1226: warning: documented symbol `void mpWindow::OnMouseRightDown' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1239: warning: documented symbol `void mpWindow::OnMouseWheel' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1283: warning: documented symbol `void mpWindow::OnMouseMove' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1354: warning: documented symbol `void mpWindow::OnMouseLeftDown' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1371: warning: documented symbol `void mpWindow::OnMouseLeftRelease' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1392: warning: documented symbol `void mpWindow::Fit' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1400: warning: documented symbol `void mpWindow::Fit' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1457: warning: documented symbol `void mpWindow::DoZoomInXCalc' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1473: warning: documented symbol `void mpWindow::DoZoomInYCalc' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1489: warning: documented symbol `void mpWindow::DoZoomOutXCalc' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1505: warning: documented symbol `void mpWindow::DoZoomOutYCalc' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1522: warning: documented symbol `void mpWindow::ZoomIn' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1557: warning: documented symbol `void mpWindow::ZoomOut' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1590: warning: documented symbol `void mpWindow::ZoomInX' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1596: warning: documented symbol `void mpWindow::ZoomOutX' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1602: warning: documented symbol `void mpWindow::ZoomInY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1608: warning: documented symbol `void mpWindow::ZoomOutY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1614: warning: documented symbol `void mpWindow::ZoomRect' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1635: warning: documented symbol `void mpWindow::LockAspect' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1644: warning: documented symbol `void mpWindow::OnShowPopupMenu' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1660: warning: documented symbol `void mpWindow::OnLockAspect' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1665: warning: documented symbol `void mpWindow::OnMouseHelp' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1675: warning: documented symbol `void mpWindow::OnFit' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1680: warning: documented symbol `void mpWindow::OnCenter' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1689: warning: documented symbol `void mpWindow::OnZoomIn' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1694: warning: documented symbol `void mpWindow::OnZoomOut' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1699: warning: documented symbol `void mpWindow::OnSize' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1708: warning: documented symbol `bool mpWindow::AddLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1718: warning: documented symbol `bool mpWindow::DelLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1740: warning: documented symbol `void mpWindow::DelAllLayers' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1756: warning: documented symbol `void mpWindow::OnPaint' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1884: warning: documented symbol `void mpWindow::SetMPScrollbars' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:1923: warning: documented symbol `bool mpWindow::UpdateBBox' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2007: warning: documented symbol `void mpWindow::UpdateAll' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2049: warning: documented symbol `void mpWindow::DoScrollCalc' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2073: warning: documented symbol `void mpWindow::OnScrollThumbTrack' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2078: warning: documented symbol `void mpWindow::OnScrollPageUp' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2092: warning: documented symbol `void mpWindow::OnScrollPageDown' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2109: warning: documented symbol `void mpWindow::OnScrollLineUp' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2122: warning: documented symbol `void mpWindow::OnScrollLineDown' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2139: warning: documented symbol `void mpWindow::OnScrollTop' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2144: warning: documented symbol `void mpWindow::OnScrollBottom' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2156: warning: documented symbol `void mpWindow::SetScaleX' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2164: warning: documented symbol `unsigned int mpWindow::CountLayers' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2176: warning: documented symbol `mpLayer * mpWindow::GetLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2182: warning: documented symbol `mpLayer * mpWindow::GetLayerByName' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2190: warning: documented symbol `void mpWindow::GetBoundingBox' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2198: warning: documented symbol `bool mpWindow::SaveScreenshot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2242: warning: documented symbol `void mpWindow::SetMargins' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2250: warning: documented symbol `mpInfoLayer * mpWindow::IsInsideInfoLayer' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2270: warning: documented symbol `void mpWindow::SetLayerVisible' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2279: warning: documented symbol `bool mpWindow::IsLayerVisible' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2285: warning: documented symbol `void mpWindow::SetLayerVisible' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2294: warning: documented symbol `bool mpWindow::IsLayerVisible' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2300: warning: documented symbol `void mpWindow::SetColourTheme' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2385: warning: documented symbol `mpFXYVector::mpFXYVector' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2395: warning: documented symbol `void mpFXYVector::Rewind' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2400: warning: documented symbol `bool mpFXYVector::GetNextXY' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2412: warning: documented symbol `void mpFXYVector::Clear' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2418: warning: documented symbol `void mpFXYVector::SetData' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2475: warning: documented symbol `mpText::mpText' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2495: warning: documented symbol `void mpText::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2522: warning: documented symbol `mpPrintout::mpPrintout' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2528: warning: documented symbol `bool mpPrintout::OnPrintPage' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2586: warning: documented symbol `bool mpPrintout::HasPage' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2595: warning: documented symbol `void mpMovableObject::TranslatePoint' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2605: warning: documented symbol `void mpMovableObject::ShapeUpdated' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2643: warning: documented symbol `void mpMovableObject::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2743: warning: documented symbol `void mpCovarianceEllipse::RecalculateShape' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2840: warning: documented symbol `void mpPolygon::setPoints' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2867: warning: documented symbol `void mpBitmapLayer::GetBitmapCopy' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2873: warning: documented symbol `void mpBitmapLayer::SetBitmap' was not declared or defined.
+D:/project/uart_terminal/infrastructure/wx/mathplot.cpp:2890: warning: documented symbol `void mpBitmapLayer::Plot' was not declared or defined.
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:95: warning: argument 'void' of command @param is not found in the argument list of jerry_port_get_current_time(void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:62: warning: argument 'OUT' of command @param is not found in the argument list of jerry_port_get_time_zone(jerry_time_zone_t *p_data_jerry_time_zone)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_date_c.c:62: warning: The following parameters of jerry_port_get_time_zone(jerry_time_zone_t *p_data_jerry_time_zone) are not documented:
   parameter 'p_data_jerry_time_zone'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:82: warning: argument 'void' of command @param is not found in the argument list of jerry_port_default_is_abort_on_fail(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:69: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_default_set_abort_on_fail(bool flag_b)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:96: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_fatal(jerry_fatal_code_t error_jerry_fatal_code)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:96: warning: The following parameters of jerry_port_fatal(jerry_fatal_code_t error_jerry_fatal_code) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:82: warning: argument 'void' of command @param is not found in the argument list of jerry_port_default_is_abort_on_fail(void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:69: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_default_set_abort_on_fail(bool flag_b)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:96: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_fatal(jerry_fatal_code_t error_jerry_fatal_code)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_fatal_c.c:96: warning: The following parameters of jerry_port_fatal(jerry_fatal_code_t error_jerry_fatal_code) are not documented:
   parameter 'error_jerry_fatal_code'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:79: warning: argument 'void' of command @param is not found in the argument list of jerry_port_default_get_log_level(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:91: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_default_set_log_level(jerry_log_level_t actual_jerry_log_level)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:91: warning: The following parameters of jerry_port_default_set_log_level(jerry_log_level_t actual_jerry_log_level) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:79: warning: argument 'void' of command @param is not found in the argument list of jerry_port_default_get_log_level(void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:91: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_default_set_log_level(jerry_log_level_t actual_jerry_log_level)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:91: warning: The following parameters of jerry_port_default_set_log_level(jerry_log_level_t actual_jerry_log_level) are not documented:
   parameter 'actual_jerry_log_level'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: The following parameters of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: argument 'IN' of command @param is not found in the argument list of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_io_c.c:108: warning: The following parameters of jerry_port_log(jerry_log_level_t type_jerry_log_level, const char *p_format_char,...) are not documented:
   parameter 'type_jerry_log_level'
   parameter 'p_format_char'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:174: warning: argument 'void' of command @param is not found in the argument list of jerryscript_thread_c::Entry()
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:50: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::jerryscript_c(uart_port *p_com_uart_port, void *p_gui_main_frame_void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:50: warning: The following parameters of jerryscript_c::jerryscript_c(uart_port *p_com_uart_port, void *p_gui_main_frame_void) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:172: warning: argument 'void' of command @param is not found in the argument list of jerryscript_thread_c::Entry()
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:48: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::jerryscript_c(uart_port *p_com_uart_port, void *p_gui_main_frame_void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:48: warning: The following parameters of jerryscript_c::jerryscript_c(uart_port *p_com_uart_port, void *p_gui_main_frame_void) are not documented:
   parameter 'p_com_uart_port'
   parameter 'p_gui_main_frame_void'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:106: warning: argument 'IN' of command @param is not found in the argument list of jerryscript_c::run(wxString script_str)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:106: warning: The following parameters of jerryscript_c::run(wxString script_str) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:104: warning: argument 'IN' of command @param is not found in the argument list of jerryscript_c::run(wxString script_str)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:104: warning: The following parameters of jerryscript_c::run(wxString script_str) are not documented:
   parameter 'script_str'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:149: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::stop(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:92: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::~jerryscript_c(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:195: warning: argument 'void' of command @param is not found in the argument list of jerryscript_thread_c::~jerryscript_thread_c()
-D:/temp/uart/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:63: warning: argument 'void' of command @param is not found in the argument list of main_app::OnInit()
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: The following parameters of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:147: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::stop(void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:90: warning: argument 'void' of command @param is not found in the argument list of jerryscript_c::~jerryscript_c(void)
+D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp:193: warning: argument 'void' of command @param is not found in the argument list of jerryscript_thread_c::~jerryscript_thread_c()
+D:/project/uart_terminal/infrastructure/main/in_main_app_cpp.cpp:68: warning: argument 'void' of command @param is not found in the argument list of main_app::OnInit()
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:427: warning: argument 'void' of command @param is not found in the argument list of main_frame::clear(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:530: warning: argument 'void' of command @param is not found in the argument list of main_frame::close_port(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:375: warning: argument 'IN' of command @param is not found in the argument list of main_frame::console_rx_enable(bool status_b)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:375: warning: The following parameters of main_frame::console_rx_enable(bool status_b) are not documented:
+  parameter 'status_b'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:614: warning: argument 'void' of command @param is not found in the argument list of main_frame::get_config(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:646: warning: argument 'IN' of command @param is not found in the argument list of main_frame::get_data(wxString text_str)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:646: warning: The following parameters of main_frame::get_data(wxString text_str) are not documented:
+  parameter 'text_str'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:684: warning: argument 'void' of command @param is not found in the argument list of main_frame::get_graph_frame(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:567: warning: argument 'void' of command @param is not found in the argument list of main_frame::get_open_status(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:388: warning: argument 'void' of command @param is not found in the argument list of main_frame::is_console_rx_enable(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:112: warning: argument 'IN' of command @param is not found in the argument list of main_frame::main_frame(wxWindow *parent, wxWindowID id=-1)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:112: warning: argument 'IN' of command @param is not found in the argument list of main_frame::main_frame(wxWindow *parent, wxWindowID id=-1)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:112: warning: The following parameters of main_frame::main_frame(wxWindow *parent, wxWindowID id=-1) are not documented:
+  parameter 'parent'
+  parameter 'id'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:440: warning: argument 'void' of command @param is not found in the argument list of main_frame::open_port(void)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:400: warning: argument 'IN' of command @param is not found in the argument list of main_frame::printf(wxString console_text_str)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:400: warning: The following parameters of main_frame::printf(wxString console_text_str) are not documented:
+  parameter 'console_text_str'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:579: warning: argument 'IN' of command @param is not found in the argument list of main_frame::set_config(uart_cfg_t data_uart_cfg)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:579: warning: The following parameters of main_frame::set_config(uart_cfg_t data_uart_cfg) are not documented:
+  parameter 'data_uart_cfg'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:665: warning: argument 'IN' of command @param is not found in the argument list of main_frame::set_progress(wxString text_str, uint32_t progress_ui32)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:665: warning: argument 'IN' of command @param is not found in the argument list of main_frame::set_progress(wxString text_str, uint32_t progress_ui32)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:665: warning: The following parameters of main_frame::set_progress(wxString text_str, uint32_t progress_ui32) are not documented:
+  parameter 'text_str'
+  parameter 'progress_ui32'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:414: warning: argument 'IN' of command @param is not found in the argument list of main_frame::status(wxString status_text_str)
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:414: warning: The following parameters of main_frame::status(wxString status_text_str) are not documented:
+  parameter 'status_text_str'
+D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp:340: warning: argument 'void' of command @param is not found in the argument list of main_frame::~main_frame()
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:174: warning: The following parameters of uart_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
   parameter 'funct_ui32'
   parameter 'this_ui32'
   parameter 'p_args_ui32'
   parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: The following parameters of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:254: warning: argument 'void' of command @param is not found in the argument list of uart_port::close(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:284: warning: argument 'IN' of command @param is not found in the argument list of uart_port::create_event(uart_event_fct function_uart_event_fct, void *p_parametr_void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:284: warning: argument 'IN' of command @param is not found in the argument list of uart_port::create_event(uart_event_fct function_uart_event_fct, void *p_parametr_void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:284: warning: The following parameters of uart_port::create_event(uart_event_fct function_uart_event_fct, void *p_parametr_void) are not documented:
+  parameter 'function_uart_event_fct'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:319: warning: argument 'IN' of command @param is not found in the argument list of uart_port::delete_event(uart_event_fct function_uart_event_fct)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:319: warning: The following parameters of uart_port::delete_event(uart_event_fct function_uart_event_fct) are not documented:
+  parameter 'function_uart_event_fct'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:344: warning: argument 'void' of command @param is not found in the argument list of uart_port::delete_event_all(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:500: warning: argument 'void' of command @param is not found in the argument list of uart_port::flush(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:129: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_bus_array(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:621: warning: argument 'IN' of command @param is not found in the argument list of uart_port::get_com_ctrl(uart_com_ctrl_in_t pin_uart_com_ctrl_in)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:621: warning: The following parameters of uart_port::get_com_ctrl(uart_com_ctrl_in_t pin_uart_com_ctrl_in) are not documented:
+  parameter 'pin_uart_com_ctrl_in'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:344: warning: The following parameters of uart_js_c::get_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
   parameter 'funct_ui32'
   parameter 'this_ui32'
   parameter 'p_args_ui32'
   parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: The following parameters of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:369: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_last_error(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:81: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_port(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:357: warning: argument 'void' of command @param is not found in the argument list of uart_port::get_state(void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:122: warning: The following parameters of uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
   parameter 'funct_ui32'
   parameter 'this_ui32'
   parameter 'p_args_ui32'
   parameter 'args_cnt_ui32'
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:54: warning: argument 'void' of command @param is not found in the argument list of file_js_c::reg_host_class(void)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-D:/temp/uart/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: The following parameters of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:141: warning: argument 'IN' of command @param is not found in the argument list of uart_port::open(uart_cfg_t *p_data_uart_cfg)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:141: warning: The following parameters of uart_port::open(uart_cfg_t *p_data_uart_cfg) are not documented:
+  parameter 'p_data_uart_cfg'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:576: warning: argument 'OUT' of command @param is not found in the argument list of uart_port::read_data(uint8_t *p_data_ui8)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:576: warning: The following parameters of uart_port::read_data(uint8_t *p_data_ui8) are not documented:
+  parameter 'p_data_ui8'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:598: warning: argument 'OUT' of command @param is not found in the argument list of uart_port::read_data(string *p_data_str)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:598: warning: The following parameters of uart_port::read_data(string *p_data_str) are not documented:
+  parameter 'p_data_str'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:208: warning: The following parameters of uart_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:53: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::reg_host_class(uart_port *p_com_uart_port)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:53: warning: The following parameters of uart_js_c::reg_host_class(uart_port *p_com_uart_port) are not documented:
+  parameter 'p_com_uart_port'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:668: warning: argument 'IN' of command @param is not found in the argument list of uart_port::set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:668: warning: argument 'IN' of command @param is not found in the argument list of uart_port::set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:668: warning: The following parameters of uart_port::set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8) are not documented:
+  parameter 'pin_uart_com_ctrl_out'
+  parameter 'state_ui8'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:409: warning: The following parameters of uart_js_c::set_ctrl(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:50: warning: argument 'void' of command @param is not found in the argument list of uart_port::uart_port(void)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:381: warning: argument 'void' of command @param is not found in the argument list of uart_port::wait_rx_event(void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: argument 'IN' of command @param is not found in the argument list of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp:246: warning: The following parameters of uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:515: warning: argument 'IN' of command @param is not found in the argument list of uart_port::write_data(uint8_t data_ui8)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:515: warning: The following parameters of uart_port::write_data(uint8_t data_ui8) are not documented:
+  parameter 'data_ui8'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:545: warning: argument 'IN' of command @param is not found in the argument list of uart_port::write_data(uint8_t *p_data_sui8, uint32_t len_ui32)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:545: warning: argument 'IN' of command @param is not found in the argument list of uart_port::write_data(uint8_t *p_data_sui8, uint32_t len_ui32)
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:545: warning: The following parameters of uart_port::write_data(uint8_t *p_data_sui8, uint32_t len_ui32) are not documented:
+  parameter 'p_data_sui8'
+  parameter 'len_ui32'
+D:/project/uart_terminal/hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp:69: warning: argument 'void' of command @param is not found in the argument list of uart_port::~uart_port(void)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:41: warning: argument 'void' of command @param is not found in the argument list of config_ini::config_ini(void)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:89: warning: argument 'IN' of command @param is not found in the argument list of config_ini::get_string(wxString path_str, wxString default_value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:89: warning: argument 'IN' of command @param is not found in the argument list of config_ini::get_string(wxString path_str, wxString default_value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:89: warning: The following parameters of config_ini::get_string(wxString path_str, wxString default_value_str) are not documented:
+  parameter 'path_str'
+  parameter 'default_value_str'
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:72: warning: argument 'IN' of command @param is not found in the argument list of config_ini::get_value(wxString path_str, wxString default_value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:72: warning: argument 'IN' of command @param is not found in the argument list of config_ini::get_value(wxString path_str, wxString default_value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:72: warning: The following parameters of config_ini::get_value(wxString path_str, wxString default_value_str) are not documented:
+  parameter 'path_str'
+  parameter 'default_value_str'
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:120: warning: argument 'IN' of command @param is not found in the argument list of config_ini::set_string(wxString path_str, wxString value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:120: warning: argument 'IN' of command @param is not found in the argument list of config_ini::set_string(wxString path_str, wxString value_str)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:120: warning: The following parameters of config_ini::set_string(wxString path_str, wxString value_str) are not documented:
+  parameter 'path_str'
+  parameter 'value_str'
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:104: warning: argument 'IN' of command @param is not found in the argument list of config_ini::set_value(wxString path_str, int32_t value_i32)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:104: warning: argument 'IN' of command @param is not found in the argument list of config_ini::set_value(wxString path_str, int32_t value_i32)
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:104: warning: The following parameters of config_ini::set_value(wxString path_str, int32_t value_i32) are not documented:
+  parameter 'path_str'
+  parameter 'value_i32'
+D:/project/uart_terminal/infrastructure/config/in_config_ini_wrapper_cpp.cpp:60: warning: argument 'void' of command @param is not found in the argument list of config_ini::~config_ini(void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:108: warning: The following parameters of graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:127: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::add_graph(double graph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:127: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::add_graph(double graph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:127: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::add_graph(double graph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:127: warning: The following parameters of graph_frame::add_graph(double graph_range_d, double buffer_length_d, double time_step_d) are not documented:
+  parameter 'graph_range_d'
+  parameter 'buffer_length_d'
+  parameter 'time_step_d'
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:72: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::graph_frame(wxWindow *parent, wxWindowID id=-1)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:72: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::graph_frame(wxWindow *parent, wxWindowID id=-1)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:72: warning: The following parameters of graph_frame::graph_frame(wxWindow *parent, wxWindowID id=-1) are not documented:
+  parameter 'parent'
+  parameter 'id'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:149: warning: The following parameters of graph_js_c::insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:149: warning: The following parameters of graph_frame::insert_signal(uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0) are not documented:
+  parameter 'graph_ui32'
+  parameter 'signal_label_str'
+  parameter 'color_ui32'
+  parameter 'width_ui32'
+  parameter 'style_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:54: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::reg_host_class(void *p_gui_main_frame_void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:54: warning: The following parameters of graph_js_c::reg_host_class(void *p_gui_main_frame_void) are not documented:
+  parameter 'p_gui_main_frame_void'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:205: warning: The following parameters of graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:183: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::set_graph_data(uint32_t graph_ui32, vector< double > &pv_data_d)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:183: warning: argument 'IN' of command @param is not found in the argument list of graph_frame::set_graph_data(uint32_t graph_ui32, vector< double > &pv_data_d)
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:183: warning: The following parameters of graph_frame::set_graph_data(uint32_t graph_ui32, vector< double > &pv_data_d) are not documented:
+  parameter 'graph_ui32'
+  parameter 'pv_data_d'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: argument 'IN' of command @param is not found in the argument list of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp:248: warning: The following parameters of graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/application/graph/ap_graph_frame_cpp.cpp:104: warning: argument 'void' of command @param is not found in the argument list of graph_frame::~graph_frame()
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:65: warning: argument 'IN' of command @param is not found in the argument list of data_plot::data_plot(wxWindow *p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:65: warning: argument 'IN' of command @param is not found in the argument list of data_plot::data_plot(wxWindow *p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:65: warning: argument 'IN' of command @param is not found in the argument list of data_plot::data_plot(wxWindow *p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:65: warning: argument 'IN' of command @param is not found in the argument list of data_plot::data_plot(wxWindow *p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:65: warning: The following parameters of data_plot::data_plot(wxWindow *p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d) are not documented:
+  parameter 'p_parent_wxwindow'
+  parameter 'draph_range_d'
+  parameter 'buffer_length_d'
+  parameter 'time_step_d'
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:171: warning: argument 'void' of command @param is not found in the argument list of data_plot::get_signal(void)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:183: warning: argument 'IN' of command @param is not found in the argument list of data_plot::insert_data(uint32_t index_ui32, double data_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:183: warning: argument 'IN' of command @param is not found in the argument list of data_plot::insert_data(uint32_t index_ui32, double data_d)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:183: warning: The following parameters of data_plot::insert_data(uint32_t index_ui32, double data_d) are not documented:
+  parameter 'index_ui32'
+  parameter 'data_d'
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:141: warning: argument 'IN' of command @param is not found in the argument list of data_plot::insert_signal(wxString signal_label_str, wxPen signal_style_pen)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:141: warning: argument 'IN' of command @param is not found in the argument list of data_plot::insert_signal(wxString signal_label_str, wxPen signal_style_pen)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:141: warning: The following parameters of data_plot::insert_signal(wxString signal_label_str, wxPen signal_style_pen) are not documented:
+  parameter 'signal_label_str'
+  parameter 'signal_style_pen'
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:205: warning: argument 'void' of command @param is not found in the argument list of data_plot::time_increment(void)
+D:/project/uart_terminal/infrastructure/data_plot/in_data_plot_graph_cpp.cpp:125: warning: argument 'void' of command @param is not found in the argument list of data_plot::~data_plot(void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:321: warning: The following parameters of file_js_c::append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:107: warning: The following parameters of file_js_c::read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:163: warning: The following parameters of file_js_c::read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:54: warning: argument 'void' of command @param is not found in the argument list of file_js_c::reg_host_class(void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: argument 'IN' of command @param is not found in the argument list of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp:227: warning: The following parameters of file_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:310: warning: The following parameters of main_frame_js_c::clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:410: warning: The following parameters of main_frame_js_c::close(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:144: warning: The following parameters of main_frame_js_c::console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:489: warning: The following parameters of main_frame_js_c::get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:449: warning: The following parameters of main_frame_js_c::get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:180: warning: The following parameters of main_frame_js_c::is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:343: warning: The following parameters of main_frame_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:214: warning: The following parameters of main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:54: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::reg_host_class(void *p_gui_main_frame_void)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:54: warning: The following parameters of main_frame_js_c::reg_host_class(void *p_gui_main_frame_void) are not documented:
+  parameter 'p_gui_main_frame_void'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:535: warning: The following parameters of main_frame_js_c::set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
+  parameter 'funct_ui32'
+  parameter 'this_ui32'
+  parameter 'p_args_ui32'
+  parameter 'args_cnt_ui32'
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: argument 'IN' of command @param is not found in the argument list of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp:262: warning: The following parameters of main_frame_js_c::status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32) are not documented:
   parameter 'funct_ui32'
   parameter 'this_ui32'
   parameter 'p_args_ui32'
