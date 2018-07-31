@@ -122,7 +122,7 @@ main_frame::main_frame(wxWindow* parent, wxWindowID id)
 wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 
     //(*Initialize(main_frame)
-    Create(parent, wxID_ANY, _("usart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("UART terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
     lp_main_wxpanel = new wxPanel(this, l_id_main_wxpanel, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("l_id_main_wxpanel"));
     lp_main_wxboxsizer = new wxBoxSizer(wxVERTICAL);
