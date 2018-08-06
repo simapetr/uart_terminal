@@ -55,6 +55,14 @@
 
 /**
   ****************************************************************************
+  * Type
+  ****************************************************************************
+  */
+
+typedef void (*send_event_fct)(void* p_parametr_void, uint8_t *p_data_sui8, uint32_t length_ui32);
+
+/**
+  ****************************************************************************
   * Class
   ****************************************************************************
   */
@@ -78,6 +86,7 @@ class main_frame: public wxFrame
         wxString get_data (wxString text_str);
         void set_progress (wxString text_str, uint32_t progress_ui32);
         graph_frame* get_graph_frame (void);
+        void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
 
 
     private:
@@ -211,6 +220,8 @@ class main_frame: public wxFrame
         wxString l_progress_info_str;
         uint32_t l_progress_ui32;
         bool l_progress_end_b;
+        void *lp_event_parameter_void;
+        send_event_fct l_data_send_event_fct;
 
         DECLARE_EVENT_TABLE()
 };

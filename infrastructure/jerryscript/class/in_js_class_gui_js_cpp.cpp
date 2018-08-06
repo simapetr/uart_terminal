@@ -128,6 +128,12 @@ jerry_value_t name_jerry_value;
     jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
+    // Event registration
+    funct_jerry_value = jerry_create_external_function(this->reg_event);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"reg_event");
+    jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
     // Create class
     global_jerry_value = jerry_get_global_object();
     name_jerry_value = jerry_create_string((const jerry_char_t*)"main_frame");
@@ -177,7 +183,7 @@ main_frame_js_c* p_bkp_this = NULL;
     return jerry_create_undefined();
 }
 
-/** @brief GUI enable console rx data (JS method "console_rx_enable")
+/** @brief GUI enable console rx data (JS method "is_console_rx_enable")
  *
  * @param [IN] funct_ui32 : Unused
  * @param [IN] this_ui32 : Pointer on construct class
@@ -586,6 +592,101 @@ wxString data_str;
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
+}
+
+/** @brief Set GUI send data event (JS method "reg_event")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t main_frame_js_c::reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+uint32_t status_ui32 = 0;
+void* p_arg_void;
+main_frame_js_c* p_bkp_this = NULL;
+
+    if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
+    {
+        // Extract this
+        p_bkp_this = reinterpret_cast<main_frame_js_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 1 && p_bkp_this)
+        {
+            if(jerry_value_is_string(p_args_ui32[0]))
+            {
+                // Reg event function name
+                const uint32_t data_len_ui32 = jerry_get_string_size(p_args_ui32[0]);
+                jerry_string_to_char_buffer(p_args_ui32[0],&p_bkp_this->l_rx_event_name_sui8[0],data_len_ui32);
+                p_bkp_this->l_rx_event_name_sui8[data_len_ui32] = 0x00;
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->set_send_event(p_bkp_this->send_event, p_bkp_this);
+                status_ui32 = 1;
+            }
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_number(status_ui32);
+}
+
+/** @brief Data in UART buffer event
+ *
+ * @param [IN] p_parametr_void : Handle on registered object
+ * @param [IN] event_type_ui32 : Event type field
+ * @param [IN] p_data_sui8 : Buffer with data
+ * @param [IN] length_ui32 : Data length
+ * @return void
+ *
+ */
+
+void main_frame_js_c::send_event(void* p_parametr_void, uint8_t *p_data_sui8, uint32_t length_ui32)
+{
+main_frame_js_c *p_bkp_this = (main_frame_js_c*)p_parametr_void;
+jerry_value_t global_obj = jerry_get_global_object ();
+jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)&p_bkp_this->l_rx_event_name_sui8[0]);
+jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
+
+    jerry_release_value (sys_name);
+
+    if (jerry_value_has_error_flag (sysloop_func))
+    {
+        jerry_release_value (global_obj);
+        jerry_release_value (sysloop_func);
+    }
+    else
+    {
+        if (!jerry_value_is_function (sysloop_func))
+        {
+            jerry_release_value (global_obj);
+            jerry_release_value (sysloop_func);
+        }
+        else
+        {
+            // Call function
+            jerry_value_t val_args[1];
+            uint16_t val_argv = 1;
+            val_args[0] = jerry_create_array(length_ui32);
+            // Set data array
+            for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
+            {
+                jerry_value_t data_jerry_value = jerry_create_number(double(p_data_sui8[data_cnt_ui32]));
+                jerry_set_property_by_index (val_args[0], data_cnt_ui32, jerry_value_to_number(data_jerry_value));
+                jerry_release_value(data_jerry_value);
+            }
+            // Call function
+            if (jerry_value_has_error_flag(jerry_call_function (sysloop_func, global_obj, val_args, val_argv)))
+            {
+                //char status = -3;
+            }
+            jerry_release_value (val_args[0]);
+        }
+    }
+    jerry_release_value (global_obj);
+    jerry_release_value (sysloop_func);
+    return;
 }
 
 /**

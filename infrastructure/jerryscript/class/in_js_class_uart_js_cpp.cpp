@@ -205,7 +205,7 @@ uart_js_c* p_bkp_this = NULL;
     return jerry_create_undefined();
 }
 
-/** @brief Set UART control line status (JS method "reg_event")
+/** @brief Set Rx event (JS method "reg_event")
  *
  * @param [IN] funct_ui32 : Unused
  * @param [IN] this_ui32 : Pointer on construct class
@@ -243,7 +243,7 @@ uart_js_c* p_bkp_this = NULL;
     return jerry_create_number(status_ui32);
 }
 
-/** @brief Write UART string (JS method "write")
+/** @brief Write UART (JS method "write")
  *
  * @param [IN] funct_ui32 : Unused
  * @param [IN] this_ui32 : Pointer on construct class

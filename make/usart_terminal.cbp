@@ -144,6 +144,10 @@
 		<Unit filename="../infrastructure/main/in_main_app_h.h" />
 		<Unit filename="../infrastructure/wx/led.cpp" />
 		<Unit filename="../infrastructure/wx/mathplot.cpp" />
+		<Unit filename="script/file.js" />
+		<Unit filename="script/protocol.js" />
+		<Unit filename="script/uart.js" />
+		<Unit filename="usart_terminal.cbp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

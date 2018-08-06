@@ -65,11 +65,15 @@ public:
     static uint32_t get_open_status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t get_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+    static uint32_t reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
 
 private:
 
+    static void send_event(void* p_parametr_void, uint8_t *p_data_sui8, uint32_t length_ui32);
+
 	void* lp_gui_main_frame_void;
 	void* lp_data_wxtextentrydialog_void;
+	uint8_t l_rx_event_name_sui8[256];
 
 };
 

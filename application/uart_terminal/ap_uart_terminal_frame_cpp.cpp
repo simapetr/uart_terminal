@@ -335,6 +335,9 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     this->lp_wx_gui_sync_wxtimer.Start(10, false);
     // Initialization open state
     this->l_open_b = false;
+    // Initialize event
+    this->lp_event_parameter_void = NULL;
+    this->l_data_send_event_fct = NULL;
 }
 
 /** @brief Destructor
@@ -693,6 +696,21 @@ graph_frame* main_frame::get_graph_frame (void)
     return this->lp_data_graph_frame;
 }
 
+/** @brief Set external event after send button click
+ *
+ * @param [IN] data_send_event_fct : Event function pointer
+ * @param [IN] p_parametr_void : Event function parameter
+ * @return void
+ *
+ */
+
+void main_frame::set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void)
+{
+    this->lp_event_parameter_void = p_parametr_void;
+    this->l_data_send_event_fct = data_send_event_fct;
+    return;
+}
+
 /** @brief Quit item selected event
  *
  * @param [IN] event : standard event input data
@@ -715,7 +733,7 @@ void main_frame::menu_bar_file_quit_item_selected(wxCommandEvent& event)
 
 void main_frame::menu_bar_help_about_item_selected(wxCommandEvent& event)
 {
-    wxMessageBox( _("UART terminal V2.0 RC1\nBUILD : 2018_07_30\nPORTTRONIC(c)"), _("About"));
+    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : 2018_07_30\nPORTTRONIC(c)"), _("About"));
     return;
 }
 
@@ -860,9 +878,24 @@ wxString data_text_str;
                 data_cnt_ui16++;
             }
         }
-        if (this->p_communication_uart_port->write_data(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
+        if (this->l_consle_rx_enable_b)
         {
-            this->lp_bot_wxstatusbar->SetStatusText(wxT("data do not transmit"), d_ap_uart_terminal_status_port);
+            if (this->p_communication_uart_port->write_data(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("data do not transmit"), d_ap_uart_terminal_status_port);
+            }
+
+        }
+        else
+        {
+            if (this->l_data_send_event_fct)
+            {
+                this->l_data_send_event_fct(this->lp_event_parameter_void, &data_tx_buffer_sui8[0], data_length_ui16);
+            }
+            else
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("JS event not registered"), d_ap_uart_terminal_status_port);
+            }
         }
     }
     return;
@@ -1186,8 +1219,8 @@ static bool f_port_open_b = true;
             this->lp_port_state_ring_wxled->Disable();
             this->lp_port_state_rlsd_wxled->Disable();
         }
+        f_port_open_b = this->l_open_b;
     }
-    f_port_open_b != this->l_open_b;
     if(this->l_open_b)
     {
         // Set CTS state
