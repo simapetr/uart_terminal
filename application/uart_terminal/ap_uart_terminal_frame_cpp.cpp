@@ -353,15 +353,6 @@ main_frame::~main_frame()
     //*)
     this->close_port();
     this->uart_thread_run_ui32 = 0;
-    wxMilliSleep(200);
-    if(this->lp_interpret_jerryscript)
-    {
-        this->lp_interpret_jerryscript->stop();
-        // Load JavaScript interpreter
-        delete this->lp_interpret_jerryscript;
-    }
-    wxMilliSleep(200);
-    this->lp_data_graph_frame->Close();
     // Save configuration
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/port"),this->lp_port_wxchoice->GetSelection());
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/speed"),this->lp_speed_wxchoice->GetSelection());
@@ -373,6 +364,13 @@ main_frame::~main_frame()
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/add_lf"),this->lp_text_lf_wxcheckbox->GetValue());
     this->p_data_config_ini->set_string(wxT("CONFIGURATION/data"),this->lp_command_wxtextctrl->GetLineText(0));
     this->p_data_config_ini->set_string(wxT("CONFIGURATION/script_path"),this->lp_script_path_wxtextctrl->GetLineText(0));
+    // Terminate JavaScript
+    wxMilliSleep(200);
+    if(this->lp_interpret_jerryscript)
+    {
+        this->lp_interpret_jerryscript->stop();
+    }
+    return;
 }
 
 /** @brief Set RX data show status
