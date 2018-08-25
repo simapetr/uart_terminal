@@ -62,6 +62,7 @@ jerry_value_t name_jerry_value;
     // Interpreter initialization
     jerry_init (init_jerry_init_flag);
     // Store object
+    this->l_data_time_js.reg_host_class();
     this->l_data_file_js.reg_host_class();
     this->l_port_uart_js.reg_host_class(p_com_uart_port);
     this->l_gui_main_frame_js.reg_host_class(p_gui_main_frame_void);
@@ -74,7 +75,7 @@ jerry_value_t name_jerry_value;
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
-    // Register Delay (in ms)
+    // Register Alert info dialog
     funct_jerry_value = jerry_create_external_function(this->alert);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"alert");
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
@@ -229,7 +230,7 @@ uint32_t jerryscript_c::delay(const uint32_t funct_ui32, const uint32_t this_ui3
     return jerry_create_undefined();
 }
 
-/** @brief Delay in ms (JS function "delay")
+/** @brief Alert info dialog (JS function "alert")
  *
  * @param [IN] funct_ui32 : Unused
  * @param [IN] this_ui32 : Pointer on construct class
@@ -265,7 +266,6 @@ wxString text_str;
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
 }
-
 
 /**
 * @}

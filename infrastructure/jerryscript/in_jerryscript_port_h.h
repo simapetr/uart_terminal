@@ -23,6 +23,7 @@
 #include <wx/string.h>
 #include <wx/thread.h>
 #include "hw_dr_uart_driver_h.h"
+#include "in_js_class_time_js_h.h"
 #include "in_js_class_file_js_h.h"
 #include "in_js_class_uart_js_h.h"
 #include "in_js_class_gui_js_h.h"
@@ -85,6 +86,7 @@ private:
 	wxString l_jerryscript_code_str;
 	uint32_t l_result_ui32;
 	// External class
+	time_js_c l_data_time_js;
 	file_js_c l_data_file_js;
 	uart_js_c l_port_uart_js;
 	main_frame_js_c l_gui_main_frame_js;

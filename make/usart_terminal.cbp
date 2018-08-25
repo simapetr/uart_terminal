@@ -126,6 +126,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
