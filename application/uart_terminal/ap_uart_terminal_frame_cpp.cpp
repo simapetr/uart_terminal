@@ -338,6 +338,17 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     // Initialize event
     this->lp_event_parameter_void = NULL;
     this->l_data_send_event_fct = NULL;
+    // Restore window position
+    Move(wxPoint(this->p_data_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),this->p_data_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
+    if (this->p_data_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
+    {
+        Maximize();
+    }
+    else
+    {
+        SetClientSize(wxSize(this->p_data_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), this->p_data_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+    }
+    return;
 }
 
 /** @brief Destructor
@@ -349,8 +360,29 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 
 main_frame::~main_frame()
 {
+int pos_x_int = 0;
+int pos_y_int = 0;
+int siz_w_int = 0;
+int siz_h_int = 0;
+
     //(*Destroy(main_frame)
     //*)
+    // Save window position
+    this->GetPosition(&pos_x_int, &pos_y_int);
+    this->p_data_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
+    this->p_data_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
+    if (IsMaximized())
+    {
+        this->p_data_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
+    }
+    else
+    {
+        GetClientSize(&siz_w_int, &siz_h_int);
+        this->p_data_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
+        this->p_data_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
+        this->p_data_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
+    }
+    // Close port
     this->close_port();
     this->uart_thread_run_ui32 = 0;
     // Save configuration
@@ -731,7 +763,7 @@ void main_frame::menu_bar_file_quit_item_selected(wxCommandEvent& event)
 
 void main_frame::menu_bar_help_about_item_selected(wxCommandEvent& event)
 {
-    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : 2018_07_30\nPORTTRONIC(c)"), _("About"));
+    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : "__DATE__"\nPORTTRONIC(c)"), _("About"));
     return;
 }
 

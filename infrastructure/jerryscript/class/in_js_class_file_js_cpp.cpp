@@ -177,7 +177,7 @@ file_js_c* p_bkp_this = NULL;
 wxString path_str = wxEmptyString;
 uint32_t data_len_ui32;
 static uint8_t *p_data_sui8 = NULL;
-jerry_value_t data_array_jerry_value;
+jerry_value_t data_array_jerry_value = jerry_create_array(0);
 
 
     if(jerry_get_object_native_pointer(jerry_get_global_object(), &p_arg_void, NULL))
