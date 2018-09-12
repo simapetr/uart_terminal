@@ -65,13 +65,14 @@ jerry_value_t object_jerry_value;
 jerry_value_t funct_jerry_value;
 jerry_value_t name_jerry_value;
 
+    // Save GUI interface pointer
     this->lp_gui_main_frame_void = p_gui_main_frame_void;
     // Create method
     object_jerry_value = jerry_create_object ();
     // Add graph
     funct_jerry_value = jerry_create_external_function(this->add);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"add");
-    jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_set_property(object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
     // Insert signal in to graph
@@ -93,7 +94,7 @@ jerry_value_t name_jerry_value;
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
     // Create class
-    global_jerry_value = jerry_get_global_object();
+    global_jerry_value = jerry_get_property(jerry_get_global_object(), jerry_create_string((const jerry_char_t*)"gui"));
     name_jerry_value = jerry_create_string((const jerry_char_t*)"graph");
     jerry_set_property (global_jerry_value, name_jerry_value, object_jerry_value);
 
@@ -120,24 +121,38 @@ uint32_t graph_js_c::add(const uint32_t funct_ui32, const uint32_t this_ui32, co
 void* p_arg_void;
 graph_js_c* p_bkp_this = NULL;
 uint32_t graph_num_ui32 = 0;
+wxString text_str = wxEmptyString;
+uint32_t data_len_ui32;
+static uint8_t *p_data_sui8 = NULL;
 
     if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
     {
         // Extract this
         p_bkp_this = reinterpret_cast<graph_js_c*>(p_arg_void);
         // Extract function argument
-        if(args_cnt_ui32 == 3 && p_bkp_this)
+        if(args_cnt_ui32 == 5 && p_bkp_this)
         {
             if(
-               jerry_value_is_number (p_args_ui32[0]) &&
-               jerry_value_is_number (p_args_ui32[1]) &&
-               jerry_value_is_number (p_args_ui32[2])
+               jerry_value_is_number(p_args_ui32[0]) &&
+               jerry_value_is_string(p_args_ui32[1]) &&
+               jerry_value_is_number(p_args_ui32[2]) &&
+               jerry_value_is_number(p_args_ui32[3]) &&
+               jerry_value_is_number(p_args_ui32[4])
               )
             {
                 // Call class method
                 if (p_bkp_this)
                 {
-                    graph_num_ui32 = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_graph_frame()->add_graph(jerry_get_number_value(p_args_ui32[0]),jerry_get_number_value(p_args_ui32[1]),jerry_get_number_value(p_args_ui32[2]));
+                    data_len_ui32 = jerry_get_string_size(p_args_ui32[1]);
+                    p_data_sui8 = new uint8_t[data_len_ui32];
+                    jerry_string_to_char_buffer(p_args_ui32[1],p_data_sui8,data_len_ui32);
+                    text_str = wxEmptyString;
+                    for (uint32_t char_cnt_ui32 = 0 ; char_cnt_ui32 < data_len_ui32 ; char_cnt_ui32++)
+                    {
+                        text_str += p_data_sui8[char_cnt_ui32];
+                    }
+                    delete[] p_data_sui8;
+                    graph_num_ui32 = ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->add_graph(jerry_get_number_value(p_args_ui32[0]), text_str, jerry_get_number_value(p_args_ui32[2]), jerry_get_number_value(p_args_ui32[3]), jerry_get_number_value(p_args_ui32[4]));
                 }
             }
         }
@@ -173,11 +188,11 @@ static uint8_t *p_data_sui8 = NULL;
         if(args_cnt_ui32 == 5 && p_bkp_this)
         {
             if(
-               jerry_value_is_number (p_args_ui32[0]) &&
-               jerry_value_is_string (p_args_ui32[1]) &&
-               jerry_value_is_number (p_args_ui32[2]) &&
-               jerry_value_is_number (p_args_ui32[3]) &&
-               jerry_value_is_number (p_args_ui32[4])
+               jerry_value_is_number(p_args_ui32[0]) &&
+               jerry_value_is_string(p_args_ui32[1]) &&
+               jerry_value_is_number(p_args_ui32[2]) &&
+               jerry_value_is_number(p_args_ui32[3]) &&
+               jerry_value_is_number(p_args_ui32[4])
               )
             {
                 // Call class method
@@ -193,7 +208,7 @@ static uint8_t *p_data_sui8 = NULL;
                     }
                     delete[] p_data_sui8;
                     // Call function
-                    signal_num_ui32 = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_graph_frame()->insert_signal((uint32_t)jerry_get_number_value(p_args_ui32[0]),name_str,(uint32_t)jerry_get_number_value(p_args_ui32[2]),(uint32_t)jerry_get_number_value(p_args_ui32[3]),(uint32_t)jerry_get_number_value(p_args_ui32[4]));
+                    signal_num_ui32 = ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->insert_signal((uint32_t)jerry_get_number_value(p_args_ui32[0]),name_str,(uint32_t)jerry_get_number_value(p_args_ui32[2]),(uint32_t)jerry_get_number_value(p_args_ui32[3]),(uint32_t)jerry_get_number_value(p_args_ui32[4]));
                 }
             }
         }
@@ -237,7 +252,7 @@ vector<double> v_data_d;
                     v_data_d.push_back(jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[1], data_cnt_ui32)));
                 }
                 // Call function
-                status_b = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_graph_frame()->set_graph_data((uint32_t)jerry_get_number_value(p_args_ui32[0]),v_data_d);
+                status_b = ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->set_graph_data((uint32_t)jerry_get_number_value(p_args_ui32[0]),v_data_d);
             }
         }
     }
@@ -270,7 +285,7 @@ graph_js_c* p_bkp_this = NULL;
             if(jerry_value_is_boolean(p_args_ui32[0]))
             {
                 // Call function
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_graph_frame()->Show(jerry_get_boolean_value(p_args_ui32[0]));
+                ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->Show(jerry_get_boolean_value(p_args_ui32[0]));
             }
         }
     }

@@ -41,6 +41,14 @@
 
 /**
   ****************************************************************************
+  * Local variable
+  ****************************************************************************
+  */
+
+bool l_in_js_port_gui_enable_b = false;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -59,14 +67,12 @@ jerry_value_t global_jerry_value;
 jerry_value_t funct_jerry_value;
 jerry_value_t name_jerry_value;
 
+    // Save parent window
+    this->lp_gui_main_frame_void = p_gui_main_frame_void;
     // Interpreter initialization
     jerry_init (init_jerry_init_flag);
-    // Store object
-    this->l_data_time_js.reg_host_class();
-    this->l_data_file_js.reg_host_class();
-    this->l_port_uart_js.reg_host_class(p_com_uart_port);
-    this->l_gui_main_frame_js.reg_host_class(p_gui_main_frame_void);
-    this->l_graph_js.reg_host_class(p_gui_main_frame_void);
+    // Initialize GUI window
+    this->lp_data_gui_frame = new gui_frame((wxWindow*)this->lp_gui_main_frame_void, this);
     // Read global object
     global_jerry_value = jerry_get_global_object();
     // Register Delay (in ms)
@@ -81,10 +87,25 @@ jerry_value_t name_jerry_value;
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
+    // Register Alert info dialog
+    funct_jerry_value = jerry_create_external_function(this->gui);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"gui");
+    jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
     // Register this pointer
     jerry_set_object_native_pointer(global_jerry_value, this, NULL);
     jerry_release_value(global_jerry_value);
     this->lp_worker_jerryscript_thread_c = NULL;
+    // Register GUI class
+    this->l_data_time_js.reg_host_class();
+    this->l_data_file_js.reg_host_class();
+    this->l_port_uart_js.reg_host_class(p_com_uart_port);
+    this->l_gui_main_frame_js.reg_host_class(this->lp_gui_main_frame_void);
+    this->l_gui_panel_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_sizer_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_graph_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_button_js.reg_host_class(this->lp_data_gui_frame);
     return;
 }
 
@@ -161,6 +182,53 @@ void jerryscript_c::stop (void)
     }
     wxMilliSleep(200);
     jerry_cleanup();
+    return;
+}
+
+/** @brief Call JS event function
+ *
+ * @param [IN] event_str : Event function name
+ * @param [IN] component_id_ui32 : GUI component buffer index
+ * @return void
+ *
+ */
+
+void jerryscript_c::call_event (wxString event_str, uint32_t component_id_ui32)
+{
+jerry_value_t global_obj = jerry_get_global_object ();
+jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)event_str.To8BitData().data());
+jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
+
+    jerry_release_value (sys_name);
+
+    if (jerry_value_has_error_flag (sysloop_func))
+    {
+        jerry_release_value (global_obj);
+        jerry_release_value (sysloop_func);
+    }
+    else
+    {
+        if (!jerry_value_is_function (sysloop_func))
+        {
+            jerry_release_value (global_obj);
+            jerry_release_value (sysloop_func);
+        }
+        else
+        {
+            // Call function
+            jerry_value_t val_args[1];
+            uint16_t val_argv = 1;
+            val_args[0] = jerry_create_number(component_id_ui32);
+            // Call function
+            if (jerry_value_has_error_flag(jerry_call_function (sysloop_func, global_obj, val_args, val_argv)))
+            {
+                //char status = -3;
+            }
+            jerry_release_value (val_args[0]);
+        }
+    }
+    jerry_release_value (global_obj);
+    jerry_release_value (sysloop_func);
     return;
 }
 
@@ -243,6 +311,7 @@ uint32_t jerryscript_c::delay(const uint32_t funct_ui32, const uint32_t this_ui3
 uint32_t jerryscript_c::alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
 {
 wxString text_str;
+
     // Extract function argument
     if(args_cnt_ui32 == 1)
     {
@@ -261,6 +330,38 @@ wxString text_str;
             delete[] p_data_sui8;
             // Call class method
             wxMessageBox( text_str, wxT("Alert"));
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_undefined();
+}
+
+/** @brief GUI base function (JS function "gui")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t jerryscript_c::gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+void* p_arg_void;
+jerryscript_c* p_bkp_this = NULL;
+
+    if(jerry_get_object_native_pointer(jerry_get_global_object(), &p_arg_void, NULL))
+    {
+         // Extract this
+        p_bkp_this = reinterpret_cast<jerryscript_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 1 && p_bkp_this)
+        {
+            if(jerry_value_is_boolean(p_args_ui32[0]))
+            {
+                p_bkp_this->lp_data_gui_frame->frame_show(jerry_get_boolean_value(p_args_ui32[0]));
+            }
         }
     }
     // Cast it back to JavaScript and return

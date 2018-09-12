@@ -75,16 +75,16 @@
 			<Add directory="../infrastructure/jerryscript" />
 			<Add directory="../infrastructure/jerryscript/class" />
 			<Add directory="../infrastructure/data_plot" />
+			<Add directory="../infrastructure/jerryscript/gui" />
 			<Add directory="../application/uart_terminal" />
-			<Add directory="../application/graph" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="$(#wx)/include" />
 		</ResourceCompiler>
 		<Linker>
-			<Add option="-mthreads" />
-			<Add option="-static-libgcc" />
 			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-mthreads" />
 			<Add library="libkernel32.a" />
 			<Add library="libuser32.a" />
 			<Add library="libgdi32.a" />
@@ -99,13 +99,6 @@
 			<Add library="libwsock32.a" />
 			<Add library="libodbc32.a" />
 		</Linker>
-		<Unit filename="../application/graph/ap_graph_frame_cpp.cpp" />
-		<Unit filename="../application/graph/ap_graph_frame_h.h" />
-		<Unit filename="../application/graph/ap_graph_frame_rc.rc">
-			<Option compilerVar="WINDRES" />
-		</Unit>
-		<Unit filename="../application/graph/ap_graph_frame_wxs.wxs" />
-		<Unit filename="../application/graph/icon/lp_signal_value_xpm.xpm" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_h.h" />
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_rc.rc">
@@ -120,16 +113,33 @@
 		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_cpp.cpp" />
 		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_h.h" />
 		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_wxs.wxs" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_button_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_button_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_h.h" />
-		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_cpp.cpp" />
-		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gui_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_signal_value_xpm.xpm" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_button_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_h.h" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_rc.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_wxs.wxs" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_graph_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_panel_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_sizer_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_date_c.c">
 			<Option compilerVar="CC" />
@@ -159,7 +169,7 @@
 				<gui name="wxWidgets" src="../infrastructure/main/in_main_app_cpp.cpp" main="main_frame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="../application/uart_terminal/ap_uart_terminal_frame_wxs.wxs" src="../application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" hdr="../application/uart_terminal/ap_uart_terminal_frame_h.h" fwddecl="0" i18n="1" name="main_frame" language="CPP" />
-					<wxFrame wxs="../application/graph/ap_graph_frame_wxs.wxs" src="../application/graph/ap_graph_frame_cpp.cpp" hdr="../application/graph/ap_graph_frame_h.h" fwddecl="0" i18n="1" name="graph_frame" language="CPP" />
+					<wxFrame wxs="../infrastructure/jerryscript/gui/in_js_gui_frame_wxs.wxs" src="../infrastructure/jerryscript/gui/in_js_gui_frame_cpp.cpp" hdr="../infrastructure/jerryscript/gui/in_js_gui_frame_h.h" fwddecl="0" i18n="1" name="gui_frame" language="CPP" />
 					<wxPanel wxs="../infrastructure/data_plot/in_data_plot_graph_wxs.wxs" src="../infrastructure/data_plot/in_data_plot_graph_cpp.cpp" hdr="../infrastructure/data_plot/in_data_plot_graph_h.h" fwddecl="0" i18n="1" name="data_plot" language="CPP" />
 				</resources>
 			</wxsmith>

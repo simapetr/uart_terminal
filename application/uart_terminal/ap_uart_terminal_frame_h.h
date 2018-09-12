@@ -41,7 +41,6 @@
 #include "hw_dr_uart_driver_h.h"
 #include "in_config_ini_wrapper_h.h"
 #include "in_jerryscript_port_h.h"
-#include "ap_graph_frame_h.h"
 
 /**
   * @addtogroup Application
@@ -73,6 +72,7 @@ class main_frame: public wxFrame
 
         main_frame(wxWindow* p_parent_window, wxWindowID id_window_id = -1);
         virtual ~main_frame();
+        void gui (bool status_b);
         void console_rx_enable (bool status_b);
         bool is_console_rx_enable (void);
         void printf(wxString console_text_str);
@@ -85,7 +85,6 @@ class main_frame: public wxFrame
         uart_cfg_t get_config (void);
         wxString get_data (wxString text_str);
         void set_progress (wxString text_str, uint32_t progress_ui32);
-        graph_frame* get_graph_frame (void);
         void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
 
 
@@ -198,7 +197,6 @@ class main_frame: public wxFrame
         wxTimer lp_wx_gui_sync_wxtimer;
         //*)
         bool l_open_b;
-        graph_frame* lp_data_graph_frame;
         uart_port* p_communication_uart_port;
         HANDLE uart_thread_handle;
         DWORD uart_thread_id_dword;

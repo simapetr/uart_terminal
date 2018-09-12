@@ -65,6 +65,7 @@ END_EVENT_TABLE()
 /** @brief Constructor
  *
  * @param [IN] p_parent_wxwindow : Pointer on Windows window
+ * @param [IN] graph_label_str : Graph label
  * @param [IN] draph_range_d : Graph range
  * @param [IN] buffer_length_d : buffer length in (s)
  * @param [IN] time_step_d : Time stamp in (s)
@@ -72,7 +73,7 @@ END_EVENT_TABLE()
  *
  */
 
-data_plot::data_plot(wxWindow* p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d)
+data_plot::data_plot(wxWindow* p_parent_wxwindow, wxString graph_label_str, double draph_range_d, double buffer_length_d, double time_step_d)
 {
 wxWindow* parent = p_parent_wxwindow;
 double data_buffer_cnt_d;
@@ -119,6 +120,8 @@ double data_buffer_cnt_d;
     this->lp_graph_mpwindow->Fit(this->lv_time_data_plot_d[1], this->lv_time_data_plot_d[this->lv_time_data_plot_d.size()], (-this->l_graph_range_d),this->l_graph_range_d);
     // Initialization timer flag
     this->l_redraw_b = false;
+    // Set graph name
+    this->lp_graph_name_wxstatictext->SetLabel(graph_label_str);
 	return;
 }
 

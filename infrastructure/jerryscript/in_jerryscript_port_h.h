@@ -22,12 +22,16 @@
 
 #include <wx/string.h>
 #include <wx/thread.h>
+#include "in_js_gui_frame_h.h"
 #include "hw_dr_uart_driver_h.h"
 #include "in_js_class_time_js_h.h"
 #include "in_js_class_file_js_h.h"
 #include "in_js_class_uart_js_h.h"
-#include "in_js_class_gui_js_h.h"
+#include "in_js_class_main_frame_js_h.h"
+#include "in_js_class_panel_js_h.h"
+#include "in_js_class_sizer_js_h.h"
 #include "in_js_class_graph_js_h.h"
+#include "in_js_class_button_js_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -77,20 +81,28 @@ public:
 	~jerryscript_c( void );
 	uint32_t run(wxString script_str);
 	void stop (void);
+	void call_event (wxString event_str, uint32_t component_id_ui32);
 
 private:
 
     static uint32_t delay(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+    static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     // File path
 	wxString l_jerryscript_code_str;
 	uint32_t l_result_ui32;
+	// GUI
+	gui_frame* lp_data_gui_frame;
+	void* lp_gui_main_frame_void;
 	// External class
 	time_js_c l_data_time_js;
 	file_js_c l_data_file_js;
 	uart_js_c l_port_uart_js;
 	main_frame_js_c l_gui_main_frame_js;
-	graph_js_c l_graph_js;
+	panel_js_c l_gui_panel_js;
+	sizer_js_c l_gui_sizer_js;
+	graph_js_c l_gui_graph_js;
+	button_js_c l_gui_button_js;
 
 protected:
 

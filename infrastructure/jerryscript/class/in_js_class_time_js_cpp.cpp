@@ -54,7 +54,7 @@
 
 /** @brief Registration object in to class
  *
- * @param [IN] p_com_uart_port : Pointer on registered class
+ * @param void
  * @return void
  *
  */

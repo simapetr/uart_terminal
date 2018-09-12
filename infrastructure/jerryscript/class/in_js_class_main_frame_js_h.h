@@ -3,7 +3,7 @@
 
 /**
   ****************************************************************************
-  * @file    in_js_class_gui_js_h.h
+  * @file    in_js_class_main_frame_js_h.h
   * @author  Ing. Petr Simek
   * @version V1.0
   * @date    25.04.2018
@@ -38,7 +38,7 @@
   */
 
 /**
-  * @addtogroup GUI
+  * @addtogroup main_frame
   * @{
   */
 
@@ -55,6 +55,7 @@ class main_frame_js_c
 public:
 
     void reg_host_class (void* p_gui_main_frame_void);
+    static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);

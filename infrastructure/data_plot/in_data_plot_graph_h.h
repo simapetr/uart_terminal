@@ -22,10 +22,10 @@
 
 //(*Headers(data_plot)
 #include <mathplot.h>
+#include <wx/grid.h>
+#include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>
-#include <wx/panel.h>
-#include <wx/grid.h>
 #include <wx/timer.h>
 //*)
 
@@ -66,7 +66,7 @@ class data_plot: public wxPanel
 {
 	public:
 
-		data_plot(wxWindow* p_parent_wxwindow, double draph_range_d, double buffer_length_d, double time_step_d);
+		data_plot(wxWindow* p_parent_wxwindow, wxString graph_label_str, double draph_range_d, double buffer_length_d, double time_step_d);
         ~data_plot(void);
         void insert_signal (wxString signal_label_str, wxPen signal_style_pen);
         uint32_t get_signal (void);
@@ -92,9 +92,9 @@ class data_plot: public wxPanel
         //*)
 
 		//(*Declarations(data_plot)
+		mpScaleX   *lp_x_axis_mpscalex;
 		mpScaleY   *lp_y_axis_mpscalex;
 		mpWindow* lp_graph_mpwindow;
-		mpScaleX   *lp_x_axis_mpscalex;
 		wxBoxSizer* lp_graph_wxboxsizer;
 		wxGrid* lp_graph_signal_wxgrid;
 		wxStaticText* lp_graph_name_wxstatictext;

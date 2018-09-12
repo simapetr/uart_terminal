@@ -58,6 +58,9 @@
   ****************************************************************************
   */
 
+// GUI frame create flag
+static bool l_frame_enable_b = false;
+static bool l_frame_show_status_b = false;
 // application icon
 #include "icon/ap_ut_icon_app_xpm.xpm"
 //(*IdInit(main_frame)
@@ -122,7 +125,7 @@ main_frame::main_frame(wxWindow* parent, wxWindowID id)
 wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 
     //(*Initialize(main_frame)
-    Create(parent, wxID_ANY, _("UART terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("usart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
     lp_main_wxpanel = new wxPanel(this, l_id_main_wxpanel, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("l_id_main_wxpanel"));
     lp_main_wxboxsizer = new wxBoxSizer(wxVERTICAL);
@@ -176,7 +179,7 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     lp_close_wxbutton->Disable();
     lp_main_setting_wxboxsizer->Add(lp_close_wxbutton, 0, wxALL|wxALIGN_TOP, 5);
     lp_open_wxbutton = new wxButton(lp_main_wxpanel, l_id_open_wxbutton, _("Open"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_open_wxbutton"));
-    lp_main_setting_wxboxsizer->Add(lp_open_wxbutton, 0, wxALL|wxALIGN_TOP, 5);
+    lp_main_setting_wxboxsizer->Add(lp_open_wxbutton, 0, wxALL, 5);
     lp_main_wxboxsizer->Add(lp_main_setting_wxboxsizer, 0, wxEXPAND, 5);
     lp_main_control_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
     lp_text_control_wxstaticboxsizer = new wxStaticBoxSizer(wxHORIZONTAL, lp_main_wxpanel, _("Text mode"));
@@ -304,8 +307,6 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     this->p_communication_uart_port = new uart_port();
     this->main_panel_set_port_choice();
     this->uart_thread_run_ui32 = 1;
-    // Initialize graph window
-    this->lp_data_graph_frame = new graph_frame(this);
     // Restore configuration
     this->p_data_config_ini = NULL;
     this->p_data_config_ini = new config_ini();
@@ -396,12 +397,32 @@ int siz_h_int = 0;
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/add_lf"),this->lp_text_lf_wxcheckbox->GetValue());
     this->p_data_config_ini->set_string(wxT("CONFIGURATION/data"),this->lp_command_wxtextctrl->GetLineText(0));
     this->p_data_config_ini->set_string(wxT("CONFIGURATION/script_path"),this->lp_script_path_wxtextctrl->GetLineText(0));
+    // Stop timer
+    this->lp_wx_gui_sync_wxtimer.Stop();
+    this->lp_dialog_caller_wxtimer.Stop();
+    wxMilliSleep(110);
     // Terminate JavaScript
-    wxMilliSleep(200);
     if(this->lp_interpret_jerryscript)
     {
         this->lp_interpret_jerryscript->stop();
     }
+
+    //delete this->lp_data_gui_frame;
+    return;
+}
+
+/** @brief Set frame show status
+ *
+ * @param [IN] status_b : Show GUI frame
+ * @return void
+ *
+ */
+
+void main_frame::gui (bool status_b)
+{
+    l_frame_show_status_b = status_b;
+    l_frame_enable_b = true;
+    wxMilliSleep(40);
     return;
 }
 
@@ -712,18 +733,6 @@ void main_frame::set_progress (wxString text_str, uint32_t progress_ui32)
     this->l_progress_ui32 = progress_ui32;
     this->l_progress_end_b = false;
     return;
-}
-
-/** @brief Get graph object
- *
- * @param void
- * @return graph_frame : Pointer on graph object
- *
- */
-
-graph_frame* main_frame::get_graph_frame (void)
-{
-    return this->lp_data_graph_frame;
 }
 
 /** @brief Set external event after send button click

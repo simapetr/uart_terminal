@@ -1,6 +1,6 @@
 /**
   ****************************************************************************
-  * @file    in_js_class_gui_js_cpp.cpp
+  * @file    in_js_class_main_frame_js_cpp.cpp
   * @author  Ing. Petr Simek
   * @version V1.0
   * @date    25.04.2018
@@ -18,7 +18,7 @@
   */
 
 #include <wx/utils.h>
-#include "in_js_class_gui_js_h.h"
+#include "in_js_class_main_frame_js_h.h"
 #include "in_jerryscript_core_h.h"
 #include "ap_uart_terminal_frame_h.h"
 
@@ -40,8 +40,8 @@
   */
 
 /**
-  * @defgroup GUI
-  * @brief GUI interface
+  * @defgroup main_frame
+  * @brief Main frame interface
   * @{
   */
 
@@ -68,6 +68,12 @@ jerry_value_t name_jerry_value;
     this->lp_gui_main_frame_void = p_gui_main_frame_void;
     // Create method
     object_jerry_value = jerry_create_object ();
+    // GUI enable
+    funct_jerry_value = jerry_create_external_function(this->gui);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"gui");
+    jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
     // Console enable
     funct_jerry_value = jerry_create_external_function(this->console_rx_enable);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"console_rx_enable");
@@ -145,6 +151,42 @@ jerry_value_t name_jerry_value;
     jerry_release_value(name_jerry_value);
     jerry_release_value(object_jerry_value);
     return;
+}
+
+/** @brief GUI base function (JS function "gui")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t main_frame_js_c::gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+void* p_arg_void;
+main_frame_js_c* p_bkp_this = NULL;
+
+    if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
+    {
+        // Extract this
+        p_bkp_this = reinterpret_cast<main_frame_js_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 1 && p_bkp_this)
+        {
+            if(jerry_value_is_boolean(p_args_ui32[0]))
+            {
+                // Call class method
+                if (p_bkp_this)
+                {
+                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->gui((bool)p_args_ui32[0]);
+                }
+            }
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_undefined();
 }
 
 /** @brief GUI enable console rx data (JS method "console_rx_enable")

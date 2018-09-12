@@ -117,7 +117,7 @@
 								<label>Open</label>
 								<handler function="main_panel_open_button_click" entry="EVT_BUTTON" />
 							</object>
-							<flag>wxALL|wxALIGN_TOP</flag>
+							<flag>wxALL</flag>
 							<border>5</border>
 						</object>
 					</object>

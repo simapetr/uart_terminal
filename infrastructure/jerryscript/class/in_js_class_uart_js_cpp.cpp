@@ -326,6 +326,7 @@ uart_js_c* p_bkp_this = NULL;
                 if (p_bkp_this)
                 {
                     status_d = p_bkp_this->lp_com_uart_port->write_data(p_data_sui8, (uint32_t)jerry_get_number_value(p_args_ui32[1]));
+                    wxMilliSleep(1);
                 }
                 delete[] p_data_sui8;
             }
