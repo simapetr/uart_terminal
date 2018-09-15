@@ -88,6 +88,10 @@ class gui_frame: public wxFrame
         bool set_graph_data (uint32_t graph_ui32, vector<double>& pv_data_d);
         uint32_t add_button (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b);
         bool set_button_event (double button_index_d, wxString event_fct_str);
+        uint32_t add_slider (double sizer_index_d, double min_d, double max_d, double proportion_d, bool expand_b);
+        bool set_slider_event (double index_d, wxString event_fct_str);
+        int32_t get_slider_data (double index_d);
+        void set_slider_data (double index_d, double data_d);
 
     private:
 
@@ -105,9 +109,12 @@ class gui_frame: public wxFrame
         void on_clear_sizer(void);
         void on_update_graph(void);
         void on_clear_graph(void);
-        void on_update_button(void);
         void on_button_click(wxCommandEvent& event);
+        void on_update_button(void);
         void on_clear_button(void);
+        void on_slider_update(wxScrollEvent& event);
+        void on_update_slider(void);
+        void on_clear_slider(void);
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;

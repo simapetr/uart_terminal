@@ -125,6 +125,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_slider_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_slider_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
@@ -140,6 +142,7 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_graph_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_panel_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_sizer_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_slider_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_date_c.c">
 			<Option compilerVar="CC" />

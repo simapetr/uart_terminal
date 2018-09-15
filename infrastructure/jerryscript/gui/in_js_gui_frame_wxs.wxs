@@ -11,7 +11,7 @@
 			<handler function="on_frame_auimanager_pane_close" entry="EVT_AUI_PANE_CLOSE" />
 		</object>
 		<object class="wxTimer" name="l_id_update_wxtimer" variable="lp_update_wxtimer" member="yes">
-			<interval>10</interval>
+			<interval>2</interval>
 			<handler function="on_update_wxtimer_trigger" entry="EVT_TIMER" />
 		</object>
 	</object>

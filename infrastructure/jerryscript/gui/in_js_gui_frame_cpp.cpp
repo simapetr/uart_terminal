@@ -89,7 +89,7 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     SetClientSize(wxSize(815,440));
     lp_main_wxauimanager = new wxAuiManager(this, wxAUI_MGR_ALLOW_FLOATING|wxAUI_MGR_DEFAULT);
     lp_update_wxtimer.SetOwner(this, l_id_update_wxtimer);
-    lp_update_wxtimer.Start(10, false);
+    lp_update_wxtimer.Start(2, false);
 
     lp_main_wxauimanager->Connect(wxEVT_AUI_PANE_CLOSE,(wxObjectEventFunction)&gui_frame::on_frame_auimanager_pane_close,0,this);
     Connect(l_id_update_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&gui_frame::on_update_wxtimer_trigger);
@@ -103,8 +103,9 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     // Buffer initialization
     this->on_clear_panel();
     this->on_clear_sizer();
-    this->on_clear_button();
     this->on_clear_graph();
+    this->on_clear_button();
+    this->on_clear_slider();
     return;
 }
 
@@ -195,7 +196,7 @@ void gui_frame::on_close_event(wxCloseEvent& event)
 
 /** @brief Graph windows constructor (must be called from GUI context)
  *
- * @param [IN] event : wxTimer event data event [IN] : standard event input data
+ * @param [IN] event : wxTimer event data
  * @return void
  *
  */
@@ -218,6 +219,8 @@ static bool f_frame_show_bkp_b = false;
     this->on_update_graph();
     // Add button
     this->on_update_button();
+    // Add slider
+    this->on_update_slider();
     return;
 }
 

@@ -20,7 +20,7 @@
 #include <wx/utils.h>
 #include "in_js_class_button_js_h.h"
 #include "in_jerryscript_core_h.h"
-#include "ap_uart_terminal_frame_h.h"
+#include "in_js_gui_frame_h.h"
 
 /**
   * @addtogroup Infrastructure

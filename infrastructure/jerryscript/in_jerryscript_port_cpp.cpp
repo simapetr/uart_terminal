@@ -106,6 +106,7 @@ jerry_value_t name_jerry_value;
     this->l_gui_sizer_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_graph_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_button_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_slider_js.reg_host_class(this->lp_data_gui_frame);
     return;
 }
 
@@ -199,36 +200,19 @@ jerry_value_t global_obj = jerry_get_global_object ();
 jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)event_str.To8BitData().data());
 jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
 
-    jerry_release_value (sys_name);
-
-    if (jerry_value_has_error_flag (sysloop_func))
+    if (!jerry_value_has_error_flag (sysloop_func))
     {
-        jerry_release_value (global_obj);
-        jerry_release_value (sysloop_func);
-    }
-    else
-    {
-        if (!jerry_value_is_function (sysloop_func))
-        {
-            jerry_release_value (global_obj);
-            jerry_release_value (sysloop_func);
-        }
-        else
-        {
-            // Call function
-            jerry_value_t val_args[1];
-            uint16_t val_argv = 1;
-            val_args[0] = jerry_create_number(component_id_ui32);
-            // Call function
-            if (jerry_value_has_error_flag(jerry_call_function (sysloop_func, global_obj, val_args, val_argv)))
-            {
-                //char status = -3;
-            }
-            jerry_release_value (val_args[0]);
-        }
+        jerry_value_t val_args[1];
+        uint16_t val_argv = 1;
+        // Create function argument
+        val_args[0] = jerry_create_number(component_id_ui32);
+        // Call function
+        jerry_call_function(sysloop_func, global_obj, val_args, val_argv);
+        jerry_release_value (val_args[0]);
     }
     jerry_release_value (global_obj);
     jerry_release_value (sysloop_func);
+    jerry_release_value (sys_name);
     return;
 }
 
