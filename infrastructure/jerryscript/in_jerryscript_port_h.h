@@ -33,6 +33,7 @@
 #include "in_js_class_graph_js_h.h"
 #include "in_js_class_button_js_h.h"
 #include "in_js_class_slider_js_h.h"
+#include "in_js_class_static_text_js_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -105,6 +106,7 @@ private:
 	graph_js_c l_gui_graph_js;
 	button_js_c l_gui_button_js;
 	slider_js_c l_gui_slider_js;
+	static_text_js_c l_gui_static_text_js;
 
 protected:
 

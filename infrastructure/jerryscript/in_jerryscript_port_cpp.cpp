@@ -107,6 +107,7 @@ jerry_value_t name_jerry_value;
     this->l_gui_graph_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_button_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_slider_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_static_text_js.reg_host_class(this->lp_data_gui_frame);
     return;
 }
 

@@ -92,6 +92,8 @@ class gui_frame: public wxFrame
         bool set_slider_event (double index_d, wxString event_fct_str);
         int32_t get_slider_data (double index_d);
         void set_slider_data (double index_d, double data_d);
+        uint32_t add_static_text (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b);
+        bool set_static_text (double static_text_index_d, wxString text_str);
 
     private:
 
@@ -115,6 +117,8 @@ class gui_frame: public wxFrame
         void on_slider_update(wxScrollEvent& event);
         void on_update_slider(void);
         void on_clear_slider(void);
+        void on_update_static_text(void);
+        void on_clear_static_text(void);
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;
