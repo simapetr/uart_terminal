@@ -94,6 +94,10 @@ class gui_frame: public wxFrame
         void set_slider_data (double index_d, double data_d);
         uint32_t add_static_text (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b);
         bool set_static_text (double static_text_index_d, wxString text_str);
+        uint32_t add_textctrl (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b);
+        bool set_textctrl (double static_text_index_d, wxString text_str);
+        bool append_textctrl (double static_text_index_d, wxString text_str);
+        wxString get_textctrl (double static_text_index_d, uint32_t line_ui32);
 
     private:
 
@@ -119,6 +123,8 @@ class gui_frame: public wxFrame
         void on_clear_slider(void);
         void on_update_static_text(void);
         void on_clear_static_text(void);
+        void on_update_textctrl(void);
+        void on_clear_textctrl(void);
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;

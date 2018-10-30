@@ -74,16 +74,25 @@ IMPLEMENT_APP(main_app);
 
 bool main_app::OnInit()
 {
-    //(*AppInitialize
+int32_t cmd_cnt_i32;
+    // Convert CMD argument
+    this->lp_cmd_buffer_arraystring = new wxArrayString();
+    for(cmd_cnt_i32 = 0 ; cmd_cnt_i32 < argc ; cmd_cnt_i32++)
+    {
+        this->lp_cmd_buffer_arraystring->Add(argv[cmd_cnt_i32]);
+    }
+    // Application initialization
     bool wxsOK = true;
     wxInitAllImageHandlers();
     if ( wxsOK )
     {
-    	main_frame* Frame = new main_frame(0);
+    	main_frame* Frame = new main_frame(0, lp_cmd_buffer_arraystring);
     	Frame->Show();
     	SetTopWindow(Frame);
     }
+    //(*AppInitialize
     //*)
+    return wxsOK;
     return wxsOK;
 
 }

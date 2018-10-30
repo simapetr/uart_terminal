@@ -34,6 +34,7 @@
 #include "in_js_class_button_js_h.h"
 #include "in_js_class_slider_js_h.h"
 #include "in_js_class_static_text_js_h.h"
+#include "in_js_class_textctrl_js_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -79,7 +80,7 @@ class jerryscript_c
 {
 public:
 
-	jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void);
+	jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b);
 	~jerryscript_c( void );
 	uint32_t run(wxString script_str);
 	void stop (void);
@@ -107,6 +108,7 @@ private:
 	button_js_c l_gui_button_js;
 	slider_js_c l_gui_slider_js;
 	static_text_js_c l_gui_static_text_js;
+	textctrl_js_c l_gui_textctrl_js;
 
 protected:
 

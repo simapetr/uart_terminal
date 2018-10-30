@@ -67,6 +67,7 @@
 			<Add option="-D__GNUWIN32__" />
 			<Add option="-D__WXMSW__" />
 			<Add option="-DNO_LIB" />
+			<Add option="-DJERRY_DEBUGGER" />
 			<Add directory="$(#wx)/include" />
 			<Add directory="$(#wx)/contrib/include" />
 			<Add directory="../hardware/drivers/uart" />
@@ -129,10 +130,13 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_slider_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_static_text_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_static_text_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_textctrl_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_textctrl_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/debugger.h" />
 		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_signal_value_xpm.xpm" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_button_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_cpp.cpp" />
@@ -146,6 +150,7 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_sizer_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_slider_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_static_text_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_textctrl_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_date_c.c">
 			<Option compilerVar="CC" />
@@ -158,6 +163,7 @@
 		</Unit>
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_h.h" />
+		<Unit filename="../infrastructure/jerryscript/jerryscript-debugger.h" />
 		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
 		<Unit filename="../infrastructure/main/in_main_app_h.h" />
 		<Unit filename="../infrastructure/wx/led.cpp" />

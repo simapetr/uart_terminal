@@ -224,6 +224,8 @@ static bool f_frame_show_bkp_b = false;
     this->on_update_slider();
     // Add Static text
     this->on_update_static_text();
+    // Add Static text
+    this->on_update_textctrl();
     return;
 }
 

@@ -70,7 +70,7 @@ class main_frame: public wxFrame
 {
     public:
 
-        main_frame(wxWindow* p_parent_window, wxWindowID id_window_id = -1);
+        main_frame(wxWindow* p_parent_window, wxArrayString* p_cmd_arg_arraystring);
         virtual ~main_frame();
         void gui (bool status_b);
         void console_rx_enable (bool status_b);
@@ -220,6 +220,9 @@ class main_frame: public wxFrame
         bool l_progress_end_b;
         void *lp_event_parameter_void;
         send_event_fct l_data_send_event_fct;
+
+        wxArrayString* lp_cmd_arg_arraystring;
+        bool l_script_debug_b;
 
         DECLARE_EVENT_TABLE()
 };

@@ -120,10 +120,12 @@ END_EVENT_TABLE()
  *
  */
 
-main_frame::main_frame(wxWindow* parent, wxWindowID id)
+main_frame::main_frame(wxWindow* parent, wxArrayString* p_cmd_arg_arraystring)
 {
 wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 
+    // Save CMD parameter
+    this->lp_cmd_arg_arraystring = p_cmd_arg_arraystring;
     //(*Initialize(main_frame)
     Create(parent, wxID_ANY, _("usart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
@@ -339,6 +341,15 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     // Initialize event
     this->lp_event_parameter_void = NULL;
     this->l_data_send_event_fct = NULL;
+    // Set debug flag
+    if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
+    {
+        this->l_script_debug_b = true;
+    }
+    else
+    {
+        this->l_script_debug_b = false;
+    }
     // Restore window position
     Move(wxPoint(this->p_data_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),this->p_data_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
     if (this->p_data_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
@@ -983,7 +994,7 @@ static wxString script_file_str;
         if(this->lp_interpret_jerryscript == NULL)
         {
             // Load JavaScript interpreter
-            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this);
+            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b);
         }
         if(this->lp_interpret_jerryscript)
         {

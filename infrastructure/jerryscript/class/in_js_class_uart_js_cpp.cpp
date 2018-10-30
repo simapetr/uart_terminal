@@ -490,40 +490,25 @@ jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
 
     jerry_release_value (sys_name);
 
-    if (jerry_value_has_error_flag (sysloop_func))
+    if (sysloop_func != 4)
     {
-        jerry_release_value (global_obj);
-        jerry_release_value (sysloop_func);
-    }
-    else
-    {
-        if (!jerry_value_is_function (sysloop_func))
+        // Call function
+        jerry_value_t val_args[2];
+        uint16_t val_argv = 2;
+        val_args[0] = jerry_create_number (event_type_ui32);
+        val_args[1] = jerry_create_array(length_ui32);
+        // Set data array
+        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
         {
-            jerry_release_value (global_obj);
-            jerry_release_value (sysloop_func);
+            jerry_value_t data_jerry_value = jerry_create_number(double(p_data_sui8[data_cnt_ui32]));
+            jerry_set_property_by_index (val_args[1], data_cnt_ui32, jerry_value_to_number(data_jerry_value));
+            jerry_release_value(data_jerry_value);
         }
-        else
-        {
-            // Call function
-            jerry_value_t val_args[2];
-            uint16_t val_argv = 2;
-            val_args[0] = jerry_create_number (event_type_ui32);
-            val_args[1] = jerry_create_array(length_ui32);
-            // Set data array
-            for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
-            {
-                jerry_value_t data_jerry_value = jerry_create_number(double(p_data_sui8[data_cnt_ui32]));
-                jerry_set_property_by_index (val_args[1], data_cnt_ui32, jerry_value_to_number(data_jerry_value));
-                jerry_release_value(data_jerry_value);
-            }
-            // Call function
-            if (jerry_value_has_error_flag(jerry_call_function (sysloop_func, global_obj, val_args, val_argv)))
-            {
-                //char status = -3;
-            }
-            jerry_release_value (val_args[0]);
-            jerry_release_value (val_args[1]);
-        }
+        // Call function
+        jerry_call_function (sysloop_func, global_obj, val_args, val_argv);
+        // Release argument
+        jerry_release_value (val_args[0]);
+        jerry_release_value (val_args[1]);
     }
     jerry_release_value (global_obj);
     jerry_release_value (sysloop_func);

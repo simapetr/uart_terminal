@@ -21,6 +21,7 @@
 #include <wx/msgdlg.h>
 #include "in_jerryscript_port_h.h"
 #include "in_jerryscript_core_h.h"
+#include "debugger.h"
 
 /**
   * @addtogroup Infrastructure
@@ -55,12 +56,14 @@ bool l_in_js_port_gui_enable_b = false;
 
 /** @brief Constructor
  *
- * @param void
+ * @param [IN] p_com_uart_port : Communication port object
+ * @param [IN] p_gui_main_frame_void : GUI frame pointer
+ * @param [IN] debug_b : Script debug enable
  * @return void
  *
  */
 
-jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void)
+jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b)
 {
 jerry_init_flag_t init_jerry_init_flag = JERRY_INIT_EMPTY;
 jerry_value_t global_jerry_value;
@@ -71,6 +74,11 @@ jerry_value_t name_jerry_value;
     this->lp_gui_main_frame_void = p_gui_main_frame_void;
     // Interpreter initialization
     jerry_init (init_jerry_init_flag);
+    if (debug_b)
+    {
+        // Initialization debug server
+        jerryx_debugger_after_connect (jerryx_debugger_tcp_create (5001) && jerryx_debugger_ws_create ());
+    }
     // Initialize GUI window
     this->lp_data_gui_frame = new gui_frame((wxWindow*)this->lp_gui_main_frame_void, this);
     // Read global object
@@ -108,6 +116,7 @@ jerry_value_t name_jerry_value;
     this->l_gui_button_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_slider_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_static_text_js.reg_host_class(this->lp_data_gui_frame);
+    this->l_gui_textctrl_js.reg_host_class(this->lp_data_gui_frame);
     return;
 }
 
@@ -201,7 +210,7 @@ jerry_value_t global_obj = jerry_get_global_object ();
 jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)event_str.To8BitData().data());
 jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
 
-    if (!jerry_value_has_error_flag (sysloop_func))
+    if (sysloop_func != 4)
     {
         jerry_value_t val_args[1];
         uint16_t val_argv = 1;
@@ -236,9 +245,6 @@ wxThread::ExitCode jerryscript_thread_c::Entry()
     {
         //jerry_run_simple((const jerry_char_t*) this->lp_object_jerryscript->l_jerryscript_code_str.To8BitData().data(), this->lp_object_jerryscript->l_jerryscript_code_str.Length(), JERRY_INIT_EMPTY);
         this->lp_object_jerryscript->l_result_ui32 = jerry_eval((const jerry_char_t*) this->lp_object_jerryscript->l_jerryscript_code_str.To8BitData().data(), this->lp_object_jerryscript->l_jerryscript_code_str.Length(), false);
-        if (!jerry_value_has_error_flag (this->lp_object_jerryscript->l_result_ui32))
-        {
-        }
         jerry_release_value (this->lp_object_jerryscript->l_result_ui32);
     }
     return (wxThread::ExitCode)0;

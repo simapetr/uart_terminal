@@ -42,6 +42,8 @@ class main_app : public wxApp
 {
     public:
         virtual bool OnInit();
+    private:
+        wxArrayString* lp_cmd_buffer_arraystring;
 };
 
 /**
