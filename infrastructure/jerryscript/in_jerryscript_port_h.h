@@ -36,6 +36,7 @@
 #include "in_js_class_static_text_js_h.h"
 #include "in_js_class_textctrl_js_h.h"
 #include "in_js_class_check_box_js_h.h"
+#include "in_js_class_gauge_js_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -111,6 +112,7 @@ private:
 	static_text_js_c l_gui_static_text_js;
 	textctrl_js_c l_gui_textctrl_js;
 	check_box_js_c l_gui_check_box_js;
+	gauge_js_c l_gui_gauge_js;
 
 protected:
 

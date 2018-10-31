@@ -102,6 +102,9 @@ class gui_frame: public wxFrame
         bool set_check_box_event (double check_box_index_d, wxString event_fct_str);
         bool set_check_box (double check_box_index_d, bool state_b);
         bool get_check_box (double check_box_index_d);
+        uint32_t add_gauge (double sizer_index_d, double proportion_d, bool expand_b, double size_d);
+        bool set_gauge (double check_box_index_d, double value_d);
+        double get_gauge (double check_box_index_d);
 
     private:
 
@@ -132,6 +135,8 @@ class gui_frame: public wxFrame
         void on_check_box_click(wxCommandEvent& event);
         void on_update_check_box(void);
         void on_clear_check_box(void);
+        void on_update_gauge(void);
+        void on_clear_gauge(void);
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;

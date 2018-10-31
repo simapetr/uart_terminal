@@ -107,6 +107,9 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     this->on_clear_button();
     this->on_clear_slider();
     this->on_clear_static_text();
+    this->on_clear_textctrl();
+    this->on_clear_check_box();
+    this->on_clear_gauge();
     return;
 }
 
@@ -228,6 +231,8 @@ static bool f_frame_show_bkp_b = false;
     this->on_update_textctrl();
     // Add check box
     this->on_update_check_box();
+    // Add check box
+    this->on_update_gauge();
     return;
 }
 

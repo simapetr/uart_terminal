@@ -166,6 +166,7 @@ void gui_frame::on_update_button(void)
 static uint32_t f_button_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
+wxString button_name_str;
 
     // Add button
     while (f_button_cnt_ui32 < lv_data_button_buffer.size())
@@ -176,8 +177,10 @@ wxBoxSizer* p_data_wxboxsizer;
         p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_button_buffer[f_button_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
         // Get new object ID
         lv_data_button_buffer[f_button_cnt_ui32].object_id_i32 = wxNewId();
+        // Set new name
+        button_name_str.Printf("id_button_%u", f_button_cnt_ui32);
         // Create new button
-        lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton = new wxButton(p_data_wxpanel, lv_data_button_buffer[f_button_cnt_ui32].object_id_i32, lv_data_button_buffer[f_button_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, lv_data_button_buffer[f_button_cnt_ui32].text_str);
+        lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton = new wxButton(p_data_wxpanel, lv_data_button_buffer[f_button_cnt_ui32].object_id_i32, lv_data_button_buffer[f_button_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, button_name_str);
         if (lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton)
         {
             // Insert in to sizer

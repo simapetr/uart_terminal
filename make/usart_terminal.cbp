@@ -120,6 +120,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_check_box_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gauge_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gauge_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_cpp.cpp" />
@@ -148,6 +150,7 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_wxs.wxs" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_gauge_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_graph_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_panel_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_sizer_cpp.cpp" />
