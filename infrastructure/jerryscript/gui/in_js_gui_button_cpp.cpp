@@ -178,21 +178,24 @@ wxBoxSizer* p_data_wxboxsizer;
         lv_data_button_buffer[f_button_cnt_ui32].object_id_i32 = wxNewId();
         // Create new button
         lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton = new wxButton(p_data_wxpanel, lv_data_button_buffer[f_button_cnt_ui32].object_id_i32, lv_data_button_buffer[f_button_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, lv_data_button_buffer[f_button_cnt_ui32].text_str);
-        // Insert in to sizer
-        if(lv_data_button_buffer[f_button_cnt_ui32].expand_b)
+        if (lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton)
         {
-            p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            // Insert in to sizer
+            if(lv_data_button_buffer[f_button_cnt_ui32].expand_b)
+            {
+                p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            }
+            else
+            {
+                p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL, 5);
+            }
+            p_data_wxboxsizer->Fit(p_data_wxpanel);
+            p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
+            p_data_wxboxsizer->Layout();
+            lp_main_wxauimanager->Update();
+            // Bind event
+            lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton->Bind(wxEVT_BUTTON, &gui_frame::on_button_click, this);
         }
-        else
-        {
-            p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL, 5);
-        }
-        p_data_wxboxsizer->Fit(p_data_wxpanel);
-        p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
-        p_data_wxboxsizer->Layout();
-        lp_main_wxauimanager->Update();
-        // Bind event
-        lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton->Bind(wxEVT_BUTTON, &gui_frame::on_button_click, this);
         f_button_cnt_ui32++;
     }
     return;

@@ -129,30 +129,33 @@ sizer_buffer_t data_sizer_buffer;
     {
         // Create new panel
         lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel = new wxPanel(this, wxNewId(), wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, lv_data_panel_buffer[f_panel_cnt_ui32].name_str);
-        lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel->SetFocus();
-        // Create new sizer
-        data_sizer_buffer.sizer_orientation_b = lv_data_panel_buffer[f_panel_cnt_ui32].sizer_orientation_b;
-        data_sizer_buffer.panel_index_d = f_panel_cnt_ui32;
-        data_sizer_buffer.parent_index_d = lv_data_sizer_buffer.size();
-        data_sizer_buffer.proportion_d = 0;
-        if(lv_data_panel_buffer[f_panel_cnt_ui32].sizer_orientation_b)
+        if(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel)
         {
-            data_sizer_buffer.p_data_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
+            lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel->SetFocus();
+            // Create new sizer
+            data_sizer_buffer.sizer_orientation_b = lv_data_panel_buffer[f_panel_cnt_ui32].sizer_orientation_b;
+            data_sizer_buffer.panel_index_d = f_panel_cnt_ui32;
+            data_sizer_buffer.parent_index_d = lv_data_sizer_buffer.size();
+            data_sizer_buffer.proportion_d = 0;
+            if(lv_data_panel_buffer[f_panel_cnt_ui32].sizer_orientation_b)
+            {
+                data_sizer_buffer.p_data_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
+            }
+            else
+            {
+                data_sizer_buffer.p_data_wxboxsizer = new wxBoxSizer(wxVERTICAL);
+            }
+            lv_data_panel_buffer[f_panel_cnt_ui32].sizer_index_d = lv_data_sizer_buffer.size();
+            lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel->SetSizer(data_sizer_buffer.p_data_wxboxsizer);
+            // Update
+            data_sizer_buffer.p_data_wxboxsizer->Fit(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel);
+            data_sizer_buffer.p_data_wxboxsizer->SetSizeHints(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel);
+            // Add panel in to AUI
+            lp_main_wxauimanager->AddPane(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel, wxAuiPaneInfo().DefaultPane().Caption(lv_data_panel_buffer[f_panel_cnt_ui32].name_str).CaptionVisible().MinimizeButton().MaximizeButton().PinButton().Maximize());
+            lp_main_wxauimanager->Update();
+            // Save sizer
+            lv_data_sizer_buffer.push_back(data_sizer_buffer);
         }
-        else
-        {
-            data_sizer_buffer.p_data_wxboxsizer = new wxBoxSizer(wxVERTICAL);
-        }
-        lv_data_panel_buffer[f_panel_cnt_ui32].sizer_index_d = lv_data_sizer_buffer.size();
-        lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel->SetSizer(data_sizer_buffer.p_data_wxboxsizer);
-        // Update
-        data_sizer_buffer.p_data_wxboxsizer->Fit(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel);
-        data_sizer_buffer.p_data_wxboxsizer->SetSizeHints(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel);
-        // Add panel in to AUI
-        lp_main_wxauimanager->AddPane(lv_data_panel_buffer[f_panel_cnt_ui32].p_data_wxpanel, wxAuiPaneInfo().DefaultPane().Caption(lv_data_panel_buffer[f_panel_cnt_ui32].name_str).CaptionVisible().MinimizeButton().MaximizeButton().PinButton().Maximize());
-        lp_main_wxauimanager->Update();
-        // Save sizer
-        lv_data_sizer_buffer.push_back(data_sizer_buffer);
         f_panel_cnt_ui32++;
     }
     return;

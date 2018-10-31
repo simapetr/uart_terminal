@@ -222,10 +222,12 @@ static bool f_frame_show_bkp_b = false;
     this->on_update_button();
     // Add slider
     this->on_update_slider();
-    // Add Static text
+    // Add static text
     this->on_update_static_text();
-    // Add Static text
+    // Add text control
     this->on_update_textctrl();
+    // Add check box
+    this->on_update_check_box();
     return;
 }
 

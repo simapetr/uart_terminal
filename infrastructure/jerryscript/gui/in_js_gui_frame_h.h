@@ -98,6 +98,10 @@ class gui_frame: public wxFrame
         bool set_textctrl (double static_text_index_d, wxString text_str);
         bool append_textctrl (double static_text_index_d, wxString text_str);
         wxString get_textctrl (double static_text_index_d, uint32_t line_ui32);
+        uint32_t add_check_box (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool state_b);
+        bool set_check_box_event (double check_box_index_d, wxString event_fct_str);
+        bool set_check_box (double check_box_index_d, bool state_b);
+        bool get_check_box (double check_box_index_d);
 
     private:
 
@@ -125,6 +129,9 @@ class gui_frame: public wxFrame
         void on_clear_static_text(void);
         void on_update_textctrl(void);
         void on_clear_textctrl(void);
+        void on_check_box_click(wxCommandEvent& event);
+        void on_update_check_box(void);
+        void on_clear_check_box(void);
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;

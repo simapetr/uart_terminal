@@ -116,6 +116,8 @@
 		<Unit filename="../infrastructure/data_plot/in_data_plot_graph_wxs.wxs" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_button_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_button_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_check_box_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_check_box_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_file_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp" />
@@ -139,6 +141,7 @@
 		<Unit filename="../infrastructure/jerryscript/debugger.h" />
 		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_signal_value_xpm.xpm" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_button_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_check_box_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_h.h" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_rc.rc">

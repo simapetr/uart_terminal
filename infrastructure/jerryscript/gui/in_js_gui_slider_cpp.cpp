@@ -187,12 +187,15 @@ uint32_t event_cnt_ui32;
     {
         if (lv_data_slider_buffer[event_cnt_ui32].object_id_i32 == event.GetId())
         {
-            // Read value
-            lv_data_slider_buffer[event_cnt_ui32].value_d = lv_data_slider_buffer[event_cnt_ui32].p_data_wxslider->GetValue();
-            // Call event function
-            if (lv_data_slider_buffer[event_cnt_ui32].event_str != wxEmptyString)
+            if(lv_data_slider_buffer[event_cnt_ui32].p_data_wxslider)
             {
-                ((jerryscript_c*)(this->lp_jerryscript_void))->call_event(lv_data_slider_buffer[event_cnt_ui32].event_str, event_cnt_ui32);
+                // Read value
+                lv_data_slider_buffer[event_cnt_ui32].value_d = lv_data_slider_buffer[event_cnt_ui32].p_data_wxslider->GetValue();
+                // Call event function
+                if (lv_data_slider_buffer[event_cnt_ui32].event_str != wxEmptyString)
+                {
+                    ((jerryscript_c*)(this->lp_jerryscript_void))->call_event(lv_data_slider_buffer[event_cnt_ui32].event_str, event_cnt_ui32);
+                }
             }
         }
     }
@@ -227,21 +230,24 @@ uint32_t item_cnt_ui32;
         slider_name_str.Printf("id_slider_%u", f_item_cnt_ui32);
         // Create new slider
         lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider = new wxSlider(p_data_wxpanel, lv_data_slider_buffer[f_item_cnt_ui32].object_id_i32, lv_data_slider_buffer[f_item_cnt_ui32].min_d, lv_data_slider_buffer[f_item_cnt_ui32].min_d, lv_data_slider_buffer[f_item_cnt_ui32].max_d, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, slider_name_str);
-        // Insert in to sizer
-        if(lv_data_slider_buffer[f_item_cnt_ui32].expand_b)
+        if(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider)
         {
-            p_data_wxboxsizer->Add(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider, lv_data_slider_buffer[f_item_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            // Insert in to sizer
+            if(lv_data_slider_buffer[f_item_cnt_ui32].expand_b)
+            {
+                p_data_wxboxsizer->Add(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider, lv_data_slider_buffer[f_item_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            }
+            else
+            {
+                p_data_wxboxsizer->Add(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider, lv_data_slider_buffer[f_item_cnt_ui32].proportion_d, wxALL, 5);
+            }
+            p_data_wxboxsizer->Fit(p_data_wxpanel);
+            p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
+            p_data_wxboxsizer->Layout();
+            lp_main_wxauimanager->Update();
+            // Bind event
+            lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider->Bind(wxEVT_COMMAND_SLIDER_UPDATED,(wxObjectEventFunction)&gui_frame::on_slider_update, this);
         }
-        else
-        {
-            p_data_wxboxsizer->Add(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider, lv_data_slider_buffer[f_item_cnt_ui32].proportion_d, wxALL, 5);
-        }
-        p_data_wxboxsizer->Fit(p_data_wxpanel);
-        p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
-        p_data_wxboxsizer->Layout();
-        lp_main_wxauimanager->Update();
-        // Bind event
-        lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider->Bind(wxEVT_COMMAND_SLIDER_UPDATED,(wxObjectEventFunction)&gui_frame::on_slider_update, this);
         f_item_cnt_ui32++;
     }
     for (item_cnt_ui32 = 0 ; item_cnt_ui32 < lv_data_slider_buffer.size() ; item_cnt_ui32++)
@@ -249,7 +255,10 @@ uint32_t item_cnt_ui32;
         if (lv_data_slider_buffer[item_cnt_ui32].update_b)
         {
             lv_data_slider_buffer[item_cnt_ui32].update_b = false;
-            lv_data_slider_buffer[item_cnt_ui32].p_data_wxslider->SetValue((int)lv_data_slider_buffer[item_cnt_ui32].value_d);
+            if(lv_data_slider_buffer[f_item_cnt_ui32].p_data_wxslider)
+            {
+                lv_data_slider_buffer[item_cnt_ui32].p_data_wxslider->SetValue((int)lv_data_slider_buffer[item_cnt_ui32].value_d);
+            }
         }
     }
 

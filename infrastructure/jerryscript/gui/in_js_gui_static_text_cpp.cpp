@@ -158,19 +158,22 @@ uint32_t item_cnt_ui32;
         static_text_name_str.Printf("id_static_text_%u", f_item_cnt_ui32);
         // Create new static text
         lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext = new wxStaticText(p_data_wxpanel, lv_data_static_text_buffer[f_item_cnt_ui32].object_id_i32, lv_data_static_text_buffer[f_item_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, static_text_name_str);
-        // Insert in to sizer
-        if(lv_data_static_text_buffer[f_item_cnt_ui32].expand_b)
+        if(lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext)
         {
-            p_data_wxboxsizer->Add(lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext, lv_data_static_text_buffer[f_item_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            // Insert in to sizer
+            if(lv_data_static_text_buffer[f_item_cnt_ui32].expand_b)
+            {
+                p_data_wxboxsizer->Add(lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext, lv_data_static_text_buffer[f_item_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+            }
+            else
+            {
+                p_data_wxboxsizer->Add(lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext, lv_data_static_text_buffer[f_item_cnt_ui32].proportion_d, wxALL, 5);
+            }
+            p_data_wxboxsizer->Fit(p_data_wxpanel);
+            p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
+            p_data_wxboxsizer->Layout();
+            lp_main_wxauimanager->Update();
         }
-        else
-        {
-            p_data_wxboxsizer->Add(lv_data_static_text_buffer[f_item_cnt_ui32].p_data_wxstatictext, lv_data_static_text_buffer[f_item_cnt_ui32].proportion_d, wxALL, 5);
-        }
-        p_data_wxboxsizer->Fit(p_data_wxpanel);
-        p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
-        p_data_wxboxsizer->Layout();
-        lp_main_wxauimanager->Update();
         f_item_cnt_ui32++;
     }
     for (item_cnt_ui32 = 0 ; item_cnt_ui32 < lv_data_static_text_buffer.size() ; item_cnt_ui32++)
@@ -178,7 +181,10 @@ uint32_t item_cnt_ui32;
         if (lv_data_static_text_buffer[item_cnt_ui32].update_b)
         {
             lv_data_static_text_buffer[item_cnt_ui32].update_b = false;
-            lv_data_static_text_buffer[item_cnt_ui32].p_data_wxstatictext->SetLabel(lv_data_static_text_buffer[item_cnt_ui32].text_str);
+            if(lv_data_static_text_buffer[item_cnt_ui32].p_data_wxstatictext)
+            {
+                lv_data_static_text_buffer[item_cnt_ui32].p_data_wxstatictext->SetLabel(lv_data_static_text_buffer[item_cnt_ui32].text_str);
+            }
         }
     }
     return;

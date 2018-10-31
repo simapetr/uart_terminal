@@ -192,12 +192,15 @@ wxBoxSizer* p_data_wxboxsizer;
         p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_graph_buffer[f_graph_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
         // Create new graph
         lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot = new data_plot(p_data_wxpanel, lv_data_graph_buffer[f_graph_cnt_ui32].name_str, lv_data_graph_buffer[f_graph_cnt_ui32].graph_range_d, lv_data_graph_buffer[f_graph_cnt_ui32].buffer_length_d, lv_data_graph_buffer[f_graph_cnt_ui32].time_step_d);
-        // Insert in to sizer
-        p_data_wxboxsizer->Add(lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot, 1, wxEXPAND, 5);
-        p_data_wxboxsizer->Fit(p_data_wxpanel);
-        p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
-        p_data_wxboxsizer->Layout();
-        lp_main_wxauimanager->Update();
+        if(lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot)
+        {
+            // Insert in to sizer
+            p_data_wxboxsizer->Add(lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot, 1, wxEXPAND, 5);
+            p_data_wxboxsizer->Fit(p_data_wxpanel);
+            p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
+            p_data_wxboxsizer->Layout();
+            lp_main_wxauimanager->Update();
+        }
         f_graph_cnt_ui32++;
     }
     return;
