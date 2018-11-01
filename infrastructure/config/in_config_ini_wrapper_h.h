@@ -42,7 +42,7 @@ class config_ini
 {
 public:
 
-	config_ini( void );
+	config_ini( wxString path_str );
 	~config_ini( void );
 	int32_t get_value( wxString path_str, wxString default_value_str );
 	wxString get_string( wxString path_str, wxString default_value_str );

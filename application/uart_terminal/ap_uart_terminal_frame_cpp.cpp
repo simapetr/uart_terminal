@@ -27,6 +27,7 @@
 #include <wx/string.h>
 //*)
 #include <wx/imaglist.h>
+#include <wx/filename.h>
 
 /**
   * @defgroup Application
@@ -123,6 +124,7 @@ END_EVENT_TABLE()
 main_frame::main_frame(wxWindow* parent, wxArrayString* p_cmd_arg_arraystring)
 {
 wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
+wxString cfg_path_str = wxEmptyString;
 
     // Save CMD parameter
     this->lp_cmd_arg_arraystring = p_cmd_arg_arraystring;
@@ -311,7 +313,18 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     this->uart_thread_run_ui32 = 1;
     // Restore configuration
     this->p_data_config_ini = NULL;
-    this->p_data_config_ini = new config_ini();
+    // Create absolute path for configuration file
+    if (this->lp_cmd_arg_arraystring->Item(0).GetChar(this->lp_cmd_arg_arraystring->Item(0).Length()) == wxFileName::GetPathSeparator())
+    {
+        cfg_path_str = this->lp_cmd_arg_arraystring->Item(0).BeforeLast(wxFileName::GetPathSeparator()).BeforeLast(wxFileName::GetPathSeparator());
+    }
+    else
+    {
+        cfg_path_str = this->lp_cmd_arg_arraystring->Item(0).BeforeLast(wxFileName::GetPathSeparator());
+    }
+    cfg_path_str += "\\config.ini";
+    // Open configuration file
+    this->p_data_config_ini = new config_ini(cfg_path_str);
     this->lp_port_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/port"),wxT("0")));
     this->lp_speed_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/speed"),wxT("7")));
     this->lp_length_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/bit_length"),wxT("3")));
@@ -359,6 +372,13 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     else
     {
         SetClientSize(wxSize(this->p_data_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), this->p_data_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+    }
+    this->Show();
+    // run script path
+    if ((this->lp_cmd_arg_arraystring->GetCount() == 2) && (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Item(1).Find(wxT(".js"))))
+    {
+        // Run drag&drop script
+        this->run_script(this->lp_cmd_arg_arraystring->Item(1));
     }
     return;
 }
@@ -417,8 +437,6 @@ int siz_h_int = 0;
     {
         this->lp_interpret_jerryscript->stop();
     }
-
-    //delete this->lp_data_gui_frame;
     return;
 }
 
@@ -761,6 +779,46 @@ void main_frame::set_send_event (send_event_fct data_send_event_fct, void* p_par
     return;
 }
 
+/** @brief Run JS script
+ *
+ * @param [IN] path_str : Script path
+ * @return void
+ *
+ */
+
+uint32_t main_frame::run_script(wxString path_str)
+{
+uint32_t run_status_ui32;
+static wxString script_file_str;
+
+    if (path_str != wxEmptyString)
+    {
+        // Create script interpreter object
+        if(this->lp_interpret_jerryscript == NULL)
+        {
+            // Load JavaScript interpreter
+            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b);
+        }
+        if(this->lp_interpret_jerryscript)
+        {
+            wxFile* p_stcipt_wxfile = new wxFile(path_str);
+            if(p_stcipt_wxfile->IsOpened())
+            {
+                p_stcipt_wxfile->ReadAll(&script_file_str);
+                if (script_file_str != wxEmptyString)
+                {
+                    // Run script
+                    run_status_ui32 = this->lp_interpret_jerryscript->run(script_file_str);
+                    wxMilliSleep(300);
+                    p_stcipt_wxfile->Close();
+                }
+            }
+            delete p_stcipt_wxfile;
+        }
+    }
+    return run_status_ui32;
+}
+
 /** @brief Quit item selected event
  *
  * @param [IN] event : standard event input data
@@ -984,14 +1042,37 @@ void main_frame::on_script_load_wxbutton_click(wxCommandEvent& event)
 
 void main_frame::on_script_run_wxbutton_click(wxCommandEvent& event)
 {
-uint32_t run_status_ui32;
-wxString script_path_str;
+//uint32_t run_status_ui32;
+//wxString script_path_str;
 static wxString script_file_str;
 
     if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
     {
+        switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
+        {
+            case 0:
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
+            }
+            break;
+            case 1:
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
+            }
+            break;
+            case 2:
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
+            }
+            break;
+            default:
+            {
+                this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
+            }
+            break;
+        }
         // Create script interpreter object
-        if(this->lp_interpret_jerryscript == NULL)
+        /*if(this->lp_interpret_jerryscript == NULL)
         {
             // Load JavaScript interpreter
             this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b);
@@ -1033,6 +1114,7 @@ static wxString script_file_str;
                 delete p_stcipt_wxfile;
             }
         }
+        */
     }
     return;
 }

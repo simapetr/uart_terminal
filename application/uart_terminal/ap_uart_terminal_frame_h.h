@@ -86,6 +86,7 @@ class main_frame: public wxFrame
         wxString get_data (wxString text_str);
         void set_progress (wxString text_str, uint32_t progress_ui32);
         void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
+        uint32_t run_script(wxString path_str);
 
 
     private:

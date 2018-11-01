@@ -87,7 +87,7 @@ int32_t cmd_cnt_i32;
     if ( wxsOK )
     {
     	main_frame* Frame = new main_frame(0, lp_cmd_buffer_arraystring);
-    	Frame->Show();
+    	//Frame->Show();
     	SetTopWindow(Frame);
     }
     //(*AppInitialize

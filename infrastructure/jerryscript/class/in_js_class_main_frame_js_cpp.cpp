@@ -140,6 +140,12 @@ jerry_value_t name_jerry_value;
     jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
+    // Hide main frame
+    funct_jerry_value = jerry_create_external_function(this->hide);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"hide");
+    jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
     // Create class
     global_jerry_value = jerry_get_global_object();
     name_jerry_value = jerry_create_string((const jerry_char_t*)"main_frame");
@@ -672,6 +678,39 @@ main_frame_js_c* p_bkp_this = NULL;
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(status_ui32);
+}
+
+/** @brief Hide main frame (JS method "hide")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t main_frame_js_c::hide(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+void* p_arg_void;
+main_frame_js_c* p_bkp_this = NULL;
+
+    if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
+    {
+        // Extract this
+        p_bkp_this = reinterpret_cast<main_frame_js_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 1 && p_bkp_this)
+        {
+            if(jerry_value_is_boolean(p_args_ui32[0]))
+            {
+                // Set main frame visibility
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->Show(!jerry_get_boolean_value(p_args_ui32[0]));
+            }
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_undefined();
 }
 
 /** @brief Data in UART buffer event

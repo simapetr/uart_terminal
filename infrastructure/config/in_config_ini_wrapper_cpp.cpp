@@ -40,16 +40,23 @@
 
 /** @brief Constructor
  *
- * @param void
+ * @param [IN] path_str : Configuration file path
  * @return void
  *
  */
 
-config_ini::config_ini( void )
+config_ini::config_ini( wxString path_str )
 {
 wxFile config_wxfile;
 
-	this->ini_file_path_str = wxT("config.ini");
+    if (path_str == wxEmptyString)
+    {
+        this->ini_file_path_str = wxT("config.ini");
+    }
+    else
+    {
+        this->ini_file_path_str = path_str;
+    }
 	if (!config_wxfile.Exists(this->ini_file_path_str))
     {
         config_wxfile.Create(this->ini_file_path_str);
