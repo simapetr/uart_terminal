@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="gui_frame">
-		<title>Graph</title>
+		<title>GUI application</title>
 		<size>815,440</size>
 		<id_arg>0</id_arg>
 		<handler function="on_close_event" entry="EVT_CLOSE" />
@@ -11,7 +11,7 @@
 			<handler function="on_frame_auimanager_pane_close" entry="EVT_AUI_PANE_CLOSE" />
 		</object>
 		<object class="wxTimer" name="l_id_update_wxtimer" variable="lp_update_wxtimer" member="yes">
-			<interval>2</interval>
+			<interval>1</interval>
 			<handler function="on_update_wxtimer_trigger" entry="EVT_TIMER" />
 		</object>
 	</object>

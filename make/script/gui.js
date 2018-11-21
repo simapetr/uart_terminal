@@ -30,9 +30,8 @@ var static_text_id;
   ****************************************************************************
   */
 
-main_frame.hide(true);
 // Show gui frame
-gui(true);
+gui(true, "GUI use example", false);
 // Create new AUI panel
 panel_id = gui.panel.add("test_panel", true);
 // Add basic sizer in to panel

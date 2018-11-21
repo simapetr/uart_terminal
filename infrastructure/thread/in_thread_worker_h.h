@@ -1,13 +1,13 @@
-#ifndef IN_JS_CLASS_GRAPH_JS_H_H_INCLUDED
-#define IN_JS_CLASS_GRAPH_JS_H_H_INCLUDED
+#ifndef IN_THREAD_WORKER_H_H_INCLUDED
+#define IN_THREAD_WORKER_H_H_INCLUDED
 
 /**
   ****************************************************************************
-  * @file    in_js_class_graph_js_h.h
+  * @file    in_thread_worker_h.h
   * @author  Ing. Petr Simek
   * @version V1.0
-  * @date    18.07.2018
-  * @brief   JerryScript wrapper for graph class
+  * @date    14.11.2018
+  * @brief   System thread wrapper
   ****************************************************************************
   * @attention
   * <h2><center>&copy; COPYRIGHT PORTTRONIC</center></h2>
@@ -20,7 +20,7 @@
   ****************************************************************************
   */
 
-
+#include <wx/thread.h>
 
 /**
   * @addtogroup Infrastructure
@@ -28,19 +28,17 @@
   */
 
 /**
-  * @addtogroup JerryScript
+  * @addtogroup Thread
   * @{
   */
 
 /**
-  * @addtogroup Class
-  * @{
+  ****************************************************************************
+  * Type
+  ****************************************************************************
   */
 
-/**
-  * @addtogroup Graph
-  * @{
-  */
+typedef void (*thread_fct_t)(void* p_parametr_void);
 
 /**
   ****************************************************************************
@@ -48,20 +46,24 @@
   ****************************************************************************
   */
 
-//class main_frame
-
-class graph_js_c
+class thread_c : public wxThread
 {
 public:
 
-    void reg_host_class (void* p_gui_main_frame_void);
-    static uint32_t add(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-    static uint32_t insert_signal(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-    static uint32_t set(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+    thread_c(void *p_parameter_void, thread_fct_t function_thread_fct);
+    ~thread_c(void);
+    void signal(void);
+    void stop(void);
 
-private:
+protected:
 
-	void* lp_gui_main_frame_void;
+    virtual ExitCode Entry();
+
+    void *lp_parameter_void;
+    bool l_run_flag_b;
+    thread_fct_t l_function_thread_fct;
+    wxMutex *lp_data_wxmutex;
+    wxCondition *lp_data_wxcondition;
 
 };
 
@@ -73,14 +75,6 @@ private:
 * @}
 */
 
-/**
-* @}
-*/
-
-/**
-* @}
-*/
-
 /*****************************************************END OF FILE************/
 
-#endif // IN_JS_CLASS_GRAPH_JS_H_H_INCLUDED
+#endif // IN_THREAD_WORKER_H_H_INCLUDED

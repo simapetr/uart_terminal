@@ -70,6 +70,7 @@ typedef struct
   */
 
 vector<gauge_buffer_t> lv_data_gauge_buffer;
+uint32_t l_cnt_gauge_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -90,7 +91,7 @@ vector<gauge_buffer_t> lv_data_gauge_buffer;
 uint32_t gui_frame::add_gauge (double sizer_index_d, double proportion_d, bool expand_b, double size_d)
 {
 gauge_buffer_t data_gauge_buffer;
-uint32_t sizer_index_ui32 = lv_data_gauge_buffer.size();
+uint32_t index_ui32 = lv_data_gauge_buffer.size();
 
     data_gauge_buffer.sizer_index_d = sizer_index_d;
     data_gauge_buffer.expand_b = expand_b;
@@ -101,8 +102,8 @@ uint32_t sizer_index_ui32 = lv_data_gauge_buffer.size();
     data_gauge_buffer.value_d = 0;
     data_gauge_buffer.update_b = false;
     lv_data_gauge_buffer.push_back(data_gauge_buffer);
-    wxMilliSleep(40);
-    return sizer_index_ui32;
+    while(!lv_data_gauge_buffer[index_ui32].p_data_wxgauge){wxMilliSleep(1);}
+    return index_ui32;
 }
 
 /** @brief Set gauge state
@@ -159,42 +160,44 @@ double value_d = false;
 
 void gui_frame::on_update_gauge(void)
 {
-static uint32_t f_button_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
 wxString gauge_name_str;
 uint32_t item_cnt_ui32;
+wxGauge* p_buffer_wxgauge = NULL;
 
     // Add check_box
-    while (f_button_cnt_ui32 < lv_data_gauge_buffer.size())
+    while (l_cnt_gauge_ui32 < lv_data_gauge_buffer.size())
     {
         // Get box sizer
-        p_data_wxboxsizer = lv_data_sizer_buffer[lv_data_gauge_buffer[f_button_cnt_ui32].sizer_index_d].p_data_wxboxsizer;
+        p_data_wxboxsizer = this->get_sizer(lv_data_gauge_buffer[l_cnt_gauge_ui32].sizer_index_d);
         // Get origin panel
-        p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_gauge_buffer[f_button_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
+        p_data_wxpanel = this->get_sizer_panel(lv_data_gauge_buffer[l_cnt_gauge_ui32].sizer_index_d);
         // Get new object ID
-        lv_data_gauge_buffer[f_button_cnt_ui32].object_id_i32 = wxNewId();
+        lv_data_gauge_buffer[l_cnt_gauge_ui32].object_id_i32 = wxNewId();
         // Set new name
-        gauge_name_str.Printf("id_slider_%u", f_button_cnt_ui32);
+        gauge_name_str.Printf("id_slider_%u", l_cnt_gauge_ui32);
         // Create new check_box
-        lv_data_gauge_buffer[f_button_cnt_ui32].p_data_wxgauge = new wxGauge(p_data_wxpanel, lv_data_gauge_buffer[f_button_cnt_ui32].object_id_i32, lv_data_gauge_buffer[f_button_cnt_ui32].size_d, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, gauge_name_str);
-        if (lv_data_gauge_buffer[f_button_cnt_ui32].p_data_wxgauge)
+        p_buffer_wxgauge = new wxGauge(p_data_wxpanel, lv_data_gauge_buffer[l_cnt_gauge_ui32].object_id_i32, lv_data_gauge_buffer[l_cnt_gauge_ui32].size_d, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, gauge_name_str);
+        if (p_buffer_wxgauge)
         {
             // Insert in to sizer
-            if(lv_data_gauge_buffer[f_button_cnt_ui32].expand_b)
+            if(lv_data_gauge_buffer[l_cnt_gauge_ui32].expand_b)
             {
-                p_data_wxboxsizer->Add(lv_data_gauge_buffer[f_button_cnt_ui32].p_data_wxgauge, lv_data_gauge_buffer[f_button_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxgauge, lv_data_gauge_buffer[l_cnt_gauge_ui32].proportion_d, wxALL|wxEXPAND, 5);
             }
             else
             {
-                p_data_wxboxsizer->Add(lv_data_gauge_buffer[f_button_cnt_ui32].p_data_wxgauge, lv_data_gauge_buffer[f_button_cnt_ui32].proportion_d, wxALL, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxgauge, lv_data_gauge_buffer[l_cnt_gauge_ui32].proportion_d, wxALL, 5);
             }
             p_data_wxboxsizer->Fit(p_data_wxpanel);
             p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
             p_data_wxboxsizer->Layout();
             lp_main_wxauimanager->Update();
+            // Save object
+            lv_data_gauge_buffer[l_cnt_gauge_ui32].p_data_wxgauge = p_buffer_wxgauge;
         }
-        f_button_cnt_ui32++;
+        l_cnt_gauge_ui32++;
     }
     for (item_cnt_ui32 = 0 ; item_cnt_ui32 < lv_data_gauge_buffer.size() ; item_cnt_ui32++)
     {
@@ -220,6 +223,7 @@ uint32_t item_cnt_ui32;
 void gui_frame::on_clear_gauge(void)
 {
     lv_data_gauge_buffer.clear();
+    l_cnt_gauge_ui32 = 0;
     return;
 }
 

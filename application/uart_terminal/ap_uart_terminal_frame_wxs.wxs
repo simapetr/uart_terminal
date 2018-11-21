@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="main_frame">
-		<title>usart terminal</title>
+		<title>uart terminal</title>
 		<size>815,440</size>
 		<id_arg>0</id_arg>
 		<object class="wxPanel" name="l_id_main_wxpanel" variable="lp_main_wxpanel" member="yes">
@@ -278,9 +278,9 @@
 									<border>5</border>
 								</object>
 								<object class="sizeritem">
-									<object class="wxButton" name="l_id_script_run_wxbutton" variable="lp_script_run_wxbutton" member="yes">
-										<label>Run</label>
-										<handler function="on_script_run_wxbutton_click" entry="EVT_BUTTON" />
+									<object class="wxToggleButton" name="l_id_script_run_wxtogglebutton" variable="lp_script_run_wxtogglebutton" member="yes">
+										<size>23,23</size>
+										<handler function="on_script_run_wxtogglebutton_toggle" entry="EVT_TOGGLEBUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>

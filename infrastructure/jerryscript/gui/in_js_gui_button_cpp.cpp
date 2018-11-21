@@ -69,6 +69,7 @@ typedef struct
   */
 
 vector<button_buffer_t> lv_data_button_buffer;
+uint32_t l_cnt_button_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -89,7 +90,7 @@ vector<button_buffer_t> lv_data_button_buffer;
 uint32_t gui_frame::add_button (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)
 {
 button_buffer_t l_data_button_buffer;
-uint32_t sizer_index_ui32 = lv_data_button_buffer.size();
+uint32_t index_ui32 = lv_data_button_buffer.size();
 
     l_data_button_buffer.sizer_index_d = sizer_index_d;
     l_data_button_buffer.text_str = text_str;
@@ -99,8 +100,8 @@ uint32_t sizer_index_ui32 = lv_data_button_buffer.size();
     l_data_button_buffer.object_id_i32 = 0;
     l_data_button_buffer.event_str = wxEmptyString;
     lv_data_button_buffer.push_back(l_data_button_buffer);
-    wxMilliSleep(40);
-    return sizer_index_ui32;
+    while(!lv_data_button_buffer[index_ui32].p_data_wxbutton){wxMilliSleep(1);}
+    return index_ui32;
 }
 
 /** @brief Set button event
@@ -163,43 +164,45 @@ uint32_t event_cnt_ui32;
 
 void gui_frame::on_update_button(void)
 {
-static uint32_t f_button_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
 wxString button_name_str;
+wxButton* p_buffer_wxbutton = NULL;
 
     // Add button
-    while (f_button_cnt_ui32 < lv_data_button_buffer.size())
+    while (l_cnt_button_ui32 < lv_data_button_buffer.size())
     {
         // Get box sizer
-        p_data_wxboxsizer = lv_data_sizer_buffer[lv_data_button_buffer[f_button_cnt_ui32].sizer_index_d].p_data_wxboxsizer;
+        p_data_wxboxsizer = this->get_sizer(lv_data_button_buffer[l_cnt_button_ui32].sizer_index_d);
         // Get origin panel
-        p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_button_buffer[f_button_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
+        p_data_wxpanel = this->get_sizer_panel(lv_data_button_buffer[l_cnt_button_ui32].sizer_index_d);
         // Get new object ID
-        lv_data_button_buffer[f_button_cnt_ui32].object_id_i32 = wxNewId();
+        lv_data_button_buffer[l_cnt_button_ui32].object_id_i32 = wxNewId();
         // Set new name
-        button_name_str.Printf("id_button_%u", f_button_cnt_ui32);
+        button_name_str.Printf("id_button_%u", l_cnt_button_ui32);
         // Create new button
-        lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton = new wxButton(p_data_wxpanel, lv_data_button_buffer[f_button_cnt_ui32].object_id_i32, lv_data_button_buffer[f_button_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, button_name_str);
-        if (lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton)
+        p_buffer_wxbutton = new wxButton(p_data_wxpanel, lv_data_button_buffer[l_cnt_button_ui32].object_id_i32, lv_data_button_buffer[l_cnt_button_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, button_name_str);
+        if (p_buffer_wxbutton)
         {
             // Insert in to sizer
-            if(lv_data_button_buffer[f_button_cnt_ui32].expand_b)
+            if(lv_data_button_buffer[l_cnt_button_ui32].expand_b)
             {
-                p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxbutton, lv_data_button_buffer[l_cnt_button_ui32].proportion_d, wxALL|wxEXPAND, 5);
             }
             else
             {
-                p_data_wxboxsizer->Add(lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton, lv_data_button_buffer[f_button_cnt_ui32].proportion_d, wxALL, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxbutton, lv_data_button_buffer[l_cnt_button_ui32].proportion_d, wxALL, 5);
             }
             p_data_wxboxsizer->Fit(p_data_wxpanel);
             p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
             p_data_wxboxsizer->Layout();
             lp_main_wxauimanager->Update();
             // Bind event
-            lv_data_button_buffer[f_button_cnt_ui32].p_data_wxbutton->Bind(wxEVT_BUTTON, &gui_frame::on_button_click, this);
+            p_buffer_wxbutton->Bind(wxEVT_BUTTON, &gui_frame::on_button_click, this);
+            // Save object
+            lv_data_button_buffer[l_cnt_button_ui32].p_data_wxbutton = p_buffer_wxbutton;
         }
-        f_button_cnt_ui32++;
+        l_cnt_button_ui32++;
     }
     return;
 }
@@ -214,6 +217,7 @@ wxString button_name_str;
 void gui_frame::on_clear_button(void)
 {
     lv_data_button_buffer.clear();
+    l_cnt_button_ui32 = 0;
     return;
 }
 

@@ -33,6 +33,7 @@
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
+#include <wx/tglbtn.h>
 #include <wx/timer.h>
 //*)
 #include <wx/textdlg.h>
@@ -73,6 +74,7 @@ class main_frame: public wxFrame
         main_frame(wxWindow* p_parent_window, wxArrayString* p_cmd_arg_arraystring);
         virtual ~main_frame();
         void gui (bool status_b);
+        config_ini* get_project (void);
         void console_rx_enable (bool status_b);
         bool is_console_rx_enable (void);
         void printf(wxString console_text_str);
@@ -87,6 +89,8 @@ class main_frame: public wxFrame
         void set_progress (wxString text_str, uint32_t progress_ui32);
         void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
         uint32_t run_script(wxString path_str);
+        void stop_script(void);
+        static void stop_event(void);
 
 
     private:
@@ -102,9 +106,9 @@ class main_frame: public wxFrame
         void on_port_control_rts_wxcheckbox_click(wxCommandEvent& event);
         void on_port_control_tx_wxcheckbox_click(wxCommandEvent& event);
         void on_script_load_wxbutton_click(wxCommandEvent& event);
-        void on_script_run_wxbutton_click(wxCommandEvent& event);
         void on_dialog_caller_wxtimer_trigger(wxTimerEvent& event);
         void on_wx_gui_sync_wxtimer_trigger(wxTimerEvent& event);
+        void on_script_run_wxtogglebutton_toggle(wxCommandEvent& event);
         //*)
         void main_panel_set_port_choice(void);
         void uart_rx_data(uint8_t *p_data_sui8, uint32_t length_ui32);
@@ -135,7 +139,7 @@ class main_frame: public wxFrame
         static const long l_id_port_state_rlsd_wxstatictext;
         static const long l_id_script_path_wxtextctrl;
         static const long l_id_script_load_wxbutton;
-        static const long l_id_script_run_wxbutton;
+        static const long l_id_script_run_wxtogglebutton;
         static const long l_id_command_wxtextctrl;
         static const long l_id_hex_wxcheckbox;
         static const long l_id_send_wxbutton;
@@ -157,7 +161,6 @@ class main_frame: public wxFrame
         wxButton* lp_close_wxbutton;
         wxButton* lp_open_wxbutton;
         wxButton* lp_script_load_wxbutton;
-        wxButton* lp_script_run_wxbutton;
         wxButton* lp_send_wxbutton;
         wxCheckBox* lp_hex_wxcheckbox;
         wxCheckBox* lp_port_control_dtr_wxcheckbox;
@@ -196,8 +199,11 @@ class main_frame: public wxFrame
         wxTextCtrl* lp_script_path_wxtextctrl;
         wxTimer lp_dialog_caller_wxtimer;
         wxTimer lp_wx_gui_sync_wxtimer;
+        wxToggleButton* lp_script_run_wxtogglebutton;
         //*)
         bool l_open_b;
+        bool l_run_b;
+        bool l_stop_req_b;
         uart_port* p_communication_uart_port;
         HANDLE uart_thread_handle;
         DWORD uart_thread_id_dword;

@@ -52,7 +52,6 @@
 #define d_ap_uart_terminal_status_script 1
 #define d_ap_uart_terminal_info_script 2
 
-
 /**
   ****************************************************************************
   * Local variable
@@ -62,8 +61,11 @@
 // GUI frame create flag
 static bool l_frame_enable_b = false;
 static bool l_frame_show_status_b = false;
+static bool l_grame_gui_close_b = false;
 // application icon
 #include "icon/ap_ut_icon_app_xpm.xpm"
+#include "icon/lp_play_ico_xpm.xpm"
+#include "icon/lp_stop_ico_xpm.xpm"
 //(*IdInit(main_frame)
 const long main_frame::l_id_port_wxstatictext = wxNewId();
 const long main_frame::l_id_port_wxchoice = wxNewId();
@@ -89,7 +91,7 @@ const long main_frame::l_id_port_state_rlsd_wxled = wxNewId();
 const long main_frame::l_id_port_state_rlsd_wxstatictext = wxNewId();
 const long main_frame::l_id_script_path_wxtextctrl = wxNewId();
 const long main_frame::l_id_script_load_wxbutton = wxNewId();
-const long main_frame::l_id_script_run_wxbutton = wxNewId();
+const long main_frame::l_id_script_run_wxtogglebutton = wxNewId();
 const long main_frame::l_id_command_wxtextctrl = wxNewId();
 const long main_frame::l_id_hex_wxcheckbox = wxNewId();
 const long main_frame::l_id_send_wxbutton = wxNewId();
@@ -129,7 +131,7 @@ wxString cfg_path_str = wxEmptyString;
     // Save CMD parameter
     this->lp_cmd_arg_arraystring = p_cmd_arg_arraystring;
     //(*Initialize(main_frame)
-    Create(parent, wxID_ANY, _("usart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("uart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
     lp_main_wxpanel = new wxPanel(this, l_id_main_wxpanel, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("l_id_main_wxpanel"));
     lp_main_wxboxsizer = new wxBoxSizer(wxVERTICAL);
@@ -241,8 +243,8 @@ wxString cfg_path_str = wxEmptyString;
     lp_script_wxstaticboxsizer->Add(lp_script_path_wxtextctrl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_script_load_wxbutton = new wxButton(lp_main_wxpanel, l_id_script_load_wxbutton, _("Load"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_script_load_wxbutton"));
     lp_script_wxstaticboxsizer->Add(lp_script_load_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    lp_script_run_wxbutton = new wxButton(lp_main_wxpanel, l_id_script_run_wxbutton, _("Run"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_script_run_wxbutton"));
-    lp_script_wxstaticboxsizer->Add(lp_script_run_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    lp_script_run_wxtogglebutton = new wxToggleButton(lp_main_wxpanel, l_id_script_run_wxtogglebutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), 0, wxDefaultValidator, _T("l_id_script_run_wxtogglebutton"));
+    lp_script_wxstaticboxsizer->Add(lp_script_run_wxtogglebutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_control_wxboxsizer->Add(lp_script_wxstaticboxsizer, 1, wxALL|wxEXPAND, 5);
     lp_main_wxboxsizer->Add(lp_main_control_wxboxsizer, 0, wxEXPAND, 5);
     lp_main_command_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
@@ -294,7 +296,7 @@ wxString cfg_path_str = wxEmptyString;
     Connect(l_id_port_control_rts_wxcheckbox,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&main_frame::on_port_control_rts_wxcheckbox_click);
     Connect(l_id_port_control_tx_wxcheckbox,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&main_frame::on_port_control_tx_wxcheckbox_click);
     Connect(l_id_script_load_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_script_load_wxbutton_click);
-    Connect(l_id_script_run_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_script_run_wxbutton_click);
+    Connect(l_id_script_run_wxtogglebutton,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_script_run_wxtogglebutton_toggle);
     Connect(l_id_send_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_send_button_click);
     Connect(l_id_file_quit_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_file_quit_item_selected);
     Connect(l_id_help_about_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_help_about_item_selected);
@@ -305,7 +307,12 @@ wxString cfg_path_str = wxEmptyString;
 
     // Add panel
     icon_wximagelist->Add(wxIcon( plc_ap_ut_icon_uart_terminal_xpm_char ), wxColor(0xff, 0xff, 0xff));
+    icon_wximagelist->Add(wxIcon( lp_play_ico_si8 ), wxColor(0xff, 0xff, 0xff));
+    icon_wximagelist->Add(wxIcon( lp_stop_ico_si8 ), wxColor(0xff, 0xff, 0xff));
     SetIcon(icon_wximagelist->GetIcon(0));
+    // Set button ico
+    this->lp_script_run_wxtogglebutton->SetBitmap(icon_wximagelist->GetIcon(1));
+    this->lp_script_run_wxtogglebutton->SetBitmapPressed(icon_wximagelist->GetIcon(2));
     delete icon_wximagelist;
     this->p_communication_uart_port = NULL;
     this->p_communication_uart_port = new uart_port();
@@ -351,6 +358,10 @@ wxString cfg_path_str = wxEmptyString;
     this->lp_wx_gui_sync_wxtimer.Start(10, false);
     // Initialization open state
     this->l_open_b = false;
+    // Initialization close state
+    this->l_run_b = false;
+    // Initialize stop request
+    l_grame_gui_close_b = false;
     // Initialize event
     this->lp_event_parameter_void = NULL;
     this->l_data_send_event_fct = NULL;
@@ -453,6 +464,18 @@ void main_frame::gui (bool status_b)
     l_frame_enable_b = true;
     wxMilliSleep(40);
     return;
+}
+
+/** @brief Get project configuration object
+ *
+ * @param [IN] status_b : Show GUI frame
+ * @return void
+ *
+ */
+
+config_ini* main_frame::get_project (void)
+{
+    return p_data_config_ini;
 }
 
 /** @brief Set RX data show status
@@ -789,15 +812,17 @@ void main_frame::set_send_event (send_event_fct data_send_event_fct, void* p_par
 uint32_t main_frame::run_script(wxString path_str)
 {
 uint32_t run_status_ui32;
+static bool f_init_b = false;
 static wxString script_file_str;
 
-    if (path_str != wxEmptyString)
+    if ((path_str != wxEmptyString) && (!this->l_run_b))
     {
         // Create script interpreter object
         if(this->lp_interpret_jerryscript == NULL)
         {
             // Load JavaScript interpreter
-            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b);
+            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b, f_init_b);
+            f_init_b = true;
         }
         if(this->lp_interpret_jerryscript)
         {
@@ -809,6 +834,7 @@ static wxString script_file_str;
                 {
                     // Run script
                     run_status_ui32 = this->lp_interpret_jerryscript->run(script_file_str);
+                    this->l_run_b = true;
                     wxMilliSleep(300);
                     p_stcipt_wxfile->Close();
                 }
@@ -817,6 +843,42 @@ static wxString script_file_str;
         }
     }
     return run_status_ui32;
+}
+
+/** @brief Stop JS script
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void main_frame::stop_script(void)
+{
+    if(this->l_run_b)
+    {
+        this->lp_interpret_jerryscript->stop();
+        if(this->lp_interpret_jerryscript)
+        {
+            // Load JavaScript interpreter
+            delete this->lp_interpret_jerryscript;
+            this->lp_interpret_jerryscript = NULL;
+        }
+        this->l_run_b = false;
+    }
+    return;
+}
+
+/** @brief Stop JS script event
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void main_frame::stop_event(void)
+{
+    l_grame_gui_close_b = true;
+    return;
 }
 
 /** @brief Quit item selected event
@@ -1040,81 +1102,48 @@ void main_frame::on_script_load_wxbutton_click(wxCommandEvent& event)
  *
  */
 
-void main_frame::on_script_run_wxbutton_click(wxCommandEvent& event)
+void main_frame::on_script_run_wxtogglebutton_toggle(wxCommandEvent& event)
 {
-//uint32_t run_status_ui32;
-//wxString script_path_str;
-static wxString script_file_str;
-
-    if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
+    if (lp_script_run_wxtogglebutton->GetValue())
     {
-        switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
+        // Disable script path component
+        this->lp_script_load_wxbutton->Disable();
+        this->lp_script_path_wxtextctrl->Disable();
+        if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
         {
-            case 0:
+            // Start Java Script
+            switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
             {
-                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
-            }
-            break;
-            case 1:
-            {
-                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
-            }
-            break;
-            case 2:
-            {
-                this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
-            }
-            break;
-            default:
-            {
-                this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
-            }
-            break;
-        }
-        // Create script interpreter object
-        /*if(this->lp_interpret_jerryscript == NULL)
-        {
-            // Load JavaScript interpreter
-            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b);
-        }
-        if(this->lp_interpret_jerryscript)
-        {
-            // Load script file
-            script_path_str = this->lp_script_path_wxtextctrl->GetLineText(0);
-            if (script_path_str != wxEmptyString)
-            {
-                wxFile* p_stcipt_wxfile = new wxFile(this->lp_script_path_wxtextctrl->GetLineText(0));
-                if(p_stcipt_wxfile->IsOpened())
+                case 0:
                 {
-                    p_stcipt_wxfile->ReadAll(&script_file_str);
-                    if (script_file_str != wxEmptyString)
-                    {
-                        // Run script
-                        run_status_ui32 = this->lp_interpret_jerryscript->run(script_file_str);
-                        if(run_status_ui32 == 0)
-                        {
-                            this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
-                        }
-                        else if(run_status_ui32 == 1)
-                        {
-                            this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
-                        }
-                        else if(run_status_ui32 == 2)
-                        {
-                            this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
-                        }
-                        else
-                        {
-                            this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
-                        }
-                        wxMilliSleep(300);
-                        p_stcipt_wxfile->Close();
-                    }
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
                 }
-                delete p_stcipt_wxfile;
+                break;
+                case 1:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                case 2:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                default:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
+                }
+                break;
             }
         }
-        */
+    }
+    else
+    {
+        // Stop JavaScript
+        this->stop_script();
+        // Enable script path component
+        this->lp_script_load_wxbutton->Enable();
+        this->lp_script_path_wxtextctrl->Enable();
     }
     return;
 }
@@ -1277,7 +1306,6 @@ void main_frame::on_dialog_caller_wxtimer_trigger(wxTimerEvent& event)
     {
         lp_dialog_caller_wxtimer.Stop();
         this->lp_data_wxtextentrydialog = new wxTextEntryDialog(this, this->l_dialog_info_str , wxT("Input data"), wxEmptyString, wxOK|wxCANCEL|wxCENTRE|wxWS_EX_VALIDATE_RECURSIVELY, wxDefaultPosition);
-        //this->lp_data_wxtextentrydialog->SetTextValidator(wxFILTER_NONE);
         if (this->lp_data_wxtextentrydialog->ShowModal() == wxID_OK)
         {
             this->l_dialog_text_str = this->lp_data_wxtextentrydialog->GetValue();
@@ -1333,7 +1361,15 @@ static bool f_dsr_old_b = false;
 static bool f_ring_old_b = false;
 static bool f_rlsd_old_b = false;
 static bool f_port_open_b = true;
+wxCommandEvent data_wxcommandevent;
 
+    // Stop script request
+    if (l_grame_gui_close_b)
+    {
+        l_grame_gui_close_b = false;
+        this->lp_script_run_wxtogglebutton->SetValue(false);
+        this->on_script_run_wxtogglebutton_toggle(data_wxcommandevent);
+    }
     // Set led activation
     if (f_port_open_b != this->l_open_b)
     {
@@ -1420,9 +1456,3 @@ static bool f_port_open_b = true;
 */
 
 /*****************************************************END OF FILE************/
-
-
-
-
-
-

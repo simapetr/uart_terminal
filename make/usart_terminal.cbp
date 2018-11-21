@@ -77,6 +77,7 @@
 			<Add directory="../infrastructure/jerryscript/class" />
 			<Add directory="../infrastructure/data_plot" />
 			<Add directory="../infrastructure/jerryscript/gui" />
+			<Add directory="../infrastructure/thread" />
 			<Add directory="../application/uart_terminal" />
 		</Compiler>
 		<ResourceCompiler>
@@ -141,7 +142,7 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/debugger.h" />
-		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_signal_value_xpm.xpm" />
+		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_in_js_gui_ico_xpm.xpm" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_button_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_check_box_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_cpp.cpp" />
@@ -172,10 +173,21 @@
 		<Unit filename="../infrastructure/jerryscript/jerryscript-debugger.h" />
 		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
 		<Unit filename="../infrastructure/main/in_main_app_h.h" />
+		<Unit filename="../infrastructure/thread/in_thread_worker_cpp.cpp" />
+		<Unit filename="../infrastructure/thread/in_thread_worker_h.h" />
 		<Unit filename="../infrastructure/wx/led.cpp" />
 		<Unit filename="../infrastructure/wx/mathplot.cpp" />
+		<Unit filename="script/button.js" />
+		<Unit filename="script/check_box.js" />
 		<Unit filename="script/file.js" />
+		<Unit filename="script/gauge.js" />
+		<Unit filename="script/gui.js" />
+		<Unit filename="script/panel.js" />
 		<Unit filename="script/protocol.js" />
+		<Unit filename="script/slider.js" />
+		<Unit filename="script/static_text.js" />
+		<Unit filename="script/textctrl.js" />
+		<Unit filename="script/time.js" />
 		<Unit filename="script/uart.js" />
 		<Unit filename="usart_terminal.cbp" />
 		<Extensions>

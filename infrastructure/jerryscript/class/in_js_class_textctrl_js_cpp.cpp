@@ -224,8 +224,6 @@ uint32_t textctrl_js_c::get(const uint32_t funct_ui32, const uint32_t this_ui32,
 void* p_arg_void;
 textctrl_js_c* p_bkp_this = NULL;
 wxString text_str = wxEmptyString;
-uint32_t data_len_ui32;
-static uint8_t *p_data_sui8 = NULL;
 
     if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
     {

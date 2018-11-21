@@ -71,7 +71,7 @@ event_cnt = 0;
 function on_slider_update (component_id)
 {
 	graph_signal[0] = gui.slider.get(slider_id);
-	gui.graph.set_data(graph_id, graph_signal);
+	gui.graph.set(graph_id, graph_signal);
 	text_str = "";
 	text_str += event_cnt;
 	text_str += "value is : ";

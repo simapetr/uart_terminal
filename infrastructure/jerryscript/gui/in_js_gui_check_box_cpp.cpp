@@ -71,6 +71,7 @@ typedef struct
   */
 
 vector<check_box_buffer_t> lv_data_check_box_buffer;
+uint32_t l_cnt_check_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -92,7 +93,7 @@ vector<check_box_buffer_t> lv_data_check_box_buffer;
 uint32_t gui_frame::add_check_box (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool state_b)
 {
 check_box_buffer_t data_check_box_buffer;
-uint32_t sizer_index_ui32 = lv_data_check_box_buffer.size();
+uint32_t index_ui32 = lv_data_check_box_buffer.size();
 
     data_check_box_buffer.sizer_index_d = sizer_index_d;
     data_check_box_buffer.text_str = text_str;
@@ -104,8 +105,8 @@ uint32_t sizer_index_ui32 = lv_data_check_box_buffer.size();
     data_check_box_buffer.state_b = state_b;
     data_check_box_buffer.update_b = false;
     lv_data_check_box_buffer.push_back(data_check_box_buffer);
-    wxMilliSleep(40);
-    return sizer_index_ui32;
+    while(!lv_data_check_box_buffer[index_ui32].p_data_wxcheckbox){wxMilliSleep(1);}
+    return index_ui32;
 }
 
 /** @brief Set check box event
@@ -208,44 +209,46 @@ uint32_t event_cnt_ui32;
 
 void gui_frame::on_update_check_box(void)
 {
-static uint32_t f_check_box_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
 wxString check_box_name_str;
 uint32_t item_cnt_ui32;
+wxCheckBox* p_buffer_wxcheckbox = NULL;
 
     // Add check_box
-    while (f_check_box_cnt_ui32 < lv_data_check_box_buffer.size())
+    while (l_cnt_check_ui32 < lv_data_check_box_buffer.size())
     {
         // Get box sizer
-        p_data_wxboxsizer = lv_data_sizer_buffer[lv_data_check_box_buffer[f_check_box_cnt_ui32].sizer_index_d].p_data_wxboxsizer;
+        p_data_wxboxsizer = this->get_sizer(lv_data_check_box_buffer[l_cnt_check_ui32].sizer_index_d);
         // Get origin panel
-        p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_check_box_buffer[f_check_box_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
+        p_data_wxpanel = this->get_sizer_panel(lv_data_check_box_buffer[l_cnt_check_ui32].sizer_index_d);
         // Get new object ID
-        lv_data_check_box_buffer[f_check_box_cnt_ui32].object_id_i32 = wxNewId();
+        lv_data_check_box_buffer[l_cnt_check_ui32].object_id_i32 = wxNewId();
         // Set new name
-        check_box_name_str.Printf("id_check_box_%u", f_check_box_cnt_ui32);
+        check_box_name_str.Printf("id_check_box_%u", l_cnt_check_ui32);
         // Create new check_box
-        lv_data_check_box_buffer[f_check_box_cnt_ui32].p_data_wxcheckbox = new wxCheckBox(p_data_wxpanel, lv_data_check_box_buffer[f_check_box_cnt_ui32].object_id_i32, lv_data_check_box_buffer[f_check_box_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, check_box_name_str);
-        if (lv_data_check_box_buffer[f_check_box_cnt_ui32].p_data_wxcheckbox)
+        p_buffer_wxcheckbox = new wxCheckBox(p_data_wxpanel, lv_data_check_box_buffer[l_cnt_check_ui32].object_id_i32, lv_data_check_box_buffer[l_cnt_check_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, check_box_name_str);
+        if (p_buffer_wxcheckbox)
         {
             // Insert in to sizer
-            if(lv_data_check_box_buffer[f_check_box_cnt_ui32].expand_b)
+            if(lv_data_check_box_buffer[l_cnt_check_ui32].expand_b)
             {
-                p_data_wxboxsizer->Add(lv_data_check_box_buffer[f_check_box_cnt_ui32].p_data_wxcheckbox, lv_data_check_box_buffer[f_check_box_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxcheckbox, lv_data_check_box_buffer[l_cnt_check_ui32].proportion_d, wxALL|wxEXPAND, 5);
             }
             else
             {
-                p_data_wxboxsizer->Add(lv_data_check_box_buffer[f_check_box_cnt_ui32].p_data_wxcheckbox, lv_data_check_box_buffer[f_check_box_cnt_ui32].proportion_d, wxALL, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxcheckbox, lv_data_check_box_buffer[l_cnt_check_ui32].proportion_d, wxALL, 5);
             }
             p_data_wxboxsizer->Fit(p_data_wxpanel);
             p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
             p_data_wxboxsizer->Layout();
             lp_main_wxauimanager->Update();
             // Bind event
-            lv_data_check_box_buffer[f_check_box_cnt_ui32].p_data_wxcheckbox->Bind(wxEVT_CHECKBOX, &gui_frame::on_check_box_click, this);
+            p_buffer_wxcheckbox->Bind(wxEVT_CHECKBOX, &gui_frame::on_check_box_click, this);
+            // Save object
+            lv_data_check_box_buffer[l_cnt_check_ui32].p_data_wxcheckbox = p_buffer_wxcheckbox;
         }
-        f_check_box_cnt_ui32++;
+        l_cnt_check_ui32++;
     }
     for (item_cnt_ui32 = 0 ; item_cnt_ui32 < lv_data_check_box_buffer.size() ; item_cnt_ui32++)
     {
@@ -271,6 +274,7 @@ uint32_t item_cnt_ui32;
 void gui_frame::on_clear_check_box(void)
 {
     lv_data_check_box_buffer.clear();
+    l_cnt_check_ui32 = 0;
     return;
 }
 

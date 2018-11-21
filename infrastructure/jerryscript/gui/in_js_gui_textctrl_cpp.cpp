@@ -74,6 +74,7 @@ typedef struct
   */
 
 vector<textctrl_buffer_t> lv_data_textctrl_buffer;
+uint32_t l_cnt_textctrl_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -95,7 +96,7 @@ vector<textctrl_buffer_t> lv_data_textctrl_buffer;
 uint32_t gui_frame::add_textctrl (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b)
 {
 textctrl_buffer_t l_data_textctrl_buffer;
-uint32_t sizer_index_ui32 = lv_data_textctrl_buffer.size();
+uint32_t index_ui32 = lv_data_textctrl_buffer.size();
 
     l_data_textctrl_buffer.sizer_index_d = sizer_index_d;
     l_data_textctrl_buffer.text_str = text_str;
@@ -110,8 +111,8 @@ uint32_t sizer_index_ui32 = lv_data_textctrl_buffer.size();
     l_data_textctrl_buffer.read_line_ui32 = 0;
     l_data_textctrl_buffer.read_text_str = wxEmptyString;
     lv_data_textctrl_buffer.push_back(l_data_textctrl_buffer);
-    wxMilliSleep(40);
-    return sizer_index_ui32;
+    while(!lv_data_textctrl_buffer[index_ui32].p_data_wxtextctrl){wxMilliSleep(1);}
+    return index_ui32;
 }
 
 /** @brief Set textctrl text
@@ -128,8 +129,12 @@ bool status_b = false;
 
     if (static_text_index_d < lv_data_textctrl_buffer.size())
     {
-        lv_data_textctrl_buffer[static_text_index_d].text_str = text_str;
-        lv_data_textctrl_buffer[static_text_index_d].update_b = true;
+        if (!lv_data_textctrl_buffer[static_text_index_d].update_b)
+        {
+            lv_data_textctrl_buffer[static_text_index_d].text_str = text_str;
+            lv_data_textctrl_buffer[static_text_index_d].append_b = false;
+            lv_data_textctrl_buffer[static_text_index_d].update_b = true;
+        }
         status_b = true;
     }
     return status_b;
@@ -149,10 +154,13 @@ bool status_b = false;
 
     if (static_text_index_d < lv_data_textctrl_buffer.size())
     {
-        lv_data_textctrl_buffer[static_text_index_d].text_str = text_str;
-        lv_data_textctrl_buffer[static_text_index_d].append_b = true;
-        lv_data_textctrl_buffer[static_text_index_d].update_b = true;
-        status_b = true;
+        if (!lv_data_textctrl_buffer[static_text_index_d].update_b)
+        {
+            lv_data_textctrl_buffer[static_text_index_d].text_str = text_str;
+            lv_data_textctrl_buffer[static_text_index_d].append_b = true;
+            lv_data_textctrl_buffer[static_text_index_d].update_b = true;
+            status_b = true;
+        }
     }
     return status_b;
 }
@@ -194,55 +202,56 @@ wxString text_str = wxEmptyString;
 
 void gui_frame::on_update_textctrl(void)
 {
-static uint32_t f_item_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
 wxString textctrl_name_str;
 uint32_t item_cnt_ui32;
+wxTextCtrl* p_buffer_wxtextctrl = NULL;
 
     // Add Static text
-    while (f_item_cnt_ui32 < lv_data_textctrl_buffer.size())
+    while (l_cnt_textctrl_ui32 < lv_data_textctrl_buffer.size())
     {
         // Get box sizer
-        p_data_wxboxsizer = lv_data_sizer_buffer[lv_data_textctrl_buffer[f_item_cnt_ui32].sizer_index_d].p_data_wxboxsizer;
+        p_data_wxboxsizer = this->get_sizer(lv_data_textctrl_buffer[l_cnt_textctrl_ui32].sizer_index_d);
         // Get origin panel
-        p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_textctrl_buffer[f_item_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
+        p_data_wxpanel = this->get_sizer_panel(lv_data_textctrl_buffer[l_cnt_textctrl_ui32].sizer_index_d);
         // Get new object ID
-        lv_data_textctrl_buffer[f_item_cnt_ui32].object_id_i32 = wxNewId();
+        lv_data_textctrl_buffer[l_cnt_textctrl_ui32].object_id_i32 = wxNewId();
         // Set new name
-        textctrl_name_str.Printf("id_textctrl_%u", f_item_cnt_ui32);
+        textctrl_name_str.Printf("id_textctrl_%u", l_cnt_textctrl_ui32);
         // Create new static text
-        if (lv_data_textctrl_buffer[f_item_cnt_ui32].multiline_b)
+        if (lv_data_textctrl_buffer[l_cnt_textctrl_ui32].multiline_b)
         {
-            lv_data_textctrl_buffer[f_item_cnt_ui32].p_data_wxtextctrl = new wxTextCtrl(p_data_wxpanel, lv_data_textctrl_buffer[f_item_cnt_ui32].object_id_i32, lv_data_textctrl_buffer[f_item_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE, wxDefaultValidator, textctrl_name_str);
+            p_buffer_wxtextctrl = new wxTextCtrl(p_data_wxpanel, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].object_id_i32, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].text_str, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE, wxDefaultValidator, textctrl_name_str);
         }
         else
         {
-            lv_data_textctrl_buffer[f_item_cnt_ui32].p_data_wxtextctrl = new wxTextCtrl(p_data_wxpanel, lv_data_textctrl_buffer[f_item_cnt_ui32].object_id_i32, lv_data_textctrl_buffer[f_item_cnt_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, textctrl_name_str);
+            p_buffer_wxtextctrl = new wxTextCtrl(p_data_wxpanel, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].object_id_i32, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, textctrl_name_str);
         }
-        if(lv_data_textctrl_buffer[f_item_cnt_ui32].p_data_wxtextctrl)
+        if(p_buffer_wxtextctrl)
         {
             // Insert in to sizer
-            if(lv_data_textctrl_buffer[f_item_cnt_ui32].expand_b)
+            if(lv_data_textctrl_buffer[l_cnt_textctrl_ui32].expand_b)
             {
-                p_data_wxboxsizer->Add(lv_data_textctrl_buffer[f_item_cnt_ui32].p_data_wxtextctrl, lv_data_textctrl_buffer[f_item_cnt_ui32].proportion_d, wxALL|wxEXPAND, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxtextctrl, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].proportion_d, wxALL|wxEXPAND, 5);
             }
             else
             {
-                p_data_wxboxsizer->Add(lv_data_textctrl_buffer[f_item_cnt_ui32].p_data_wxtextctrl, lv_data_textctrl_buffer[f_item_cnt_ui32].proportion_d, wxALL, 5);
+                p_data_wxboxsizer->Add(p_buffer_wxtextctrl, lv_data_textctrl_buffer[l_cnt_textctrl_ui32].proportion_d, wxALL, 5);
             }
             p_data_wxboxsizer->Fit(p_data_wxpanel);
             p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
             p_data_wxboxsizer->Layout();
             lp_main_wxauimanager->Update();
+            // Save object
+            lv_data_textctrl_buffer[l_cnt_textctrl_ui32].p_data_wxtextctrl = p_buffer_wxtextctrl;
         }
-        f_item_cnt_ui32++;
+        l_cnt_textctrl_ui32++;
     }
     for (item_cnt_ui32 = 0 ; item_cnt_ui32 < lv_data_textctrl_buffer.size() ; item_cnt_ui32++)
     {
         if (lv_data_textctrl_buffer[item_cnt_ui32].update_b)
         {
-            lv_data_textctrl_buffer[item_cnt_ui32].update_b = false;
             if (lv_data_textctrl_buffer[item_cnt_ui32].append_b)
             {
                 lv_data_textctrl_buffer[item_cnt_ui32].append_b = false;
@@ -260,11 +269,11 @@ uint32_t item_cnt_ui32;
                     lv_data_textctrl_buffer[item_cnt_ui32].p_data_wxtextctrl->SetValue(lv_data_textctrl_buffer[item_cnt_ui32].text_str);
                 }
             }
+            lv_data_textctrl_buffer[item_cnt_ui32].update_b = false;
         }
         if (lv_data_textctrl_buffer[item_cnt_ui32].read_b)
         {
-            lv_data_textctrl_buffer[item_cnt_ui32].read_b = false;
-            lv_data_textctrl_buffer[item_cnt_ui32].read_text_str = wxEmptyString;
+            //lv_data_textctrl_buffer[item_cnt_ui32].read_text_str = wxEmptyString;
             if(lv_data_textctrl_buffer[item_cnt_ui32].p_data_wxtextctrl)
             {
                 if ((int32_t)lv_data_textctrl_buffer[item_cnt_ui32].read_line_ui32 == -1)
@@ -276,6 +285,7 @@ uint32_t item_cnt_ui32;
                     lv_data_textctrl_buffer[item_cnt_ui32].read_text_str = lv_data_textctrl_buffer[item_cnt_ui32].p_data_wxtextctrl->GetLineText(lv_data_textctrl_buffer[item_cnt_ui32].read_line_ui32);
                 }
             }
+            lv_data_textctrl_buffer[item_cnt_ui32].read_b = false;
         }
     }
     return;
@@ -291,6 +301,7 @@ uint32_t item_cnt_ui32;
 void gui_frame::on_clear_textctrl(void)
 {
     lv_data_textctrl_buffer.clear();
+    l_cnt_textctrl_ui32 = 0;
     return;
 }
 

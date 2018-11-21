@@ -47,25 +47,7 @@ using namespace std;
   ****************************************************************************
   */
 
-typedef struct
-{
-    wxString name_str;
-    double sizer_index_d;
-    bool sizer_orientation_b;
-    wxPanel* p_data_wxpanel;
-}panel_buffer_t;
 
-typedef struct
-{
-    bool sizer_orientation_b;
-    double parent_index_d;
-    double panel_index_d;
-    double proportion_d;
-    wxBoxSizer* p_data_wxboxsizer;
-}sizer_buffer_t;
-
-extern vector<panel_buffer_t> lv_data_panel_buffer;
-extern vector<sizer_buffer_t> lv_data_sizer_buffer;
 
 /**
   ****************************************************************************
@@ -79,10 +61,14 @@ class gui_frame: public wxFrame
 
         gui_frame(wxWindow* p_parent_window, void* p_jerryscript_void);
         virtual ~gui_frame();
-        void frame_show (bool status_b);
+        void frame_show (bool status_b, wxString name_str);
         uint32_t add_panel (wxString panel_name_str, bool horizontal_b);
         uint32_t get_panel_sizer (double panel_index_d);
+        wxPanel* get_panel (double index_d);
         uint32_t add_sizer (double sizer_index_d, double proportion_d, bool horizontal_b);
+        uint32_t add_panel_sizer (double panel_index_d, double proportion_d, bool horizontal_b);
+        wxBoxSizer* get_sizer (double index_d);
+        wxPanel* get_sizer_panel (double index_d);
         uint32_t add_graph (double sizer_index_d, wxString name_str, double graph_range_d, double buffer_length_d, double time_step_d);
         uint32_t insert_signal (uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32 = 0, uint32_t width_ui32 = 1, uint32_t style_ui32 = 0);
         bool set_graph_data (uint32_t graph_ui32, vector<double>& pv_data_d);

@@ -46,6 +46,40 @@
 
 /**
   ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+#define d_buffer_size 4096
+
+/**
+  ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+typedef struct
+{
+    uint32_t event_type_ui32;
+    uint32_t length_ui32;
+    uint8_t data_sui8[d_buffer_size];
+}packet_buffer_t;
+
+/**
+  ****************************************************************************
+  * Local variable
+  ****************************************************************************
+  */
+
+static packet_buffer_t l_rx_data_packet_buffer[0x10000];
+static uint16_t l_rx_data_wr_ptr_ui16 = 0;
+static uint16_t l_rx_data_rd_ptr_ui16 = 0;
+static packet_buffer_t l_tx_data_packet_buffer[0x10000];
+static uint16_t l_tx_data_wr_ptr_ui16 = 0;
+static uint16_t l_tx_data_rd_ptr_ui16 = 0;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -113,9 +147,17 @@ jerry_value_t name_jerry_value;
     // Release storage value
     jerry_release_value(name_jerry_value);
     jerry_release_value(object_jerry_value);
+    // Initialize value
+    this->l_reg_fct_ui32 = 0;
+    this->l_global_ui32 = 0;
     // Initialization Rx event function name
     this->l_rx_event_name_sui8[0] = 0x00;
-
+    if(this->lp_com_uart_port)
+    {
+        // Run RX thread
+        this->lp_rx_thread = new thread_c(this, this->rx_queue);
+        this->lp_tx_thread = new thread_c(this, this->tx_queue);
+    }
     return;
 }
 
@@ -234,6 +276,12 @@ uart_js_c* p_bkp_this = NULL;
                 const uint32_t data_len_ui32 = jerry_get_string_size(p_args_ui32[0]);
                 jerry_string_to_char_buffer(p_args_ui32[0],&p_bkp_this->l_rx_event_name_sui8[0],data_len_ui32);
                 p_bkp_this->l_rx_event_name_sui8[data_len_ui32] = 0x00;
+                // Reg function create
+                p_bkp_this->l_global_ui32 = (uint32_t)jerry_get_global_object();
+                if(p_bkp_this->l_global_ui32)
+                {
+                    p_bkp_this->l_reg_fct_ui32 = (uint32_t)jerry_get_property((jerry_value_t)p_bkp_this->l_global_ui32, p_args_ui32[0]);
+                }
                 p_bkp_this->lp_com_uart_port->create_event(p_bkp_this->rx_event, p_bkp_this);
                 status_ui32 = 1;
             }
@@ -258,6 +306,7 @@ uint32_t uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, c
 double status_d = 0.0;
 void* p_arg_void;
 uart_js_c* p_bkp_this = NULL;
+uint32_t data_cnt_ui32;
 
     if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
     {
@@ -269,39 +318,40 @@ uart_js_c* p_bkp_this = NULL;
             if(jerry_value_is_number (p_args_ui32[0]))
             {
                 // Call class method
-                if (p_bkp_this)
-                {
-                    status_d = p_bkp_this->lp_com_uart_port->write_data((uint8_t)jerry_get_number_value(p_args_ui32[0]));
-                }
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = 1;
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[0] = (uint8_t)jerry_get_number_value(p_args_ui32[0]);
+                l_tx_data_wr_ptr_ui16++;
+                p_bkp_this->lp_tx_thread->signal();
             }
             else if (jerry_value_is_array (p_args_ui32[0]))
             {
-                // Read function argument
-                const uint32_t data_len_ui32 = jerry_get_array_length(p_args_ui32[0]);
-                uint8_t *p_data_sui8 = new uint8_t[data_len_ui32];
-                for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_len_ui32; data_cnt_ui32++)
-                {
-                    p_data_sui8[data_cnt_ui32] = jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
-                }
                 // Call class method
-                if (p_bkp_this)
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_array_length(p_args_ui32[0]);
+                if (l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 > d_buffer_size)
                 {
-                    status_d = p_bkp_this->lp_com_uart_port->write_data(p_data_sui8, data_len_ui32);
+                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
                 }
-                delete[] p_data_sui8;
+                for (data_cnt_ui32 = 0; data_cnt_ui32 < l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32; data_cnt_ui32++)
+                {
+                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
+                }
+                l_tx_data_wr_ptr_ui16++;
+                p_bkp_this->lp_tx_thread->signal();
             }
             else if(jerry_value_is_string (p_args_ui32[0]))
             {
                 // Read function argument
-                const uint32_t data_len_ui32 = jerry_get_string_size(p_args_ui32[0]);
-                uint8_t *p_data_sui8 = new uint8_t[data_len_ui32];
-                jerry_string_to_char_buffer(p_args_ui32[0],p_data_sui8,data_len_ui32);
-                // Call class method
-                if (p_bkp_this)
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_string_size(p_args_ui32[0]);
+                if (l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 > d_buffer_size)
                 {
-                    status_d = p_bkp_this->lp_com_uart_port->write_data(p_data_sui8, data_len_ui32);
+                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
                 }
-                delete[] p_data_sui8;
+                jerry_string_to_char_buffer(p_args_ui32[0],l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8,l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32);
+                l_tx_data_wr_ptr_ui16++;
+                p_bkp_this->lp_tx_thread->signal();
             }
             else
             {
@@ -316,27 +366,21 @@ uart_js_c* p_bkp_this = NULL;
               )
             {
                 // Read function argument
-                const uint32_t data_len_ui32 = jerry_get_array_length(p_args_ui32[0]);
-                uint8_t *p_data_sui8 = new uint8_t[data_len_ui32];
-                for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_len_ui32; data_cnt_ui32++)
-                {
-                    p_data_sui8[data_cnt_ui32] = jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
-                }
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_array_length(p_args_ui32[0]);
                 // Call class method
-                if (p_bkp_this)
+                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
+                for (data_cnt_ui32 = 0; data_cnt_ui32 < l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32; data_cnt_ui32++)
                 {
-                    status_d = p_bkp_this->lp_com_uart_port->write_data(p_data_sui8, (uint32_t)jerry_get_number_value(p_args_ui32[1]));
-                    wxMilliSleep(1);
+                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
                 }
-                delete[] p_data_sui8;
+                l_tx_data_wr_ptr_ui16++;
+                p_bkp_this->lp_tx_thread->signal();
             }
         }
         else
         {
 
         }
-        // Overload timeout
-        wxMilliSleep(1);
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(status_d);
@@ -484,34 +528,90 @@ uart_js_c* p_bkp_this = NULL;
 void uart_js_c::rx_event(void* p_parametr_void, uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32)
 {
 uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
-jerry_value_t global_obj = jerry_get_global_object ();
-jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)&p_bkp_this->l_rx_event_name_sui8[0]);
-jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
+uint32_t data_cnt_ui32;
 
-    jerry_release_value (sys_name);
 
-    if (sysloop_func != 4)
+    // Save event type
+    l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].event_type_ui32 = event_type_ui32;
+    // Save data
+    if (length_ui32 > d_buffer_size)
     {
-        // Call function
-        jerry_value_t val_args[2];
-        uint16_t val_argv = 2;
-        val_args[0] = jerry_create_number (event_type_ui32);
-        val_args[1] = jerry_create_array(length_ui32);
-        // Set data array
-        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
+        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
+    }
+    else
+    {
+        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 = length_ui32;
+    }
+
+    for(data_cnt_ui32 = 0 ; data_cnt_ui32 < l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 ; data_cnt_ui32++)
+    {
+        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
+    }
+    l_rx_data_wr_ptr_ui16++;
+    // Signal new data
+    p_bkp_this->lp_rx_thread->signal();
+    return;
+}
+
+/** @brief Data RX queue
+ *
+ * @param [IN] p_parametr_void : Handle on registered object
+ * @return void
+ *
+ */
+
+void uart_js_c::rx_queue(void* p_parametr_void)
+{
+uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
+static jerry_value_t val_args[2];
+
+    while(l_rx_data_rd_ptr_ui16 != l_rx_data_wr_ptr_ui16)
+    {
+        if (l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 > d_buffer_size)
         {
-            jerry_value_t data_jerry_value = jerry_create_number(double(p_data_sui8[data_cnt_ui32]));
-            jerry_set_property_by_index (val_args[1], data_cnt_ui32, jerry_value_to_number(data_jerry_value));
-            jerry_release_value(data_jerry_value);
+            l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 = d_buffer_size;
         }
         // Call function
-        jerry_call_function (sysloop_func, global_obj, val_args, val_argv);
-        // Release argument
+        val_args[0] = jerry_create_number(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].event_type_ui32);
+        val_args[1] = jerry_create_array(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32);
+        // Set data array
+        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 ; data_cnt_ui32++)
+        {
+            jerry_set_property_by_index (val_args[1], data_cnt_ui32, jerry_value_to_number(jerry_create_number(double(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].data_sui8[data_cnt_ui32]))));
+        }
+        // Call function
+        if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
+        {
+            jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 2);
+        }
+        // Clear buffer item
         jerry_release_value (val_args[0]);
         jerry_release_value (val_args[1]);
+        // Set next message
+        l_rx_data_rd_ptr_ui16++;
     }
-    jerry_release_value (global_obj);
-    jerry_release_value (sysloop_func);
+    return;
+}
+
+/** @brief Data TX queue
+ *
+ * @param [IN] p_parametr_void : Handle on registered object
+ * @return void
+ *
+ */
+
+void uart_js_c::tx_queue(void* p_parametr_void)
+{
+uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
+
+    while(l_tx_data_rd_ptr_ui16 != l_tx_data_wr_ptr_ui16)
+    {
+        if (p_bkp_this->lp_com_uart_port->write_data(l_tx_data_packet_buffer[l_tx_data_rd_ptr_ui16].data_sui8, l_tx_data_packet_buffer[l_tx_data_rd_ptr_ui16].length_ui32))
+        {
+            // Clear buffer item
+            l_tx_data_rd_ptr_ui16++;
+        }
+    }
     return;
 }
 

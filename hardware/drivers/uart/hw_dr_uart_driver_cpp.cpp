@@ -556,7 +556,19 @@ uint8_t uart_port::write_data(uint8_t *p_data_sui8, uint32_t len_ui32)
 {
 uint8_t status_value_ui8 = 0;
 DWORD write_bite_dword = 0;
-    if (WriteFile( this->port_handle, p_data_sui8, len_ui32, &write_bite_dword, &this->port_overlapped))
+static uint8_t *fp_data_bkp_sui8 = NULL;
+uint32_t data_cnt_ui32;
+
+    if (fp_data_bkp_sui8)
+    {
+        delete[] fp_data_bkp_sui8;
+    }
+    fp_data_bkp_sui8 = new uint8_t[len_ui32];
+    for (data_cnt_ui32 = 0; data_cnt_ui32 < len_ui32; data_cnt_ui32++)
+    {
+        fp_data_bkp_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
+    }
+    if (WriteFile( this->port_handle, fp_data_bkp_sui8, len_ui32, &write_bite_dword, &this->port_overlapped))
     {
         if (write_bite_dword == len_ui32)
         {
@@ -569,6 +581,50 @@ DWORD write_bite_dword = 0;
         {
             status_value_ui8 = 1;
         }
+    }
+
+    return status_value_ui8;
+}
+
+/** @brief Write data vector
+ *
+ * @param [IN] pv_data_sui8 : Vector with data
+ * @return uint8_t : status
+ *    @arg 0 : Data not send
+ *    @arg 1 : Data send correctly
+ *
+ */
+
+uint8_t uart_port::write_data(vector<uint8_t>& pv_data_sui8)
+{
+uint8_t status_value_ui8 = 0;
+DWORD write_bite_dword = 0;
+static uint8_t f_data_bkp_sui8[4096];
+uint32_t data_cnt_ui32;
+static bool recurse_block_b = false;
+
+    if(!recurse_block_b)
+    {
+        recurse_block_b = true;
+        for (data_cnt_ui32 = 0; data_cnt_ui32 < pv_data_sui8.size(); data_cnt_ui32++)
+        {
+            f_data_bkp_sui8[data_cnt_ui32] = pv_data_sui8[data_cnt_ui32];
+        }
+        if (WriteFile( this->port_handle, f_data_bkp_sui8, pv_data_sui8.size(), &write_bite_dword, &this->port_overlapped))
+        {
+            if (write_bite_dword == pv_data_sui8.size())
+            {
+                status_value_ui8 = 1;
+            }
+        }
+        else
+        {
+            if (ERROR_IO_PENDING == GetLastError())
+            {
+                status_value_ui8 = 1;
+            }
+        }
+        recurse_block_b = false;
     }
     return status_value_ui8;
 }

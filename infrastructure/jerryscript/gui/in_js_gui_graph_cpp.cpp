@@ -68,6 +68,7 @@ typedef struct
   */
 
 vector<graph_buffer_t> lv_data_graph_buffer;
+uint32_t l_cnt_graph_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -89,7 +90,7 @@ vector<graph_buffer_t> lv_data_graph_buffer;
 uint32_t gui_frame::add_graph (double sizer_index_d, wxString name_str, double graph_range_d, double buffer_length_d, double time_step_d)
 {
 graph_buffer_t data_graph_buffer;
-uint32_t graph_index_ui32 = lv_data_graph_buffer.size();
+uint32_t index_ui32 = lv_data_graph_buffer.size();
 
     data_graph_buffer.name_str = name_str;
     data_graph_buffer.sizer_index_d = sizer_index_d;
@@ -98,8 +99,8 @@ uint32_t graph_index_ui32 = lv_data_graph_buffer.size();
     data_graph_buffer.time_step_d = time_step_d;
     data_graph_buffer.p_graph_data_plot = NULL;
     lv_data_graph_buffer.push_back(data_graph_buffer);
-    wxMilliSleep(50);
-    return graph_index_ui32;
+    while(!lv_data_graph_buffer[index_ui32].p_graph_data_plot){wxMilliSleep(1);}
+    return index_ui32;
 }
 
 /** @brief Insert signal in to graph
@@ -132,6 +133,7 @@ wxPen signal_style_pen;
         {
             lv_data_graph_buffer[graph_ui32].p_graph_data_plot->insert_signal(signal_label_str, signal_style_pen);
         }
+        signal_ui32 = 1;
     }
     return signal_ui32;
 }
@@ -179,29 +181,31 @@ uint32_t signal_cnt_ui32;
 
 void gui_frame::on_update_graph(void)
 {
-static uint32_t f_graph_cnt_ui32 = 0;
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
+data_plot* p_buffer_data_plot = NULL;
 
     // Add graph
-    while (f_graph_cnt_ui32 < lv_data_graph_buffer.size())
+    while (l_cnt_graph_ui32 < lv_data_graph_buffer.size())
     {
         // Get box sizer
-        p_data_wxboxsizer = lv_data_sizer_buffer[lv_data_graph_buffer[f_graph_cnt_ui32].sizer_index_d].p_data_wxboxsizer;
+        p_data_wxboxsizer = this->get_sizer(lv_data_graph_buffer[l_cnt_graph_ui32].sizer_index_d);
         // Get origin panel
-        p_data_wxpanel = lv_data_panel_buffer[lv_data_sizer_buffer[lv_data_graph_buffer[f_graph_cnt_ui32].sizer_index_d].panel_index_d].p_data_wxpanel;
+        p_data_wxpanel = this->get_sizer_panel(lv_data_graph_buffer[l_cnt_graph_ui32].sizer_index_d);
         // Create new graph
-        lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot = new data_plot(p_data_wxpanel, lv_data_graph_buffer[f_graph_cnt_ui32].name_str, lv_data_graph_buffer[f_graph_cnt_ui32].graph_range_d, lv_data_graph_buffer[f_graph_cnt_ui32].buffer_length_d, lv_data_graph_buffer[f_graph_cnt_ui32].time_step_d);
-        if(lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot)
+        p_buffer_data_plot = new data_plot(p_data_wxpanel, lv_data_graph_buffer[l_cnt_graph_ui32].name_str, lv_data_graph_buffer[l_cnt_graph_ui32].graph_range_d, lv_data_graph_buffer[l_cnt_graph_ui32].buffer_length_d, lv_data_graph_buffer[l_cnt_graph_ui32].time_step_d);
+        if(p_buffer_data_plot)
         {
             // Insert in to sizer
-            p_data_wxboxsizer->Add(lv_data_graph_buffer[f_graph_cnt_ui32].p_graph_data_plot, 1, wxEXPAND, 5);
+            p_data_wxboxsizer->Add(p_buffer_data_plot, 1, wxEXPAND, 5);
             p_data_wxboxsizer->Fit(p_data_wxpanel);
             p_data_wxboxsizer->SetSizeHints(p_data_wxpanel);
             p_data_wxboxsizer->Layout();
             lp_main_wxauimanager->Update();
+            // Save object
+            lv_data_graph_buffer[l_cnt_graph_ui32].p_graph_data_plot = p_buffer_data_plot;
         }
-        f_graph_cnt_ui32++;
+        l_cnt_graph_ui32++;
     }
     return;
 }
@@ -216,6 +220,7 @@ wxBoxSizer* p_data_wxboxsizer;
 void gui_frame::on_clear_graph(void)
 {
     lv_data_graph_buffer.clear();
+    l_cnt_graph_ui32 = 0;
     return;
 }
 

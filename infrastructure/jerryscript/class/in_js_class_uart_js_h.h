@@ -20,7 +20,9 @@
   ****************************************************************************
   */
 
+#include <wx/thread.h>
 #include "hw_dr_uart_driver_h.h"
+#include "in_thread_worker_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -63,9 +65,15 @@ public:
 private:
 
     static void rx_event(void* p_parametr_void, uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32);
+    static void rx_queue(void* p_parametr_void);
+    static void tx_queue(void* p_parametr_void);
 
 	uart_port* lp_com_uart_port;
 	uint8_t l_rx_event_name_sui8[256];
+    thread_c *lp_rx_thread;
+    thread_c *lp_tx_thread;
+    uint32_t l_reg_fct_ui32;
+    uint32_t l_global_ui32;
 
 };
 

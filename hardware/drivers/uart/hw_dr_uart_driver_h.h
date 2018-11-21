@@ -142,6 +142,7 @@ public :
     uint8_t flush(void);
     uint8_t write_data(uint8_t data_ui8);
     uint8_t write_data(uint8_t *p_data_sui8, uint32_t len_ui32);
+    uint8_t write_data(vector<uint8_t>& pv_data_sui8);
     uint8_t read_data(uint8_t *p_data_ui8);
     uint8_t read_data(string *p_data_str);
     uint8_t get_com_ctrl(uart_com_ctrl_in_t pin_uart_com_ctrl_in);

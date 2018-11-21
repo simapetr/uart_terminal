@@ -82,11 +82,12 @@ class jerryscript_c
 {
 public:
 
-	jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b);
+	jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b, bool init_b);
 	~jerryscript_c( void );
 	uint32_t run(wxString script_str);
 	void stop (void);
 	void call_event (wxString event_str, uint32_t component_id_ui32);
+	void reg_class (void);
 
 private:
 
@@ -95,10 +96,13 @@ private:
     static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     // File path
 	wxString l_jerryscript_code_str;
-	uint32_t l_result_ui32;
+	bool l_init_flag_b;
+	bool l_run_flag_b;
 	// GUI
 	gui_frame* lp_data_gui_frame;
 	void* lp_gui_main_frame_void;
+	bool l_debug_b;
+	uart_port* lp_com_uart_port;
 	// External class
 	time_js_c l_data_time_js;
 	file_js_c l_data_file_js;

@@ -24,6 +24,7 @@
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
+#include "ap_uart_terminal_frame_h.h"
 
 /**
   * @defgroup Application
@@ -52,8 +53,9 @@
   */
 
 bool l_frmae_show_b = false;
+bool l_frame_show_bkp_b = false;
 // application icon
-#include "icon/lp_signal_value_xpm.xpm"
+#include "icon/lp_in_js_gui_ico_xpm.xpm"
 //(*IdInit(gui_frame)
 const long gui_frame::l_id_update_wxtimer = wxNewId();
 //*)
@@ -85,11 +87,11 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     // Save parent pointer
     this->lp_jerryscript_void = p_jerryscript_void;
     //(*Initialize(gui_frame)
-    Create(parent, wxID_ANY, _("Graph"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("GUI application"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
     lp_main_wxauimanager = new wxAuiManager(this, wxAUI_MGR_ALLOW_FLOATING|wxAUI_MGR_DEFAULT);
     lp_update_wxtimer.SetOwner(this, l_id_update_wxtimer);
-    lp_update_wxtimer.Start(2, false);
+    lp_update_wxtimer.Start(1, false);
 
     lp_main_wxauimanager->Connect(wxEVT_AUI_PANE_CLOSE,(wxObjectEventFunction)&gui_frame::on_frame_auimanager_pane_close,0,this);
     Connect(l_id_update_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&gui_frame::on_update_wxtimer_trigger);
@@ -97,7 +99,7 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     Connect(wxEVT_SIZE,(wxObjectEventFunction)&gui_frame::on_frame_resize);
     //*)
     // Set frame icon
-    icon_wximagelist->Add(wxIcon( lp_signal_value_si8 ), wxColor(0xff, 0xff, 0xff));
+    icon_wximagelist->Add(wxIcon( lp_in_js_gui_ico_si8 ), wxColor(0xff, 0xff, 0xff));
     SetIcon(icon_wximagelist->GetIcon(0));
     delete icon_wximagelist;
     // Buffer initialization
@@ -122,39 +124,39 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 
 gui_frame::~gui_frame()
 {
-//uint32_t item_cnt_ui32 = 0;
     //(*Destroy(gui_frame)
     //*)
-    //this->lp_update_wxtimer.Stop();
-    //wxMilliSleep(20);
-    /*while (item_cnt_ui32 < lv_data_panel_buffer.size())
-    {
-        delete lv_data_panel_buffer[item_cnt_ui32].p_data_wxpanel;
-        item_cnt_ui32++;
-    }*/
-    //lv_data_panel_buffer.clear();
-    /*item_cnt_ui32 = 0;
-    while (item_cnt_ui32 < lv_data_graph_buffer.size())
-    {
-        delete lv_data_graph_buffer[item_cnt_ui32].p_graph_data_plot;
-        item_cnt_ui32++;
-    }*/
-    //lv_data_graph_buffer.clear();
-    //delete lp_main_wxauimanager;
-    //this->GetParent()->Close();
+    this->lp_main_wxauimanager->UnInit();
+    this->lp_update_wxtimer.Stop();
+    // Buffer initialization
+    this->on_clear_panel();
+    this->on_clear_sizer();
+    this->on_clear_graph();
+    this->on_clear_button();
+    this->on_clear_slider();
+    this->on_clear_static_text();
+    this->on_clear_textctrl();
+    this->on_clear_check_box();
+    this->on_clear_gauge();
+    // Close window
+    this->Show(false);
+    l_frmae_show_b = false;
+    l_frame_show_bkp_b = false;
     return;
 }
 
 /** @brief Show frame
  *
  * @param [IN] status_b : Show status
+ * @param [IN] name_str : Frame label text
  * @return void
  *
  */
 
-void gui_frame::frame_show (bool status_b)
+void gui_frame::frame_show (bool status_b, wxString name_str)
 {
     l_frmae_show_b = status_b;
+    this->SetLabel(name_str);
     return;
 }
 
@@ -193,8 +195,15 @@ void gui_frame::on_frame_resize(wxSizeEvent& event)
 
 void gui_frame::on_close_event(wxCloseEvent& event)
 {
-    // Call application close
-    this->GetParent()->Close();
+    // Call event stop
+    if (this->GetParent()->IsShown())
+    {
+        reinterpret_cast<main_frame*>(this->GetParent()->GetClientData())->stop_event();
+    }
+    else
+    {
+        this->GetParent()->Close();
+    }
     return;
 }
 
@@ -207,13 +216,11 @@ void gui_frame::on_close_event(wxCloseEvent& event)
 
 void gui_frame::on_update_wxtimer_trigger(wxTimerEvent& event)
 {
-static bool f_frame_show_bkp_b = false;
-
     // Frame show
-    if (l_frmae_show_b != f_frame_show_bkp_b)
+    if (l_frmae_show_b != l_frame_show_bkp_b)
     {
         this->Show(l_frmae_show_b);
-        f_frame_show_bkp_b = l_frmae_show_b;
+        l_frame_show_bkp_b = l_frmae_show_b;
     }
     // Add panel
     this->on_update_panel();

@@ -82,14 +82,8 @@ jerry_value_t name_jerry_value;
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
     // Set data in graph
-    funct_jerry_value = jerry_create_external_function(this->set_data);
-    name_jerry_value = jerry_create_string((const jerry_char_t*)"set_data");
-    jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
-    jerry_release_value(name_jerry_value);
-    jerry_release_value(funct_jerry_value);
-    // Show graph
-    funct_jerry_value = jerry_create_external_function(this->show);
-    name_jerry_value = jerry_create_string((const jerry_char_t*)"show");
+    funct_jerry_value = jerry_create_external_function(this->set);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"set");
     jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
@@ -217,7 +211,7 @@ static uint8_t *p_data_sui8 = NULL;
     return jerry_create_number(signal_num_ui32);
 }
 
-/** @brief Set graph data (JS method "set_data")
+/** @brief Set graph data (JS method "set")
  *
  * @param [IN] funct_ui32 : Unused
  * @param [IN] this_ui32 : Pointer on construct class
@@ -227,7 +221,7 @@ static uint8_t *p_data_sui8 = NULL;
  *
  */
 
-uint32_t graph_js_c::set_data(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+uint32_t graph_js_c::set(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
 {
 void* p_arg_void;
 graph_js_c* p_bkp_this = NULL;
@@ -258,39 +252,6 @@ vector<double> v_data_d;
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
-}
-
-/** @brief Show graph frame (JS method "show")
- *
- * @param [IN] funct_ui32 : Unused
- * @param [IN] this_ui32 : Pointer on construct class
- * @param [IN] p_args_ui32 : Pointer on argument field
- * @param [IN] args_cnt_ui32 : Argument field size
- * @return uint32_t : returned data
- *
- */
-
-uint32_t graph_js_c::show(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
-{
-void* p_arg_void;
-graph_js_c* p_bkp_this = NULL;
-
-    if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
-    {
-        // Extract this
-        p_bkp_this = reinterpret_cast<graph_js_c*>(p_arg_void);
-        // Extract function argument
-        if(args_cnt_ui32 == 1 && p_bkp_this)
-        {
-            if(jerry_value_is_boolean(p_args_ui32[0]))
-            {
-                // Call function
-                ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->Show(jerry_get_boolean_value(p_args_ui32[0]));
-            }
-        }
-    }
-    // Cast it back to JavaScript and return
-    return jerry_create_undefined();
 }
 
 /**

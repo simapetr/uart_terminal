@@ -130,7 +130,7 @@ void jerry_port_log (jerry_log_level_t level, const char *format, ...)
     vsnprintf (buffer, (size_t) length + 1, format, args);
 
     fprintf (stderr, "%s", buffer);
-    jerry_debugger_send_log (level, (jerry_char_t *) buffer, (jerry_size_t) length);
+    //jerry_debugger_send_log (level, (jerry_char_t *) buffer, (jerry_size_t) length);
 #else /* If jerry-debugger isn't defined, libc is turned on */
     vfprintf (stderr, format, args);
 #endif /* JERRY_DEBUGGER */
