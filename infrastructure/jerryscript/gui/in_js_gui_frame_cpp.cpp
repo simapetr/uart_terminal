@@ -145,6 +145,18 @@ gui_frame::~gui_frame()
     return;
 }
 
+/** @brief Get AUI manager
+ *
+ * @param void
+ * @return wxAuiManager : AUI object pointer
+ *
+ */
+
+wxAuiManager* gui_frame::get_aui_manager (void)
+{
+    return this->lp_main_wxauimanager;
+}
+
 /** @brief Show frame
  *
  * @param [IN] status_b : Show status

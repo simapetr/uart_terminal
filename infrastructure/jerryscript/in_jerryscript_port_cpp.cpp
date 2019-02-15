@@ -154,6 +154,34 @@ uint32_t status_ui32 = 1;
 
 void jerryscript_c::stop (void)
 {
+config_ini *p_position_config_ini;
+int pos_x_int = 0;
+int pos_y_int = 0;
+int siz_w_int = 0;
+int siz_h_int = 0;
+
+    if (this->lp_data_gui_frame != NULL && ((main_frame*)(this->lp_gui_main_frame_void)) != NULL)
+    {
+        p_position_config_ini = ((main_frame*)(this->lp_gui_main_frame_void))->get_project();
+        p_position_config_ini->set_string(wxT("POSITION/perspective"),this->lp_data_gui_frame->get_aui_manager()->SavePerspective());
+        // Save window position
+        this->lp_data_gui_frame->GetPosition(&pos_x_int, &pos_y_int);
+        p_position_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
+        p_position_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
+        if (this->lp_data_gui_frame->IsMaximized())
+        {
+            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
+        }
+        else
+        {
+            this->lp_data_gui_frame->GetClientSize(&siz_w_int, &siz_h_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
+        }
+    }
+
+    wxMilliSleep(100);
     this->l_run_flag_b = false;
     wxMilliSleep(100);
     // Terminate Worker thread
@@ -222,7 +250,7 @@ jerry_value_t name_jerry_value;
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
-    // Register Alert info dialog
+    // Register GUI frame control
     funct_jerry_value = jerry_create_external_function(this->gui);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"gui");
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
@@ -248,6 +276,19 @@ jerry_value_t name_jerry_value;
     return;
 }
 
+/** @brief Deregister JS class
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void jerryscript_c::dereg_class (void)
+{
+    this->l_port_uart_js.dereg_host_class();
+    return;
+}
+
 /**
   ****************************************************************************
   * Local function
@@ -263,8 +304,8 @@ jerry_value_t name_jerry_value;
 
 wxThread::ExitCode jerryscript_thread_c::Entry()
 {
-static
-jerry_value_t eval_ret_jerry_value;
+static jerry_value_t eval_ret_jerry_value;
+config_ini *p_position_config_ini;
 
     // Interpreter initialization
     if (!this->lp_object_jerryscript->l_init_flag_b)
@@ -287,11 +328,30 @@ jerry_value_t eval_ret_jerry_value;
         eval_ret_jerry_value = jerry_eval((const jerry_char_t*) this->lp_object_jerryscript->l_jerryscript_code_str.To8BitData().data(), this->lp_object_jerryscript->l_jerryscript_code_str.Length(), false);
         jerry_release_value (eval_ret_jerry_value);
     }
+    if (this->lp_object_jerryscript->lp_data_gui_frame != NULL && ((main_frame*)(this->lp_object_jerryscript->lp_gui_main_frame_void)) != NULL)
+    {
+        p_position_config_ini = ((main_frame*)(this->lp_object_jerryscript->lp_gui_main_frame_void))->get_project();
+        this->lp_object_jerryscript->lp_data_gui_frame->Move(wxPoint(p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),p_position_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
+        if (p_position_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
+        {
+            this->lp_object_jerryscript->lp_data_gui_frame->Maximize();
+        }
+        else
+        {
+            this->lp_object_jerryscript->lp_data_gui_frame->SetClientSize(wxSize(p_position_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+        }
+        // Load AUI position
+        this->lp_object_jerryscript->lp_data_gui_frame->get_aui_manager()->LoadPerspective(p_position_config_ini->get_string(wxT("POSITION/perspective"),wxT("")));
+        // Update AUI manager
+        this->lp_object_jerryscript->lp_data_gui_frame->get_aui_manager()->Update();
+    }
     // Wait for script termination
     while (this->lp_object_jerryscript->l_run_flag_b)
     {
         wxMilliSleep(10);
     }
+    // Unregister class
+    this->lp_object_jerryscript->dereg_class();
     wxMilliSleep(100);
     // Free interpreter memory
     jerry_cleanup();

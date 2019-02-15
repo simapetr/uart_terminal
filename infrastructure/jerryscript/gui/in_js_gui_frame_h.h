@@ -61,6 +61,7 @@ class gui_frame: public wxFrame
 
         gui_frame(wxWindow* p_parent_window, void* p_jerryscript_void);
         virtual ~gui_frame();
+        wxAuiManager* get_aui_manager (void);
         void frame_show (bool status_b, wxString name_str);
         uint32_t add_panel (wxString panel_name_str, bool horizontal_b);
         uint32_t get_panel_sizer (double panel_index_d);

@@ -211,6 +211,7 @@ class main_frame: public wxFrame
         uart_status_t l_data_uart_status;
         bool l_consle_rx_enable_b;
         config_ini *p_data_config_ini;
+        config_ini *lp_script_config_ini;
         jerryscript_c *lp_interpret_jerryscript;
         wxTextEntryDialog* lp_data_wxtextentrydialog;
         wxString l_dialog_text_str;

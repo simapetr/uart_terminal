@@ -88,6 +88,7 @@ public:
 	void stop (void);
 	void call_event (wxString event_str, uint32_t component_id_ui32);
 	void reg_class (void);
+	void dereg_class (void);
 
 private:
 

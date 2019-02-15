@@ -161,6 +161,25 @@ jerry_value_t name_jerry_value;
     return;
 }
 
+/** @brief Deregistration object in to class
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void uart_js_c::dereg_host_class (void)
+{
+    this->lp_com_uart_port->delete_event(this->rx_event);
+    this->lp_rx_thread->stop();
+    this->lp_tx_thread->stop();
+    delete this->lp_rx_thread;
+    delete this->lp_tx_thread;
+    this->lp_rx_thread = NULL;
+    this->lp_tx_thread = NULL;
+    return;
+}
+
 /** @brief Open UART port (JS method "open")
  *
  * @param [IN] funct_ui32 : Unused
@@ -307,6 +326,7 @@ double status_d = 0.0;
 void* p_arg_void;
 uart_js_c* p_bkp_this = NULL;
 uint32_t data_cnt_ui32;
+bool signal_b = false;
 
     if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
     {
@@ -322,7 +342,7 @@ uint32_t data_cnt_ui32;
                 l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = 1;
                 l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[0] = (uint8_t)jerry_get_number_value(p_args_ui32[0]);
                 l_tx_data_wr_ptr_ui16++;
-                p_bkp_this->lp_tx_thread->signal();
+                signal_b = true;
             }
             else if (jerry_value_is_array (p_args_ui32[0]))
             {
@@ -338,7 +358,7 @@ uint32_t data_cnt_ui32;
                     l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
                 }
                 l_tx_data_wr_ptr_ui16++;
-                p_bkp_this->lp_tx_thread->signal();
+                signal_b = true;
             }
             else if(jerry_value_is_string (p_args_ui32[0]))
             {
@@ -351,7 +371,7 @@ uint32_t data_cnt_ui32;
                 }
                 jerry_string_to_char_buffer(p_args_ui32[0],l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8,l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32);
                 l_tx_data_wr_ptr_ui16++;
-                p_bkp_this->lp_tx_thread->signal();
+                signal_b = true;
             }
             else
             {
@@ -374,12 +394,19 @@ uint32_t data_cnt_ui32;
                     l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
                 }
                 l_tx_data_wr_ptr_ui16++;
-                p_bkp_this->lp_tx_thread->signal();
+                signal_b = true;
             }
         }
         else
         {
 
+        }
+    }
+    if (signal_b)
+    {
+        if (p_bkp_this->lp_tx_thread)
+        {
+            p_bkp_this->lp_tx_thread->signal();
         }
     }
     // Cast it back to JavaScript and return
@@ -549,7 +576,11 @@ uint32_t data_cnt_ui32;
     }
     l_rx_data_wr_ptr_ui16++;
     // Signal new data
-    p_bkp_this->lp_rx_thread->signal();
+    if (p_bkp_this->lp_rx_thread)
+    {
+        p_bkp_this->lp_rx_thread->signal();
+    }
+
     return;
 }
 

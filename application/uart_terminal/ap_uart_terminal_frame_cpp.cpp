@@ -365,6 +365,8 @@ wxString cfg_path_str = wxEmptyString;
     // Initialize event
     this->lp_event_parameter_void = NULL;
     this->l_data_send_event_fct = NULL;
+    // Initialize script project
+    this->lp_script_config_ini = NULL;
     // Set debug flag
     if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
     {
@@ -475,7 +477,7 @@ void main_frame::gui (bool status_b)
 
 config_ini* main_frame::get_project (void)
 {
-    return p_data_config_ini;
+    return this->lp_script_config_ini;
 }
 
 /** @brief Set RX data show status
@@ -814,6 +816,7 @@ uint32_t main_frame::run_script(wxString path_str)
 uint32_t run_status_ui32;
 static bool f_init_b = false;
 static wxString script_file_str;
+wxString config_path_str;
 
     if ((path_str != wxEmptyString) && (!this->l_run_b))
     {
@@ -832,6 +835,13 @@ static wxString script_file_str;
                 p_stcipt_wxfile->ReadAll(&script_file_str);
                 if (script_file_str != wxEmptyString)
                 {
+                    if (!this->lp_script_config_ini)
+                    {
+                        config_path_str = path_str;
+                        config_path_str.Replace(".js", ".ini");
+                        // Create Script configuration
+                        this->lp_script_config_ini = new config_ini(config_path_str);
+                    }
                     // Run script
                     run_status_ui32 = this->lp_interpret_jerryscript->run(script_file_str);
                     this->l_run_b = true;

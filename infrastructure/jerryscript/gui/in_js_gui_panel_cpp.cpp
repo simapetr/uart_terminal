@@ -164,7 +164,7 @@ wxPanel* p_buffer_wxpanel = NULL;
         {
             p_buffer_wxpanel->SetFocus();
             // Add panel in to AUI
-            lp_main_wxauimanager->AddPane(p_buffer_wxpanel, wxAuiPaneInfo().DefaultPane().Caption(lv_data_panel_buffer[l_cnt_panel_ui32].name_str).CaptionVisible().MinimizeButton().MaximizeButton().PinButton().Maximize());
+            lp_main_wxauimanager->AddPane(p_buffer_wxpanel, wxAuiPaneInfo().Name(lv_data_panel_buffer[l_cnt_panel_ui32].name_str).DefaultPane().Caption(lv_data_panel_buffer[l_cnt_panel_ui32].name_str).CaptionVisible().MinimizeButton().MaximizeButton().PinButton().Maximize());
             lp_main_wxauimanager->Update();
             // Save object
             lv_data_panel_buffer[l_cnt_panel_ui32].p_data_wxpanel = p_buffer_wxpanel;
