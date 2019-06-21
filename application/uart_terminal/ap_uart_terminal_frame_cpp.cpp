@@ -913,7 +913,7 @@ void main_frame::menu_bar_file_quit_item_selected(wxCommandEvent& event)
 
 void main_frame::menu_bar_help_about_item_selected(wxCommandEvent& event)
 {
-    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : "__DATE__"\nPORTTRONIC(c)"), _("About"));
+    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : " __DATE__ "\nPORTTRONIC(c)"), _("About"));
     return;
 }
 
