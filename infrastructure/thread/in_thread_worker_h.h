@@ -3,7 +3,7 @@
 
 /**
   ****************************************************************************
-  * @file    in_thread_worker_h.h
+  * @file    in_thread_h.h
   * @author  Ing. Petr Simek
   * @version V1.0
   * @date    14.11.2018
@@ -21,6 +21,7 @@
   */
 
 #include <wx/thread.h>
+#include "stdint.h"
 
 /**
   * @addtogroup Infrastructure
@@ -61,6 +62,8 @@ protected:
 
     void *lp_parameter_void;
     bool l_run_flag_b;
+    bool l_stop_recursive_b;
+    uint8_t l_timeout_cnt_ui8;
     thread_fct_t l_function_thread_fct;
     wxMutex *lp_data_wxmutex;
     wxCondition *lp_data_wxcondition;
