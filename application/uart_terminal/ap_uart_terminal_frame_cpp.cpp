@@ -70,6 +70,7 @@ static bool l_grame_gui_close_b = false;
 const long main_frame::l_id_port_wxstatictext = wxNewId();
 const long main_frame::l_id_port_wxchoice = wxNewId();
 const long main_frame::l_id_speed_wxchoice = wxNewId();
+const long main_frame::l_id_speed_wxtextctrl = wxNewId();
 const long main_frame::l_id_length_wxchoice = wxNewId();
 const long main_frame::l_id_parity_wxchoice = wxNewId();
 const long main_frame::l_id_stop_bit_wxchoice = wxNewId();
@@ -127,6 +128,9 @@ main_frame::main_frame(wxWindow* parent, wxArrayString* p_cmd_arg_arraystring)
 {
 wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 wxString cfg_path_str = wxEmptyString;
+uint32_t data_bkp_ui32;
+wxString text_str;
+int32_t select_i32;
 
     // Save CMD parameter
     this->lp_cmd_arg_arraystring = p_cmd_arg_arraystring;
@@ -142,14 +146,15 @@ wxString cfg_path_str = wxEmptyString;
     lp_port_wxchoice->SetToolTip(_("Commuication port"));
     lp_main_setting_wxboxsizer->Add(lp_port_wxchoice, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_speed_wxchoice = new wxChoice(lp_main_wxpanel, l_id_speed_wxchoice, wxDefaultPosition, wxSize(61,21), 0, 0, 0, wxDefaultValidator, _T("l_id_speed_wxchoice"));
+    lp_speed_wxchoice->Append(_("Custom"));
     lp_speed_wxchoice->Append(_("110"));
     lp_speed_wxchoice->Append(_("300"));
     lp_speed_wxchoice->Append(_("1200"));
     lp_speed_wxchoice->Append(_("2400"));
     lp_speed_wxchoice->Append(_("4800"));
-    lp_speed_wxchoice->SetSelection( lp_speed_wxchoice->Append(_("9600")) );
+    lp_speed_wxchoice->Append(_("9600"));
     lp_speed_wxchoice->Append(_("14400"));
-    lp_speed_wxchoice->Append(_("19200"));
+    lp_speed_wxchoice->SetSelection( lp_speed_wxchoice->Append(_("19200")) );
     lp_speed_wxchoice->Append(_("38400"));
     lp_speed_wxchoice->Append(_("57600"));
     lp_speed_wxchoice->Append(_("115200"));
@@ -157,6 +162,9 @@ wxString cfg_path_str = wxEmptyString;
     lp_speed_wxchoice->Append(_("256000"));
     lp_speed_wxchoice->SetToolTip(_("Communication speed"));
     lp_main_setting_wxboxsizer->Add(lp_speed_wxchoice, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    lp_speed_wxtextctrl = new wxTextCtrl(lp_main_wxpanel, l_id_speed_wxtextctrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_speed_wxtextctrl"));
+    lp_speed_wxtextctrl->SetToolTip(_("User communication speed"));
+    lp_main_setting_wxboxsizer->Add(lp_speed_wxtextctrl, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_length_wxchoice = new wxChoice(lp_main_wxpanel, l_id_length_wxchoice, wxDefaultPosition, wxSize(31,21), 0, 0, 0, wxDefaultValidator, _T("l_id_length_wxchoice"));
     lp_length_wxchoice->Append(_("5"));
     lp_length_wxchoice->Append(_("6"));
@@ -252,14 +260,14 @@ wxString cfg_path_str = wxEmptyString;
     lp_command_wxtextctrl->SetMaxLength(2048);
     wxFont lp_command_wxtextctrlFont(10,wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Lucida Console"),wxFONTENCODING_DEFAULT);
     lp_command_wxtextctrl->SetFont(lp_command_wxtextctrlFont);
-    lp_main_command_wxboxsizer->Add(lp_command_wxtextctrl, 1, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP, 5);
+    lp_main_command_wxboxsizer->Add(lp_command_wxtextctrl, 1, wxALL|wxALIGN_TOP, 5);
     lp_hex_wxcheckbox = new wxCheckBox(lp_main_wxpanel, l_id_hex_wxcheckbox, _("HEX"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_hex_wxcheckbox"));
     lp_hex_wxcheckbox->SetValue(false);
     lp_hex_wxcheckbox->SetToolTip(_("Hex imput type (0x24 0x35 -> 2435 send 2 byte)"));
     lp_main_command_wxboxsizer->Add(lp_hex_wxcheckbox, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_send_wxbutton = new wxButton(lp_main_wxpanel, l_id_send_wxbutton, _("Send"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_send_wxbutton"));
     lp_send_wxbutton->Disable();
-    lp_main_command_wxboxsizer->Add(lp_send_wxbutton, 0, wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP, 5);
+    lp_main_command_wxboxsizer->Add(lp_send_wxbutton, 0, wxALL|wxALIGN_TOP, 5);
     lp_main_wxboxsizer->Add(lp_main_command_wxboxsizer, 0, wxEXPAND, 5);
     lp_console_wxtextctrl = new wxTextCtrl(lp_main_wxpanel, l_id_console_wxtextctrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE, wxDefaultValidator, _T("l_id_console_wxtextctrl"));
     wxFont lp_console_wxtextctrlFont(10,wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Lucida Console"),wxFONTENCODING_DEFAULT);
@@ -289,6 +297,7 @@ wxString cfg_path_str = wxEmptyString;
     lp_dialog_caller_wxtimer.Start(100, false);
     lp_wx_gui_sync_wxtimer.SetOwner(this, l_id_wx_gui_sync_wxtimer);
 
+    Connect(l_id_speed_wxchoice,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&main_frame::on_speed_wxchoice_select);
     Connect(l_id_clear_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_clear_button_click);
     Connect(l_id_close_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_close_button_click);
     Connect(l_id_open_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_open_button_click);
@@ -333,7 +342,6 @@ wxString cfg_path_str = wxEmptyString;
     // Open configuration file
     this->p_data_config_ini = new config_ini(cfg_path_str);
     this->lp_port_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/port"),wxT("0")));
-    this->lp_speed_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/speed"),wxT("7")));
     this->lp_length_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/bit_length"),wxT("3")));
     this->lp_parity_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/parity"),wxT("0")));
     this->lp_stop_bit_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/stop_bit"),wxT("0")));
@@ -342,6 +350,20 @@ wxString cfg_path_str = wxEmptyString;
     this->lp_text_lf_wxcheckbox->SetValue(this->p_data_config_ini->get_value(wxT("CONFIGURATION/add_lf"),wxT("0")));
     this->lp_command_wxtextctrl->WriteText(this->p_data_config_ini->get_string(wxT("CONFIGURATION/data"),wxT("")));
     this->lp_script_path_wxtextctrl->WriteText(this->p_data_config_ini->get_string(wxT("CONFIGURATION/script_path"),wxT("")));
+    select_i32 = this->lp_speed_wxchoice->FindString(this->p_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")));
+    if(wxNOT_FOUND != select_i32)
+    {
+        this->lp_speed_wxchoice->SetSelection(select_i32);
+        this->lp_speed_wxtextctrl->Show(false);
+    }
+    else
+    {
+        this->lp_speed_wxchoice->SetSelection(0);
+        wxSscanf(this->p_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")),wxT("%u"),&data_bkp_ui32);
+        text_str.Printf("%u",data_bkp_ui32);
+        this->lp_speed_wxtextctrl->WriteText(text_str);
+        this->lp_speed_wxtextctrl->Show(true);
+    }
     // Initialization script interpreter
     this->lp_interpret_jerryscript = NULL;
     // Initialization dialog
@@ -409,6 +431,8 @@ int pos_x_int = 0;
 int pos_y_int = 0;
 int siz_w_int = 0;
 int siz_h_int = 0;
+uint32_t data_bkp_ui32;
+wxString text_str;
 
     //(*Destroy(main_frame)
     //*)
@@ -432,7 +456,16 @@ int siz_h_int = 0;
     this->uart_thread_run_ui32 = 0;
     // Save configuration
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/port"),this->lp_port_wxchoice->GetSelection());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/speed"),this->lp_speed_wxchoice->GetSelection());
+    if(this->lp_speed_wxchoice->GetSelection())
+    {
+        this->p_data_config_ini->set_string(wxT("CONFIGURATION/speed"),this->lp_speed_wxchoice->GetString(this->lp_speed_wxchoice->GetSelection()));
+    }
+    else
+    {
+        wxSscanf(this->lp_speed_wxtextctrl->GetLineText(0),wxT("%u"),&data_bkp_ui32);
+        text_str.Printf("%u",data_bkp_ui32);
+        this->p_data_config_ini->set_string(wxT("CONFIGURATION/speed"),text_str);
+    }
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/bit_length"),this->lp_length_wxchoice->GetSelection());
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/parity"),this->lp_parity_wxchoice->GetSelection());
     this->p_data_config_ini->set_value(wxT("CONFIGURATION/stop_bit"),this->lp_stop_bit_wxchoice->GetSelection());
@@ -572,6 +605,7 @@ uart_cfg_t data_uart_cfg;
             // Disable settings component
             this->lp_port_wxchoice->Disable();
             this->lp_speed_wxchoice->Disable();
+            this->lp_speed_wxtextctrl->Disable();
             this->lp_length_wxchoice->Disable();
             this->lp_parity_wxchoice->Disable();
             this->lp_stop_bit_wxchoice->Disable();
@@ -651,6 +685,7 @@ void main_frame::close_port(void)
         // Enable settings component
         this->lp_port_wxchoice->Enable();
         this->lp_speed_wxchoice->Enable();
+        this->lp_speed_wxtextctrl->Enable();
         this->lp_length_wxchoice->Enable();
         this->lp_parity_wxchoice->Enable();
         this->lp_stop_bit_wxchoice->Enable();
@@ -708,6 +743,11 @@ int32_t select_i32;
     {
         this->lp_speed_wxchoice->SetSelection(select_i32);
     }
+    else
+    {
+        this->lp_speed_wxchoice->SetSelection(0);
+        this->lp_speed_wxtextctrl->WriteText(text_str);
+    }
     text_str.Printf("%u",data_uart_cfg.bit_length_ui8);
     select_i32 = this->lp_length_wxchoice->FindString(text_str);
     if(wxNOT_FOUND != select_i32)
@@ -735,7 +775,14 @@ uint32_t data_bkp_ui32;
     wxSscanf(lp_port_wxchoice->GetString(lp_port_wxchoice->GetSelection()),wxT("%u"),&data_bkp_ui32);
     data_uart_cfg.port_num_ui8 = data_bkp_ui32;
     // Get speed
-    wxSscanf(lp_speed_wxchoice->GetString(lp_speed_wxchoice->GetSelection()),wxT("%u"),&data_bkp_ui32);
+    if (lp_speed_wxchoice->GetSelection())
+    {
+        wxSscanf(lp_speed_wxchoice->GetString(lp_speed_wxchoice->GetSelection()),wxT("%u"),&data_bkp_ui32);
+    }
+    else
+    {
+        wxSscanf(this->lp_speed_wxtextctrl->GetLineText(0),wxT("%u"),&data_bkp_ui32);
+    }
     data_uart_cfg.baudrate_ui32 = data_bkp_ui32;
     // Get length
     wxSscanf(lp_length_wxchoice->GetString(lp_length_wxchoice->GetSelection()),wxT("%u"),&data_bkp_ui32);
@@ -1454,6 +1501,28 @@ wxCommandEvent data_wxcommandevent;
         }
         f_rlsd_old_b = l_rlsd_b;
     }
+    return;
+}
+
+/** @brief Change port baudrate
+ *
+ * @param [IN] event : standard event input data
+ * @return void
+ *
+ */
+
+void main_frame::on_speed_wxchoice_select(wxCommandEvent& event)
+{
+    if(lp_speed_wxchoice->GetString(lp_speed_wxchoice->GetSelection()).IsSameAs("Custom"))
+    {
+        this->lp_speed_wxtextctrl->Show(true);
+    }
+    else
+    {
+        this->lp_speed_wxtextctrl->Show(false);
+    }
+    //this->lp_main_setting_wxboxsizer->Fit(lp_main_wxpanel);
+    this->lp_main_setting_wxboxsizer->Layout();
     return;
 }
 

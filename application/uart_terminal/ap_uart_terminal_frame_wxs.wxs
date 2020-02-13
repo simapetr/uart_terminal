@@ -28,6 +28,7 @@
 						<object class="sizeritem">
 							<object class="wxChoice" name="l_id_speed_wxchoice" variable="lp_speed_wxchoice" member="yes">
 								<content>
+									<item>Custom</item>
 									<item>110</item>
 									<item>300</item>
 									<item>1200</item>
@@ -42,9 +43,17 @@
 									<item>128000</item>
 									<item>256000</item>
 								</content>
-								<selection>5</selection>
+								<selection>8</selection>
 								<size>61,21</size>
 								<tooltip>Communication speed</tooltip>
+								<handler function="on_speed_wxchoice_select" entry="EVT_CHOICE" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxTextCtrl" name="l_id_speed_wxtextctrl" variable="lp_speed_wxtextctrl" member="yes">
+								<tooltip>User communication speed</tooltip>
 							</object>
 							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 							<border>5</border>
@@ -308,7 +317,7 @@
 									<face>Lucida Console</face>
 								</font>
 							</object>
-							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP</flag>
+							<flag>wxALL|wxALIGN_TOP</flag>
 							<border>5</border>
 							<option>1</option>
 						</object>
@@ -326,7 +335,7 @@
 								<enabled>0</enabled>
 								<handler function="main_panel_send_button_click" entry="EVT_BUTTON" />
 							</object>
-							<flag>wxBOTTOM|wxLEFT|wxRIGHT|wxALIGN_TOP</flag>
+							<flag>wxALL|wxALIGN_TOP</flag>
 							<border>5</border>
 						</object>
 					</object>

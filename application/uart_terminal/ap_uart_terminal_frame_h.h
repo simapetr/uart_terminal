@@ -109,6 +109,7 @@ class main_frame: public wxFrame
         void on_dialog_caller_wxtimer_trigger(wxTimerEvent& event);
         void on_wx_gui_sync_wxtimer_trigger(wxTimerEvent& event);
         void on_script_run_wxtogglebutton_toggle(wxCommandEvent& event);
+        void on_speed_wxchoice_select(wxCommandEvent& event);
         //*)
         void main_panel_set_port_choice(void);
         void uart_rx_data(uint8_t *p_data_sui8, uint32_t length_ui32);
@@ -118,6 +119,7 @@ class main_frame: public wxFrame
         static const long l_id_port_wxstatictext;
         static const long l_id_port_wxchoice;
         static const long l_id_speed_wxchoice;
+        static const long l_id_speed_wxtextctrl;
         static const long l_id_length_wxchoice;
         static const long l_id_parity_wxchoice;
         static const long l_id_stop_bit_wxchoice;
@@ -197,6 +199,7 @@ class main_frame: public wxFrame
         wxTextCtrl* lp_command_wxtextctrl;
         wxTextCtrl* lp_console_wxtextctrl;
         wxTextCtrl* lp_script_path_wxtextctrl;
+        wxTextCtrl* lp_speed_wxtextctrl;
         wxTimer lp_dialog_caller_wxtimer;
         wxTimer lp_wx_gui_sync_wxtimer;
         wxToggleButton* lp_script_run_wxtogglebutton;
