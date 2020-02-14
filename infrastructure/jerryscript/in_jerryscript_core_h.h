@@ -43,7 +43,7 @@
   */
 
 /**
-  * @addtogroup JavaScript
+  * @addtogroup JerryScript
   * @{
   */
 

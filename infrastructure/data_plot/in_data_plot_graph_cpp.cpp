@@ -25,8 +25,13 @@
 //*)
 
 /**
-  * @defgroup Transmitter_box
-  * @brief Transmitter box
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @defgroup Data_plot
+  * @brief Data plot graph
   * @{
   */
 
@@ -260,6 +265,10 @@ uint32_t cols_num_ui32;
     }
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

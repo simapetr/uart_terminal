@@ -393,6 +393,10 @@ int32_t select_i32;
     if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
     {
         this->l_script_debug_b = true;
+        AllocConsole();
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+        printf("UART Terminal DBG :\n");
     }
     else
     {
@@ -882,13 +886,14 @@ wxString config_path_str;
                 p_stcipt_wxfile->ReadAll(&script_file_str);
                 if (script_file_str != wxEmptyString)
                 {
-                    if (!this->lp_script_config_ini)
+                    if (this->lp_script_config_ini)
                     {
-                        config_path_str = path_str;
-                        config_path_str.Replace(".js", ".ini");
-                        // Create Script configuration
-                        this->lp_script_config_ini = new config_ini(config_path_str);
+                        delete this->lp_script_config_ini;
                     }
+                    config_path_str = path_str;
+                    config_path_str.Replace(".js", ".ini");
+                    // Create Script configuration
+                    this->lp_script_config_ini = new config_ini(config_path_str);
                     // Run script
                     run_status_ui32 = this->lp_interpret_jerryscript->run(script_file_str);
                     this->l_run_b = true;
@@ -913,7 +918,6 @@ void main_frame::stop_script(void)
 {
     if(this->l_run_b)
     {
-        this->lp_interpret_jerryscript->stop();
         if(this->lp_interpret_jerryscript)
         {
             // Load JavaScript interpreter

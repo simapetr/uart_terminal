@@ -19,9 +19,10 @@
 
 #include <wx/utils.h>
 #include <wx/msgdlg.h>
+#include <wx/time.h>
 #include "in_jerryscript_port_h.h"
 #include "in_jerryscript_core_h.h"
-#include "debugger.h"
+#include "in_jerryscript_debugger_h.h"
 #include "ap_uart_terminal_frame_h.h"
 
 /**
@@ -30,7 +31,7 @@
   */
 
 /**
-  * @defgroup JavaScript
+  * @defgroup JerryScript
   * @brief Basic JavaScript interpreter
   * @{
   */
@@ -73,10 +74,6 @@ jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame
     this->l_debug_b = debug_b;
     // Save port
     this->lp_com_uart_port = p_com_uart_port;
-    // Set thread var
-    this->lp_worker_jerryscript_thread_c = NULL;
-    // Set RUN status
-    this->l_run_flag_b = false;
     // Set initialization flag
     this->l_init_flag_b = init_b;
     // Initialize GUI window
@@ -94,10 +91,11 @@ jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame
 
 jerryscript_c::~jerryscript_c( void )
 {
-    delete this->lp_data_gui_frame;
-    this->lp_data_gui_frame = NULL;
     // Stop interpreter
     this->stop();
+    // Delete frame
+    delete this->lp_data_gui_frame;
+    this->lp_data_gui_frame = NULL;
     return;
 }
 
@@ -114,33 +112,18 @@ uint32_t status_ui32 = 1;
 
     // Save script
     this->l_jerryscript_code_str = script_str;
+    // Run working thread
+    this->lp_script_thread = new thread_c(this, this->worker);
+    wxMilliSleep(10);
     // Create Worker thread
-    if(this->lp_worker_jerryscript_thread_c == NULL)
+    if(this->lp_script_thread)
     {
         // Run script
-        this->lp_worker_jerryscript_thread_c = new jerryscript_thread_c(this);
-        if ( this->lp_worker_jerryscript_thread_c->Run() != wxTHREAD_NO_ERROR )
-        {
-            delete this->lp_worker_jerryscript_thread_c;
-            this->lp_worker_jerryscript_thread_c = NULL;
-            status_ui32 = 0;
-        }
+        this->lp_script_thread->signal();
     }
     else
     {
-        if ( !this->lp_worker_jerryscript_thread_c->IsRunning() )
-        {
-            if ( this->lp_worker_jerryscript_thread_c->Run() != wxTHREAD_NO_ERROR )
-            {
-                delete this->lp_worker_jerryscript_thread_c;
-                this->lp_worker_jerryscript_thread_c = NULL;
-                status_ui32 = 0;
-            }
-        }
-        else
-        {
-            status_ui32 = 2;
-        }
+        status_ui32 = 0;
     }
     return status_ui32;
 }
@@ -180,16 +163,16 @@ int siz_h_int = 0;
             p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
         }
     }
-
-    wxMilliSleep(100);
-    this->l_run_flag_b = false;
-    wxMilliSleep(100);
-    // Terminate Worker thread
-    if(this->lp_worker_jerryscript_thread_c)
+    if(this->l_run_script_ui8)
     {
-        this->lp_worker_jerryscript_thread_c->Kill();
+        // Stop script
+        this->l_run_script_ui8 = 0;
+        wxMilliSleep(50);
+        // Stop thread
+        this->lp_script_thread->stop();
+        wxMilliSleep(400);
     }
-    wxMilliSleep(100);
+
     return;
 }
 
@@ -302,75 +285,68 @@ void jerryscript_c::dereg_class (void)
  *
  */
 
-wxThread::ExitCode jerryscript_thread_c::Entry()
+void jerryscript_c::worker(void* p_parametr_void)
 {
+jerryscript_c* p_bkp_this = (jerryscript_c*)p_parametr_void;
 static jerry_value_t eval_ret_jerry_value;
 config_ini *p_position_config_ini;
+wxString perspective_str;
 
+    // Run thread
+    p_bkp_this->l_run_script_ui8 = 1;
     // Interpreter initialization
-    if (!this->lp_object_jerryscript->l_init_flag_b)
+    if (!p_bkp_this->l_init_flag_b)
     {
-        this->lp_object_jerryscript->l_init_flag_b = true;
+        p_bkp_this->l_init_flag_b = true;
         jerry_init (JERRY_INIT_EMPTY);
         // Set Debug
-        if (this->lp_object_jerryscript->l_debug_b)
+        if (p_bkp_this->l_debug_b)
         {
             // Initialization debug server
             jerryx_debugger_after_connect (jerryx_debugger_tcp_create (5001) && jerryx_debugger_ws_create ());
         }
     }
     // Reg all class
-    this->lp_object_jerryscript->reg_class();
+    p_bkp_this->reg_class();
     // Run script
-    if(this->lp_object_jerryscript->l_jerryscript_code_str != wxEmptyString)
+    if(p_bkp_this->l_jerryscript_code_str != wxEmptyString)
     {
-        this->lp_object_jerryscript->l_run_flag_b = true;
-        eval_ret_jerry_value = jerry_eval((const jerry_char_t*) this->lp_object_jerryscript->l_jerryscript_code_str.To8BitData().data(), this->lp_object_jerryscript->l_jerryscript_code_str.Length(), false);
+        eval_ret_jerry_value = jerry_eval((const jerry_char_t*) p_bkp_this->l_jerryscript_code_str.To8BitData().data(), p_bkp_this->l_jerryscript_code_str.Length(), false);
         jerry_release_value (eval_ret_jerry_value);
     }
-    if (this->lp_object_jerryscript->lp_data_gui_frame != NULL && ((main_frame*)(this->lp_object_jerryscript->lp_gui_main_frame_void)) != NULL)
+    // Reload window and AUI position
+    if (p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
-        p_position_config_ini = ((main_frame*)(this->lp_object_jerryscript->lp_gui_main_frame_void))->get_project();
-        this->lp_object_jerryscript->lp_data_gui_frame->Move(wxPoint(p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),p_position_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
+        p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
+        p_bkp_this->lp_data_gui_frame->Move(wxPoint(p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),p_position_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
         if (p_position_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
         {
-            this->lp_object_jerryscript->lp_data_gui_frame->Maximize();
+            p_bkp_this->lp_data_gui_frame->Maximize();
         }
         else
         {
-            this->lp_object_jerryscript->lp_data_gui_frame->SetClientSize(wxSize(p_position_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+            p_bkp_this->lp_data_gui_frame->SetClientSize(wxSize(p_position_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
         }
-        // Load AUI position
-        this->lp_object_jerryscript->lp_data_gui_frame->get_aui_manager()->LoadPerspective(p_position_config_ini->get_string(wxT("POSITION/perspective"),wxT("")));
-        // Update AUI manager
-        this->lp_object_jerryscript->lp_data_gui_frame->get_aui_manager()->Update();
+        // Load perspective
+        perspective_str = p_position_config_ini->get_string(wxT("POSITION/perspective"),wxT(""));
+        if(perspective_str != wxEmptyString)
+        {
+            // Load AUI position
+            p_bkp_this->lp_data_gui_frame->get_aui_manager()->LoadPerspective(perspective_str);
+            // Update AUI manager
+            p_bkp_this->lp_data_gui_frame->get_aui_manager()->Update();
+        }
     }
-    // Wait for script termination
-    while (this->lp_object_jerryscript->l_run_flag_b)
+    while(p_bkp_this->l_run_script_ui8)
     {
         wxMilliSleep(10);
     }
     // Unregister class
-    this->lp_object_jerryscript->dereg_class();
+    p_bkp_this->dereg_class();
     wxMilliSleep(100);
-    // Free interpreter memory
-    jerry_cleanup();
-    wxMilliSleep(100);
-    return (wxThread::ExitCode)0;
-}
-
-/** @brief Script thread destructor
- *
- * @param void
- * @return void
- *
- */
-
-jerryscript_thread_c::~jerryscript_thread_c()
-{
-    wxCriticalSectionLocker enter(this->lp_object_jerryscript->l_jerryscript_thread_wxcriticalSection);
-    // the thread is being destroyed; make sure not to leave dangling pointers around
-    this->lp_object_jerryscript->lp_worker_jerryscript_thread_c = NULL;
+    // Initialize engine
+    //jerry_cleanup();
+    //wxMilliSleep(100);
     return;
 }
 

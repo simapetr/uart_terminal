@@ -21,7 +21,7 @@
   */
 
 #include <wx/thread.h>
-#include "stdint.h"
+#include <stdint.h>
 
 /**
   * @addtogroup Infrastructure
@@ -51,7 +51,7 @@ class thread_c : public wxThread
 {
 public:
 
-    thread_c(void *p_parameter_void, thread_fct_t function_thread_fct);
+    thread_c(void *p_parameter_void, thread_fct_t function_thread_fct, uint32_t timeout_ui32 = 0);
     ~thread_c(void);
     void signal(void);
     void stop(void);
@@ -62,9 +62,8 @@ protected:
 
     void *lp_parameter_void;
     bool l_run_flag_b;
-    bool l_stop_recursive_b;
-    uint8_t l_timeout_cnt_ui8;
     thread_fct_t l_function_thread_fct;
+    uint32_t l_timeout_ui32;
     wxMutex *lp_data_wxmutex;
     wxCondition *lp_data_wxcondition;
 

@@ -143,7 +143,6 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
-		<Unit filename="../infrastructure/jerryscript/debugger.h" />
 		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_in_js_gui_ico_xpm.xpm" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_button_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_check_box_cpp.cpp" />
@@ -161,18 +160,9 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_static_text_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_textctrl_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
-		<Unit filename="../infrastructure/jerryscript/in_jerryscript_date_c.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../infrastructure/jerryscript/in_jerryscript_fatal_c.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../infrastructure/jerryscript/in_jerryscript_io_c.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_debugger_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_h.h" />
-		<Unit filename="../infrastructure/jerryscript/jerryscript-debugger.h" />
 		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
 		<Unit filename="../infrastructure/main/in_main_app_h.h" />
 		<Unit filename="../infrastructure/thread/in_thread_worker_cpp.cpp" />

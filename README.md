@@ -1,4 +1,4 @@
-uart_terminal
+UART terminal
 -------------
 
 This is windows terminl for UART communication with JavaScript support.

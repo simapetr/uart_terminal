@@ -44,7 +44,7 @@
   */
 
 /**
-  * @addtogroup JavaScript
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -59,24 +59,6 @@
   ****************************************************************************
   */
 
-class jerryscript_c;
-
-class jerryscript_thread_c : public wxThread
-{
-public:
-
-    jerryscript_thread_c(jerryscript_c *p_handler_jerryscript): wxThread(wxTHREAD_DETACHED)
-    {
-        this->lp_object_jerryscript = p_handler_jerryscript;
-    }
-    ~jerryscript_thread_c();
-
-protected:
-
-    virtual ExitCode Entry();
-    jerryscript_c *lp_object_jerryscript;
-
-};
 
 class jerryscript_c
 {
@@ -92,13 +74,17 @@ public:
 
 private:
 
+    static void worker(void* p_parametr_void);
     static uint32_t delay(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
     static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+
+    // Working thread
+    thread_c* lp_script_thread;
+    uint8_t l_run_script_ui8;
     // File path
 	wxString l_jerryscript_code_str;
 	bool l_init_flag_b;
-	bool l_run_flag_b;
 	// GUI
 	gui_frame* lp_data_gui_frame;
 	void* lp_gui_main_frame_void;
@@ -118,12 +104,6 @@ private:
 	textctrl_js_c l_gui_textctrl_js;
 	check_box_js_c l_gui_check_box_js;
 	gauge_js_c l_gui_gauge_js;
-
-protected:
-
-    jerryscript_thread_c *lp_worker_jerryscript_thread_c;
-    wxCriticalSection l_jerryscript_thread_wxcriticalSection;
-    friend class jerryscript_thread_c;
 
 };
 

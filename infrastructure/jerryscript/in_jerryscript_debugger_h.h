@@ -1,10 +1,13 @@
+#ifndef IN_JERRYSCRIPT_DEBUGGER_H_H_INCLUDED
+#define IN_JERRYSCRIPT_DEBUGGER_H_H_INCLUDED
+
 /**
   ****************************************************************************
-  * @file    in_jerryscript_date_c.c
+  * @file    in_jerryscript_debugger_h.h
   * @author  js.foundation
   * @version V1.0
   * @date    22.04.2018
-  * @brief   JavaScript interpreter date function
+  * @brief   JavaScript interpreter core function
   ****************************************************************************
   * @attention
   * <h2><center>
@@ -30,12 +33,7 @@
   ****************************************************************************
   */
 
-#ifdef __GNUC__
-#include <sys/time.h>
-#endif
-
 #include "in_jerryscript_core_h.h"
-#include "jerryscript-port.h"
 
 /**
   * @addtogroup Infrastructure
@@ -43,15 +41,19 @@
   */
 
 /**
-  * @addtogroup JavaScript
+  * @addtogroup JerryScript
   * @{
   */
 
 /**
-  * @defgroup Date
-  * @brief JavaScript interpreter date function
+  * @addtogroup Debuger
   * @{
   */
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif /* __cplusplus */
 
 /**
   ****************************************************************************
@@ -59,61 +61,21 @@
   ****************************************************************************
   */
 
-/** @brief Get time zone implementation
- *
- * @param [OUT] jerry_time_zone_t : buffer for timezone data
- * @return bool : function available
- *    @arg true : Time of day is available and execute correct
- *    @arg false : function fail
- *
+void jerryx_debugger_after_connect (bool success);
+
+/*
+ * Message transmission interfaces.
  */
+bool jerryx_debugger_tcp_create (uint16_t port);
 
-bool jerry_port_get_time_zone (jerry_time_zone_t *p_data_jerry_time_zone)
-{
-#ifdef __GNUC__
-  struct timeval tv;
-  struct timezone tz;
-
-  /* gettimeofday may not fill tz, so zero-initializing */
-  tz.tz_minuteswest = 0;
-  tz.tz_dsttime = 0;
-
-  if (gettimeofday (&tv, &tz) != 0)
-  {
-    return false;
-  }
-
-  p_data_jerry_time_zone->offset = tz.tz_minuteswest;
-  p_data_jerry_time_zone->daylight_saving_time = tz.tz_dsttime > 0 ? 1 : 0;
-
-  return true;
-#else /* !__GNUC__ */
-  return false;
-#endif /* __GNUC__ */
-}
-
-/** @brief Get time Unix epoch in ms
- *
- * @param void
- * @return double : Milliseconds since Unix epoch
- *
+/*
+ * Message encoding interfaces.
  */
+bool jerryx_debugger_ws_create (void);
 
-double jerry_port_get_current_time (void)
-{
-#ifdef __GNUC__
-  struct timeval tv;
-
-  if (gettimeofday (&tv, NULL) != 0)
-  {
-    return 0.0;
-  }
-
-  return ((double) tv.tv_sec) * 1000.0 + ((double) tv.tv_usec) / 1000.0;
-#else /* __!GNUC__ */
-  return 0.0;
-#endif /* __GNUC__ */
+#ifdef __cplusplus
 }
+#endif /* __cplusplus */
 
 /**
 * @}
@@ -128,3 +90,5 @@ double jerry_port_get_current_time (void)
 */
 
 /*****************************************************END OF FILE************/
+
+#endif //IN_JERRYSCRIPT_DEBUGGER_H_H_INCLUDED

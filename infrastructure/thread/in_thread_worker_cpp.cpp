@@ -41,14 +41,16 @@
  *
  * @param [IN] p_parameter_void : Thread parameter
  * @param [IN] function_thread_fct : Thread called function
+ * @param [IN] timeout_ui32 : Thread wait timeout
  * @return void
  *
  */
 
-thread_c::thread_c(void *p_parameter_void, thread_fct_t function_thread_fct)
+thread_c::thread_c(void *p_parameter_void, thread_fct_t function_thread_fct, uint32_t timeout_ui32)
 {
     this->lp_parameter_void = p_parameter_void;
     this->l_function_thread_fct = function_thread_fct;
+    this->l_timeout_ui32 = timeout_ui32;
     // Create RX wait event
     this->lp_data_wxmutex = new wxMutex();
     if(this->lp_data_wxmutex)
@@ -59,7 +61,6 @@ thread_c::thread_c(void *p_parameter_void, thread_fct_t function_thread_fct)
             this->Run();
         }
     }
-    this->l_stop_recursive_b = false;
     return;
 }
 
@@ -72,7 +73,6 @@ thread_c::thread_c(void *p_parameter_void, thread_fct_t function_thread_fct)
 
 thread_c::~thread_c( void )
 {
-    this->stop();
     return;
 }
 
@@ -85,10 +85,7 @@ thread_c::~thread_c( void )
 
 void thread_c::signal(void)
 {
-    if(this->lp_data_wxcondition)
-    {
-        this->lp_data_wxcondition->Broadcast();
-    }
+    this->lp_data_wxcondition->Broadcast();
     return;
 }
 
@@ -101,39 +98,8 @@ void thread_c::signal(void)
 
 void thread_c::stop(void)
 {
-    // Check if thread run
-    if (this->l_run_flag_b)
-    {
-        // Check recursive call
-        while(l_stop_recursive_b)
-        {
-            wxMilliSleep(1);
-        }
-        // Lock function
-        this->l_stop_recursive_b = true;
-        // Stop thread disable call event
-        this->l_run_flag_b = false;
-        // Run thread
-        this->signal();
-        // Set wait timeout
-        this->l_timeout_cnt_ui8 = 20;
-        // Wait for terminate
-        while((!this->l_run_flag_b) && (l_timeout_cnt_ui8))
-        {
-            wxMilliSleep(1);
-            l_timeout_cnt_ui8--;
-        }
-        // Delete semaphore
-        if(this->lp_data_wxcondition)
-        {
-            delete this->lp_data_wxcondition;
-            this->lp_data_wxcondition = NULL;
-        }
-        // Set new thread state
-        this->l_run_flag_b = false;
-        // Unlock function
-        this->l_stop_recursive_b = false;
-    }
+    this->l_run_flag_b = false;
+    this->signal();
     return;
 }
 
@@ -145,22 +111,30 @@ void thread_c::stop(void)
 
 wxThread::ExitCode thread_c::Entry()
 {
+wxCondError data_wxconderror;
+
     this->l_run_flag_b = true;
     while(this->l_run_flag_b)
     {
-        if(this->lp_data_wxcondition)
+        if (this->l_function_thread_fct)
         {
-            this->lp_data_wxcondition->Wait();
-            if(this->l_run_flag_b)
+            if(this->l_timeout_ui32)
             {
-                if (this->l_function_thread_fct)
+                data_wxconderror = this->lp_data_wxcondition->WaitTimeout(this->l_timeout_ui32);
+            }
+            else
+            {
+                data_wxconderror = this->lp_data_wxcondition->Wait();
+            }
+            if((data_wxconderror != wxCOND_NO_ERROR) || (data_wxconderror != wxCOND_TIMEOUT))
+            {
+                if(this->l_run_flag_b)
                 {
                     this->l_function_thread_fct(this->lp_parameter_void);
                 }
             }
         }
     }
-    this->l_run_flag_b = true;
     return (wxThread::ExitCode)0;
 }
 

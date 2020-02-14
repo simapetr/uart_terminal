@@ -420,9 +420,10 @@ DWORD read_bites_dword = 0;
         wait_com_result_b = ClearCommError(this->port_handle, &error_dword, &this->port_comstat);
     }
 
-    this->port_event_dword = WaitForSingleObject(this->port_overlapped.hEvent,INFINITE);
+    this->port_event_dword = WaitForSingleObject(this->port_overlapped.hEvent,100);
     switch (this->port_event_dword)
     {
+        case WAIT_TIMEOUT:
         case WAIT_OBJECT_0:
         {
             GetCommMask(this->port_handle, &com_event_mask_dword);

@@ -12,23 +12,11 @@
   */
 
 /**
-   @mainpage UART terminal
+   * @mainpage UART terminal
    *
    * <b>Introduction</b>
    *
    * This is windows terminl for UART communication with JavaScript support.
-   *
-   * Supported function:
-   * - Set UART communication parameter
-   * - Direct read and write data in text and HEX format
-   * - Control DTR, RTS and Tx(break) line
-   * - Read CTS, DSR, RING and RLSD
-   * - Load JavaScript
-   *
-   * Used technology:
-   * - wxWidget 3.0 GUI (https://github.com/wxWidgets/wxWidgets)
-   * - Jerry script ECMAScript 5.1 (https://github.com/jerryscript-project/jerryscript)
-   * - Windows file access
    *
    */
 
@@ -92,7 +80,6 @@ int32_t cmd_cnt_i32;
     }
     //(*AppInitialize
     //*)
-    return wxsOK;
     return wxsOK;
 
 }

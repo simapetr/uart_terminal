@@ -171,12 +171,6 @@ jerry_value_t name_jerry_value;
 void uart_js_c::dereg_host_class (void)
 {
     this->lp_com_uart_port->delete_event(this->rx_event);
-    this->lp_rx_thread->stop();
-    this->lp_tx_thread->stop();
-    delete this->lp_rx_thread;
-    delete this->lp_tx_thread;
-    this->lp_rx_thread = NULL;
-    this->lp_tx_thread = NULL;
     return;
 }
 
