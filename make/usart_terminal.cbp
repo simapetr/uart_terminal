@@ -161,6 +161,7 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_textctrl_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_debugger_h.h" />
+		<Unit filename="../infrastructure/jerryscript/in_jerryscript_doc_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_h.h" />
 		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
