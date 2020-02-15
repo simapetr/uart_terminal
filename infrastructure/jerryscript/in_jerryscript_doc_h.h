@@ -12,21 +12,21 @@
   */
 
 /**
-  * @defgroup JS_Doc
+  * @defgroup JS_doc
   * @brief JavaScript class documentation
   * @{
   */
 
 /**
-  * @defgroup JS_Class
-  * @brief JavaScript class
+  * @defgroup JS_system_object
+  * @brief Basic system object
   * @{
   */
 
 /**
-  * @defgroup JS_UART
-  * @brief UART class definition
-  * @{
+  * @class uart
+  * @brief System UART port driver
+  *
   */
 
 class uart
@@ -35,6 +35,10 @@ class uart
     public:
 
         /** @brief Open and set port communication
+         *
+         * @code
+         * uart.open(1,57600,0,0,8,4);
+         * @endcode
          *
          * @param [IN] bite_timeout_d : Packet timeout
          * @param [IN] baudrate_d : Communication speed
@@ -51,9 +55,6 @@ class uart
          * @param [IN] bit_length_d : Character bit length
          * @param [IN] port_num_d : Port number
          * @return double : Open status (See uart_status_t)
-         * @code
-         * uart.open(1,57600,0,0,8,4);
-         * @endcode
          *
          */
 
@@ -61,11 +62,12 @@ class uart
 
         /** @brief Close port communication
          *
-         * @param void
-         * @return void
          * @code
          * uart.close();
          * @endcode
+         *
+         * @param void
+         * @return void
          *
          */
 
@@ -73,8 +75,6 @@ class uart
 
         /** @brief Register receive event
          *
-         * @param [IN] event_name_str : Event function name
-         * @return double : Register status
          * @code
          * uart.open(1,57600,0,0,8,4);
          * uart.reg_event("rx_data");
@@ -91,18 +91,22 @@ class uart
          * }
          * @endcode
          *
+         * @param [IN] event_name_str : Event function name
+         * @return double : Register status
+         *
          */
 
         double reg_event(string event_name_str);
 
         /** @brief Write character
          *
-         * @param [IN] char_d : Character
-         * @return double : Send status
          * @code
          * uart.open(1,57600,0,0,8,4);
          * uart.write(0x20);
          * @endcode
+         *
+         * @param [IN] char_d : Character
+         * @return double : Send status
          *
          */
 
@@ -110,8 +114,6 @@ class uart
 
         /** @brief Write data array
          *
-         * @param [IN] v_data_d : Data array
-         * @return double : Send status
          * @code
          * var data_array;
          * uart.open(1,57600,0,0,8,4);
@@ -121,14 +123,15 @@ class uart
          * uart.write(data_array);
          * @endcode
          *
+         * @param [IN] v_data_d : Data array
+         * @return double : Send status
+         *
          */
 
         double write(vector<double>& v_data_d);
 
         /** @brief Write ASCI string
          *
-         * @param [IN] char_str : Text string
-         * @return double : Send status
          * @code
          * var data_str;
          * uart.open(1,57600,0,0,8,4);
@@ -136,15 +139,15 @@ class uart
          * uart.write(data_str);
          * @endcode
          *
+         * @param [IN] char_str : Text string
+         * @return double : Send status
+         *
          */
 
         double write(string char_str);
 
         /** @brief Write data array user size
          *
-         * @param [IN] v_data_d : Data array
-         * @param [IN] length_d : Number of send data
-         * @return double : Send status
          * @code
          * var data_array;
          * uart.open(1,57600,0,0,8,4);
@@ -155,11 +158,21 @@ class uart
          * uart.write(data_array, 2);
          * @endcode
          *
+         * @param [IN] v_data_d : Data array
+         * @param [IN] length_d : Number of send data
+         * @return double : Send status
+         *
          */
 
         double write(vector<double>& v_data_d, double length_d);
 
         /** @brief Get port control line state
+         *
+         * @code
+         * var data_bool;
+         * uart.open(1,57600,0,0,8,4);
+         * data_bool = uart.get_ctrl("CTS");
+         * @endcode
          *
          * @param [IN] name_str : Control line name
          *   @arg RX : Rx line logic state
@@ -168,17 +181,17 @@ class uart
          *   @arg RING : Ring indication
          *   @arg RLSD : Receive line signal detect
          * @return bool : Control line logic state
-         * @code
-         * var data_bool;
-         * uart.open(1,57600,0,0,8,4);
-         * data_bool = uart.get_ctrl("CTS");
-         * @endcode
          *
          */
 
         bool get_ctrl(string name_str);
 
         /** @brief Set port control line state
+         *
+         * @code
+         * uart.open(1,57600,0,0,8,4);
+         * uart.set_ctrl("DTR");
+         * @endcode
          *
          * @param [IN] name_str : Control line name
          *   @arg DTR : Data terminal ready
@@ -188,10 +201,6 @@ class uart
          *   @arg XON : Transmit ON
          * @param [IN] state_b : New logic state
          * @return void
-         * @code
-         * uart.open(1,57600,0,0,8,4);
-         * uart.set_ctrl("DTR");
-         * @endcode
          *
          */
 
@@ -200,20 +209,940 @@ class uart
 };
 
 /**
+  * @class time
+  * @brief System time interface
+  *
+  */
+
+class time
+{
+
+    public:
+
+        /** @brief Get actual time in s
+         *
+         * @code
+         * var time_var;
+         * time_var = time.now();
+         * @endcode
+         *
+         * @param void
+         * @return double : Number of s from (ISO 8601: 1970-01-01T00:00:00Z)
+         *
+         */
+
+        double now(void);
+
+        /** @brief Get actual time in ms
+         *
+         * @code
+         * var time_var;
+         * time_var = time.now_ms();
+         * @endcode
+         *
+         * @param void
+         * @return double : Number of ms from (ISO 8601: 1970-01-01T00:00:00Z)
+         *
+         */
+
+        double now_ms(void);
+
+        /** @brief Get actual UTC time string
+         *
+         * @code
+         * var time_str;
+         * time_str = time.str();
+         * @endcode
+         *
+         * @param void
+         * @return string : Time and date (YYYY-MM-DD HH:MM:SS)
+         *
+         */
+
+        string str(void);
+
+        /** @brief Get actual local time string
+         *
+         * @code
+         * var time_str;
+         * time_str = time.local_str();
+         * @endcode
+         *
+         * @param void
+         * @return string : Time and date (YYYY-MM-DD HH:MM:SS)
+         *
+         */
+
+        string local_str(void);
+
+};
+
+/**
+  * @class file
+  * @brief System file read/write
+  *
+  */
+
+class file
+{
+
+    public:
+
+        /** @brief Read string from text file
+         *
+         * @code
+         * var state_str;
+         * state_str = file.read("file.txt");
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @return string : Read string
+         *
+         */
+
+        string read(string path_str);
+
+        /** @brief Read array from binary file
+         *
+         * @code
+         * var data_array;
+         * data_array = file.read("file.bin");
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @return string : Read string
+         *
+         */
+
+        vector<double>& read_b(string path_str);
+
+        /** @brief Write binary array
+         *
+         * @code
+         * var state_b;
+         * var data_array;
+         * data_array.push(0x01);
+         * data_array.push(0x02);
+         * data_array.push(0x03);
+         * state_b = file.write("file.bin", data_array);
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @param [IN] v_data_d : Write data buffer
+         * @return bool : Write status
+         *   @arg 0 : Write failed
+         *   @arg 1 : Write success
+         *
+         */
+
+        bool write(string path_str, vector<double>& v_data_d);
+
+        /** @brief Write text string
+         *
+         * @code
+         * var state_b;
+         * state_b = file.write("file.txt", "Hello world!");
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @param [IN] data_str : Write data text string
+         * @return bool : Write status
+         *   @arg 0 : Write failed
+         *   @arg 1 : Write success
+         *
+         */
+
+        bool write(string path_str, string data_str);
+
+        /** @brief Append binary array
+         *
+         * @code
+         * var state_b;
+         * var data_array;
+         * data_array.push(0x01);
+         * data_array.push(0x02);
+         * data_array.push(0x03);
+         * state_b = file.append("file.bin", data_array);
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @param [IN] v_data_d : Write data buffer
+         * @return bool : Write status
+         *   @arg 0 : Write failed
+         *   @arg 1 : Write success
+         *
+         */
+
+        bool append(string path_str, vector<double>& v_data_d);
+
+        /** @brief Append text string
+         *
+         * @code
+         * var state_b;
+         * state_b = file.append("file.txt", "Hello world!");
+         * @endcode
+         *
+         * @param [IN] path_str : File path
+         * @param [IN] data_str : Write data text string
+         * @return bool : Write status
+         *   @arg 0 : Write failed
+         *   @arg 1 : Write success
+         *
+         */
+
+        bool append(string path_str, string data_str);
+
+};
+
+/**
 * @}
 */
 
 /**
-  * @defgroup JS_Time
-  * @brief System time class definition
+  * @defgroup JS_gui
+  * @brief Main GUI object
   * @{
   */
 
+/**
+  * @defgroup JS_gui_object
+  * @brief wxWidget GUI object
+  * @{
+  */
 
+/**
+  * @class panel
+  * @brief wxAui panel class
+  *
+  */
+
+class panel
+{
+
+    public:
+
+        /** @brief Add new AUI panel
+         *
+         * @code
+         * var test_panel;
+         * test_panel = gui.panel.add("test_panel", true);
+         * @endcode
+         *
+         * @param [IN] name_str : Panel name
+         * @param [IN] horizontal_b : Basic sizer orientation
+         *   @arg false : Vertical
+         *   @arg true : Horizontal
+         * @return double : Panel buffer index
+         *
+         */
+
+        double add(string name_str, bool horizontal_b);
+
+        /** @brief Get panel main sizer
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * @endcode
+         *
+         * @param [IN] panel_d : Panel buffer index
+         * @return double : Sizer buffer index
+         *
+         */
+
+        double get_sizer(double panel_d);
+
+};
+
+/**
+  * @class sizer
+  * @brief wxSizer class interface
+  *
+  */
+
+class sizer
+{
+
+    public:
+
+        /** @brief Add new AUI panel
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var item_sizer;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * item_sizer = gui.sizer.add(test_sizer, 0, true);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] horizontal_b : Sizer orientation
+         *   @arg false : Vertical
+         *   @arg true : Horizontal
+         * @return double : Sizer buffer index
+         *
+         */
+
+        double add(double sizer_index_d, double proportion_d, bool horizontal_b);
+
+};
+
+/**
+  * @class button
+  * @brief wxButton class interface
+  *
+  */
+
+class button
+{
+
+    public:
+
+        /** @brief Add new button
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_button;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_button = gui.button.add(test_sizer, "test", 0, false);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] text_str : Button text
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @return double : Button buffer index
+         *
+         */
+
+        double add(double sizer_index_d, string text_str, double proportion_d, bool expand_b);
+
+        /** @brief Register button event
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_button;
+         * var reg_event_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_button = gui.button.add(test_sizer, "test", 0, false);
+         * reg_event_bool = gui.button.reg_event(test_button, "on_button_click");
+         * function on_button_click (component_id)
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] button_index_d : Button index
+         * @param [IN] event_fct_str : Function name
+         * @return bool : Event register status
+         *   @arg false : Fail
+         *   @arg true : Event registered
+         *
+         */
+
+        bool reg_event(double button_index_d, string event_fct_str);
+
+};
+
+/**
+  * @class check_box
+  * @brief wxCheckBox class interface
+  *
+  */
+
+class check_box
+{
+
+    public:
+
+        /** @brief Add new check box
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_check_box;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_check_box = gui.check_box.add(test_sizer, "test", 0, false,false);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] text_str : Button text
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @param [IN] state_b : Initial state
+         *   @arg false : Un-checked
+         *   @arg true : Checked
+         * @return double : Check box buffer index
+         *
+         */
+
+        double add(double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b);
+
+        /** @brief Register check box event
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_check_box;
+         * var reg_event_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_check_box = gui.check_box.add(test_sizer, "test", 0, false,false);
+         * reg_event_bool = gui.check_box.reg_event(test_check_box, "on_check_box_click");
+         * function on_check_box_click (component_id)
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] check_box_index_d : Check box index
+         * @param [IN] event_fct_str : Function name
+         * @return bool : Event register status
+         *   @arg false : Fail
+         *   @arg true : Event registered
+         *
+         */
+
+        bool reg_event(double check_box_index_d, string event_fct_str);
+
+        /** @brief Get check box state
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_check_box;
+         * var test_state_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_check_box = gui.check_box.add(test_sizer, "test", 0, false,false);
+         * test_state_bool = gui.check_box.get(test_check_box);
+         * @endcode
+         *
+         * @param [IN] check_box_index_d : Check box index
+         * @return bool : Check box state
+         *   @arg false : Un-checked
+         *   @arg true : Checked
+         *
+         */
+
+        bool get(double check_box_index_d);
+
+        /** @brief Set check box state
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_check_box;
+         * var test_status_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_check_box = gui.check_box.add(test_sizer, "test", 0, false,false);
+         * test_status_bool = gui.check_box.set(test_check_box, true);
+         * @endcode
+         *
+         * @param [IN] check_box_index_d : Check box index
+         * @param [IN] state_b : New check box state
+         *   @arg false : Un-checked
+         *   @arg true : Checked
+         * @return bool : Change status
+         *   @arg false : Fail
+         *   @arg true : Changed
+         *
+         */
+
+        bool set(double check_box_index_d, bool state_b);
+
+};
+
+/**
+  * @class textctrl
+  * @brief wxTextCtrl class interface
+  *
+  */
+
+class textctrl
+{
+
+    public:
+
+        /** @brief Add new text control
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_textctrl;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_textctrl = gui.textctrl.add(test_sizer, "Hello world!", 0, false, true);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] text_str : Default text
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @param [IN] multiline_b : Multiline enable
+         *   @arg false : One line
+         *   @arg true : Multiline
+         * @return double : textctrl buffer index
+         *
+         */
+
+        double add(double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b);
+
+        /** @brief Get text control string
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_textctrl;
+         * var text_str;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_textctrl = gui.textctrl.add(test_sizer, "", 0, false, true);
+         * text_str = gui.textctrl.get(test_textctrl, 0);
+         * @endcode
+         *
+         * @param [IN] textctrl_index_d : Text control index
+         * @param [IN] line_d : Read line number
+         * @return string : Read data
+         *
+         */
+
+        string get(double textctrl_index_d, double line_d);
+
+        /** @brief Set text control string
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_textctrl;
+         * var test_status_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_textctrl = gui.textctrl.add(test_sizer, "", 0, false, true);
+         * test_status_bool = gui.textctrl.set(test_textctrl, "Hello world!");
+         * @endcode
+         *
+         * @param [IN] textctrl_index_d : Text control index
+         * @param [IN] text_str : New text (Erase textctrl before set)
+         * @return bool : Change status
+         *   @arg false : Fail
+         *   @arg true : Changed
+         *
+         */
+
+        bool set(double textctrl_index_d, string text_str);
+
+        /** @brief Append text control string
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_textctrl;
+         * var test_status_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_textctrl = gui.textctrl.add(test_sizer, "", 0, false, true);
+         * test_status_bool = gui.textctrl.append(test_textctrl, "Hello world!");
+         * @endcode
+         *
+         * @param [IN] textctrl_index_d : Text control index
+         * @param [IN] text_str : New text (Append text at the end)
+         * @return bool : Append status
+         *   @arg false : Fail
+         *   @arg true : Changed
+         *
+         */
+
+        bool append(double textctrl_index_d, string text_str);
+
+};
+
+/**
+  * @class static_text
+  * @brief wxStaticText class interface
+  *
+  */
+
+class static_text
+{
+
+    public:
+
+        /** @brief Add new static text
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_static_text;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_static_text = gui.static_text.add(test_sizer, "Hello world!", 0, false);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] text_str : Default text
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @return double : static_text buffer index
+         *
+         */
+
+        double add(double sizer_index_d, wxString text_str, double proportion_d, bool expand_b);
+
+        /** @brief Set static text string
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_static_text;
+         * var test_status_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_static_text = gui.static_text.add(test_sizer, "Test", 0, false);
+         * test_status_bool = gui.static_text.set(test_static_text, "Hello world!");
+         * @endcode
+         *
+         * @param [IN] static_text_index_d : static_text index
+         * @param [IN] text_str : New text (Erase static_text before set)
+         * @return bool : Set status
+         *   @arg false : Fail
+         *   @arg true : Changed
+         *
+         */
+
+        bool set(double static_text_index_d, string text_str);
+
+};
+
+/**
+  * @class slider
+  * @brief wxSlider class interface
+  *
+  */
+
+class slider
+{
+
+    public:
+
+        /** @brief Add new slider
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_slider;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_slider = gui.slider.add(test_sizer, -10, 200, 0, true);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] min_d : Minimum set value
+         * @param [IN] max_d : Maximum set value
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @return double : slider buffer index
+         *
+         */
+
+        double add(double sizer_index_d, double min_d, double max_d, double proportion_d, bool expand_b);
+
+        /** @brief Register slider event
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_slider;
+         * var reg_event_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_slider = gui.slider.add(test_sizer, -10, 200, 0, true);
+         * reg_event_bool = gui.slider.reg_event(test_slider, "on_slider_update");
+         * function on_slider_update (component_id)
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] slider_index_d : slider index
+         * @param [IN] event_fct_str : Function name
+         * @return bool : Event register status
+         *   @arg false : Fail
+         *   @arg true : Event registered
+         *
+         */
+
+        bool reg_event(double slider_index_d, string event_fct_str);
+
+        /** @brief Get slider value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_slider;
+         * var test_slider_value;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_slider = gui.slider.add(test_sizer, -10, 200, 0, true);
+         * test_slider_value = gui.slider.get(test_slider);
+         * @endcode
+         *
+         * @param [IN] slider_index_d : slider index
+         * @return double : Set value
+         *
+         */
+
+        double get(double slider_index_d);
+
+        /** @brief Set slider value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_slider;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_slider = gui.slider.add(test_sizer, -10, 200, 0, true);
+         * gui.slider.set(test_slider, 80);
+         * @endcode
+         *
+         * @param [IN] slider_index_d : slider index
+         * @param [IN] value_b : New slider value
+         * @return void
+         *
+         */
+
+        void set(double slider_index_d, double value_b);
+
+};
+
+/**
+  * @class gauge
+  * @brief wxGauge class interface
+  *
+  */
+
+class gauge
+{
+
+    public:
+
+        /** @brief Add new gauge
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_gauge;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_gauge = gui.gauge.add(test_sizer, 0, true,1000);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] proportion_d : Proportion in parent sizer element
+         * @param [IN] expand_b : Expand in sizer flag
+         *   @arg false : Default size
+         *   @arg true : Expand
+         * @param [IN] size_d : Gauge size
+         * @return double : gauge buffer index
+         *
+         */
+
+        double add(double sizer_index_d, double proportion_d, bool expand_b, double size_d);
+
+        /** @brief Get gauge value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_gauge;
+         * var test_gauge_value;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_gauge = gui.gauge.add(test_sizer, 0, true,1000);
+         * test_gauge_value = gui.gauge.get(test_gauge);
+         * @endcode
+         *
+         * @param [IN] gauge_index_d : gauge index
+         * @return double : Set value
+         *
+         */
+
+        double get(double gauge_index_d);
+
+        /** @brief Set gauge value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_gauge;
+         * var test_status_bool;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_gauge = gui.gauge.add(test_sizer, 0, true,1000);
+         * test_status_bool = gui.gauge.set(test_gauge, 600);
+         * @endcode
+         *
+         * @param [IN] gauge_index_d : gauge index
+         * @param [IN] value_b : New gauge value
+         * @return void
+         *
+         */
+
+        void set(double gauge_index_d, double value_b);
+
+};
 
 /**
 * @}
 */
+
+/**
+  * @defgroup JS_gui_user_object
+  * @brief User GUI object
+  * @{
+  */
+
+/**
+  * @class graph
+  * @brief data_plot class interface
+  *
+  */
+
+class graph
+{
+
+    public:
+
+        /** @brief Add new graph
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_graph;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_graph = gui.graph.add(test_sizer, "data", 3000.0, 40.0, 0.1);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] name_str : Graph name
+         * @param [IN] graph_range_d : Range symetrical around 0
+         * @param [IN] buffer_length_d : Sample memory size
+         * @param [IN] time_step_d : Sample time.
+         * @return double : graph buffer index
+         *
+         */
+
+        double add(double sizer_index_d, string name_str, double graph_range_d, double buffer_length_d, double time_step_d);
+
+        /** @brief Insert graph signal
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_graph;
+         * var graph_signal = [];
+         * var insert_state_val;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_graph = gui.graph.add(test_sizer, "data", 3000.0, 40.0, 0.1);
+         * insert_state_val = gui.graph.insert_signal(test_graph, "signal",0xff000000,1,0);
+         * graph_signal.push(0);
+         * @endcode
+         *
+         * @param [IN] graph_index_d : graph index
+         * @param [IN] name_str : Signal name
+         * @param [IN] color_d : Signal line color
+         * @param [IN] width_d : Signal line width
+         * @param [IN] style_d : Signal style width
+         *   @arg 0 : Solid
+         *   @arg 1 : Dot
+         *   @arg 2 : Long dash
+         *   @arg 3 : Short dash
+         *   @arg 4 : Dot dash
+         * @return double : Signal insert status
+         *
+         */
+
+        double insert_signal(double graph_index_d, string name_str, double color_d, double width_d, double style_d);
+
+        /** @brief Set graph value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_graph;
+         * var graph_signal = [];
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_graph = gui.graph.add(test_sizer, "data", 10.0, 5.0, 1);
+         * graph_signal.push(gui.graph.insert_signal(test_graph, "signal",0xff000000,1,0));
+         * graph_signal[0] = 10;
+         * gui.graph.set(test_graph, graph_signal);
+         * graph_signal[0] = 4;
+         * gui.graph.set(test_graph, graph_signal);
+         * graph_signal[0] = -8;
+         * gui.graph.set(test_graph, graph_signal);
+         * graph_signal[0] = 0;
+         * gui.graph.set(test_graph, graph_signal);
+         * @endcode
+         *
+         * @param [IN] graph_index_d : graph index
+         * @param [IN] v_data_d : Signal data array with one sample per signal
+         * @return bool : Set status
+         *   @arg false : Fail
+         *   @arg true : Update
+         *
+         */
+
+        bool set(double graph_index_d, vector<double>& v_data_d);
+
+};
+
+/**
+* @}
+*/
+
+/**
+  * @class gui
+  * @brief Main JS GUI object
+  *
+  */
+
+class gui
+{
+
+    public:
+
+    panel panel;
+    sizer sizer;
+    button button;
+    check_box check_box;
+    textctrl textctrl;
+    static_text static_text;
+    slider slider;
+    gauge gauge;
+    graph graph;
+
+};
 
 /**
 * @}

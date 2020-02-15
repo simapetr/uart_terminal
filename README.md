@@ -1,7 +1,10 @@
 UART terminal
 -------------
 
-This is windows terminl for UART communication with JavaScript support.
+Introduction
+------------
+
+Windows terminal for UART communication with JavaScript (ECMA 5.1) support.
 
 Supported function:
 
@@ -22,7 +25,7 @@ Platforms
 
 Supported platforms:
 
-- Windows XP, Vista, 7, 8 and 10 (32/64 bits).
+- Windows 7, 8 and 10.
 
 Screenshot
 ----------

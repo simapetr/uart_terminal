@@ -12,13 +12,35 @@
   */
 
 /**
-   * @mainpage UART terminal
-   *
-   * <b>Introduction</b>
-   *
-   * This is windows terminl for UART communication with JavaScript support.
-   *
-   */
+  * @mainpage UART terminal
+  *
+  * <h1><b>Introduction</b></h1>
+  *
+  * Windows terminal for UART communication with JavaScript (ECMA 5.1) support.
+  *
+  * <h2>Supported function:</h2>
+  *
+  * - Set UART communication parameter
+  * - Direct read and write data in text and HEX format
+  * - Control DTR, RTS and Tx(break) line
+  * - Read CTS, DSR, RING and RLSD
+  * - Load JavaScript
+  *
+  * <h2>The project is based on:</h2>
+  *
+  * - wxWidget 3.0 GUI (https://github.com/wxWidgets/wxWidgets)
+  * - Jerry script ECMAScript 5.1 (https://github.com/jerryscript-project/jerryscript)
+  * - Windows file access
+  *
+  * <h2>Supported platforms:</h2>
+  *
+  * - Windows 7, 8 and 10.
+  *
+  * <b>Copyright Notice</b>
+  *
+  * Copyright (C) PORTTRONIC All rights reserved.
+  *
+  */
 
 /**
   ****************************************************************************
