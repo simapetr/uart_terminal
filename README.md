@@ -6,6 +6,8 @@ Introduction
 
 Windows terminal for UART communication with JavaScript (ECMA 5.1) support.
 
+![Web page](https://simapetr.github.io/uart_terminal)
+
 Supported function:
 
 - Set UART communication parameter
@@ -30,5 +32,5 @@ Supported platforms:
 Screenshot
 ----------
 
-![](https://github.com/simapetr/uart_terminal/blob/master/make/img/uart_terminal.jpg)
-![](https://github.com/simapetr/uart_terminal/blob/master/make/img/uart_terminal_javascript_example.jpg)
+![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal.jpg)
+![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal_javascript_example.jpg)
