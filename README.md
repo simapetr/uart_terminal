@@ -1,12 +1,10 @@
-UART terminal
--------------
+# UART terminal
 
-Introduction
-------------
+## Introduction
 
 Windows terminal for UART communication with JavaScript (ECMA 5.1) support.
 
-![Web page](https://simapetr.github.io/uart_terminal)
+[Web page](https://simapetr.github.io/uart_terminal)
 
 Supported function:
 
@@ -22,15 +20,13 @@ The project is based on:
 - Jerry script ECMAScript 5.1 (https://github.com/jerryscript-project/jerryscript)
 - Windows file access
 
-Platforms
----------
+## Platforms
 
 Supported platforms:
 
 - Windows 7, 8 and 10.
 
-Screenshot
-----------
+## Screenshot
 
 ![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal.jpg)
 ![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal_javascript_example.jpg)
