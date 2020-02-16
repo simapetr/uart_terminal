@@ -1,8 +1,0 @@
-<map id="JerryScript" name="JerryScript">
-<area shape="rect" id="node1" href="$group___core.html" title="JavaScript interpreter core function." alt="" coords="293,5,343,31"/>
-<area shape="rect" id="node2" href="$group___infrastructure.html" title="Infrastructure layer." alt="" coords="5,80,103,105"/>
-<area shape="rect" id="node6" title="JavaScript interpret." alt="" coords="151,80,235,105"/>
-<area shape="rect" id="node3" href="$group___class.html" title="JavaScript class." alt="" coords="291,55,345,80"/>
-<area shape="rect" id="node4" href="$group___debuger.html" title=" " alt="" coords="283,104,353,129"/>
-<area shape="rect" id="node5" href="$group___port.html" title="JavaScript interpreter port." alt="" coords="295,153,341,179"/>
-</map>

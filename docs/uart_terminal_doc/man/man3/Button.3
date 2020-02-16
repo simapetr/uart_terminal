@@ -1,0 +1,179 @@
+.TH "Button" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Button \- Button class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBbutton_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBbutton_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void *p_gui_interface_void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new button (JS function 'add') "
+.ti -1c
+.RI "static uint32_t \fBreg_event\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set button click event (JS method 'reg_event') "
+.ti -1c
+.RI "uint32_t \fBadd_button\fP (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+.br
+.RI "Add button\&. "
+.ti -1c
+.RI "bool \fBset_button_event\fP (double button_index_d, wxString event_fct_str)"
+.br
+.RI "Set button event\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "vector< \fBbutton_buffer_t\fP > \fBlv_data_button_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_cnt_button_ui32\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Button class definition\&. 
+
+GUI button component\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add new button (JS function 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 107 of file in_js_class_button_js_cpp\&.cpp\&.
+.SS "uint32_t add_button (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+
+.PP
+Add button\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsizer_index_d\fP : Parent sizer index 
+.br
+\fItext_str\fP : Button text 
+.br
+\fIproportion_d\fP : Relative proportion item in sizer 
+.br
+\fIexpand_b\fP : Expand 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : New button buffer index 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file in_js_gui_button_cpp\&.cpp\&.
+.SS "uint32_t reg_event (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set button click event (JS method 'reg_event') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file in_js_class_button_js_cpp\&.cpp\&.
+.SS "void reg_host_class (void * p_gui_interface_void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_gui_interface_void : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file in_js_class_button_js_cpp\&.cpp\&.
+.SS "bool set_button_event (double button_index_d, wxString event_fct_str)"
+
+.PP
+Set button event\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbutton_index_d\fP : Button index 
+.br
+\fIevent_fct_str\fP : Reg function name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Button event reg status 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file in_js_gui_button_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "vector<\fBbutton_buffer_t\fP> lv_data_button_buffer"
+Local variable 
+.PP
+Definition at line 71 of file in_js_gui_button_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

@@ -1,5 +1,0 @@
-<map id="Driver" name="Driver">
-<area shape="rect" id="node1" title="Device driver." alt="" coords="129,5,184,31"/>
-<area shape="rect" id="node3" href="$group___u_a_r_t.html" title="UART communication bus." alt="" coords="232,5,288,31"/>
-<area shape="rect" id="node2" href="$group___hardware.html" title="Hardware layer." alt="" coords="5,5,81,31"/>
-</map>

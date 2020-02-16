@@ -1,0 +1,109 @@
+.TH "main_frame" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main_frame
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ap_uart_terminal_frame_h\&.h>\fP
+.PP
+Inherits wxFrame\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmain_frame\fP (wxWindow *p_parent_window, wxArrayString *p_cmd_arg_arraystring)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "virtual \fB~main_frame\fP ()"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBgui\fP (bool status_b)"
+.br
+.RI "Set frame show status\&. "
+.ti -1c
+.RI "\fBconfig_ini\fP * \fBget_project\fP (void)"
+.br
+.RI "Get project configuration object\&. "
+.ti -1c
+.RI "void \fBconsole_rx_enable\fP (bool status_b)"
+.br
+.RI "Set RX data show status\&. "
+.ti -1c
+.RI "bool \fBis_console_rx_enable\fP (void)"
+.br
+.RI "Get RX console show status\&. "
+.ti -1c
+.RI "void \fBprintf\fP (wxString console_text_str)"
+.br
+.RI "Print string on console\&. "
+.ti -1c
+.RI "void \fBstatus\fP (wxString status_text_str)"
+.br
+.RI "Print string on status bar\&. "
+.ti -1c
+.RI "void \fBclear\fP (void)"
+.br
+.RI "Clear console text\&. "
+.ti -1c
+.RI "void \fBopen_port\fP (void)"
+.br
+.RI "Open UART with GUI setting\&. "
+.ti -1c
+.RI "void \fBclose_port\fP (void)"
+.br
+.RI "Close port wit GUI setting\&. "
+.ti -1c
+.RI "uart_status_t \fBget_open_status\fP (void)"
+.br
+.RI "Get port open status\&. "
+.ti -1c
+.RI "void \fBset_config\fP (\fBuart_cfg_t\fP data_uart_cfg)"
+.br
+.RI "Set UART port settings in GUI\&. "
+.ti -1c
+.RI "\fBuart_cfg_t\fP \fBget_config\fP (void)"
+.br
+.RI "Get UART port settings from GUI\&. "
+.ti -1c
+.RI "wxString \fBget_data\fP (wxString text_str)"
+.br
+.RI "Get data from input dialog\&. "
+.ti -1c
+.RI "void \fBset_progress\fP (wxString text_str, uint32_t progress_ui32)"
+.br
+.RI "Set progress dialog\&. "
+.ti -1c
+.RI "void \fBset_send_event\fP (\fBsend_event_fct\fP data_send_event_fct, void *p_parametr_void)"
+.br
+.RI "Set external event after send button click\&. "
+.ti -1c
+.RI "uint32_t \fBrun_script\fP (wxString path_str)"
+.br
+.RI "Run JS script\&. "
+.ti -1c
+.RI "void \fBstop_script\fP (void)"
+.br
+.RI "Stop JS script\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBstop_event\fP (void)"
+.br
+.RI "Stop JS script event\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 70 of file ap_uart_terminal_frame_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

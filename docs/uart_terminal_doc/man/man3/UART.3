@@ -1,0 +1,798 @@
+.TH "UART" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UART \- UART class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpacket_buffer_t\fP"
+.br
+.ti -1c
+.RI "class \fBuart_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBuart_cfg_t\fP"
+.br
+.ti -1c
+.RI "struct \fBuart_event_buffer_t\fP"
+.br
+.ti -1c
+.RI "class \fBuart_port\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBd_buffer_size\fP   4096"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBuart_event_fct\fP) (void *p_parametr_void, uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBuart_com_ctrl_in_t\fP { \fBe_rx\fP = 1, \fBe_cts\fP = 2, \fBe_dsr\fP = 3, \fBe_ring\fP = 4, \fBe_rlsd\fP = 5 }"
+.br
+.ti -1c
+.RI "enum \fBuart_com_ctrl_out_t\fP { \fBe_dtr\fP = 0, \fBe_rts\fP = 1, \fBe_break\fP = 2, \fBe_xoff\fP = 3, \fBe_xon\fP = 4 }"
+.br
+.ti -1c
+.RI "enum \fBuart_status_t\fP { \fBe_00_open_error\fP = 0, \fBe_01_open\fP = 1, \fBe_02_handle_error\fP = 2, \fBe_03_write_configuration_error\fP = 3, \fBe_04_write_timeout_error\fP = 4, \fBe_05_close_error\fP = 5, \fBe_06_close\fP = 6, \fBe_07_opened\fP = 7 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (\fBuart_port\fP *p_com_uart_port)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "void \fBdereg_host_class\fP (void)"
+.br
+.RI "Deregistration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBopen\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Open UART port (JS method 'open') "
+.ti -1c
+.RI "static uint32_t \fBclose\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Close UART port (JS method 'close') "
+.ti -1c
+.RI "static uint32_t \fBreg_event\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set Rx event (JS method 'reg_event') "
+.ti -1c
+.RI "static uint32_t \fBwrite\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Write UART (JS method 'write') "
+.ti -1c
+.RI "static uint32_t \fBget_ctrl\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get UART control line status (JS method 'get_ctrl') "
+.ti -1c
+.RI "static uint32_t \fBset_ctrl\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set UART control line status (JS method 'set_ctrl') "
+.ti -1c
+.RI "\fBuart_port\fP (void)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~uart_port\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBget_port\fP (void)"
+.br
+.RI "Get UART port list\&. "
+.ti -1c
+.RI "string * \fBget_bus_array\fP (void)"
+.br
+.RI "Get pointer on port array\&. "
+.ti -1c
+.RI "uart_status_t \fBopen\fP (\fBuart_cfg_t\fP *p_data_uart_cfg)"
+.br
+.RI "Open and set UART port communication\&. "
+.ti -1c
+.RI "void \fBclose\fP (void)"
+.br
+.RI "Close UART port communication\&. "
+.ti -1c
+.RI "uint8_t \fBcreate_event\fP (\fBuart_event_fct\fP function_uart_event_fct, void *p_parametr_void)"
+.br
+.RI "Associate driver event function\&. "
+.ti -1c
+.RI "uint8_t \fBdelete_event\fP (\fBuart_event_fct\fP function_uart_event_fct)"
+.br
+.RI "Delete associated event function\&. "
+.ti -1c
+.RI "void \fBdelete_event_all\fP (void)"
+.br
+.RI "Delete all associated event\&. "
+.ti -1c
+.RI "uart_status_t \fBget_state\fP (void)"
+.br
+.RI "Get port status (call after construction object for test correct open) "
+.ti -1c
+.RI "uint32_t \fBget_last_error\fP (void)"
+.br
+.RI "Get port last error\&. "
+.ti -1c
+.RI "uint32_t \fBwait_rx_event\fP (void)"
+.br
+.RI "Wait for receive data\&. "
+.ti -1c
+.RI "uint8_t \fBflush\fP (void)"
+.br
+.RI "Erase communication buffer\&. "
+.ti -1c
+.RI "uint8_t \fBwrite_data\fP (uint8_t data_ui8)"
+.br
+.RI "Write character\&. "
+.ti -1c
+.RI "uint8_t \fBwrite_data\fP (uint8_t *p_data_sui8, uint32_t len_ui32)"
+.br
+.RI "Write data string\&. "
+.ti -1c
+.RI "uint8_t \fBwrite_data\fP (vector< uint8_t > &pv_data_sui8)"
+.br
+.RI "Write data vector\&. "
+.ti -1c
+.RI "uint8_t \fBread_data\fP (uint8_t *p_data_ui8)"
+.br
+.RI "Read character\&. "
+.ti -1c
+.RI "uint8_t \fBread_data\fP (string *p_data_str)"
+.br
+.RI "Read data from character buffer\&. "
+.ti -1c
+.RI "uint8_t \fBget_com_ctrl\fP (\fBuart_com_ctrl_in_t\fP pin_uart_com_ctrl_in)"
+.br
+.RI "Get com state\&. "
+.ti -1c
+.RI "void \fBset_com_ctrl\fP (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)"
+.br
+.RI "Set com state\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+UART class definition\&. 
+
+UART communication bus\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define d_buffer_size   4096"
+Struct 
+.PP
+Definition at line 53 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* uart_event_fct) (void *p_parametr_void, uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32)"
+Type 
+.PP
+Definition at line 96 of file hw_dr_uart_driver_h\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBuart_com_ctrl_in_t\fP"
+Enum 
+.PP
+Definition at line 60 of file hw_dr_uart_driver_h\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t close (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Close UART port (JS method 'close') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 239 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "void close (void)"
+
+.PP
+Close UART port communication\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t create_event (\fBuart_event_fct\fP function_uart_event_fct, void * p_parametr_void)"
+
+.PP
+Associate driver event function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP function_uart_event_fct : Pointer on event function 
+.br
+\fI[IN]\fP p_parameter_void : Input thread parameter 
+.br
+\fIp_parametr_void\fP : parameter for event function 
+.PD 0
+
+.IP "\(bu" 2
+0 : Event is registered 
+.IP "\(bu" 2
+1 : Event stored 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 294 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t delete_event (\fBuart_event_fct\fP function_uart_event_fct)"
+
+.PP
+Delete associated event function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP function_uart_event_fct : Pointer on event function 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : Status event registration 
+.PD 0
+
+.IP "\(bu" 2
+0 : Event was not associated 
+.IP "\(bu" 2
+1 : Event deleted 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 328 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "void delete_event_all (void)"
+
+.PP
+Delete all associated event\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "void dereg_host_class (void)"
+
+.PP
+Deregistration object in to class\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "uint8_t flush (void)"
+
+.PP
+Erase communication buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Clear procedure fail 
+.IP "\(bu" 2
+1 : Buffer is empty 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 510 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "string * get_bus_array (void)"
+
+.PP
+Get pointer on port array\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string : Pointer on available port array 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t get_com_ctrl (\fBuart_com_ctrl_in_t\fP pin_uart_com_ctrl_in)"
+
+.PP
+Get com state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP pin_uart_com_ctrl_in : Pin ID 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : Pin state 
+.RE
+.PP
+
+.PP
+Definition at line 685 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t get_ctrl (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get UART control line status (JS method 'get_ctrl') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 420 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "uint32_t get_last_error (void)"
+
+.PP
+Get port last error\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Port last error 
+.RE
+.PP
+
+.PP
+Definition at line 376 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "void get_port (void)"
+
+.PP
+Get UART port list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uart_status_t get_state (void)"
+
+.PP
+Get port status (call after construction object for test correct open) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : uart_status_t 
+.RE
+.PP
+
+.PP
+Definition at line 364 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t open (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Open UART port (JS method 'open') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "uart_status_t open (\fBuart_cfg_t\fP * p_data_uart_cfg)"
+
+.PP
+Open and set UART port communication\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_data_uart_cfg : UART port configuration struct 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Status 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t read_data (uint8_t * p_data_ui8)"
+
+.PP
+Read character\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[OUT]\fP p_data_ui8 : Pointer on character buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Data buffer is empty 
+.IP "\(bu" 2
+1 : Data buffer not empty 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 642 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t read_data (string * p_data_str)"
+
+.PP
+Read data from character buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[OUT]\fP p_data_str : Pointer on character string buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Data buffer is empty 
+.IP "\(bu" 2
+1 : Data buffer not empty 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 664 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t reg_event (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set Rx event (JS method 'reg_event') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "void reg_host_class (\fBuart_port\fP * p_com_uart_port)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_com_uart_port : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "void set_com_ctrl (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)"
+
+.PP
+Set com state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP pin_uart_com_ctrl_out : Pin ID 
+.br
+\fI[IN]\fP state_ui8 : UART control pin state 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : Pin state 
+.RE
+.PP
+
+.PP
+Definition at line 733 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t set_ctrl (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set UART control line status (JS method 'set_ctrl') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 485 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "\fBuart_port\fP (void)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 57 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t wait_rx_event (void)"
+
+.PP
+Wait for receive data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Com status mask 
+.RE
+.PP
+
+.PP
+Definition at line 388 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint32_t write (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Write UART (JS method 'write') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file in_js_class_uart_js_cpp\&.cpp\&.
+.SS "uint8_t write_data (uint8_t data_ui8)"
+
+.PP
+Write character\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP data_ui8 : Data character 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Data not send 
+.IP "\(bu" 2
+1 : Data send correctly 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 525 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t write_data (uint8_t * p_data_sui8, uint32_t len_ui32)"
+
+.PP
+Write data string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_data_sui8 : Pointer on data buffer 
+.br
+\fI[IN]\fP len_ui32 : Buffer length 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Data not send 
+.IP "\(bu" 2
+1 : Data send correctly 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 556 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "uint8_t write_data (vector< uint8_t > & pv_data_sui8)"
+
+.PP
+Write data vector\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP pv_data_sui8 : Vector with data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint8_t : status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Data not send 
+.IP "\(bu" 2
+1 : Data send correctly 
+.PP
+.RE
+.PP
+
+.PP
+Definition at line 599 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SS "~\fBuart_port\fP (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file hw_dr_uart_driver_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

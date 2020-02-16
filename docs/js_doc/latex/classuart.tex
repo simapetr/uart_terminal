@@ -1,0 +1,315 @@
+\section{uart Class Reference}
+\label{classuart}\index{uart@{uart}}
+
+
+System U\+A\+RT port driver.  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ open} (double bite\+\_\+timeout\+\_\+d, double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double port\+\_\+num\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Open and set port communication. \end{DoxyCompactList}\item 
+void \textbf{ close} (void)
+\begin{DoxyCompactList}\small\item\em Close port communication. \end{DoxyCompactList}\item 
+double \textbf{ reg\+\_\+event} (string event\+\_\+name\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Register receive event. \end{DoxyCompactList}\item 
+double \textbf{ write} (double char\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Write character. \end{DoxyCompactList}\item 
+double \textbf{ write} (vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Write data array. \end{DoxyCompactList}\item 
+double \textbf{ write} (string char\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Write A\+S\+CI string. \end{DoxyCompactList}\item 
+double \textbf{ write} (vector$<$ double $>$ \&v\+\_\+data\+\_\+d, double length\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Write data array user size. \end{DoxyCompactList}\item 
+bool \textbf{ get\+\_\+ctrl} (string name\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Get port control line state. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+ctrl} (string name\+\_\+str, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set port control line state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+System U\+A\+RT port driver. 
+
+Definition at line 360 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classuart_a67b72387b99fb35706b11eeba7070bc4}} 
+\index{uart@{uart}!close@{close}}
+\index{close@{close}!uart@{uart}}
+\subsubsection{close()}
+{\footnotesize\ttfamily void close (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Close port communication. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.close();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classuart_a84cca1155f5d878543d5fe04da7e9154}} 
+\index{uart@{uart}!get\_ctrl@{get\_ctrl}}
+\index{get\_ctrl@{get\_ctrl}!uart@{uart}}
+\subsubsection{get\_ctrl()}
+{\footnotesize\ttfamily bool get\+\_\+ctrl (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Get port control line state. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_bool;}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{data\_bool = uart.get\_ctrl(\textcolor{stringliteral}{"CTS"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & name\+\_\+str \+: Control line name \begin{DoxyItemize}
+\item RX \+: Rx line logic state \item C\+TS \+: Clear to send \item D\+SR \+: Data set ready \item R\+I\+NG \+: Ring indication \item R\+L\+SD \+: Receive line signal detect \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Control line logic state 
+\end{DoxyReturn}
+\mbox{\label{classuart_ad3c901fe01e5eb46c89975a96911e0fc}} 
+\index{uart@{uart}!open@{open}}
+\index{open@{open}!uart@{uart}}
+\subsubsection{open()}
+{\footnotesize\ttfamily double open (\begin{DoxyParamCaption}\item[{double}]{bite\+\_\+timeout\+\_\+d,  }\item[{double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double}]{port\+\_\+num\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Open and set port communication. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & bite\+\_\+timeout\+\_\+d \+: Packet timeout \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & baudrate\+\_\+d \+: Communication speed \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & stop\+\_\+bits\+\_\+d \+: Number of character stop bits \begin{DoxyItemize}
+\item 0 \+: 1 \item 1 \+: 1,5 \item 2 \+: 2 \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & parity\+\_\+d \+: Character parity type \begin{DoxyItemize}
+\item 0 \+: None \item 1 \+: Odd \item 2 \+: Even \item 3 \+: Char \item 4 \+: Space \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bit\+\_\+length\+\_\+d \+: Character bit length \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & port\+\_\+num\+\_\+d \+: Port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Open status (See uart\+\_\+status\+\_\+t) 
+\end{DoxyReturn}
+\mbox{\label{classuart_a2a17340cdc57799ae1efa09098911396}} 
+\index{uart@{uart}!reg\_event@{reg\_event}}
+\index{reg\_event@{reg\_event}!uart@{uart}}
+\subsubsection{reg\_event()}
+{\footnotesize\ttfamily double reg\+\_\+event (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+name\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Register receive event. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{uart.reg\_event(\textcolor{stringliteral}{"rx\_data"});}
+\DoxyCodeLine{\textcolor{keyword}{function} rx\_data ( event\_var, data\_var )}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{comment}{// Check if data event}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (event\_var \& 0x1)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (data\_var.length)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            \textcolor{comment}{// Process data}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & event\+\_\+name\+\_\+str \+: Event function name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Register status 
+\end{DoxyReturn}
+\mbox{\label{classuart_a00cc786dbdcb7eaa0ea83423ce1cc581}} 
+\index{uart@{uart}!set\_ctrl@{set\_ctrl}}
+\index{set\_ctrl@{set\_ctrl}!uart@{uart}}
+\subsubsection{set\_ctrl()}
+{\footnotesize\ttfamily void set\+\_\+ctrl (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set port control line state. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{uart.set\_ctrl(\textcolor{stringliteral}{"DTR"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & name\+\_\+str \+: Control line name \begin{DoxyItemize}
+\item D\+TR \+: Data terminal ready \item R\+TS \+: Request to send \item B\+R\+E\+AK \+: Tx line break \item X\+O\+FF \+: Transmit O\+FF \item X\+ON \+: Transmit ON \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & state\+\_\+b \+: New logic state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classuart_a3322f7e9a9f20fa53e6c1307ac1c75db}} 
+\index{uart@{uart}!write@{write}}
+\index{write@{write}!uart@{uart}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{double}]{char\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Write character. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{uart.write(0x20);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & char\+\_\+d \+: Character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Send status 
+\end{DoxyReturn}
+\mbox{\label{classuart_a96578e29a16d696c649260d1deb7f610}} 
+\index{uart@{uart}!write@{write}}
+\index{write@{write}!uart@{uart}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Write data array. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_array;}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{data\_array.push(0x01);}
+\DoxyCodeLine{data\_array.push(0x02);}
+\DoxyCodeLine{data\_array.push(0x03);}
+\DoxyCodeLine{uart.write(data\_array);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & v\+\_\+data\+\_\+d \+: Data array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Send status 
+\end{DoxyReturn}
+\mbox{\label{classuart_ac68442e2dbd073ee686220fe0b525662}} 
+\index{uart@{uart}!write@{write}}
+\index{write@{write}!uart@{uart}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{string}]{char\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Write A\+S\+CI string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_str;}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{data\_str = \textcolor{stringliteral}{"Hello World!"};}
+\DoxyCodeLine{uart.write(data\_str);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & char\+\_\+str \+: Text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Send status 
+\end{DoxyReturn}
+\mbox{\label{classuart_a0be86e407bbaa1dccd550f1898dcb8ca}} 
+\index{uart@{uart}!write@{write}}
+\index{write@{write}!uart@{uart}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d,  }\item[{double}]{length\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Write data array user size. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_array;}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{data\_array.push(0x01);}
+\DoxyCodeLine{data\_array.push(0x02);}
+\DoxyCodeLine{data\_array.push(0x03);}
+\DoxyCodeLine{\textcolor{comment}{// Send only 2 char from array}}
+\DoxyCodeLine{uart.write(data\_array, 2);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & v\+\_\+data\+\_\+d \+: Data array \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & length\+\_\+d \+: Number of send data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Send status 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

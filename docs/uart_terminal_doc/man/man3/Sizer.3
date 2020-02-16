@@ -1,0 +1,195 @@
+.TH "Sizer" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sizer \- Sizer class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBsizer_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBsizer_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void *p_gui_interface_void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new sizer in to parent (JS function 'add') "
+.ti -1c
+.RI "uint32_t \fBadd_sizer\fP (double sizer_index_d, double proportion_d, bool horizontal_b)"
+.br
+.RI "Add sizer\&. "
+.ti -1c
+.RI "uint32_t \fBadd_panel_sizer\fP (double panel_index_d, double proportion_d, bool horizontal_b)"
+.br
+.RI "Add sizer\&. "
+.ti -1c
+.RI "wxBoxSizer * \fBget_sizer\fP (double index_d)"
+.br
+.RI "Get sizer\&. "
+.ti -1c
+.RI "wxPanel * \fBget_sizer_panel\fP (double index_d)"
+.br
+.RI "Get sizer panel\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "vector< \fBsizer_buffer_t\fP > \fBlv_data_sizer_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_cnt_sizer_ui32\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sizer class definition\&. 
+
+GUI sizer component\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add new sizer in to parent (JS function 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file in_js_class_sizer_js_cpp\&.cpp\&.
+.SS "uint32_t add_panel_sizer (double panel_index_d, double proportion_d, bool horizontal_b)"
+
+.PP
+Add sizer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpanel_index_d\fP : Panel index 
+.br
+\fIproportion_d\fP : Relative proportion item in sizer 
+.br
+\fIhorizontal_b\fP : Sizer orientation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : New sizer buffer index 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file in_js_gui_sizer_cpp\&.cpp\&.
+.SS "uint32_t add_sizer (double sizer_index_d, double proportion_d, bool horizontal_b)"
+
+.PP
+Add sizer\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsizer_index_d\fP : Parent sizer index 
+.br
+\fIproportion_d\fP : Relative proportion item in sizer 
+.br
+\fIhorizontal_b\fP : Sizer orientation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : New sizer buffer index 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file in_js_gui_sizer_cpp\&.cpp\&.
+.SS "wxBoxSizer * get_sizer (double index_d)"
+
+.PP
+Get sizer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex_d\fP : Sizer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxBoxSizer* : Box sizer object pointer 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file in_js_gui_sizer_cpp\&.cpp\&.
+.SS "wxPanel * get_sizer_panel (double index_d)"
+
+.PP
+Get sizer panel\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex_d\fP : Sizer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxBoxSizer* : Box sizer object pointer 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file in_js_gui_sizer_cpp\&.cpp\&.
+.SS "void reg_host_class (void * p_gui_interface_void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_gui_interface_void : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file in_js_class_sizer_js_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "vector<\fBsizer_buffer_t\fP> lv_data_sizer_buffer"
+Local variable 
+.PP
+Definition at line 69 of file in_js_gui_sizer_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

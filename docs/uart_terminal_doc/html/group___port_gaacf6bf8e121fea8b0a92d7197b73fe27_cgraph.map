@@ -1,0 +1,8 @@
+<map id="stop" name="stop">
+<area shape="rect" id="node1" title="Stop script." alt="" coords="5,93,52,120"/>
+<area shape="rect" id="node2" href="$group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="100,5,241,32"/>
+<area shape="rect" id="node3" href="$group___g_u_i.html#ga0a532f834b1cca1b27d9a4d2c515d312" title="Get AUI manager." alt="" coords="107,57,235,98"/>
+<area shape="rect" id="node4" href="$group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="101,123,240,149"/>
+<area shape="rect" id="node5" href="$group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="118,173,223,200"/>
+<area shape="rect" id="node6" href="$group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="289,173,404,200"/>
+</map>

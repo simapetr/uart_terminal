@@ -1,0 +1,47 @@
+.TH "time_js_c" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+time_js_c
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_js_class_time_js_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void)"
+.br
+.RI "Registration object in to class\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static uint32_t \fBnow\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get actual epoch time in s (JS function 'now') "
+.ti -1c
+.RI "static uint32_t \fBnow_ms\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get actual epoch time in ms (JS function 'now_ms') "
+.ti -1c
+.RI "static uint32_t \fBstr\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Convert time in UTC second to time & date string value (JS function 'str') "
+.ti -1c
+.RI "static uint32_t \fBlocal_str\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Convert time in local second to local time & date string value (JS function 'local_str') "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 51 of file in_js_class_time_js_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

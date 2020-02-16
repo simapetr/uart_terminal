@@ -1,0 +1,142 @@
+.TH "Thread" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Thread \- Thread wrapper\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBthread_c\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBthread_fct_t\fP) (void *p_parametr_void)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBthread_c\fP (void *p_parameter_void, \fBthread_fct_t\fP function_thread_fct, uint32_t timeout_ui32=0)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~thread_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBsignal\fP (void)"
+.br
+.RI "Enable thread event\&. "
+.ti -1c
+.RI "void \fBstop\fP (void)"
+.br
+.RI "Stop thread\&. "
+.ti -1c
+.RI "virtual ExitCode \fBEntry\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Thread wrapper\&. 
+
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* thread_fct_t) (void *p_parametr_void)"
+Type 
+.PP
+Definition at line 42 of file in_thread_worker_h\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "wxThread::ExitCode Entry ()\fC [protected]\fP, \fC [virtual]\fP"
+Protected function 
+.PP
+Definition at line 112 of file in_thread_worker_cpp\&.cpp\&.
+.SS "void signal (void)"
+
+.PP
+Enable thread event\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file in_thread_worker_cpp\&.cpp\&.
+.SS "void stop (void)"
+
+.PP
+Stop thread\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file in_thread_worker_cpp\&.cpp\&.
+.SS "\fBthread_c\fP (void * p_parameter_void, \fBthread_fct_t\fP function_thread_fct, uint32_t timeout_ui32 = \fC0\fP)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_parameter_void : Thread parameter 
+.br
+\fI[IN]\fP function_thread_fct : Thread called function 
+.br
+\fI[IN]\fP timeout_ui32 : Thread wait timeout 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file in_thread_worker_cpp\&.cpp\&.
+.SS "~\fBthread_c\fP (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file in_thread_worker_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

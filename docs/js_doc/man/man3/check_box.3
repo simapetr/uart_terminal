@@ -1,0 +1,213 @@
+.TH "check_box" 3 "Sun Feb 16 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+check_box \- wxCheckBox class interface  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBadd\fP (double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b)"
+.br
+.RI "Add new check box\&. "
+.ti -1c
+.RI "bool \fBreg_event\fP (double check_box_index_d, string event_fct_str)"
+.br
+.RI "Register check box event\&. "
+.ti -1c
+.RI "bool \fBget\fP (double check_box_index_d)"
+.br
+.RI "Get check box state\&. "
+.ti -1c
+.RI "bool \fBset\fP (double check_box_index_d, bool state_b)"
+.br
+.RI "Set check box state\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+wxCheckBox class interface 
+.PP
+Definition at line 890 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double add (double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b)"
+
+.PP
+Add new check box\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_check_box;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_check_box = gui\&.check_box\&.add(test_sizer, "test", 0, false,false);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.br
+\fI[IN]\fP text_str : Button text 
+.br
+\fI[IN]\fP proportion_d : Proportion in parent sizer element 
+.br
+\fI[IN]\fP expand_b : Expand in sizer flag 
+.PD 0
+
+.IP "\(bu" 2
+false : Default size 
+.IP "\(bu" 2
+true : Expand 
+.PP
+.br
+\fI[IN]\fP state_b : Initial state 
+.PD 0
+
+.IP "\(bu" 2
+false : Un-checked 
+.IP "\(bu" 2
+true : Checked 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : Check box buffer index 
+.RE
+.PP
+
+.SS "bool get (double check_box_index_d)"
+
+.PP
+Get check box state\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_check_box;
+var test_state_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_check_box = gui\&.check_box\&.add(test_sizer, "test", 0, false,false);
+test_state_bool = gui\&.check_box\&.get(test_check_box);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP check_box_index_d : Check box index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Check box state 
+.PD 0
+
+.IP "\(bu" 2
+false : Un-checked 
+.IP "\(bu" 2
+true : Checked 
+.PP
+.RE
+.PP
+
+.SS "bool reg_event (double check_box_index_d, string event_fct_str)"
+
+.PP
+Register check box event\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_check_box;
+var reg_event_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_check_box = gui\&.check_box\&.add(test_sizer, "test", 0, false,false);
+reg_event_bool = gui\&.check_box\&.reg_event(test_check_box, "on_check_box_click");
+function on_check_box_click (component_id)
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP check_box_index_d : Check box index 
+.br
+\fI[IN]\fP event_fct_str : Function name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Event register status 
+.PD 0
+
+.IP "\(bu" 2
+false : Fail 
+.IP "\(bu" 2
+true : Event registered 
+.PP
+.RE
+.PP
+
+.SS "bool set (double check_box_index_d, bool state_b)"
+
+.PP
+Set check box state\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_check_box;
+var test_status_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_check_box = gui\&.check_box\&.add(test_sizer, "test", 0, false,false);
+test_status_bool = gui\&.check_box\&.set(test_check_box, true);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP check_box_index_d : Check box index 
+.br
+\fI[IN]\fP state_b : New check box state 
+.PD 0
+
+.IP "\(bu" 2
+false : Un-checked 
+.IP "\(bu" 2
+true : Checked 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Change status 
+.PD 0
+
+.IP "\(bu" 2
+false : Fail 
+.IP "\(bu" 2
+true : Changed 
+.PP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

@@ -1,9 +1,0 @@
-<map id="D:/project/uart_terminal/application/uart_terminal" name="D:/project/uart_terminal/application/uart_terminal">
-<area shape="rect" id="node1" href="dir_e0d7545f94de47506159c936eb57583c.html" title="uart_terminal" alt="" coords="48,52,145,100"/>
-<area shape="rect" id="node2" href="dir_2a288eaa51d173cdb44a483f2b5d6318.html" title="infrastructure" alt="" coords="5,148,103,196"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000001_000005.html" title="1" alt="" coords="76,128,84,142"/>
-<area shape="rect" id="node3" href="dir_f4316de2dfb04db90651672103de31d6.html" title="hardware" alt="" coords="59,244,134,292"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000001_000002.html" title="1" alt="" coords="114,221,122,236"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000005_000002.html" title="3" alt="" coords="82,217,90,231"/>
-<area shape="rect" id="clust1" href="dir_d75c23162a2652451dce46d2e7e8aead.html" title="application" alt="" coords="37,16,157,111"/>
-</map>

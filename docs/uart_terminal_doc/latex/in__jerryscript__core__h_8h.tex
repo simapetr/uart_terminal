@@ -1,0 +1,402 @@
+\section{D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/in\+\_\+jerryscript\+\_\+core\+\_\+h.h File Reference}
+\label{in__jerryscript__core__h_8h}\index{D:/project/uart\_terminal/infrastructure/jerryscript/in\_jerryscript\_core\_h.h@{D:/project/uart\_terminal/infrastructure/jerryscript/in\_jerryscript\_core\_h.h}}
+
+
+Java\+Script interpreter core function.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for in\+\_\+jerryscript\+\_\+core\+\_\+h.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{in__jerryscript__core__h_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{in__jerryscript__core__h_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ jerry\+\_\+property\+\_\+descriptor\+\_\+t}
+\item 
+struct \textbf{ jerry\+\_\+heap\+\_\+stats\+\_\+t}
+\item 
+struct \textbf{ jerry\+\_\+context\+\_\+data\+\_\+manager\+\_\+t}
+\item 
+struct \textbf{ jerry\+\_\+object\+\_\+native\+\_\+info\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ J\+E\+R\+R\+Y\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+E\+D\+\_\+\+A\+PI}
+\item 
+\#define \textbf{ J\+E\+R\+R\+Y\+\_\+\+A\+P\+I\+\_\+\+M\+A\+J\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON}~1
+\item 
+\#define \textbf{ J\+E\+R\+R\+Y\+\_\+\+A\+P\+I\+\_\+\+M\+I\+N\+O\+R\+\_\+\+V\+E\+R\+S\+I\+ON}~0
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \textbf{ jerry\+\_\+char\+\_\+t}
+\item 
+typedef \textbf{ jerry\+\_\+char\+\_\+t} $\ast$ \textbf{ jerry\+\_\+char\+\_\+ptr\+\_\+t}
+\item 
+typedef uint32\+\_\+t \textbf{ jerry\+\_\+size\+\_\+t}
+\item 
+typedef uint32\+\_\+t \textbf{ jerry\+\_\+length\+\_\+t}
+\item 
+typedef uint32\+\_\+t \textbf{ jerry\+\_\+value\+\_\+t}
+\item 
+typedef \textbf{ jerry\+\_\+value\+\_\+t}($\ast$ \textbf{ jerry\+\_\+external\+\_\+handler\+\_\+t}) (const \textbf{ jerry\+\_\+value\+\_\+t} function\+\_\+obj, const \textbf{ jerry\+\_\+value\+\_\+t} this\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} args\+\_\+p[$\,$], const \textbf{ jerry\+\_\+length\+\_\+t} args\+\_\+count)
+\item 
+typedef void($\ast$ \textbf{ jerry\+\_\+object\+\_\+free\+\_\+callback\+\_\+t}) (const uintptr\+\_\+t native\+\_\+p)
+\item 
+typedef void($\ast$ \textbf{ jerry\+\_\+object\+\_\+native\+\_\+free\+\_\+callback\+\_\+t}) (void $\ast$native\+\_\+p)
+\item 
+typedef \textbf{ jerry\+\_\+value\+\_\+t}($\ast$ \textbf{ jerry\+\_\+vm\+\_\+exec\+\_\+stop\+\_\+callback\+\_\+t}) (void $\ast$user\+\_\+p)
+\item 
+typedef bool($\ast$ \textbf{ jerry\+\_\+object\+\_\+property\+\_\+foreach\+\_\+t}) (const \textbf{ jerry\+\_\+value\+\_\+t} property\+\_\+name, const \textbf{ jerry\+\_\+value\+\_\+t} property\+\_\+value, void $\ast$user\+\_\+data\+\_\+p)
+\item 
+typedef bool($\ast$ \textbf{ jerry\+\_\+objects\+\_\+foreach\+\_\+t}) (const \textbf{ jerry\+\_\+value\+\_\+t} object, void $\ast$user\+\_\+data\+\_\+p)
+\item 
+typedef bool($\ast$ \textbf{ jerry\+\_\+objects\+\_\+foreach\+\_\+by\+\_\+native\+\_\+info\+\_\+t}) (const \textbf{ jerry\+\_\+value\+\_\+t} object, void $\ast$object\+\_\+data\+\_\+p, void $\ast$user\+\_\+data\+\_\+p)
+\item 
+typedef void $\ast$($\ast$ \textbf{ jerry\+\_\+instance\+\_\+alloc\+\_\+t}) (size\+\_\+t size, void $\ast$cb\+\_\+data\+\_\+p)
+\item 
+typedef struct \textbf{ jerry\+\_\+instance\+\_\+t} \textbf{ jerry\+\_\+instance\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ jerry\+\_\+init\+\_\+flag\+\_\+t} \{ \newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+E\+M\+P\+TY} = (0u), 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+S\+H\+O\+W\+\_\+\+O\+P\+C\+O\+D\+ES} = (1u $<$$<$ 0), 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+S\+H\+O\+W\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+O\+P\+C\+O\+D\+ES} = (1u $<$$<$ 1), 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+S\+T\+A\+TS} = (1u $<$$<$ 2), 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+S\+T\+A\+T\+S\+\_\+\+S\+E\+P\+A\+R\+A\+TE} = (1u $<$$<$ 3), 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+I\+N\+I\+T\+\_\+\+D\+E\+B\+U\+G\+G\+ER} = (1u $<$$<$ 4)
+ \}
+\item 
+enum \textbf{ jerry\+\_\+error\+\_\+t} \{ \newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+N\+O\+NE} = 0, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+O\+M\+M\+ON}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+E\+V\+AL}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+A\+N\+GE}, 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+E\+F\+E\+R\+E\+N\+CE}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+S\+Y\+N\+T\+AX}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+T\+Y\+PE}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+RI}
+ \}
+\item 
+enum \textbf{ jerry\+\_\+feature\+\_\+t} \{ \newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+C\+P\+O\+I\+N\+T\+E\+R\+\_\+32\+\_\+\+B\+IT}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+M\+E\+S\+S\+A\+G\+ES}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+J\+S\+\_\+\+P\+A\+R\+S\+ER}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+M\+E\+M\+\_\+\+S\+T\+A\+TS}, 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+P\+A\+R\+S\+E\+R\+\_\+\+D\+U\+MP}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+D\+U\+MP}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+S\+N\+A\+P\+S\+H\+O\+T\+\_\+\+S\+A\+VE}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+S\+N\+A\+P\+S\+H\+O\+T\+\_\+\+E\+X\+EC}, 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+D\+E\+B\+U\+G\+G\+ER}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+V\+M\+\_\+\+E\+X\+E\+C\+\_\+\+S\+T\+OP}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+J\+S\+ON}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+P\+R\+O\+M\+I\+SE}, 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+AY}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+D\+A\+TE}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+R\+E\+G\+E\+XP}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+\_\+\+C\+O\+U\+NT}
+ \}
+\item 
+enum \textbf{ jerry\+\_\+parse\+\_\+opts\+\_\+t} \{ \textbf{ J\+E\+R\+R\+Y\+\_\+\+P\+A\+R\+S\+E\+\_\+\+N\+O\+\_\+\+O\+P\+TS} = 0, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+P\+A\+R\+S\+E\+\_\+\+S\+T\+R\+I\+C\+T\+\_\+\+M\+O\+DE} = (1 $<$$<$ 0)
+ \}
+\item 
+enum \textbf{ jerry\+\_\+type\+\_\+t} \{ \newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+O\+NE} = 0u, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+LL}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+O\+O\+L\+E\+AN}, 
+\newline
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+ER}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+R\+I\+NG}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+O\+B\+J\+E\+CT}, 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+ \}
+\item 
+enum \textbf{ jerry\+\_\+typedarray\+\_\+type\+\_\+t} \{ \newline
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+I\+N\+V\+A\+L\+ID} = 0, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+U\+I\+N\+T8}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+U\+I\+N\+T8\+C\+L\+A\+M\+P\+ED}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+I\+N\+T8}, 
+\newline
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+U\+I\+N\+T16}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+I\+N\+T16}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+U\+I\+N\+T32}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+I\+N\+T32}, 
+\newline
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+F\+L\+O\+A\+T32}, 
+{\bfseries J\+E\+R\+R\+Y\+\_\+\+T\+Y\+P\+E\+D\+A\+R\+R\+A\+Y\+\_\+\+F\+L\+O\+A\+T64}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ jerry\+\_\+init} (\textbf{ jerry\+\_\+init\+\_\+flag\+\_\+t} flags)
+\item 
+void {\bfseries jerry\+\_\+cleanup} (void)
+\item 
+void {\bfseries jerry\+\_\+register\+\_\+magic\+\_\+strings} (const \textbf{ jerry\+\_\+char\+\_\+ptr\+\_\+t} $\ast$ex\+\_\+str\+\_\+items\+\_\+p, uint32\+\_\+t count, const \textbf{ jerry\+\_\+length\+\_\+t} $\ast$str\+\_\+lengths\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+get\+\_\+memory\+\_\+limits} (size\+\_\+t $\ast$out\+\_\+data\+\_\+bss\+\_\+brk\+\_\+limit\+\_\+p, size\+\_\+t $\ast$out\+\_\+stack\+\_\+limit\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+gc} (void)
+\item 
+void $\ast$ {\bfseries jerry\+\_\+get\+\_\+context\+\_\+data} (const \textbf{ jerry\+\_\+context\+\_\+data\+\_\+manager\+\_\+t} $\ast$manager\+\_\+p)
+\item 
+bool {\bfseries jerry\+\_\+get\+\_\+memory\+\_\+stats} (\textbf{ jerry\+\_\+heap\+\_\+stats\+\_\+t} $\ast$out\+\_\+stats\+\_\+p)
+\item 
+bool \textbf{ jerry\+\_\+run\+\_\+simple} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$script\+\_\+source\+\_\+p, size\+\_\+t script\+\_\+source\+\_\+size, \textbf{ jerry\+\_\+init\+\_\+flag\+\_\+t} flags)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+parse} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$resource\+\_\+name\+\_\+p, size\+\_\+t resource\+\_\+name\+\_\+length, const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$source\+\_\+p, size\+\_\+t source\+\_\+size, uint32\+\_\+t parse\+\_\+opts)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+parse\+\_\+function} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$resource\+\_\+name\+\_\+p, size\+\_\+t resource\+\_\+name\+\_\+length, const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$arg\+\_\+list\+\_\+p, size\+\_\+t arg\+\_\+list\+\_\+size, const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$source\+\_\+p, size\+\_\+t source\+\_\+size, uint32\+\_\+t parse\+\_\+opts)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+run} (const \textbf{ jerry\+\_\+value\+\_\+t} func\+\_\+val)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+eval} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$source\+\_\+p, size\+\_\+t source\+\_\+size, bool is\+\_\+strict)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+run\+\_\+all\+\_\+enqueued\+\_\+jobs} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} \textbf{ jerry\+\_\+get\+\_\+global\+\_\+object} (void)
+\item 
+bool \textbf{ jerry\+\_\+value\+\_\+is\+\_\+array} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+boolean} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+constructor} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+function} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+number} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+null} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+object} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+promise} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+string} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+undefined} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+type\+\_\+t} {\bfseries jerry\+\_\+value\+\_\+get\+\_\+type} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool \textbf{ jerry\+\_\+is\+\_\+feature\+\_\+enabled} (const \textbf{ jerry\+\_\+feature\+\_\+t} feature)
+\item 
+bool \textbf{ jerry\+\_\+value\+\_\+has\+\_\+error\+\_\+flag} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+has\+\_\+abort\+\_\+flag} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+void {\bfseries jerry\+\_\+value\+\_\+clear\+\_\+error\+\_\+flag} (\textbf{ jerry\+\_\+value\+\_\+t} $\ast$value\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+value\+\_\+set\+\_\+error\+\_\+flag} (\textbf{ jerry\+\_\+value\+\_\+t} $\ast$value\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+value\+\_\+set\+\_\+abort\+\_\+flag} (\textbf{ jerry\+\_\+value\+\_\+t} $\ast$value\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+value\+\_\+without\+\_\+error\+\_\+flag} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+error\+\_\+t} \textbf{ jerry\+\_\+get\+\_\+error\+\_\+type} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool \textbf{ jerry\+\_\+get\+\_\+boolean\+\_\+value} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+double {\bfseries jerry\+\_\+get\+\_\+number\+\_\+value} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} \textbf{ jerry\+\_\+get\+\_\+string\+\_\+size} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+utf8\+\_\+string\+\_\+size} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+string\+\_\+length} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+utf8\+\_\+string\+\_\+length} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} {\bfseries jerry\+\_\+string\+\_\+to\+\_\+char\+\_\+buffer} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+char\+\_\+t} $\ast$buffer\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buffer\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} {\bfseries jerry\+\_\+string\+\_\+to\+\_\+utf8\+\_\+char\+\_\+buffer} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+char\+\_\+t} $\ast$buffer\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buffer\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} {\bfseries jerry\+\_\+substring\+\_\+to\+\_\+char\+\_\+buffer} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+length\+\_\+t} start\+\_\+pos, \textbf{ jerry\+\_\+length\+\_\+t} end\+\_\+pos, \textbf{ jerry\+\_\+char\+\_\+t} $\ast$buffer\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buffer\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+size\+\_\+t} {\bfseries jerry\+\_\+substring\+\_\+to\+\_\+utf8\+\_\+char\+\_\+buffer} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+length\+\_\+t} start\+\_\+pos, \textbf{ jerry\+\_\+length\+\_\+t} end\+\_\+pos, \textbf{ jerry\+\_\+char\+\_\+t} $\ast$buffer\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buffer\+\_\+size)
+\item 
+uint32\+\_\+t \textbf{ jerry\+\_\+get\+\_\+array\+\_\+length} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool \textbf{ jerry\+\_\+value\+\_\+to\+\_\+boolean} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+value\+\_\+to\+\_\+number} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+value\+\_\+to\+\_\+object} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+value\+\_\+to\+\_\+primitive} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+value\+\_\+to\+\_\+string} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} \textbf{ jerry\+\_\+acquire\+\_\+value} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+void \textbf{ jerry\+\_\+release\+\_\+value} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} \textbf{ jerry\+\_\+create\+\_\+array} (uint32\+\_\+t size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+boolean} (bool value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+error} (\textbf{ jerry\+\_\+error\+\_\+t} error\+\_\+type, const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$message\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+error\+\_\+sz} (\textbf{ jerry\+\_\+error\+\_\+t} error\+\_\+type, const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$message\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} message\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+external\+\_\+function} (\textbf{ jerry\+\_\+external\+\_\+handler\+\_\+t} handler\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+number} (double value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+number\+\_\+infinity} (bool sign)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+number\+\_\+nan} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+null} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+object} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+promise} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+string\+\_\+from\+\_\+utf8} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$str\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+string\+\_\+sz\+\_\+from\+\_\+utf8} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$str\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} str\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+string} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$str\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+string\+\_\+sz} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$str\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} str\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+undefined} (void)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} \textbf{ jerry\+\_\+has\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+has\+\_\+own\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val)
+\item 
+bool {\bfseries jerry\+\_\+delete\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val)
+\item 
+bool {\bfseries jerry\+\_\+delete\+\_\+property\+\_\+by\+\_\+index} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, uint32\+\_\+t index)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+property\+\_\+by\+\_\+index} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, uint32\+\_\+t index)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+set\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} value\+\_\+to\+\_\+set)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+set\+\_\+property\+\_\+by\+\_\+index} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, uint32\+\_\+t index, const \textbf{ jerry\+\_\+value\+\_\+t} value\+\_\+to\+\_\+set)
+\item 
+void {\bfseries jerry\+\_\+init\+\_\+property\+\_\+descriptor\+\_\+fields} (\textbf{ jerry\+\_\+property\+\_\+descriptor\+\_\+t} $\ast$prop\+\_\+desc\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+define\+\_\+own\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val, const \textbf{ jerry\+\_\+property\+\_\+descriptor\+\_\+t} $\ast$prop\+\_\+desc\+\_\+p)
+\item 
+bool {\bfseries jerry\+\_\+get\+\_\+own\+\_\+property\+\_\+descriptor} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} prop\+\_\+name\+\_\+val, \textbf{ jerry\+\_\+property\+\_\+descriptor\+\_\+t} $\ast$prop\+\_\+desc\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+free\+\_\+property\+\_\+descriptor\+\_\+fields} (const \textbf{ jerry\+\_\+property\+\_\+descriptor\+\_\+t} $\ast$prop\+\_\+desc\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+call\+\_\+function} (const \textbf{ jerry\+\_\+value\+\_\+t} func\+\_\+obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} this\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} args\+\_\+p[$\,$], \textbf{ jerry\+\_\+size\+\_\+t} args\+\_\+count)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+construct\+\_\+object} (const \textbf{ jerry\+\_\+value\+\_\+t} func\+\_\+obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} args\+\_\+p[$\,$], \textbf{ jerry\+\_\+size\+\_\+t} args\+\_\+count)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+object\+\_\+keys} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+prototype} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+set\+\_\+prototype} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, const \textbf{ jerry\+\_\+value\+\_\+t} proto\+\_\+obj\+\_\+val)
+\item 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+E\+D\+\_\+\+A\+PI} bool {\bfseries jerry\+\_\+get\+\_\+object\+\_\+native\+\_\+handle} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, uintptr\+\_\+t $\ast$out\+\_\+handle\+\_\+p)
+\item 
+\textbf{ J\+E\+R\+R\+Y\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+E\+D\+\_\+\+A\+PI} void {\bfseries jerry\+\_\+set\+\_\+object\+\_\+native\+\_\+handle} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, uintptr\+\_\+t handle\+\_\+p, \textbf{ jerry\+\_\+object\+\_\+free\+\_\+callback\+\_\+t} freecb\+\_\+p)
+\item 
+bool {\bfseries jerry\+\_\+get\+\_\+object\+\_\+native\+\_\+pointer} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, void $\ast$$\ast$out\+\_\+native\+\_\+pointer\+\_\+p, const \textbf{ jerry\+\_\+object\+\_\+native\+\_\+info\+\_\+t} $\ast$$\ast$out\+\_\+pointer\+\_\+info\+\_\+p)
+\item 
+bool {\bfseries jerry\+\_\+objects\+\_\+foreach} (\textbf{ jerry\+\_\+objects\+\_\+foreach\+\_\+t} foreach\+\_\+p, void $\ast$user\+\_\+data)
+\item 
+bool {\bfseries jerry\+\_\+objects\+\_\+foreach\+\_\+by\+\_\+native\+\_\+info} (const \textbf{ jerry\+\_\+object\+\_\+native\+\_\+info\+\_\+t} $\ast$native\+\_\+info\+\_\+p, \textbf{ jerry\+\_\+objects\+\_\+foreach\+\_\+by\+\_\+native\+\_\+info\+\_\+t} foreach\+\_\+p, void $\ast$user\+\_\+data\+\_\+p)
+\item 
+void {\bfseries jerry\+\_\+set\+\_\+object\+\_\+native\+\_\+pointer} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, void $\ast$native\+\_\+pointer\+\_\+p, const \textbf{ jerry\+\_\+object\+\_\+native\+\_\+info\+\_\+t} $\ast$native\+\_\+info\+\_\+p)
+\item 
+bool {\bfseries jerry\+\_\+foreach\+\_\+object\+\_\+property} (const \textbf{ jerry\+\_\+value\+\_\+t} obj\+\_\+val, \textbf{ jerry\+\_\+object\+\_\+property\+\_\+foreach\+\_\+t} foreach\+\_\+p, void $\ast$user\+\_\+data\+\_\+p)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} \textbf{ jerry\+\_\+resolve\+\_\+or\+\_\+reject\+\_\+promise} (\textbf{ jerry\+\_\+value\+\_\+t} promise, \textbf{ jerry\+\_\+value\+\_\+t} argument, bool is\+\_\+resolve)
+\item 
+bool \textbf{ jerry\+\_\+is\+\_\+valid\+\_\+utf8\+\_\+string} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$utf8\+\_\+buf\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buf\+\_\+size)
+\item 
+bool {\bfseries jerry\+\_\+is\+\_\+valid\+\_\+cesu8\+\_\+string} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$cesu8\+\_\+buf\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} buf\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+instance\+\_\+t} $\ast$ {\bfseries jerry\+\_\+create\+\_\+instance} (uint32\+\_\+t heap\+\_\+size, \textbf{ jerry\+\_\+instance\+\_\+alloc\+\_\+t} alloc, void $\ast$cb\+\_\+data\+\_\+p)
+\item 
+void \textbf{ jerry\+\_\+set\+\_\+vm\+\_\+exec\+\_\+stop\+\_\+callback} (\textbf{ jerry\+\_\+vm\+\_\+exec\+\_\+stop\+\_\+callback\+\_\+t} stop\+\_\+cb, void $\ast$user\+\_\+p, uint32\+\_\+t frequency)
+\item 
+bool \textbf{ jerry\+\_\+value\+\_\+is\+\_\+arraybuffer} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+arraybuffer} (const \textbf{ jerry\+\_\+length\+\_\+t} size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+arraybuffer\+\_\+external} (const \textbf{ jerry\+\_\+length\+\_\+t} size, uint8\+\_\+t $\ast$buffer\+\_\+p, \textbf{ jerry\+\_\+object\+\_\+native\+\_\+free\+\_\+callback\+\_\+t} free\+\_\+cb)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+arraybuffer\+\_\+write} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+length\+\_\+t} offset, const uint8\+\_\+t $\ast$buf\+\_\+p, \textbf{ jerry\+\_\+length\+\_\+t} buf\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+arraybuffer\+\_\+read} (const \textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+length\+\_\+t} offset, uint8\+\_\+t $\ast$buf\+\_\+p, \textbf{ jerry\+\_\+length\+\_\+t} buf\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+arraybuffer\+\_\+byte\+\_\+length} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+uint8\+\_\+t $\ast$ {\bfseries jerry\+\_\+get\+\_\+arraybuffer\+\_\+pointer} (const \textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+bool {\bfseries jerry\+\_\+value\+\_\+is\+\_\+typedarray} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+typedarray} (\textbf{ jerry\+\_\+typedarray\+\_\+type\+\_\+t} type\+\_\+name, \textbf{ jerry\+\_\+length\+\_\+t} length)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+typedarray\+\_\+for\+\_\+arraybuffer\+\_\+sz} (\textbf{ jerry\+\_\+typedarray\+\_\+type\+\_\+t} type\+\_\+name, const \textbf{ jerry\+\_\+value\+\_\+t} arraybuffer, \textbf{ jerry\+\_\+length\+\_\+t} byte\+\_\+offset, \textbf{ jerry\+\_\+length\+\_\+t} length)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+create\+\_\+typedarray\+\_\+for\+\_\+arraybuffer} (\textbf{ jerry\+\_\+typedarray\+\_\+type\+\_\+t} type\+\_\+name, const \textbf{ jerry\+\_\+value\+\_\+t} arraybuffer)
+\item 
+\textbf{ jerry\+\_\+typedarray\+\_\+type\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+typedarray\+\_\+type} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+length\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+typedarray\+\_\+length} (\textbf{ jerry\+\_\+value\+\_\+t} value)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+get\+\_\+typedarray\+\_\+buffer} (\textbf{ jerry\+\_\+value\+\_\+t} value, \textbf{ jerry\+\_\+length\+\_\+t} $\ast$byte\+\_\+offset, \textbf{ jerry\+\_\+length\+\_\+t} $\ast$byte\+\_\+length)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+json\+\_\+parse} (const \textbf{ jerry\+\_\+char\+\_\+t} $\ast$string\+\_\+p, \textbf{ jerry\+\_\+size\+\_\+t} string\+\_\+size)
+\item 
+\textbf{ jerry\+\_\+value\+\_\+t} {\bfseries jerry\+\_\+json\+\_\+stringfy} (const \textbf{ jerry\+\_\+value\+\_\+t} object\+\_\+to\+\_\+stringify)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Java\+Script interpreter core function. 
+
+\begin{DoxyAuthor}{Author}
+js.\+foundation 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+22.\+04.\+2018 
+\end{DoxyDate}
+\begin{DoxyAttention}{Attention}
+\subsubsection*{\begin{center} \copyright{} JS Foundation and other contributors, {\texttt{ http\+://js.\+foundation}} \end{center} }
+\end{DoxyAttention}
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 

@@ -1,0 +1,112 @@
+.TH "static_text" 3 "Sun Feb 16 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+static_text \- wxStaticText class interface  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBadd\fP (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+.br
+.RI "Add new static text\&. "
+.ti -1c
+.RI "bool \fBset\fP (double static_text_index_d, string text_str)"
+.br
+.RI "Set static text string\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+wxStaticText class interface 
+.PP
+Definition at line 1108 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double add (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+
+.PP
+Add new static text\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_static_text;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_static_text = gui\&.static_text\&.add(test_sizer, "Hello world!", 0, false);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.br
+\fI[IN]\fP text_str : Default text 
+.br
+\fI[IN]\fP proportion_d : Proportion in parent sizer element 
+.br
+\fI[IN]\fP expand_b : Expand in sizer flag 
+.PD 0
+
+.IP "\(bu" 2
+false : Default size 
+.IP "\(bu" 2
+true : Expand 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : \fBstatic_text\fP buffer index 
+.RE
+.PP
+
+.SS "bool set (double static_text_index_d, string text_str)"
+
+.PP
+Set static text string\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_static_text;
+var test_status_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_static_text = gui\&.static_text\&.add(test_sizer, "Test", 0, false);
+test_status_bool = gui\&.static_text\&.set(test_static_text, "Hello world!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP static_text_index_d : \fBstatic_text\fP index 
+.br
+\fI[IN]\fP text_str : New text (Erase \fBstatic_text\fP before set) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Set status 
+.PD 0
+
+.IP "\(bu" 2
+false : Fail 
+.IP "\(bu" 2
+true : Changed 
+.PP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

@@ -1,0 +1,17 @@
+<map id="D:/project/uart_terminal/infrastructure" name="D:/project/uart_terminal/infrastructure">
+<area shape="rect" id="node2" href="dir_284afc48af6514a75a62c49a37447e34.html" title="config" alt="" coords="419,27,491,75"/>
+<area shape="rect" id="node3" href="dir_cf7bbd29ea2dc9e20de88fcb82443dbb.html" title="data_plot" alt="" coords="221,123,296,171"/>
+<area shape="rect" id="node4" href="dir_48b1191023246aec742a64c2b31c8a36.html" title="jerryscript" alt="" coords="219,27,298,75"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000008_000007.html" title="1" alt="" coords="263,97,271,112"/>
+<area shape="rect" id="node8" href="dir_f4316de2dfb04db90651672103de31d6.html" title="hardware" alt="" coords="533,219,608,267"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000008_000002.html" title="3" alt="" coords="518,194,526,209"/>
+<area shape="rect" id="node9" href="dir_d75c23162a2652451dce46d2e7e8aead.html" title="application" alt="" coords="635,123,719,171"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000008_000000.html" title="6" alt="" coords="617,107,625,122"/>
+<area shape="rect" id="node5" href="dir_cf166cb66546a8238452f44e91aa69dc.html" title="main" alt="" coords="323,27,395,75"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000011_000000.html" title="1" alt="" coords="617,104,625,118"/>
+<area shape="rect" id="node6" href="dir_e0b2debcd69f08477527c0560a0fc561.html" title="thread" alt="" coords="123,27,195,75"/>
+<area shape="rect" id="node7" href="dir_0ab91ed707aa75eec2352b9ee1e3ef88.html" title="wx" alt="" coords="27,27,99,75"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000000_000008.html" title="1" alt="" coords="308,73,316,88"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000000_000002.html" title="1" alt="" coords="612,206,620,220"/>
+<area shape="rect" id="clust1" href="dir_2a288eaa51d173cdb44a483f2b5d6318.html" alt="" coords="16,16,624,181"/>
+</map>

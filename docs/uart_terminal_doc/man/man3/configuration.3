@@ -1,0 +1,170 @@
+.TH "configuration" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+configuration \- Configuration INI wrapper\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBconfig_ini\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBconfig_ini\fP (wxString path_str)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~config_ini\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "int32_t \fBget_value\fP (wxString path_str, wxString default_value_str)"
+.br
+.RI "Read value from INI\&. "
+.ti -1c
+.RI "wxString \fBget_string\fP (wxString path_str, wxString default_value_str)"
+.br
+.RI "Read string value from INI\&. "
+.ti -1c
+.RI "void \fBset_value\fP (wxString path_str, int32_t value_i32)"
+.br
+.RI "Set value in to INI\&. "
+.ti -1c
+.RI "void \fBset_string\fP (wxString path_str, wxString value_str)"
+.br
+.RI "Set string value in to INI\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration INI wrapper\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBconfig_ini\fP (wxString path_str)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Configuration file path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SS "wxString get_string (wxString path_str, wxString default_value_str)"
+
+.PP
+Read string value from INI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Path for read key 
+.br
+\fI[IN]\fP default_value_str : Default value when key not found 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxString : reader string value 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SS "int32_t get_value (wxString path_str, wxString default_value_str)"
+
+.PP
+Read value from INI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Path for read key 
+.br
+\fI[IN]\fP default_value_str : Default value when key not found 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int32_t : reader value 
+.RE
+.PP
+
+.PP
+Definition at line 87 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SS "void set_string (wxString path_str, wxString value_str)"
+
+.PP
+Set string value in to INI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Path for read key 
+.br
+\fI[IN]\fP value_str : Setting string value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SS "void set_value (wxString path_str, int32_t value_i32)"
+
+.PP
+Set value in to INI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Path for read key 
+.br
+\fI[IN]\fP value_i32 : Setting value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SS "~\fBconfig_ini\fP (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file in_config_ini_wrapper_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

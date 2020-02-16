@@ -1,0 +1,5 @@
+<map id="add_panel" name="add_panel">
+<area shape="rect" id="node1" title="Add AUI panel." alt="" coords="5,31,87,57"/>
+<area shape="rect" id="node2" href="$group___sizer.html#ga6047af798bc756e7586eb23cf306b39f" title="Add sizer." alt="" coords="135,5,251,32"/>
+<area shape="rect" id="node3" href="$group___sizer.html#gac4b3f4eed65111c6e2aafb97733264cf" title="Get sizer." alt="" coords="155,56,230,83"/>
+</map>

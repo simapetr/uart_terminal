@@ -1,0 +1,89 @@
+\section{panel Class Reference}
+\label{classpanel}\index{panel@{panel}}
+
+
+wx\+Aui panel class  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ add} (string name\+\_\+str, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add new A\+UI panel. \end{DoxyCompactList}\item 
+double \textbf{ get\+\_\+sizer} (double panel\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get panel main sizer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+wx\+Aui panel class 
+
+Definition at line 747 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classpanel_a79fc398bf48fc29226a5d64371047def}} 
+\index{panel@{panel}!add@{add}}
+\index{add@{add}!panel@{panel}}
+\subsubsection{add()}
+{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str,  }\item[{bool}]{horizontal\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add new A\+UI panel. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & name\+\_\+str \+: Panel name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & horizontal\+\_\+b \+: Basic sizer orientation \begin{DoxyItemize}
+\item false \+: Vertical \item true \+: Horizontal \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Panel buffer index 
+\end{DoxyReturn}
+\mbox{\label{classpanel_a3d192aeb663e089278a27eec28435d0c}} 
+\index{panel@{panel}!get\_sizer@{get\_sizer}}
+\index{get\_sizer@{get\_sizer}!panel@{panel}}
+\subsubsection{get\_sizer()}
+{\footnotesize\ttfamily double get\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{panel\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get panel main sizer. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+d \+: Panel buffer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Sizer buffer index 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

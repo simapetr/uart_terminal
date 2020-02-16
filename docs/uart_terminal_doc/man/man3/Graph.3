@@ -1,0 +1,252 @@
+.TH "Graph" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph \- Graph interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBgraph_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBgraph_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void *p_gui_main_frame_void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add graph (JS method 'add') "
+.ti -1c
+.RI "static uint32_t \fBinsert_signal\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Insert signal in to graph (JS method 'insert_signal') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set graph data (JS method 'set') "
+.ti -1c
+.RI "uint32_t \fBadd_graph\fP (double sizer_index_d, wxString name_str, double graph_range_d, double buffer_length_d, double time_step_d)"
+.br
+.RI "Add graph window\&. "
+.ti -1c
+.RI "uint32_t \fBinsert_signal\fP (uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32=0, uint32_t width_ui32=1, uint32_t style_ui32=0)"
+.br
+.RI "Insert signal in to graph\&. "
+.ti -1c
+.RI "bool \fBset_graph_data\fP (uint32_t graph_ui32, vector< double > &pv_data_d)"
+.br
+.RI "Insert One sample for all signal in to graph window\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "vector< \fBgraph_buffer_t\fP > \fBlv_data_graph_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_cnt_graph_ui32\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Graph interface\&. 
+
+GUI graph component\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add graph (JS method 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file in_js_class_graph_js_cpp\&.cpp\&.
+.SS "uint32_t add_graph (double sizer_index_d, wxString name_str, double graph_range_d, double buffer_length_d, double time_step_d)"
+
+.PP
+Add graph window\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Index in vector sizer buffer 
+.br
+\fI[IN]\fP name_str : Graph name 
+.br
+\fI[IN]\fP graph_range_d : Y access range 
+.br
+\fI[IN]\fP buffer_length_d : Buffer length in second 
+.br
+\fI[IN]\fP time_step_d : Sample time frequency 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Graph window number 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file in_js_gui_graph_cpp\&.cpp\&.
+.SS "uint32_t insert_signal (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Insert signal in to graph (JS method 'insert_signal') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file in_js_class_graph_js_cpp\&.cpp\&.
+.SS "uint32_t insert_signal (uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32 = \fC0\fP, uint32_t width_ui32 = \fC1\fP, uint32_t style_ui32 = \fC0\fP)"
+
+.PP
+Insert signal in to graph\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP graph_ui32 : Graph window number 
+.br
+\fI[IN]\fP signal_label_str : Signal name 
+.br
+\fI[IN]\fP color_ui32 : Signal color 
+.br
+\fI[IN]\fP width_ui32 : Signal width in pixel 
+.br
+\fI[IN]\fP style_ui32 : Pen style 
+.PD 0
+
+.IP "\(bu" 2
+0 : Solid 
+.IP "\(bu" 2
+1 : Dot 
+.IP "\(bu" 2
+2 : Long dash 
+.IP "\(bu" 2
+3 : Short dash 
+.IP "\(bu" 2
+4 : Dot dash 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Insert status 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file in_js_gui_graph_cpp\&.cpp\&.
+.SS "void reg_host_class (void * p_gui_main_frame_void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_gui_main_frame_void : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file in_js_class_graph_js_cpp\&.cpp\&.
+.SS "uint32_t set (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set graph data (JS method 'set') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 224 of file in_js_class_graph_js_cpp\&.cpp\&.
+.SS "bool set_graph_data (uint32_t graph_ui32, vector< double > & pv_data_d)"
+
+.PP
+Insert One sample for all signal in to graph window\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP graph_ui32 : Graph window number 
+.br
+\fI[IN]\fP pv_data_d : signal data samples 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Insert data status 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file in_js_gui_graph_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "vector<\fBgraph_buffer_t\fP> lv_data_graph_buffer"
+Local variable 
+.PP
+Definition at line 70 of file in_js_gui_graph_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

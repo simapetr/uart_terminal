@@ -1,0 +1,5 @@
+<map id="run_script" name="run_script">
+<area shape="rect" id="node1" title="Run JS script." alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$group___port.html#gafacd49c835b8497d00c0a928232b12e2" title="Run script." alt="" coords="132,5,251,32"/>
+<area shape="rect" id="node3" href="$group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="299,5,413,32"/>
+</map>

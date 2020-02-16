@@ -1,0 +1,186 @@
+\section{check\+\_\+box Class Reference}
+\label{classcheck__box}\index{check\_box@{check\_box}}
+
+
+wx\+Check\+Box class interface  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ add} (double sizer\+\_\+index\+\_\+d, string text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add new check box. \end{DoxyCompactList}\item 
+bool \textbf{ reg\+\_\+event} (double check\+\_\+box\+\_\+index\+\_\+d, string event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Register check box event. \end{DoxyCompactList}\item 
+bool \textbf{ get} (double check\+\_\+box\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get check box state. \end{DoxyCompactList}\item 
+bool \textbf{ set} (double check\+\_\+box\+\_\+index\+\_\+d, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set check box state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+wx\+Check\+Box class interface 
+
+Definition at line 890 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classcheck__box_a304780d135afb477738f1c8487bce123}} 
+\index{check\_box@{check\_box}!add@{add}}
+\index{add@{add}!check\_box@{check\_box}}
+\subsubsection{add()}
+{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add new check box. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_check\_box;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_check\_box = gui.check\_box.add(test\_sizer, \textcolor{stringliteral}{"test"}, 0, \textcolor{keyword}{false},\textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Parent sizer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Button text \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & proportion\+\_\+d \+: Proportion in parent sizer element \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & expand\+\_\+b \+: Expand in sizer flag \begin{DoxyItemize}
+\item false \+: Default size \item true \+: Expand \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & state\+\_\+b \+: Initial state \begin{DoxyItemize}
+\item false \+: Un-\/checked \item true \+: Checked \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Check box buffer index 
+\end{DoxyReturn}
+\mbox{\label{classcheck__box_a07ec246c4be9ad50ee8eab29041805ec}} 
+\index{check\_box@{check\_box}!get@{get}}
+\index{get@{get}!check\_box@{check\_box}}
+\subsubsection{get()}
+{\footnotesize\ttfamily bool get (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get check box state. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_check\_box;}
+\DoxyCodeLine{var test\_state\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_check\_box = gui.check\_box.add(test\_sizer, \textcolor{stringliteral}{"test"}, 0, \textcolor{keyword}{false},\textcolor{keyword}{false});}
+\DoxyCodeLine{test\_state\_bool = gui.check\_box.get(test\_check\_box);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & check\+\_\+box\+\_\+index\+\_\+d \+: Check box index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Check box state \begin{DoxyItemize}
+\item false \+: Un-\/checked \item true \+: Checked \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classcheck__box_aca4db2446dfef881cb9fbd9dc3326733}} 
+\index{check\_box@{check\_box}!reg\_event@{reg\_event}}
+\index{reg\_event@{reg\_event}!check\_box@{check\_box}}
+\subsubsection{reg\_event()}
+{\footnotesize\ttfamily bool reg\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d,  }\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Register check box event. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_check\_box;}
+\DoxyCodeLine{var reg\_event\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_check\_box = gui.check\_box.add(test\_sizer, \textcolor{stringliteral}{"test"}, 0, \textcolor{keyword}{false},\textcolor{keyword}{false});}
+\DoxyCodeLine{reg\_event\_bool = gui.check\_box.reg\_event(test\_check\_box, \textcolor{stringliteral}{"on\_check\_box\_click"});}
+\DoxyCodeLine{\textcolor{keyword}{function} on\_check\_box\_click (component\_id)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & check\+\_\+box\+\_\+index\+\_\+d \+: Check box index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & event\+\_\+fct\+\_\+str \+: Function name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Event register status \begin{DoxyItemize}
+\item false \+: Fail \item true \+: Event registered \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classcheck__box_aee722d4436a648fa1c666bfb3c085944}} 
+\index{check\_box@{check\_box}!set@{set}}
+\index{set@{set}!check\_box@{check\_box}}
+\subsubsection{set()}
+{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set check box state. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_check\_box;}
+\DoxyCodeLine{var test\_status\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_check\_box = gui.check\_box.add(test\_sizer, \textcolor{stringliteral}{"test"}, 0, \textcolor{keyword}{false},\textcolor{keyword}{false});}
+\DoxyCodeLine{test\_status\_bool = gui.check\_box.set(test\_check\_box, \textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & check\+\_\+box\+\_\+index\+\_\+d \+: Check box index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & state\+\_\+b \+: New check box state \begin{DoxyItemize}
+\item false \+: Un-\/checked \item true \+: Checked \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Change status \begin{DoxyItemize}
+\item false \+: Fail \item true \+: Changed \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

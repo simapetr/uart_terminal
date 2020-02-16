@@ -1,0 +1,4 @@
+<map id="close_port" name="close_port">
+<area shape="rect" id="node1" title="Close port wit GUI setting." alt="" coords="5,5,88,32"/>
+<area shape="rect" id="node2" href="$group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4" title="Close UART port communication." alt="" coords="136,5,248,32"/>
+</map>

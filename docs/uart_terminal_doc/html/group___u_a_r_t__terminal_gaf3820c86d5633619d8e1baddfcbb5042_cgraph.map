@@ -1,0 +1,11 @@
+<map id="~main_frame" name="~main_frame">
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,81,103,108"/>
+<area shape="rect" id="node2" href="$group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="327,5,465,32"/>
+<area shape="rect" id="node3" href="$group___u_a_r_t__terminal.html#ga39ec9a45c5fdf3b61ef3ca88973bc07c" title="Close port wit GUI setting." alt="" coords="173,191,255,217"/>
+<area shape="rect" id="node5" href="$group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="325,56,467,83"/>
+<area shape="rect" id="node6" href="$group___port.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop script." alt="" coords="151,107,277,133"/>
+<area shape="rect" id="node4" href="$group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4" title="Close UART port communication." alt="" coords="340,224,452,251"/>
+<area shape="rect" id="node7" href="$group___g_u_i.html#ga0a532f834b1cca1b27d9a4d2c515d312" title="Get AUI manager." alt="" coords="332,158,460,199"/>
+<area shape="rect" id="node8" href="$group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="343,107,449,133"/>
+<area shape="rect" id="node9" href="$group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="515,107,629,133"/>
+</map>

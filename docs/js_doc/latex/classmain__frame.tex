@@ -1,0 +1,400 @@
+\section{main\+\_\+frame Class Reference}
+\label{classmain__frame}\index{main\_frame@{main\_frame}}
+
+
+System Main frame G\+UI control.  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ gui} (bool show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\item 
+void \textbf{ console\+\_\+rx\+\_\+enable} (bool enable\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show Rx data in main frame console. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Get console enable state. \end{DoxyCompactList}\item 
+void \textbf{ printf} (string text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print text sting in to console. \end{DoxyCompactList}\item 
+void \textbf{ status} (string text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print status text sting in to main frame status. \end{DoxyCompactList}\item 
+void \textbf{ clear} (void)
+\begin{DoxyCompactList}\small\item\em Clear main frame console text. \end{DoxyCompactList}\item 
+void \textbf{ open} (double bite\+\_\+timeout\+\_\+d, double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double port\+\_\+num\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Open and set port communication and G\+UI component in main frame. \end{DoxyCompactList}\item 
+void \textbf{ close} (void)
+\begin{DoxyCompactList}\small\item\em Close communication in main frame. \end{DoxyCompactList}\item 
+double \textbf{ get\+\_\+open\+\_\+status} (void)
+\begin{DoxyCompactList}\small\item\em Get communication open status. \end{DoxyCompactList}\item 
+string \textbf{ get\+\_\+data} (string info\+\_\+str) void set\+\_\+progress(string text\+\_\+str
+\begin{DoxyCompactList}\small\item\em Show input dialog with user info text and return user input data. \end{DoxyCompactList}\item 
+double \textbf{ reg\+\_\+event} (string event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Register event on send button click (in event function is parameter array with console input data) \end{DoxyCompactList}\item 
+void \textbf{ hide} (bool enable\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classmain__frame_ad8890da38ee09bca1d0a8e8f5989e6fe}} 
+string double {\bfseries progress\+\_\+d}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+System Main frame G\+UI control. 
+
+Definition at line 58 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classmain__frame_ae683fe63c33c388e9ba1c6392dd477eb}} 
+\index{main\_frame@{main\_frame}!clear@{clear}}
+\index{clear@{clear}!main\_frame@{main\_frame}}
+\subsubsection{clear()}
+{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear main frame console text. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.clear();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a67b72387b99fb35706b11eeba7070bc4}} 
+\index{main\_frame@{main\_frame}!close@{close}}
+\index{close@{close}!main\_frame@{main\_frame}}
+\subsubsection{close()}
+{\footnotesize\ttfamily void close (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Close communication in main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.close();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a42466769794c3edd479bc62db0f796f1}} 
+\index{main\_frame@{main\_frame}!console\_rx\_enable@{console\_rx\_enable}}
+\index{console\_rx\_enable@{console\_rx\_enable}!main\_frame@{main\_frame}}
+\subsubsection{console\_rx\_enable()}
+{\footnotesize\ttfamily void console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}\item[{bool}]{enable\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set show Rx data in main frame console. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.console\_rx\_enable(\textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enable\+\_\+b \+: Show Rx data in console \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_aaae434e0d6a898619ff85e42ad3f795d}} 
+\index{main\_frame@{main\_frame}!get\_data@{get\_data}}
+\index{get\_data@{get\_data}!main\_frame@{main\_frame}}
+\subsubsection{get\_data()}
+{\footnotesize\ttfamily string get\+\_\+data (\begin{DoxyParamCaption}\item[{string}]{info\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Show input dialog with user info text and return user input data. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var text\_str;}
+\DoxyCodeLine{text\_str = main\_frame.get\_data(\textcolor{stringliteral}{"Get input text:"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & info\+\_\+str \+: User text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \+: User input text\+Set status progress in progress dialog
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Show 50\% progress}}
+\DoxyCodeLine{main\_frame.set\_progress(\textcolor{stringliteral}{"User process progress:"}, 50);}
+\DoxyCodeLine{\textcolor{comment}{// Close dialog}}
+\DoxyCodeLine{main\_frame.set\_progress(\textcolor{stringliteral}{"User process progress:"}, 101);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: User text \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & progress\+\_\+d \+: actual progress \begin{DoxyItemize}
+\item 0 -\/ 100 \+: Show progress value \item $>$100 \+: Close progress dialog \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_aefe5b38f87e41cd0a2cbf8405b6c3cc1}} 
+\index{main\_frame@{main\_frame}!get\_open\_status@{get\_open\_status}}
+\index{get\_open\_status@{get\_open\_status}!main\_frame@{main\_frame}}
+\subsubsection{get\_open\_status()}
+{\footnotesize\ttfamily double get\+\_\+open\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get communication open status. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_var;}
+\DoxyCodeLine{state\_var = main\_frame.get\_open\_status();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: communication status \begin{DoxyItemize}
+\item 0 \+: Open error \item 1 \+: Open \item 2 \+: Handle error \item 3 \+: Write configuration error \item 4 \+: Write timeout error \item 5 \+: Close error \item 6 \+: Close \item 7 \+: Opened \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a61f0cb0eb41e16d4797c2e33c5af8c7d}} 
+\index{main\_frame@{main\_frame}!gui@{gui}}
+\index{gui@{gui}!main\_frame@{main\_frame}}
+\subsubsection{gui()}
+{\footnotesize\ttfamily void \textbf{ gui} (\begin{DoxyParamCaption}\item[{bool}]{show\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set show main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.gui(\textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+b \+: Show frame status \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a282bf29e2a338ad6ff537b3c98162561}} 
+\index{main\_frame@{main\_frame}!hide@{hide}}
+\index{hide@{hide}!main\_frame@{main\_frame}}
+\subsubsection{hide()}
+{\footnotesize\ttfamily void hide (\begin{DoxyParamCaption}\item[{bool}]{enable\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set show main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.hide(\textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enable\+\_\+b \+: Show main frame \begin{DoxyItemize}
+\item false \+: Show \item true \+: Hide \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a7ba59ce4eb6c8eb6bdf549389b59ef43}} 
+\index{main\_frame@{main\_frame}!is\_console\_rx\_enable@{is\_console\_rx\_enable}}
+\index{is\_console\_rx\_enable@{is\_console\_rx\_enable}!main\_frame@{main\_frame}}
+\subsubsection{is\_console\_rx\_enable()}
+{\footnotesize\ttfamily bool is\+\_\+console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get console enable state. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_var;}
+\DoxyCodeLine{state\_var = main\_frame.is\_console\_rx\_enable();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Console enable state \begin{DoxyItemize}
+\item false \+: Disable \item true \+: Enable \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a2cab3b1832cb16b04d1df3a6e570825f}} 
+\index{main\_frame@{main\_frame}!open@{open}}
+\index{open@{open}!main\_frame@{main\_frame}}
+\subsubsection{open()}
+{\footnotesize\ttfamily void open (\begin{DoxyParamCaption}\item[{double}]{bite\+\_\+timeout\+\_\+d,  }\item[{double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double}]{port\+\_\+num\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Open and set port communication and G\+UI component in main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & bite\+\_\+timeout\+\_\+d \+: Packet timeout \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & baudrate\+\_\+d \+: Communication speed \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & stop\+\_\+bits\+\_\+d \+: Number of character stop bits \begin{DoxyItemize}
+\item 0 \+: 1 \item 1 \+: 1,5 \item 2 \+: 2 \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & parity\+\_\+d \+: Character parity type \begin{DoxyItemize}
+\item 0 \+: None \item 1 \+: Odd \item 2 \+: Even \item 3 \+: Char \item 4 \+: Space \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bit\+\_\+length\+\_\+d \+: Character bit length \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & port\+\_\+num\+\_\+d \+: Port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a9e920dc62c65350fc91a14a0aea468ff}} 
+\index{main\_frame@{main\_frame}!printf@{printf}}
+\index{printf@{printf}!main\_frame@{main\_frame}}
+\subsubsection{printf()}
+{\footnotesize\ttfamily void printf (\begin{DoxyParamCaption}\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Print text sting in to console. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.printf(\textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Print text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_a5de0221752900adfbd902ddbe445eee4}} 
+\index{main\_frame@{main\_frame}!reg\_event@{reg\_event}}
+\index{reg\_event@{reg\_event}!main\_frame@{main\_frame}}
+\subsubsection{reg\_event()}
+{\footnotesize\ttfamily double reg\+\_\+event (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Register event on send button click (in event function is parameter array with console input data) 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.reg\_event(\textcolor{stringliteral}{"on\_send\_click"});}
+\DoxyCodeLine{\textcolor{keyword}{function} on\_send\_click(data\_array)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & event\+\_\+fct\+\_\+str \+: Print text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: registration status \begin{DoxyItemize}
+\item 0 \+: Registration error \item 1 \+: Registered \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classmain__frame_acfdcad0ad326ba921b048b0be0b4299e}} 
+\index{main\_frame@{main\_frame}!status@{status}}
+\index{status@{status}!main\_frame@{main\_frame}}
+\subsubsection{status()}
+{\footnotesize\ttfamily void status (\begin{DoxyParamCaption}\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Print status text sting in to main frame status. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.status(\textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Print text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

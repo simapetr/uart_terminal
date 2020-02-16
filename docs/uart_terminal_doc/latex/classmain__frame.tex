@@ -1,0 +1,83 @@
+\section{main\+\_\+frame Class Reference}
+\label{classmain__frame}\index{main\_frame@{main\_frame}}
+
+
+{\ttfamily \#include $<$ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h$>$}
+
+
+
+Inheritance diagram for main\+\_\+frame\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classmain__frame__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for main\+\_\+frame\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classmain__frame__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ main\+\_\+frame} (wx\+Window $\ast$p\+\_\+parent\+\_\+window, wx\+Array\+String $\ast$p\+\_\+cmd\+\_\+arg\+\_\+arraystring)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$main\+\_\+frame} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ gui} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set frame show status. \end{DoxyCompactList}\item 
+\textbf{ config\+\_\+ini} $\ast$ \textbf{ get\+\_\+project} (void)
+\begin{DoxyCompactList}\small\item\em Get project configuration object. \end{DoxyCompactList}\item 
+void \textbf{ console\+\_\+rx\+\_\+enable} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set RX data show status. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Get RX console show status. \end{DoxyCompactList}\item 
+void \textbf{ printf} (wx\+String console\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on console. \end{DoxyCompactList}\item 
+void \textbf{ status} (wx\+String status\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on status bar. \end{DoxyCompactList}\item 
+void \textbf{ clear} (void)
+\begin{DoxyCompactList}\small\item\em Clear console text. \end{DoxyCompactList}\item 
+void \textbf{ open\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Open U\+A\+RT with G\+UI setting. \end{DoxyCompactList}\item 
+void \textbf{ close\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Close port wit G\+UI setting. \end{DoxyCompactList}\item 
+uart\+\_\+status\+\_\+t \textbf{ get\+\_\+open\+\_\+status} (void)
+\begin{DoxyCompactList}\small\item\em Get port open status. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+config} (\textbf{ uart\+\_\+cfg\+\_\+t} data\+\_\+uart\+\_\+cfg)
+\begin{DoxyCompactList}\small\item\em Set U\+A\+RT port settings in G\+UI. \end{DoxyCompactList}\item 
+\textbf{ uart\+\_\+cfg\+\_\+t} \textbf{ get\+\_\+config} (void)
+\begin{DoxyCompactList}\small\item\em Get U\+A\+RT port settings from G\+UI. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get\+\_\+data} (wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Get data from input dialog. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+progress} (wx\+String text\+\_\+str, uint32\+\_\+t progress\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set progress dialog. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+send\+\_\+event} (\textbf{ send\+\_\+event\+\_\+fct} data\+\_\+send\+\_\+event\+\_\+fct, void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Set external event after send button click. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ run\+\_\+script} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Run JS script. \end{DoxyCompactList}\item 
+void \textbf{ stop\+\_\+script} (void)
+\begin{DoxyCompactList}\small\item\em Stop JS script. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ stop\+\_\+event} (void)
+\begin{DoxyCompactList}\small\item\em Stop JS script event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class 
+
+Definition at line 70 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/application/uart\+\_\+terminal/\textbf{ ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h}\item 
+D\+:/project/uart\+\_\+terminal/application/uart\+\_\+terminal/\textbf{ ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp}\end{DoxyCompactItemize}

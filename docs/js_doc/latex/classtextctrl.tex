@@ -1,0 +1,181 @@
+\section{textctrl Class Reference}
+\label{classtextctrl}\index{textctrl@{textctrl}}
+
+
+wx\+Text\+Ctrl class interface  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ add} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool multiline\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add new text control. \end{DoxyCompactList}\item 
+string \textbf{ get} (double textctrl\+\_\+index\+\_\+d, double line\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get text control string. \end{DoxyCompactList}\item 
+bool \textbf{ set} (double textctrl\+\_\+index\+\_\+d, string text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set text control string. \end{DoxyCompactList}\item 
+bool \textbf{ append} (double textctrl\+\_\+index\+\_\+d, string text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Append text control string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+wx\+Text\+Ctrl class interface 
+
+Definition at line 1002 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classtextctrl_a9be1b2dbe78ed82084d7864782b64e33}} 
+\index{textctrl@{textctrl}!add@{add}}
+\index{add@{add}!textctrl@{textctrl}}
+\subsubsection{add()}
+{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{bool}]{multiline\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add new text control. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_textctrl;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_textctrl = gui.textctrl.add(test\_sizer, \textcolor{stringliteral}{"Hello world!"}, 0, \textcolor{keyword}{false}, \textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Parent sizer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Default text \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & proportion\+\_\+d \+: Proportion in parent sizer element \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & expand\+\_\+b \+: Expand in sizer flag \begin{DoxyItemize}
+\item false \+: Default size \item true \+: Expand \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & multiline\+\_\+b \+: Multiline enable \begin{DoxyItemize}
+\item false \+: One line \item true \+: Multiline \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: textctrl buffer index 
+\end{DoxyReturn}
+\mbox{\label{classtextctrl_a289b64609e56d297085f264ac9ee10f9}} 
+\index{textctrl@{textctrl}!append@{append}}
+\index{append@{append}!textctrl@{textctrl}}
+\subsubsection{append()}
+{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Append text control string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_textctrl;}
+\DoxyCodeLine{var test\_status\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_textctrl = gui.textctrl.add(test\_sizer, \textcolor{stringliteral}{""}, 0, \textcolor{keyword}{false}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_status\_bool = gui.textctrl.append(test\_textctrl, \textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & textctrl\+\_\+index\+\_\+d \+: Text control index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: New text (Append text at the end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Append status \begin{DoxyItemize}
+\item false \+: Fail \item true \+: Changed \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classtextctrl_ab0cbf2f1d4309c9589b475c2aa27343f}} 
+\index{textctrl@{textctrl}!get@{get}}
+\index{get@{get}!textctrl@{textctrl}}
+\subsubsection{get()}
+{\footnotesize\ttfamily string get (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{double}]{line\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get text control string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_textctrl;}
+\DoxyCodeLine{var text\_str;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_textctrl = gui.textctrl.add(test\_sizer, \textcolor{stringliteral}{""}, 0, \textcolor{keyword}{false}, \textcolor{keyword}{true});}
+\DoxyCodeLine{text\_str = gui.textctrl.get(test\_textctrl, 0);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & textctrl\+\_\+index\+\_\+d \+: Text control index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & line\+\_\+d \+: Read line number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \+: Read data 
+\end{DoxyReturn}
+\mbox{\label{classtextctrl_a0a55dab1053335fa9470498a38ebb206}} 
+\index{textctrl@{textctrl}!set@{set}}
+\index{set@{set}!textctrl@{textctrl}}
+\subsubsection{set()}
+{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set text control string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_textctrl;}
+\DoxyCodeLine{var test\_status\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_textctrl = gui.textctrl.add(test\_sizer, \textcolor{stringliteral}{""}, 0, \textcolor{keyword}{false}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_status\_bool = gui.textctrl.set(test\_textctrl, \textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & textctrl\+\_\+index\+\_\+d \+: Text control index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: New text (Erase textctrl before set) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Change status \begin{DoxyItemize}
+\item false \+: Fail \item true \+: Changed \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

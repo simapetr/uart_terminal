@@ -1,5 +1,0 @@
-<map id="Application" name="Application">
-<area shape="rect" id="node1" href="$group___g_u_i.html" title="GUI window." alt="" coords="173,5,217,31"/>
-<area shape="rect" id="node2" title="Application layer." alt="" coords="5,31,92,56"/>
-<area shape="rect" id="node3" href="$group___u_a_r_t__terminal.html" title="UART terminal monitor." alt="" coords="140,55,249,80"/>
-</map>

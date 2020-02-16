@@ -1,0 +1,164 @@
+.TH "Time" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Time \- Time class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBtime_js_c\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBnow\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get actual epoch time in s (JS function 'now') "
+.ti -1c
+.RI "static uint32_t \fBnow_ms\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get actual epoch time in ms (JS function 'now_ms') "
+.ti -1c
+.RI "static uint32_t \fBstr\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Convert time in UTC second to time & date string value (JS function 'str') "
+.ti -1c
+.RI "static uint32_t \fBlocal_str\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Convert time in local second to local time & date string value (JS function 'local_str') "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Time class definition\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t local_str (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Convert time in local second to local time & date string value (JS function 'local_str') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 214 of file in_js_class_time_js_cpp\&.cpp\&.
+.SS "uint32_t now (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get actual epoch time in s (JS function 'now') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file in_js_class_time_js_cpp\&.cpp\&.
+.SS "uint32_t now_ms (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get actual epoch time in ms (JS function 'now_ms') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file in_js_class_time_js_cpp\&.cpp\&.
+.SS "void reg_host_class (void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file in_js_class_time_js_cpp\&.cpp\&.
+.SS "uint32_t str (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Convert time in UTC second to time & date string value (JS function 'str') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 178 of file in_js_class_time_js_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

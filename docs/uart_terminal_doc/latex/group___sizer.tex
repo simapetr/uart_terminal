@@ -1,0 +1,218 @@
+\section{Sizer}
+\label{group___sizer}\index{Sizer@{Sizer}}
+
+
+Sizer class definition.  
+
+
+Collaboration diagram for Sizer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{group___sizer}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ sizer\+\_\+js\+\_\+c}
+\item 
+struct \textbf{ sizer\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+interface\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Add new sizer in to parent (JS function \char`\"{}add\char`\"{}) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+sizer} (double sizer\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add sizer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add sizer. \end{DoxyCompactList}\item 
+wx\+Box\+Sizer $\ast$ \textbf{ get\+\_\+sizer} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\item 
+wx\+Panel $\ast$ \textbf{ get\+\_\+sizer\+\_\+panel} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get sizer panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ sizer\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+sizer\+\_\+buffer}
+\item 
+\mbox{\label{group___sizer_ga1d1ebe909be7ad82795656993c8eaaba}} 
+uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+sizer\+\_\+ui32} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sizer class definition. 
+
+G\+UI sizer component.
+
+\subsection{Function Documentation}
+\mbox{\label{group___sizer_ga490542606fe12f142cd2b00cb1ecaefd}} 
+\index{Sizer@{Sizer}!add@{add}}
+\index{add@{add}!Sizer@{Sizer}}
+\subsubsection{add()}
+{\footnotesize\ttfamily uint32\+\_\+t add (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add new sizer in to parent (JS function \char`\"{}add\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file in\+\_\+js\+\_\+class\+\_\+sizer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___sizer_ga6047af798bc756e7586eb23cf306b39f}} 
+\index{Sizer@{Sizer}!add\_panel\_sizer@{add\_panel\_sizer}}
+\index{add\_panel\_sizer@{add\_panel\_sizer}!Sizer@{Sizer}}
+\subsubsection{add\_panel\_sizer()}
+{\footnotesize\ttfamily uint32\+\_\+t add\+\_\+panel\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{panel\+\_\+index\+\_\+d,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{horizontal\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add sizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em panel\+\_\+index\+\_\+d} & \+: Panel index \\
+\hline
+{\em proportion\+\_\+d} & \+: Relative proportion item in sizer \\
+\hline
+{\em horizontal\+\_\+b} & \+: Sizer orientation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: New sizer buffer index 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___sizer_ga5732ddefab22da78c6aacfc892c932ac}} 
+\index{Sizer@{Sizer}!add\_sizer@{add\_sizer}}
+\index{add\_sizer@{add\_sizer}!Sizer@{Sizer}}
+\subsubsection{add\_sizer()}
+{\footnotesize\ttfamily uint32\+\_\+t add\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{horizontal\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add sizer. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em sizer\+\_\+index\+\_\+d} & \+: Parent sizer index \\
+\hline
+{\em proportion\+\_\+d} & \+: Relative proportion item in sizer \\
+\hline
+{\em horizontal\+\_\+b} & \+: Sizer orientation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: New sizer buffer index 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___sizer_gac4b3f4eed65111c6e2aafb97733264cf}} 
+\index{Sizer@{Sizer}!get\_sizer@{get\_sizer}}
+\index{get\_sizer@{get\_sizer}!Sizer@{Sizer}}
+\subsubsection{get\_sizer()}
+{\footnotesize\ttfamily wx\+Box\+Sizer $\ast$ get\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get sizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+d} & \+: Sizer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+Box\+Sizer$\ast$ \+: Box sizer object pointer 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___sizer_ga505e8cc5282fc14f547b1da967ebc44a}} 
+\index{Sizer@{Sizer}!get\_sizer\_panel@{get\_sizer\_panel}}
+\index{get\_sizer\_panel@{get\_sizer\_panel}!Sizer@{Sizer}}
+\subsubsection{get\_sizer\_panel()}
+{\footnotesize\ttfamily wx\+Panel $\ast$ get\+\_\+sizer\+\_\+panel (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get sizer panel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+d} & \+: Sizer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+Box\+Sizer$\ast$ \+: Box sizer object pointer 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{group___sizer_ga505e8cc5282fc14f547b1da967ebc44a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___sizer_gac715b4a43bb361fc96ce6f1b50d68a8b}} 
+\index{Sizer@{Sizer}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Sizer@{Sizer}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+interface\+\_\+void }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+gui\+\_\+interface\+\_\+void \+: Pointer on registered class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+sizer\+\_\+js\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___sizer_ga8a33453947d24f7c6aa48f7b41c6a4bc}} 
+\index{Sizer@{Sizer}!lv\_data\_sizer\_buffer@{lv\_data\_sizer\_buffer}}
+\index{lv\_data\_sizer\_buffer@{lv\_data\_sizer\_buffer}!Sizer@{Sizer}}
+\subsubsection{lv\_data\_sizer\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ sizer\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+sizer\+\_\+buffer}
+
+Local variable 
+
+Definition at line 69 of file in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp.
+

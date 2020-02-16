@@ -1,0 +1,138 @@
+.TH "gauge" 3 "Sun Feb 16 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gauge \- wxGauge class interface  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBadd\fP (double sizer_index_d, double proportion_d, bool expand_b, double size_d)"
+.br
+.RI "Add new gauge\&. "
+.ti -1c
+.RI "double \fBget\fP (double gauge_index_d)"
+.br
+.RI "Get gauge value\&. "
+.ti -1c
+.RI "void \fBset\fP (double gauge_index_d, double value_b)"
+.br
+.RI "Set gauge value\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+wxGauge class interface 
+.PP
+Definition at line 1270 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double add (double sizer_index_d, double proportion_d, bool expand_b, double size_d)"
+
+.PP
+Add new gauge\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_gauge;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_gauge = gui\&.gauge\&.add(test_sizer, 0, true,1000);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.br
+\fI[IN]\fP proportion_d : Proportion in parent sizer element 
+.br
+\fI[IN]\fP expand_b : Expand in sizer flag 
+.PD 0
+
+.IP "\(bu" 2
+false : Default size 
+.IP "\(bu" 2
+true : Expand 
+.PP
+.br
+\fI[IN]\fP size_d : Gauge size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : gauge buffer index 
+.RE
+.PP
+
+.SS "double get (double gauge_index_d)"
+
+.PP
+Get gauge value\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_gauge;
+var test_gauge_value;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_gauge = gui\&.gauge\&.add(test_sizer, 0, true,1000);
+test_gauge_value = gui\&.gauge\&.get(test_gauge);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP gauge_index_d : gauge index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : Set value 
+.RE
+.PP
+
+.SS "void set (double gauge_index_d, double value_b)"
+
+.PP
+Set gauge value\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_gauge;
+var test_status_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_gauge = gui\&.gauge\&.add(test_sizer, 0, true,1000);
+test_status_bool = gui\&.gauge\&.set(test_gauge, 600);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP gauge_index_d : gauge index 
+.br
+\fI[IN]\fP value_b : New gauge value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.
