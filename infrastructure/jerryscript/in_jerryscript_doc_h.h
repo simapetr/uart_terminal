@@ -24,6 +24,308 @@
   */
 
 /**
+  * @class main_frame
+  * @brief System Main frame GUI control
+  *
+  */
+
+class main_frame
+{
+
+    public:
+
+        /** @brief Set show main frame
+         *
+         * @code
+         * main_frame.gui(false);
+         * @endcode
+         *
+         * @param [IN] show_b : Show frame status
+         *   @arg false : Hide
+         *   @arg true : Show
+         * @return void
+         *
+         */
+
+        void gui(bool show_b);
+
+        /** @brief Set show Rx data in main frame console
+         *
+         * @code
+         * main_frame.console_rx_enable(false);
+         * @endcode
+         *
+         * @param [IN] enable_b : Show Rx data in console
+         *   @arg false : Hide
+         *   @arg true : Show
+         * @return void
+         *
+         */
+
+        void console_rx_enable(bool enable_b);
+
+        /** @brief Get console enable state
+         *
+         * @code
+         * var state_var;
+         * state_var = main_frame.is_console_rx_enable();
+         * @endcode
+         *
+         * @param void
+         * @return bool : Console enable state
+         *   @arg false : Disable
+         *   @arg true : Enable
+         *
+         */
+
+        bool is_console_rx_enable(void);
+
+        /** @brief Print text sting in to console
+         *
+         * @code
+         * main_frame.printf("Hello world!");
+         * @endcode
+         *
+         * @param [IN] text_str : Print text
+         * @return void
+         *
+         */
+
+        void printf(string text_str);
+
+        /** @brief Print status text sting in to main frame status
+         *
+         * @code
+         * main_frame.status("Hello world!");
+         * @endcode
+         *
+         * @param [IN] text_str : Print text
+         * @return void
+         *
+         */
+
+        void status(string text_str);
+
+        /** @brief Clear main frame console text
+         *
+         * @code
+         * main_frame.clear();
+         * @endcode
+         *
+         * @param void
+         * @return void
+         *
+         */
+
+        void clear(void);
+
+        /** @brief Open and set port communication and GUI component in main frame
+         *
+         * @code
+         * uart.open(1,57600,0,0,8,4);
+         * @endcode
+         *
+         * @param [IN] bite_timeout_d : Packet timeout
+         * @param [IN] baudrate_d : Communication speed
+         * @param [IN] stop_bits_d : Number of character stop bits
+         *   @arg 0 : 1
+         *   @arg 1 : 1,5
+         *   @arg 2 : 2
+         * @param [IN] parity_d : Character parity type
+         *   @arg 0 : None
+         *   @arg 1 : Odd
+         *   @arg 2 : Even
+         *   @arg 3 : Char
+         *   @arg 4 : Space
+         * @param [IN] bit_length_d : Character bit length
+         * @param [IN] port_num_d : Port number
+         * @return void
+         *
+         */
+
+        void open(double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d);
+
+        /** @brief Close communication in main frame
+         *
+         * @code
+         * main_frame.close();
+         * @endcode
+         *
+         * @param void
+         * @return void
+         *
+         */
+
+        void close(void);
+
+        /** @brief Get communication open status
+         *
+         * @code
+         * var state_var;
+         * state_var = main_frame.get_open_status();
+         * @endcode
+         *
+         * @param void
+         * @return double : communication status
+         *   @arg 0 : Open error
+         *   @arg 1 : Open
+         *   @arg 2 : Handle error
+         *   @arg 3 : Write configuration error
+         *   @arg 4 : Write timeout error
+         *   @arg 5 : Close error
+         *   @arg 6 : Close
+         *   @arg 7 : Opened
+         *
+         */
+
+        double get_open_status(void);
+
+        /** @brief Show input dialog with user info text and return user input data
+         *
+         * @code
+         * var text_str;
+         * text_str = main_frame.get_data("Get input text:");
+         * @endcode
+         *
+         * @param [IN] info_str : User text
+         * @return string : User input text
+         *
+         */
+
+        string get_data(string info_str)
+
+        /** @brief Set status progress in progress dialog
+         *
+         * @code
+         * // Show 50% progress
+         * main_frame.set_progress("User process progress:", 50);
+         * // Close dialog
+         * main_frame.set_progress("User process progress:", 101);
+         * @endcode
+         *
+         * @param [IN] text_str : User text
+         * @param [IN] progress_d : actual progress
+         *   @arg 0 - 100 : Show progress value
+         *   @arg >100 : Close progress dialog
+         * @return void
+         *
+         */
+
+        void set_progress(string text_str, double progress_d);
+
+        /** @brief Register event on send button click (in event function is parameter array with console input data)
+         *
+         * @code
+         * main_frame.reg_event("on_send_click");
+         * function on_send_click(data_array)
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] event_fct_str : Print text
+         * @return double : registration status
+         *   @arg 0 : Registration error
+         *   @arg 1 : Registered
+         *
+         */
+
+        double reg_event(string event_fct_str);
+
+        /** @brief Set show main frame
+         *
+         * @code
+         * main_frame.hide(true);
+         * @endcode
+         *
+         * @param [IN] enable_b : Show main frame
+         *   @arg false : Show
+         *   @arg true : Hide
+         * @return void
+         *
+         */
+
+        void hide(bool enable_b);
+
+};
+
+/** @brief Delay
+ *
+ * @code
+ * // Delay 1s
+ * delay(1000);
+ * @endcode
+ *
+ * @param [IN] time_d : Delay time in ms
+ * @return void
+ *
+ */
+
+void delay(double time_d);
+
+/** @brief Show alert dialog
+ *
+ * @code
+ * alert("Hello world!");
+ * @endcode
+ *
+ * @param [IN] text_str : Alert text
+ * @return void
+ *
+ */
+
+void alert(string text_str);
+
+/** @brief Set show main frame
+ *
+ * @code
+ * gui(false);
+ * @endcode
+ *
+ * @param [IN] enable_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @return void
+ *
+ */
+
+void gui(bool enable_b);
+
+/** @brief Set show main frame and Script frame name
+ *
+ * @code
+ * gui(false, "Script frame");
+ * @endcode
+ *
+ * @param [IN] enable_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @param [IN] text_str : Script frame name
+ * @return void
+ *
+ */
+
+void gui(bool enable_b, string text_str);
+
+/** @brief Set show main frame and Script frame name
+ *
+ * @code
+ * gui(false, "Script frame", true);
+ * @endcode
+ *
+ * @param [IN] enable_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @param [IN] text_str : Script frame name
+ * @param [IN] enable_b : Show script frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @return void
+ *
+ */
+
+void gui(bool enable_b, string text_str, bool enable_b);
+
+/**
   * @class uart
   * @brief System UART port driver
   *
