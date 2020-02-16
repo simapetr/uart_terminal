@@ -1,0 +1,731 @@
+.TH "Core" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Core \- JavaScript interpreter core function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBjerry_property_descriptor_t\fP"
+.br
+.ti -1c
+.RI "struct \fBjerry_heap_stats_t\fP"
+.br
+.ti -1c
+.RI "struct \fBjerry_context_data_manager_t\fP"
+.br
+.ti -1c
+.RI "struct \fBjerry_object_native_info_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBJERRY_DEPRECATED_API\fP"
+.br
+.ti -1c
+.RI "#define \fBJERRY_API_MAJOR_VERSION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBJERRY_API_MINOR_VERSION\fP   0"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t \fBjerry_char_t\fP"
+.br
+.ti -1c
+.RI "typedef \fBjerry_char_t\fP * \fBjerry_char_ptr_t\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBjerry_size_t\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBjerry_length_t\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBjerry_value_t\fP"
+.br
+.ti -1c
+.RI "typedef \fBjerry_value_t\fP(* \fBjerry_external_handler_t\fP) (const \fBjerry_value_t\fP function_obj, const \fBjerry_value_t\fP this_val, const \fBjerry_value_t\fP args_p[], const \fBjerry_length_t\fP args_count)"
+.br
+.ti -1c
+.RI "typedef void(* \fBjerry_object_free_callback_t\fP) (const uintptr_t native_p)"
+.br
+.ti -1c
+.RI "typedef void(* \fBjerry_object_native_free_callback_t\fP) (void *native_p)"
+.br
+.ti -1c
+.RI "typedef \fBjerry_value_t\fP(* \fBjerry_vm_exec_stop_callback_t\fP) (void *user_p)"
+.br
+.ti -1c
+.RI "typedef bool(* \fBjerry_object_property_foreach_t\fP) (const \fBjerry_value_t\fP property_name, const \fBjerry_value_t\fP property_value, void *user_data_p)"
+.br
+.ti -1c
+.RI "typedef bool(* \fBjerry_objects_foreach_t\fP) (const \fBjerry_value_t\fP object, void *user_data_p)"
+.br
+.ti -1c
+.RI "typedef bool(* \fBjerry_objects_foreach_by_native_info_t\fP) (const \fBjerry_value_t\fP object, void *object_data_p, void *user_data_p)"
+.br
+.ti -1c
+.RI "typedef void *(* \fBjerry_instance_alloc_t\fP) (size_t size, void *cb_data_p)"
+.br
+.ti -1c
+.RI "typedef struct \fBjerry_instance_t\fP \fBjerry_instance_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBjerry_init_flag_t\fP { \fBJERRY_INIT_EMPTY\fP = (0u), \fBJERRY_INIT_SHOW_OPCODES\fP = (1u << 0), \fBJERRY_INIT_SHOW_REGEXP_OPCODES\fP = (1u << 1), \fBJERRY_INIT_MEM_STATS\fP = (1u << 2), \fBJERRY_INIT_MEM_STATS_SEPARATE\fP = (1u << 3), \fBJERRY_INIT_DEBUGGER\fP = (1u << 4) }"
+.br
+.ti -1c
+.RI "enum \fBjerry_error_t\fP { \fBJERRY_ERROR_NONE\fP = 0, \fBJERRY_ERROR_COMMON\fP, \fBJERRY_ERROR_EVAL\fP, \fBJERRY_ERROR_RANGE\fP, \fBJERRY_ERROR_REFERENCE\fP, \fBJERRY_ERROR_SYNTAX\fP, \fBJERRY_ERROR_TYPE\fP, \fBJERRY_ERROR_URI\fP }"
+.br
+.ti -1c
+.RI "enum \fBjerry_feature_t\fP { \fBJERRY_FEATURE_CPOINTER_32_BIT\fP, \fBJERRY_FEATURE_ERROR_MESSAGES\fP, \fBJERRY_FEATURE_JS_PARSER\fP, \fBJERRY_FEATURE_MEM_STATS\fP, \fBJERRY_FEATURE_PARSER_DUMP\fP, \fBJERRY_FEATURE_REGEXP_DUMP\fP, \fBJERRY_FEATURE_SNAPSHOT_SAVE\fP, \fBJERRY_FEATURE_SNAPSHOT_EXEC\fP, \fBJERRY_FEATURE_DEBUGGER\fP, \fBJERRY_FEATURE_VM_EXEC_STOP\fP, \fBJERRY_FEATURE_JSON\fP, \fBJERRY_FEATURE_PROMISE\fP, \fBJERRY_FEATURE_TYPEDARRAY\fP, \fBJERRY_FEATURE_DATE\fP, \fBJERRY_FEATURE_REGEXP\fP, \fBJERRY_FEATURE__COUNT\fP }"
+.br
+.ti -1c
+.RI "enum \fBjerry_parse_opts_t\fP { \fBJERRY_PARSE_NO_OPTS\fP = 0, \fBJERRY_PARSE_STRICT_MODE\fP = (1 << 0) }"
+.br
+.ti -1c
+.RI "enum \fBjerry_type_t\fP { \fBJERRY_TYPE_NONE\fP = 0u, \fBJERRY_TYPE_UNDEFINED\fP, \fBJERRY_TYPE_NULL\fP, \fBJERRY_TYPE_BOOLEAN\fP, \fBJERRY_TYPE_NUMBER\fP, \fBJERRY_TYPE_STRING\fP, \fBJERRY_TYPE_OBJECT\fP, \fBJERRY_TYPE_FUNCTION\fP }"
+.br
+.ti -1c
+.RI "enum \fBjerry_typedarray_type_t\fP { \fBJERRY_TYPEDARRAY_INVALID\fP = 0, \fBJERRY_TYPEDARRAY_UINT8\fP, \fBJERRY_TYPEDARRAY_UINT8CLAMPED\fP, \fBJERRY_TYPEDARRAY_INT8\fP, \fBJERRY_TYPEDARRAY_UINT16\fP, \fBJERRY_TYPEDARRAY_INT16\fP, \fBJERRY_TYPEDARRAY_UINT32\fP, \fBJERRY_TYPEDARRAY_INT32\fP, \fBJERRY_TYPEDARRAY_FLOAT32\fP, \fBJERRY_TYPEDARRAY_FLOAT64\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBjerry_init\fP (\fBjerry_init_flag_t\fP flags)"
+.br
+.ti -1c
+.RI "void \fBjerry_cleanup\fP (void)"
+.br
+.ti -1c
+.RI "void \fBjerry_register_magic_strings\fP (const \fBjerry_char_ptr_t\fP *ex_str_items_p, uint32_t count, const \fBjerry_length_t\fP *str_lengths_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_get_memory_limits\fP (size_t *out_data_bss_brk_limit_p, size_t *out_stack_limit_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_gc\fP (void)"
+.br
+.ti -1c
+.RI "void * \fBjerry_get_context_data\fP (const \fBjerry_context_data_manager_t\fP *manager_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_get_memory_stats\fP (\fBjerry_heap_stats_t\fP *out_stats_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_run_simple\fP (const \fBjerry_char_t\fP *script_source_p, size_t script_source_size, \fBjerry_init_flag_t\fP flags)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_parse\fP (const \fBjerry_char_t\fP *resource_name_p, size_t resource_name_length, const \fBjerry_char_t\fP *source_p, size_t source_size, uint32_t parse_opts)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_parse_function\fP (const \fBjerry_char_t\fP *resource_name_p, size_t resource_name_length, const \fBjerry_char_t\fP *arg_list_p, size_t arg_list_size, const \fBjerry_char_t\fP *source_p, size_t source_size, uint32_t parse_opts)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_run\fP (const \fBjerry_value_t\fP func_val)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_eval\fP (const \fBjerry_char_t\fP *source_p, size_t source_size, bool is_strict)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_run_all_enqueued_jobs\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_global_object\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_array\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_boolean\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_constructor\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_function\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_number\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_null\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_object\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_promise\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_string\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_undefined\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_type_t\fP \fBjerry_value_get_type\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_is_feature_enabled\fP (const \fBjerry_feature_t\fP feature)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_has_error_flag\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_has_abort_flag\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "void \fBjerry_value_clear_error_flag\fP (\fBjerry_value_t\fP *value_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_value_set_error_flag\fP (\fBjerry_value_t\fP *value_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_value_set_abort_flag\fP (\fBjerry_value_t\fP *value_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_value_without_error_flag\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_error_t\fP \fBjerry_get_error_type\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_get_boolean_value\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "double \fBjerry_get_number_value\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_get_string_size\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_get_utf8_string_size\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_get_string_length\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_get_utf8_string_length\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_string_to_char_buffer\fP (const \fBjerry_value_t\fP value, \fBjerry_char_t\fP *buffer_p, \fBjerry_size_t\fP buffer_size)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_string_to_utf8_char_buffer\fP (const \fBjerry_value_t\fP value, \fBjerry_char_t\fP *buffer_p, \fBjerry_size_t\fP buffer_size)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_substring_to_char_buffer\fP (const \fBjerry_value_t\fP value, \fBjerry_length_t\fP start_pos, \fBjerry_length_t\fP end_pos, \fBjerry_char_t\fP *buffer_p, \fBjerry_size_t\fP buffer_size)"
+.br
+.ti -1c
+.RI "\fBjerry_size_t\fP \fBjerry_substring_to_utf8_char_buffer\fP (const \fBjerry_value_t\fP value, \fBjerry_length_t\fP start_pos, \fBjerry_length_t\fP end_pos, \fBjerry_char_t\fP *buffer_p, \fBjerry_size_t\fP buffer_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBjerry_get_array_length\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_to_boolean\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_value_to_number\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_value_to_object\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_value_to_primitive\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_value_to_string\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_acquire_value\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "void \fBjerry_release_value\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_array\fP (uint32_t size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_boolean\fP (bool value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_error\fP (\fBjerry_error_t\fP error_type, const \fBjerry_char_t\fP *message_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_error_sz\fP (\fBjerry_error_t\fP error_type, const \fBjerry_char_t\fP *message_p, \fBjerry_size_t\fP message_size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_external_function\fP (\fBjerry_external_handler_t\fP handler_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_number\fP (double value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_number_infinity\fP (bool sign)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_number_nan\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_null\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_object\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_promise\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_string_from_utf8\fP (const \fBjerry_char_t\fP *str_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_string_sz_from_utf8\fP (const \fBjerry_char_t\fP *str_p, \fBjerry_size_t\fP str_size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_string\fP (const \fBjerry_char_t\fP *str_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_string_sz\fP (const \fBjerry_char_t\fP *str_p, \fBjerry_size_t\fP str_size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_undefined\fP (void)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_has_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_has_own_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val)"
+.br
+.ti -1c
+.RI "bool \fBjerry_delete_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val)"
+.br
+.ti -1c
+.RI "bool \fBjerry_delete_property_by_index\fP (const \fBjerry_value_t\fP obj_val, uint32_t index)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_property_by_index\fP (const \fBjerry_value_t\fP obj_val, uint32_t index)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_set_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val, const \fBjerry_value_t\fP value_to_set)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_set_property_by_index\fP (const \fBjerry_value_t\fP obj_val, uint32_t index, const \fBjerry_value_t\fP value_to_set)"
+.br
+.ti -1c
+.RI "void \fBjerry_init_property_descriptor_fields\fP (\fBjerry_property_descriptor_t\fP *prop_desc_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_define_own_property\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val, const \fBjerry_property_descriptor_t\fP *prop_desc_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_get_own_property_descriptor\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val, \fBjerry_property_descriptor_t\fP *prop_desc_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_free_property_descriptor_fields\fP (const \fBjerry_property_descriptor_t\fP *prop_desc_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_call_function\fP (const \fBjerry_value_t\fP func_obj_val, const \fBjerry_value_t\fP this_val, const \fBjerry_value_t\fP args_p[], \fBjerry_size_t\fP args_count)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_construct_object\fP (const \fBjerry_value_t\fP func_obj_val, const \fBjerry_value_t\fP args_p[], \fBjerry_size_t\fP args_count)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_object_keys\fP (const \fBjerry_value_t\fP obj_val)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_prototype\fP (const \fBjerry_value_t\fP obj_val)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_set_prototype\fP (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP proto_obj_val)"
+.br
+.ti -1c
+.RI "\fBJERRY_DEPRECATED_API\fP bool \fBjerry_get_object_native_handle\fP (const \fBjerry_value_t\fP obj_val, uintptr_t *out_handle_p)"
+.br
+.ti -1c
+.RI "\fBJERRY_DEPRECATED_API\fP void \fBjerry_set_object_native_handle\fP (const \fBjerry_value_t\fP obj_val, uintptr_t handle_p, \fBjerry_object_free_callback_t\fP freecb_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_get_object_native_pointer\fP (const \fBjerry_value_t\fP obj_val, void **out_native_pointer_p, const \fBjerry_object_native_info_t\fP **out_pointer_info_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_objects_foreach\fP (\fBjerry_objects_foreach_t\fP foreach_p, void *user_data)"
+.br
+.ti -1c
+.RI "bool \fBjerry_objects_foreach_by_native_info\fP (const \fBjerry_object_native_info_t\fP *native_info_p, \fBjerry_objects_foreach_by_native_info_t\fP foreach_p, void *user_data_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_set_object_native_pointer\fP (const \fBjerry_value_t\fP obj_val, void *native_pointer_p, const \fBjerry_object_native_info_t\fP *native_info_p)"
+.br
+.ti -1c
+.RI "bool \fBjerry_foreach_object_property\fP (const \fBjerry_value_t\fP obj_val, \fBjerry_object_property_foreach_t\fP foreach_p, void *user_data_p)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_resolve_or_reject_promise\fP (\fBjerry_value_t\fP promise, \fBjerry_value_t\fP argument, bool is_resolve)"
+.br
+.ti -1c
+.RI "bool \fBjerry_is_valid_utf8_string\fP (const \fBjerry_char_t\fP *utf8_buf_p, \fBjerry_size_t\fP buf_size)"
+.br
+.ti -1c
+.RI "bool \fBjerry_is_valid_cesu8_string\fP (const \fBjerry_char_t\fP *cesu8_buf_p, \fBjerry_size_t\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBjerry_instance_t\fP * \fBjerry_create_instance\fP (uint32_t heap_size, \fBjerry_instance_alloc_t\fP alloc, void *cb_data_p)"
+.br
+.ti -1c
+.RI "void \fBjerry_set_vm_exec_stop_callback\fP (\fBjerry_vm_exec_stop_callback_t\fP stop_cb, void *user_p, uint32_t frequency)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_arraybuffer\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_arraybuffer\fP (const \fBjerry_length_t\fP size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_arraybuffer_external\fP (const \fBjerry_length_t\fP size, uint8_t *buffer_p, \fBjerry_object_native_free_callback_t\fP free_cb)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_arraybuffer_write\fP (const \fBjerry_value_t\fP value, \fBjerry_length_t\fP offset, const uint8_t *buf_p, \fBjerry_length_t\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_arraybuffer_read\fP (const \fBjerry_value_t\fP value, \fBjerry_length_t\fP offset, uint8_t *buf_p, \fBjerry_length_t\fP buf_size)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_get_arraybuffer_byte_length\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "uint8_t * \fBjerry_get_arraybuffer_pointer\fP (const \fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "bool \fBjerry_value_is_typedarray\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_typedarray\fP (\fBjerry_typedarray_type_t\fP type_name, \fBjerry_length_t\fP length)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_typedarray_for_arraybuffer_sz\fP (\fBjerry_typedarray_type_t\fP type_name, const \fBjerry_value_t\fP arraybuffer, \fBjerry_length_t\fP byte_offset, \fBjerry_length_t\fP length)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_create_typedarray_for_arraybuffer\fP (\fBjerry_typedarray_type_t\fP type_name, const \fBjerry_value_t\fP arraybuffer)"
+.br
+.ti -1c
+.RI "\fBjerry_typedarray_type_t\fP \fBjerry_get_typedarray_type\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_length_t\fP \fBjerry_get_typedarray_length\fP (\fBjerry_value_t\fP value)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_get_typedarray_buffer\fP (\fBjerry_value_t\fP value, \fBjerry_length_t\fP *byte_offset, \fBjerry_length_t\fP *byte_length)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_json_parse\fP (const \fBjerry_char_t\fP *string_p, \fBjerry_size_t\fP string_size)"
+.br
+.ti -1c
+.RI "\fBjerry_value_t\fP \fBjerry_json_stringfy\fP (const \fBjerry_value_t\fP object_to_stringify)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+JavaScript interpreter core function\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define JERRY_API_MAJOR_VERSION   1"
+Major version of JerryScript API\&. 
+.PP
+Definition at line 77 of file in_jerryscript_core_h\&.h\&.
+.SS "#define JERRY_API_MINOR_VERSION   0"
+Minor version of JerryScript API\&. 
+.PP
+Definition at line 82 of file in_jerryscript_core_h\&.h\&.
+.SS "#define JERRY_DEPRECATED_API"
+Define 
+.PP
+Definition at line 71 of file in_jerryscript_core_h\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBjerry_char_t\fP* \fBjerry_char_ptr_t\fP"
+Pointer to an array of character values\&. 
+.PP
+Definition at line 165 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef uint8_t \fBjerry_char_t\fP"
+TypeCharacter type of JerryScript\&. 
+.PP
+Definition at line 160 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef \fBjerry_value_t\fP(* jerry_external_handler_t) (const \fBjerry_value_t\fP function_obj, const \fBjerry_value_t\fP this_val, const \fBjerry_value_t\fP args_p[], const \fBjerry_length_t\fP args_count)"
+Type of an external function handler\&. 
+.PP
+Definition at line 246 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef void*(* jerry_instance_alloc_t) (size_t size, void *cb_data_p)"
+Function type for allocating buffer for JerryScript instance\&. 
+.PP
+Definition at line 341 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef struct \fBjerry_instance_t\fP \fBjerry_instance_t\fP"
+A forward declaration of the JerryScript instance structure\&. 
+.PP
+Definition at line 354 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef uint32_t \fBjerry_length_t\fP"
+Length type of JerryScript\&. 
+.PP
+Definition at line 175 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef void(* jerry_object_free_callback_t) (const uintptr_t native_p)"
+Native free callback of an object (deprecated)\&. 
+.PP
+Definition at line 254 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef void(* jerry_object_native_free_callback_t) (void *native_p)"
+Native free callback of an object\&. 
+.PP
+Definition at line 259 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef bool(* jerry_object_property_foreach_t) (const \fBjerry_value_t\fP property_name, const \fBjerry_value_t\fP property_value, void *user_data_p)"
+Function type applied for each data property of an object\&. 
+.PP
+Definition at line 277 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef bool(* jerry_objects_foreach_by_native_info_t) (const \fBjerry_value_t\fP object, void *object_data_p, void *user_data_p)"
+Function type applied for each matching object in the engine\&. 
+.PP
+Definition at line 289 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef bool(* jerry_objects_foreach_t) (const \fBjerry_value_t\fP object, void *user_data_p)"
+Function type applied for each object in the engine\&. 
+.PP
+Definition at line 283 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef uint32_t \fBjerry_size_t\fP"
+Size type of JerryScript\&. 
+.PP
+Definition at line 170 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef uint32_t \fBjerry_value_t\fP"
+Description of a JerryScript value\&. 
+.PP
+Definition at line 180 of file in_jerryscript_core_h\&.h\&.
+.SS "typedef \fBjerry_value_t\fP(* jerry_vm_exec_stop_callback_t) (void *user_p)"
+Callback which tells whether the ECMAScript execution should be stopped\&.
+.PP
+As long as the function returns with undefined the execution continues\&. When a non-undefined value is returned the execution stops and the value is thrown by the engine (if the error flag is not set for the returned value the engine automatically sets it)\&.
+.PP
+Note: if the function returns with a non-undefined value it must return with the same value for future calls\&. 
+.PP
+Definition at line 272 of file in_jerryscript_core_h\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBjerry_error_t\fP"
+JerryScript API Error object types\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJERRY_ERROR_NONE \fP\fP
+No Error 
+.TP
+\fB\fIJERRY_ERROR_COMMON \fP\fP
+Error 
+.TP
+\fB\fIJERRY_ERROR_EVAL \fP\fP
+EvalError 
+.TP
+\fB\fIJERRY_ERROR_RANGE \fP\fP
+RangeError 
+.TP
+\fB\fIJERRY_ERROR_REFERENCE \fP\fP
+ReferenceError 
+.TP
+\fB\fIJERRY_ERROR_SYNTAX \fP\fP
+SyntaxError 
+.TP
+\fB\fIJERRY_ERROR_TYPE \fP\fP
+TypeError 
+.TP
+\fB\fIJERRY_ERROR_URI \fP\fP
+URIError 
+.PP
+Definition at line 106 of file in_jerryscript_core_h\&.h\&.
+.SS "enum \fBjerry_feature_t\fP"
+JerryScript feature types\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJERRY_FEATURE_CPOINTER_32_BIT \fP\fP
+32 bit compressed pointers 
+.TP
+\fB\fIJERRY_FEATURE_ERROR_MESSAGES \fP\fP
+error messages 
+.TP
+\fB\fIJERRY_FEATURE_JS_PARSER \fP\fP
+js-parser 
+.TP
+\fB\fIJERRY_FEATURE_MEM_STATS \fP\fP
+memory statistics 
+.TP
+\fB\fIJERRY_FEATURE_PARSER_DUMP \fP\fP
+parser byte-code dumps 
+.TP
+\fB\fIJERRY_FEATURE_REGEXP_DUMP \fP\fP
+regexp byte-code dumps 
+.TP
+\fB\fIJERRY_FEATURE_SNAPSHOT_SAVE \fP\fP
+saving snapshot files 
+.TP
+\fB\fIJERRY_FEATURE_SNAPSHOT_EXEC \fP\fP
+executing snapshot files 
+.TP
+\fB\fIJERRY_FEATURE_DEBUGGER \fP\fP
+debugging 
+.TP
+\fB\fIJERRY_FEATURE_VM_EXEC_STOP \fP\fP
+stopping ECMAScript execution 
+.TP
+\fB\fIJERRY_FEATURE_JSON \fP\fP
+JSON support 
+.TP
+\fB\fIJERRY_FEATURE_PROMISE \fP\fP
+promise support 
+.TP
+\fB\fIJERRY_FEATURE_TYPEDARRAY \fP\fP
+Typedarray support 
+.TP
+\fB\fIJERRY_FEATURE_DATE \fP\fP
+Date support 
+.TP
+\fB\fIJERRY_FEATURE_REGEXP \fP\fP
+Regexp support 
+.TP
+\fB\fIJERRY_FEATURE__COUNT \fP\fP
+number of features\&. NOTE: must be at the end of the list 
+.PP
+Definition at line 122 of file in_jerryscript_core_h\&.h\&.
+.SS "enum \fBjerry_init_flag_t\fP"
+EnumJerryScript init flags\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJERRY_INIT_EMPTY \fP\fP
+empty flag set 
+.TP
+\fB\fIJERRY_INIT_SHOW_OPCODES \fP\fP
+dump byte-code to log after parse 
+.TP
+\fB\fIJERRY_INIT_SHOW_REGEXP_OPCODES \fP\fP
+dump regexp byte-code to log after compilation 
+.TP
+\fB\fIJERRY_INIT_MEM_STATS \fP\fP
+dump memory statistics 
+.TP
+\fB\fIJERRY_INIT_MEM_STATS_SEPARATE \fP\fP
+deprecated, an unused placeholder now 
+.TP
+\fB\fIJERRY_INIT_DEBUGGER \fP\fP
+deprecated, an unused placeholder now 
+.PP
+Definition at line 93 of file in_jerryscript_core_h\&.h\&.
+.SS "enum \fBjerry_parse_opts_t\fP"
+Option flags for jerry_parse and jerry_parse_function functions\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJERRY_PARSE_NO_OPTS \fP\fP
+no options passed 
+.TP
+\fB\fIJERRY_PARSE_STRICT_MODE \fP\fP
+enable strict mode 
+.PP
+Definition at line 145 of file in_jerryscript_core_h\&.h\&.
+.SS "enum \fBjerry_type_t\fP"
+JerryScript API value type information\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJERRY_TYPE_NONE \fP\fP
+no type information 
+.TP
+\fB\fIJERRY_TYPE_UNDEFINED \fP\fP
+undefined type 
+.TP
+\fB\fIJERRY_TYPE_NULL \fP\fP
+null type 
+.TP
+\fB\fIJERRY_TYPE_BOOLEAN \fP\fP
+boolean type 
+.TP
+\fB\fIJERRY_TYPE_NUMBER \fP\fP
+number type 
+.TP
+\fB\fIJERRY_TYPE_STRING \fP\fP
+string type 
+.TP
+\fB\fIJERRY_TYPE_OBJECT \fP\fP
+object type 
+.TP
+\fB\fIJERRY_TYPE_FUNCTION \fP\fP
+function type 
+.PP
+Definition at line 407 of file in_jerryscript_core_h\&.h\&.
+.SS "enum \fBjerry_typedarray_type_t\fP"
+TypedArray functions\&.TypedArray types\&. 
+.PP
+Definition at line 617 of file in_jerryscript_core_h\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBjerry_value_t\fP jerry_acquire_value (\fBjerry_value_t\fP value)"
+Acquire types with reference counter (increase the references)\&. 
+.SS "\fBjerry_value_t\fP jerry_create_array (uint32_t size)"
+Create functions of API values\&. 
+.SS "uint32_t jerry_get_array_length (const \fBjerry_value_t\fP value)"
+Functions for array object values\&. 
+.SS "bool jerry_get_boolean_value (const \fBjerry_value_t\fP value)"
+Getter functions of 'jerry_value_t'\&. 
+.SS "\fBjerry_error_t\fP jerry_get_error_type (const \fBjerry_value_t\fP value)"
+Error object function(s)\&. 
+.SS "\fBjerry_value_t\fP jerry_get_global_object (void)"
+Get the global context\&. 
+.SS "\fBjerry_size_t\fP jerry_get_string_size (const \fBjerry_value_t\fP value)"
+Functions for string values\&. 
+.SS "\fBjerry_value_t\fP jerry_has_property (const \fBjerry_value_t\fP obj_val, const \fBjerry_value_t\fP prop_name_val)"
+General API functions of JS objects\&. 
+.SS "void jerry_init (\fBjerry_init_flag_t\fP flags)"
+General engine functions\&. 
+.SS "bool jerry_is_feature_enabled (const \fBjerry_feature_t\fP feature)"
+Checker function of whether the specified compile feature is enabled\&. 
+.SS "bool jerry_is_valid_utf8_string (const \fBjerry_char_t\fP * utf8_buf_p, \fBjerry_size_t\fP buf_size)"
+Input validator functions\&. 
+.SS "void jerry_release_value (\fBjerry_value_t\fP value)"
+Release the referenced values\&. 
+.SS "\fBjerry_value_t\fP jerry_resolve_or_reject_promise (\fBjerry_value_t\fP promise, \fBjerry_value_t\fP argument, bool is_resolve)"
+Promise resolve/reject functions\&. 
+.SS "bool jerry_run_simple (const \fBjerry_char_t\fP * script_source_p, size_t script_source_size, \fBjerry_init_flag_t\fP flags)"
+Parser and executor functions\&. 
+.SS "void jerry_set_vm_exec_stop_callback (\fBjerry_vm_exec_stop_callback_t\fP stop_cb, void * user_p, uint32_t frequency)"
+Miscellaneous functions\&. 
+.SS "bool jerry_value_has_error_flag (const \fBjerry_value_t\fP value)"
+Error flag manipulation functions\&. 
+.SS "bool jerry_value_is_array (const \fBjerry_value_t\fP value)"
+Checker functions of 'jerry_value_t'\&. 
+.SS "bool jerry_value_is_arraybuffer (const \fBjerry_value_t\fP value)"
+Array buffer components\&. 
+.SS "bool jerry_value_to_boolean (const \fBjerry_value_t\fP value)"
+Converters of 'jerry_value_t'\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

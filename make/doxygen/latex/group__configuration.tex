@@ -1,0 +1,183 @@
+\section{Configuration}
+\label{group__configuration}\index{Configuration@{Configuration}}
+
+
+Configuration I\+NI wrapper.  
+
+
+Collaboration diagram for Configuration\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{group__configuration}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ config\+\_\+ini}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ config\+\_\+ini\+::config\+\_\+ini} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ config\+\_\+ini\+::$\sim$config\+\_\+ini} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ config\+\_\+ini\+::get\+\_\+value} (wx\+String path\+\_\+str, wx\+String default\+\_\+value\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read value from I\+NI. \end{DoxyCompactList}\item 
+wx\+String \textbf{ config\+\_\+ini\+::get\+\_\+string} (wx\+String path\+\_\+str, wx\+String default\+\_\+value\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read string value from I\+NI. \end{DoxyCompactList}\item 
+void \textbf{ config\+\_\+ini\+::set\+\_\+value} (wx\+String path\+\_\+str, int32\+\_\+t value\+\_\+i32)
+\begin{DoxyCompactList}\small\item\em Set value in to I\+NI. \end{DoxyCompactList}\item 
+void \textbf{ config\+\_\+ini\+::set\+\_\+string} (wx\+String path\+\_\+str, wx\+String value\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set string value in to I\+NI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Configuration I\+NI wrapper. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__configuration_gae784a11ccf14e018bf31e63f7f3a5fd4}} 
+\index{Configuration@{Configuration}!config\_ini@{config\_ini}}
+\index{config\_ini@{config\_ini}!Configuration@{Configuration}}
+\subsubsection{config\_ini()}
+{\footnotesize\ttfamily config\+\_\+ini\+::config\+\_\+ini (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Configuration file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__configuration_ga7872d25e3c6ebfde43d497484ab6b90e}} 
+\index{Configuration@{Configuration}!get\_string@{get\_string}}
+\index{get\_string@{get\_string}!Configuration@{Configuration}}
+\subsubsection{get\_string()}
+{\footnotesize\ttfamily wx\+String config\+\_\+ini\+::get\+\_\+string (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str,  }\item[{wx\+String}]{default\+\_\+value\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Read string value from I\+NI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Path for read key \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & default\+\_\+value\+\_\+str \+: Default value when key not found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: reader string value 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__configuration_ga236e0b85962885eba22c0cf2b5c04fa7}} 
+\index{Configuration@{Configuration}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!Configuration@{Configuration}}
+\subsubsection{get\_value()}
+{\footnotesize\ttfamily int32\+\_\+t config\+\_\+ini\+::get\+\_\+value (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str,  }\item[{wx\+String}]{default\+\_\+value\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Read value from I\+NI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Path for read key \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & default\+\_\+value\+\_\+str \+: Default value when key not found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t \+: reader value 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__configuration_gace7d2bc7d7b734f6b9ff65646b6489f2}} 
+\index{Configuration@{Configuration}!set\_string@{set\_string}}
+\index{set\_string@{set\_string}!Configuration@{Configuration}}
+\subsubsection{set\_string()}
+{\footnotesize\ttfamily void config\+\_\+ini\+::set\+\_\+string (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str,  }\item[{wx\+String}]{value\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set string value in to I\+NI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Path for read key \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & value\+\_\+str \+: Setting string value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__configuration_gab9ce7b3d55a75805a1c96db90e605b9d}} 
+\index{Configuration@{Configuration}!set\_value@{set\_value}}
+\index{set\_value@{set\_value}!Configuration@{Configuration}}
+\subsubsection{set\_value()}
+{\footnotesize\ttfamily void config\+\_\+ini\+::set\+\_\+value (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str,  }\item[{int32\+\_\+t}]{value\+\_\+i32 }\end{DoxyParamCaption})}
+
+
+
+Set value in to I\+NI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Path for read key \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & value\+\_\+i32 \+: Setting value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__configuration_ga33fee21e97810c382fec5b2d246b40a5}} 
+\index{Configuration@{Configuration}!````~config\_ini@{$\sim$config\_ini}}
+\index{````~config\_ini@{$\sim$config\_ini}!Configuration@{Configuration}}
+\subsubsection{$\sim$config\_ini()}
+{\footnotesize\ttfamily config\+\_\+ini\+::$\sim$config\+\_\+ini (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file in\+\_\+config\+\_\+ini\+\_\+wrapper\+\_\+cpp.\+cpp.
+

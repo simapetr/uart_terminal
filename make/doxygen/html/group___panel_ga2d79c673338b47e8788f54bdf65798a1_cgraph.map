@@ -1,0 +1,5 @@
+<map id="gui_frame::add_panel" name="gui_frame::add_panel">
+<area shape="rect" id="node1" title="Add AUI panel." alt="" coords="5,42,151,69"/>
+<area shape="rect" id="node2" href="$group___sizer.html#ga30a4a5bb617df7fc37907997eeeeca0b" title="Add sizer." alt="" coords="199,5,344,47"/>
+<area shape="rect" id="node3" href="$group___sizer.html#gad48a9e1ead038147474d40f9b8301be3" title="Get sizer." alt="" coords="202,71,341,98"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="GUI" name="GUI">
+<area shape="rect" id="node1" href="$group___g_u_i__object.html" title="wxWidget GUI object" alt="" coords="113,5,200,31"/>
+<area shape="rect" id="node2" href="$group___g_u_i__user__object.html" title="User GUI object." alt="" coords="97,55,216,80"/>
+<area shape="rect" id="node3" title="Main GUI object." alt="" coords="5,31,49,56"/>
+</map>

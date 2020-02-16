@@ -1,0 +1,70 @@
+.TH "thread_c" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+thread_c
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_thread_worker_h\&.h>\fP
+.PP
+Inherits wxThread\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBthread_c\fP (void *p_parameter_void, \fBthread_fct_t\fP function_thread_fct, uint32_t timeout_ui32=0)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~thread_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBsignal\fP (void)"
+.br
+.RI "Enable thread event\&. "
+.ti -1c
+.RI "void \fBstop\fP (void)"
+.br
+.RI "Stop thread\&. "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual ExitCode \fBEntry\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "void * \fBlp_parameter_void\fP"
+.br
+.ti -1c
+.RI "bool \fBl_run_flag_b\fP"
+.br
+.ti -1c
+.RI "\fBthread_fct_t\fP \fBl_function_thread_fct\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_timeout_ui32\fP"
+.br
+.ti -1c
+.RI "wxMutex * \fBlp_data_wxmutex\fP"
+.br
+.ti -1c
+.RI "wxCondition * \fBlp_data_wxcondition\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 50 of file in_thread_worker_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

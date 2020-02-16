@@ -1,0 +1,205 @@
+.TH "Port" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Port \- JavaScript interpreter port\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBjerryscript_c\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBjerryscript_c::jerryscript_c\fP (\fBuart_port\fP *p_com_uart_port, void *p_gui_main_frame_void, bool debug_b, bool init_b)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fBjerryscript_c::~jerryscript_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "uint32_t \fBjerryscript_c::run\fP (wxString script_str)"
+.br
+.RI "Run script\&. "
+.ti -1c
+.RI "void \fBjerryscript_c::stop\fP (void)"
+.br
+.RI "Stop script\&. "
+.ti -1c
+.RI "void \fBjerryscript_c::call_event\fP (wxString event_str, uint32_t component_id_ui32)"
+.br
+.RI "Call JS event function\&. "
+.ti -1c
+.RI "void \fBjerryscript_c::reg_class\fP (void)"
+.br
+.RI "Register JS class\&. "
+.ti -1c
+.RI "void \fBjerryscript_c::dereg_class\fP (void)"
+.br
+.RI "Deregister JS class\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "bool \fBl_in_js_port_gui_enable_b\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+JavaScript interpreter port\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void jerryscript_c::call_event (wxString event_str, uint32_t component_id_ui32)"
+
+.PP
+Call JS event function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP event_str : Event function name 
+.br
+\fI[IN]\fP component_id_ui32 : GUI component buffer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 187 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "void jerryscript_c::dereg_class (void)"
+
+.PP
+Deregister JS class\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 269 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "jerryscript_c::jerryscript_c (\fBuart_port\fP * p_com_uart_port, void * p_gui_main_frame_void, bool debug_b, bool init_b)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_com_uart_port : Communication port object 
+.br
+\fI[IN]\fP p_gui_main_frame_void : GUI frame pointer 
+.br
+\fI[IN]\fP debug_b : Script debug enable 
+.br
+\fI[IN]\fP init_b : Jerry script core initialization 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 69 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "void jerryscript_c::reg_class (void)"
+
+.PP
+Register JS class\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 216 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "uint32_t jerryscript_c::run (wxString script_str)"
+
+.PP
+Run script\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP script_str : Script text 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Run status 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "void jerryscript_c::stop (void)"
+
+.PP
+Stop script\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "jerryscript_c::~jerryscript_c (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file in_jerryscript_port_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "bool l_in_js_port_gui_enable_b = false"
+Local variable 
+.PP
+Definition at line 51 of file in_jerryscript_port_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

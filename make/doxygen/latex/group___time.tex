@@ -1,0 +1,175 @@
+\section{Time}
+\label{group___time}\index{Time@{Time}}
+
+
+Time class definition.  
+
+
+Collaboration diagram for Time\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{group___time}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ time\+\_\+js\+\_\+c}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ time\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class} (void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ time\+\_\+js\+\_\+c\+::now} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get actual epoch time in s (JS function \char`\"{}now\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ time\+\_\+js\+\_\+c\+::now\+\_\+ms} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get actual epoch time in ms (JS function \char`\"{}now\+\_\+ms\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ time\+\_\+js\+\_\+c\+::str} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Convert time in U\+TC second to time \& date string value (JS function \char`\"{}str\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ time\+\_\+js\+\_\+c\+::local\+\_\+str} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Convert time in local second to local time \& date string value (JS function \char`\"{}local\+\_\+str\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Time class definition. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___time_gab4e0770a579099b5d99016feebfd8534}} 
+\index{Time@{Time}!local\_str@{local\_str}}
+\index{local\_str@{local\_str}!Time@{Time}}
+\subsubsection{local\_str()}
+{\footnotesize\ttfamily uint32\+\_\+t time\+\_\+js\+\_\+c\+::local\+\_\+str (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert time in local second to local time \& date string value (JS function \char`\"{}local\+\_\+str\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 214 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___time_ga11e3b4889d634ad13ea4950125126ae6}} 
+\index{Time@{Time}!now@{now}}
+\index{now@{now}!Time@{Time}}
+\subsubsection{now()}
+{\footnotesize\ttfamily uint32\+\_\+t time\+\_\+js\+\_\+c\+::now (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get actual epoch time in s (JS function \char`\"{}now\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___time_ga2f120d187bc7613b74259b2839bea27d}} 
+\index{Time@{Time}!now\_ms@{now\_ms}}
+\index{now\_ms@{now\_ms}!Time@{Time}}
+\subsubsection{now\_ms()}
+{\footnotesize\ttfamily uint32\+\_\+t time\+\_\+js\+\_\+c\+::now\+\_\+ms (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get actual epoch time in ms (JS function \char`\"{}now\+\_\+ms\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___time_gae493052e52d183c9a10bc1fe395c31b6}} 
+\index{Time@{Time}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Time@{Time}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void time\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___time_ga374ad09767eb93bcf05975582c789c54}} 
+\index{Time@{Time}!str@{str}}
+\index{str@{str}!Time@{Time}}
+\subsubsection{str()}
+{\footnotesize\ttfamily uint32\+\_\+t time\+\_\+js\+\_\+c\+::str (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert time in U\+TC second to time \& date string value (JS function \char`\"{}str\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+

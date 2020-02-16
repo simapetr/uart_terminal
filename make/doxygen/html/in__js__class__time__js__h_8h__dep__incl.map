@@ -1,0 +1,23 @@
+<map id="D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_time_js_h.h" name="D:/project/uart_terminal/infrastructure/jerryscript/class/in_js_class_time_js_h.h">
+<area shape="rect" id="node1" title="JerryScript wrapper for time." alt="" coords="778,5,978,61"/>
+<area shape="rect" id="node2" href="$in__js__class__time__js__cpp_8cpp.html" title="JerryScript wrapper for time." alt="" coords="655,109,883,165"/>
+<area shape="rect" id="node3" href="$in__jerryscript__port__h_8h.html" title="JavaScript interpreter port." alt="" coords="907,109,1070,165"/>
+<area shape="rect" id="node4" href="$in__js__gui__button__cpp_8cpp.html" title="GUI window button component." alt="" coords="7,213,202,269"/>
+<area shape="rect" id="node5" href="$in__js__gui__check__box__cpp_8cpp.html" title="GUI window check box component." alt="" coords="226,213,447,269"/>
+<area shape="rect" id="node6" href="$in__js__gui__frame__cpp_8cpp.html" title="GUI window component creator." alt="" coords="5,325,196,381"/>
+<area shape="rect" id="node7" href="$in__js__gui__gauge__cpp_8cpp.html" title="GUI window gauge component." alt="" coords="784,213,977,269"/>
+<area shape="rect" id="node8" href="$in__js__gui__graph__cpp_8cpp.html" title="GUI window graph component." alt="" coords="1001,213,1192,269"/>
+<area shape="rect" id="node9" href="$in__js__gui__panel__cpp_8cpp.html" title="GUI window panel component." alt="" coords="1217,213,1406,269"/>
+<area shape="rect" id="node10" href="$in__js__gui__sizer__cpp_8cpp.html" title="GUI window sizer component." alt="" coords="1430,213,1617,269"/>
+<area shape="rect" id="node11" href="$in__js__gui__slider__cpp_8cpp.html" title="GUI window slider component." alt="" coords="1641,213,1830,269"/>
+<area shape="rect" id="node12" href="$in__js__gui__static__text__cpp_8cpp.html" title="GUI window static_text component." alt="" coords="1854,213,2073,269"/>
+<area shape="rect" id="node13" href="$in__js__gui__textctrl__cpp_8cpp_source.html" title=" " alt="" coords="2097,213,2296,269"/>
+<area shape="rect" id="node14" href="$in__jerryscript__port__cpp_8cpp.html" title="JavaScript interpreter port." alt="" coords="220,325,403,381"/>
+<area shape="rect" id="node15" href="$ap__uart__terminal__frame__h_8h.html" title="Application window component creator." alt="" coords="573,213,759,269"/>
+<area shape="rect" id="node16" href="$in__js__class__graph__js__cpp_8cpp.html" title="JerryScript wrapper for graph class." alt="" coords="427,325,662,381"/>
+<area shape="rect" id="node17" href="$in__js__class__main__frame__js__cpp_8cpp.html" title="JerryScript wrapper for main_frame class." alt="" coords="686,317,886,388"/>
+<area shape="rect" id="node18" href="$in__js__class__panel__js__cpp_8cpp.html" title="JerryScript wrapper for AUI panel." alt="" coords="910,325,1145,381"/>
+<area shape="rect" id="node19" href="$in__js__class__sizer__js__cpp_8cpp.html" title="JerryScript wrapper for component sizer." alt="" coords="1169,325,1400,381"/>
+<area shape="rect" id="node20" href="$in__main__app__cpp_8cpp.html" title="Application window creator." alt="" coords="1425,325,1582,381"/>
+<area shape="rect" id="node21" href="$ap__uart__terminal__frame__cpp_8cpp.html" title="Application window component creator." alt="" coords="1607,325,1821,381"/>
+</map>

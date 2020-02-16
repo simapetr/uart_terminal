@@ -1,0 +1,283 @@
+.TH "Check_box" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Check_box \- Check box class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBcheck_box_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBcheck_box_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_box_js_c::reg_host_class\fP (void *p_gui_interface_void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBcheck_box_js_c::add\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new check box (JS function 'add') "
+.ti -1c
+.RI "static uint32_t \fBcheck_box_js_c::reg_event\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set check box click event (JS method 'reg_event') "
+.ti -1c
+.RI "static uint32_t \fBcheck_box_js_c::set\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set check box state (JS method 'set') "
+.ti -1c
+.RI "static uint32_t \fBcheck_box_js_c::get\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get check box state (JS method 'get') "
+.ti -1c
+.RI "uint32_t \fBgui_frame::add_check_box\fP (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool state_b)"
+.br
+.RI "Add check box\&. "
+.ti -1c
+.RI "bool \fBgui_frame::set_check_box_event\fP (double check_box_index_d, wxString event_fct_str)"
+.br
+.RI "Set check box event\&. "
+.ti -1c
+.RI "bool \fBgui_frame::set_check_box\fP (double check_box_index_d, bool state_b)"
+.br
+.RI "Set check box state\&. "
+.ti -1c
+.RI "bool \fBgui_frame::get_check_box\fP (double check_box_index_d)"
+.br
+.RI "Get check box state\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "vector< \fBcheck_box_buffer_t\fP > \fBlv_data_check_box_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_cnt_check_ui32\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Check box class definition\&. 
+
+GUI check box component\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t check_box_js_c::add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add new check box (JS function 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file in_js_class_check_box_js_cpp\&.cpp\&.
+.SS "uint32_t gui_frame::add_check_box (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool state_b)"
+
+.PP
+Add check box\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsizer_index_d\fP : Parent sizer index 
+.br
+\fItext_str\fP : Check box text 
+.br
+\fIproportion_d\fP : Relative proportion item in sizer 
+.br
+\fIexpand_b\fP : Expand 
+.br
+\fIstate_b\fP : Initial state 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : New check box buffer index 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file in_js_gui_check_box_cpp\&.cpp\&.
+.SS "uint32_t check_box_js_c::get (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get check box state (JS method 'get') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 259 of file in_js_class_check_box_js_cpp\&.cpp\&.
+.SS "bool gui_frame::get_check_box (double check_box_index_d)"
+
+.PP
+Get check box state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcheck_box_index_d\fP : Check box index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Check box State 
+.RE
+.PP
+
+.PP
+Definition at line 160 of file in_js_gui_check_box_cpp\&.cpp\&.
+.SS "uint32_t check_box_js_c::reg_event (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set check box click event (JS method 'reg_event') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 174 of file in_js_class_check_box_js_cpp\&.cpp\&.
+.SS "void check_box_js_c::reg_host_class (void * p_gui_interface_void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_gui_interface_void : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file in_js_class_check_box_js_cpp\&.cpp\&.
+.SS "uint32_t check_box_js_c::set (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set check box state (JS method 'set') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 222 of file in_js_class_check_box_js_cpp\&.cpp\&.
+.SS "bool gui_frame::set_check_box (double check_box_index_d, bool state_b)"
+
+.PP
+Set check box state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcheck_box_index_d\fP : Check box index 
+.br
+\fIstate_b\fP : New state 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Status 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file in_js_gui_check_box_cpp\&.cpp\&.
+.SS "bool gui_frame::set_check_box_event (double check_box_index_d, wxString event_fct_str)"
+
+.PP
+Set check box event\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcheck_box_index_d\fP : Check box index 
+.br
+\fIevent_fct_str\fP : Reg function name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Check box event reg status 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file in_js_gui_check_box_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "vector<\fBcheck_box_buffer_t\fP> lv_data_check_box_buffer"
+Local variable 
+.PP
+Definition at line 73 of file in_js_gui_check_box_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

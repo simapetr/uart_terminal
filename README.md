@@ -30,4 +30,5 @@ Supported platforms:
 Screenshot
 ----------
 
-![](https://github.com/simapetr/uart_terminal/blob/master/docs/img/uart_terminal.jpg)
+![](https://github.com/simapetr/uart_terminal/blob/master/make/img/uart_terminal.jpg)
+![](https://github.com/simapetr/uart_terminal/blob/master/make/img/uart_terminal_javascript_example.jpg)

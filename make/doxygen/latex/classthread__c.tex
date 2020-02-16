@@ -1,0 +1,76 @@
+\section{thread\+\_\+c Class Reference}
+\label{classthread__c}\index{thread\_c@{thread\_c}}
+
+
+{\ttfamily \#include $<$in\+\_\+thread\+\_\+worker\+\_\+h.\+h$>$}
+
+
+
+Inheritance diagram for thread\+\_\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{classthread__c__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for thread\+\_\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{classthread__c__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ thread\+\_\+c} (void $\ast$p\+\_\+parameter\+\_\+void, \textbf{ thread\+\_\+fct\+\_\+t} function\+\_\+thread\+\_\+fct, uint32\+\_\+t timeout\+\_\+ui32=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$thread\+\_\+c} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ signal} (void)
+\begin{DoxyCompactList}\small\item\em Enable thread event. \end{DoxyCompactList}\item 
+void \textbf{ stop} (void)
+\begin{DoxyCompactList}\small\item\em Stop thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual Exit\+Code \textbf{ Entry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classthread__c_ab4ba6f74dab1080d8d12837a39ca0400}} 
+void $\ast$ {\bfseries lp\+\_\+parameter\+\_\+void}
+\item 
+\mbox{\label{classthread__c_a333250e027831d46656f560c27c2f901}} 
+bool {\bfseries l\+\_\+run\+\_\+flag\+\_\+b}
+\item 
+\mbox{\label{classthread__c_a0fdf3f6d35bf3fc07f8765db69eeb849}} 
+\textbf{ thread\+\_\+fct\+\_\+t} {\bfseries l\+\_\+function\+\_\+thread\+\_\+fct}
+\item 
+\mbox{\label{classthread__c_a1fae32a44df6efabed8016983ad91f17}} 
+uint32\+\_\+t {\bfseries l\+\_\+timeout\+\_\+ui32}
+\item 
+\mbox{\label{classthread__c_a3a96d3e6b969bc9577fbfe39b2d700c3}} 
+wx\+Mutex $\ast$ {\bfseries lp\+\_\+data\+\_\+wxmutex}
+\item 
+\mbox{\label{classthread__c_a257314930759c7d1cf8b8d473cde595d}} 
+wx\+Condition $\ast$ {\bfseries lp\+\_\+data\+\_\+wxcondition}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class 
+
+Definition at line 50 of file in\+\_\+thread\+\_\+worker\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/thread/in\+\_\+thread\+\_\+worker\+\_\+h.\+h\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/thread/in\+\_\+thread\+\_\+worker\+\_\+cpp.\+cpp\end{DoxyCompactItemize}

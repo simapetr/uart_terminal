@@ -1,0 +1,260 @@
+\section{Graph}
+\label{group___graph}\index{Graph@{Graph}}
+
+
+Graph interface.  
+
+
+Collaboration diagram for Graph\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{group___graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ graph\+\_\+js\+\_\+c}
+\item 
+struct \textbf{ graph\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ graph\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ graph\+\_\+js\+\_\+c\+::add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Add graph (JS method \char`\"{}add\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ graph\+\_\+js\+\_\+c\+::insert\+\_\+signal} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Insert signal in to graph (JS method \char`\"{}insert\+\_\+signal\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ graph\+\_\+js\+\_\+c\+::set} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set graph data (JS method \char`\"{}set\char`\"{}) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gui\+\_\+frame\+::add\+\_\+graph} (double sizer\+\_\+index\+\_\+d, wx\+String name\+\_\+str, double graph\+\_\+range\+\_\+d, double buffer\+\_\+length\+\_\+d, double time\+\_\+step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add graph window. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gui\+\_\+frame\+::insert\+\_\+signal} (uint32\+\_\+t graph\+\_\+ui32, wx\+String signal\+\_\+label\+\_\+str, uint32\+\_\+t color\+\_\+ui32=0, uint32\+\_\+t width\+\_\+ui32=1, uint32\+\_\+t style\+\_\+ui32=0)
+\begin{DoxyCompactList}\small\item\em Insert signal in to graph. \end{DoxyCompactList}\item 
+bool \textbf{ gui\+\_\+frame\+::set\+\_\+graph\+\_\+data} (uint32\+\_\+t graph\+\_\+ui32, vector$<$ double $>$ \&pv\+\_\+data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Insert One sample for all signal in to graph window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ graph\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+graph\+\_\+buffer}
+\item 
+\mbox{\label{group___graph_ga13361911adaa361953384d128f6a8048}} 
+uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+graph\+\_\+ui32} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Graph interface. 
+
+G\+UI graph component.
+
+\subsection{Function Documentation}
+\mbox{\label{group___graph_ga4f89da10b241f5a9f265d78c67507368}} 
+\index{Graph@{Graph}!add@{add}}
+\index{add@{add}!Graph@{Graph}}
+\subsubsection{add()}
+{\footnotesize\ttfamily uint32\+\_\+t graph\+\_\+js\+\_\+c\+::add (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add graph (JS method \char`\"{}add\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_ga4567717fdef09d9554c244ab321ef3b7}} 
+\index{Graph@{Graph}!add\_graph@{add\_graph}}
+\index{add\_graph@{add\_graph}!Graph@{Graph}}
+\subsubsection{add\_graph()}
+{\footnotesize\ttfamily uint32\+\_\+t gui\+\_\+frame\+::add\+\_\+graph (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{name\+\_\+str,  }\item[{double}]{graph\+\_\+range\+\_\+d,  }\item[{double}]{buffer\+\_\+length\+\_\+d,  }\item[{double}]{time\+\_\+step\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Add graph window. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Index in vector sizer buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & name\+\_\+str \+: Graph name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & graph\+\_\+range\+\_\+d \+: Y access range \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer\+\_\+length\+\_\+d \+: Buffer length in second \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & time\+\_\+step\+\_\+d \+: Sample time frequency \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: Graph window number 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_ga7d49242630576514a9d30090e4cb3cc9}} 
+\index{Graph@{Graph}!insert\_signal@{insert\_signal}}
+\index{insert\_signal@{insert\_signal}!Graph@{Graph}}
+\subsubsection{insert\_signal()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t graph\+\_\+js\+\_\+c\+::insert\+\_\+signal (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Insert signal in to graph (JS method \char`\"{}insert\+\_\+signal\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_ga1688e7ef80194f6774afec68dd9dd4aa}} 
+\index{Graph@{Graph}!insert\_signal@{insert\_signal}}
+\index{insert\_signal@{insert\_signal}!Graph@{Graph}}
+\subsubsection{insert\_signal()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t gui\+\_\+frame\+::insert\+\_\+signal (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{graph\+\_\+ui32,  }\item[{wx\+String}]{signal\+\_\+label\+\_\+str,  }\item[{uint32\+\_\+t}]{color\+\_\+ui32 = {\ttfamily 0},  }\item[{uint32\+\_\+t}]{width\+\_\+ui32 = {\ttfamily 1},  }\item[{uint32\+\_\+t}]{style\+\_\+ui32 = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Insert signal in to graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & graph\+\_\+ui32 \+: Graph window number \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+label\+\_\+str \+: Signal name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & color\+\_\+ui32 \+: Signal color \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & width\+\_\+ui32 \+: Signal width in pixel \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & style\+\_\+ui32 \+: Pen style \begin{DoxyItemize}
+\item 0 \+: Solid \item 1 \+: Dot \item 2 \+: Long dash \item 3 \+: Short dash \item 4 \+: Dot dash \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: Insert status 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_gaaa26859cc831c352ad09384ad9af8cbb}} 
+\index{Graph@{Graph}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Graph@{Graph}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void graph\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void \+: Pointer on registered class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_gac3b9bc36d97e9b5a0f7ea6bb106cf2ee}} 
+\index{Graph@{Graph}!set@{set}}
+\index{set@{set}!Graph@{Graph}}
+\subsubsection{set()}
+{\footnotesize\ttfamily uint32\+\_\+t graph\+\_\+js\+\_\+c\+::set (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set graph data (JS method \char`\"{}set\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___graph_ga99fe12a26fff4d837e4402cab9df19c6}} 
+\index{Graph@{Graph}!set\_graph\_data@{set\_graph\_data}}
+\index{set\_graph\_data@{set\_graph\_data}!Graph@{Graph}}
+\subsubsection{set\_graph\_data()}
+{\footnotesize\ttfamily bool gui\+\_\+frame\+::set\+\_\+graph\+\_\+data (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{graph\+\_\+ui32,  }\item[{vector$<$ double $>$ \&}]{pv\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Insert One sample for all signal in to graph window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & graph\+\_\+ui32 \+: Graph window number \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & pv\+\_\+data\+\_\+d \+: signal data samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Insert data status 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___graph_ga70d4a6633d9b5972dcb026390127f139}} 
+\index{Graph@{Graph}!lv\_data\_graph\_buffer@{lv\_data\_graph\_buffer}}
+\index{lv\_data\_graph\_buffer@{lv\_data\_graph\_buffer}!Graph@{Graph}}
+\subsubsection{lv\_data\_graph\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ graph\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+graph\+\_\+buffer}
+
+Local variable 
+
+Definition at line 70 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+

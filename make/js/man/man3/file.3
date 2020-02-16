@@ -1,0 +1,232 @@
+.TH "file" 3 "Sun Feb 16 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+file \- System file read/write\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "string \fBread\fP (string path_str)"
+.br
+.RI "Read string from text file\&. "
+.ti -1c
+.RI "vector< double > & \fBread_b\fP (string path_str)"
+.br
+.RI "Read array from binary file\&. "
+.ti -1c
+.RI "bool \fBwrite\fP (string path_str, vector< double > &v_data_d)"
+.br
+.RI "Write binary array\&. "
+.ti -1c
+.RI "bool \fBwrite\fP (string path_str, string data_str)"
+.br
+.RI "Write text string\&. "
+.ti -1c
+.RI "bool \fBappend\fP (string path_str, vector< double > &v_data_d)"
+.br
+.RI "Append binary array\&. "
+.ti -1c
+.RI "bool \fBappend\fP (string path_str, string data_str)"
+.br
+.RI "Append text string\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+System file read/write\&. 
+.PP
+Definition at line 614 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool append (string path_str, vector< double > & v_data_d)"
+
+.PP
+Append binary array\&. 
+.PP
+.nf
+var state_b;
+var data_array;
+data_array\&.push(0x01);
+data_array\&.push(0x02);
+data_array\&.push(0x03);
+state_b = file\&.append("file\&.bin", data_array);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.br
+\fI[IN]\fP v_data_d : Write data buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Write status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Write failed 
+.IP "\(bu" 2
+1 : Write success 
+.PP
+.RE
+.PP
+
+.SS "bool append (string path_str, string data_str)"
+
+.PP
+Append text string\&. 
+.PP
+.nf
+var state_b;
+state_b = file\&.append("file\&.txt", "Hello world!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.br
+\fI[IN]\fP data_str : Write data text string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Write status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Write failed 
+.IP "\(bu" 2
+1 : Write success 
+.PP
+.RE
+.PP
+
+.SS "string read (string path_str)"
+
+.PP
+Read string from text file\&. 
+.PP
+.nf
+var state_str;
+state_str = file\&.read("file\&.txt");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string : Read string 
+.RE
+.PP
+
+.SS "vector<double>& read_b (string path_str)"
+
+.PP
+Read array from binary file\&. 
+.PP
+.nf
+var data_array;
+data_array = file\&.read("file\&.bin");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string : Read string 
+.RE
+.PP
+
+.SS "bool write (string path_str, vector< double > & v_data_d)"
+
+.PP
+Write binary array\&. 
+.PP
+.nf
+var state_b;
+var data_array;
+data_array\&.push(0x01);
+data_array\&.push(0x02);
+data_array\&.push(0x03);
+state_b = file\&.write("file\&.bin", data_array);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.br
+\fI[IN]\fP v_data_d : Write data buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Write status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Write failed 
+.IP "\(bu" 2
+1 : Write success 
+.PP
+.RE
+.PP
+
+.SS "bool write (string path_str, string data_str)"
+
+.PP
+Write text string\&. 
+.PP
+.nf
+var state_b;
+state_b = file\&.write("file\&.txt", "Hello world!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.br
+\fI[IN]\fP data_str : Write data text string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Write status 
+.PD 0
+
+.IP "\(bu" 2
+0 : Write failed 
+.IP "\(bu" 2
+1 : Write success 
+.PP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

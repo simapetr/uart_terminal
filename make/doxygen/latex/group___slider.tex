@@ -1,0 +1,306 @@
+\section{Slider}
+\label{group___slider}\index{Slider@{Slider}}
+
+
+Slider class definition.  
+
+
+Collaboration diagram for Slider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{group___slider}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ slider\+\_\+js\+\_\+c}
+\item 
+struct \textbf{ slider\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ slider\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+interface\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ slider\+\_\+js\+\_\+c\+::add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Add new slider (JS function \char`\"{}add\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ slider\+\_\+js\+\_\+c\+::reg\+\_\+event} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set slider update event (JS method \char`\"{}reg\+\_\+event\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ slider\+\_\+js\+\_\+c\+::get} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get slider data (JS function \char`\"{}get\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ slider\+\_\+js\+\_\+c\+::set} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set slider data (JS function \char`\"{}set\char`\"{}) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gui\+\_\+frame\+::add\+\_\+slider} (double sizer\+\_\+index\+\_\+d, double min\+\_\+d, double max\+\_\+d, double proportion\+\_\+d, bool expand\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add slider. \end{DoxyCompactList}\item 
+bool \textbf{ gui\+\_\+frame\+::set\+\_\+slider\+\_\+event} (double index\+\_\+d, wx\+String event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set slider event. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ gui\+\_\+frame\+::get\+\_\+slider\+\_\+data} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get slider data. \end{DoxyCompactList}\item 
+void \textbf{ gui\+\_\+frame\+::set\+\_\+slider\+\_\+data} (double index\+\_\+d, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set slider data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ slider\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+slider\+\_\+buffer}
+\item 
+\mbox{\label{group___slider_ga7ff3e56a02278a8a9dc76e2674a0beb9}} 
+uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+slider\+\_\+ui32} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Slider class definition. 
+
+G\+UI slider component.
+
+\subsection{Function Documentation}
+\mbox{\label{group___slider_ga1b23f610ea0da81cb63de2912076f128}} 
+\index{Slider@{Slider}!add@{add}}
+\index{add@{add}!Slider@{Slider}}
+\subsubsection{add()}
+{\footnotesize\ttfamily uint32\+\_\+t slider\+\_\+js\+\_\+c\+::add (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add new slider (JS function \char`\"{}add\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file in\+\_\+js\+\_\+class\+\_\+slider\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga042fdec60be3164f7bce9b156d4f7955}} 
+\index{Slider@{Slider}!add\_slider@{add\_slider}}
+\index{add\_slider@{add\_slider}!Slider@{Slider}}
+\subsubsection{add\_slider()}
+{\footnotesize\ttfamily uint32\+\_\+t gui\+\_\+frame\+::add\+\_\+slider (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{double}]{min\+\_\+d,  }\item[{double}]{max\+\_\+d,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add slider. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em sizer\+\_\+index\+\_\+d} & \+: Parent sizer index \\
+\hline
+{\em min\+\_\+d} & \+: Minimal value \\
+\hline
+{\em max\+\_\+d} & \+: Maximal value \\
+\hline
+{\em proportion\+\_\+d} & \+: Relative proportion item in sizer \\
+\hline
+{\em expand\+\_\+b} & \+: Expand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: New slider buffer index 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga35a819cc4082b04b297d56cd5794ef61}} 
+\index{Slider@{Slider}!get@{get}}
+\index{get@{get}!Slider@{Slider}}
+\subsubsection{get()}
+{\footnotesize\ttfamily uint32\+\_\+t slider\+\_\+js\+\_\+c\+::get (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get slider data (JS function \char`\"{}get\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 210 of file in\+\_\+js\+\_\+class\+\_\+slider\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga0df421c260f620a2d8de8bea2bfe3554}} 
+\index{Slider@{Slider}!get\_slider\_data@{get\_slider\_data}}
+\index{get\_slider\_data@{get\_slider\_data}!Slider@{Slider}}
+\subsubsection{get\_slider\_data()}
+{\footnotesize\ttfamily int32\+\_\+t gui\+\_\+frame\+::get\+\_\+slider\+\_\+data (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get slider data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+d} & \+: Component index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t \+: Button event reg status 
+\end{DoxyReturn}
+
+
+Definition at line 143 of file in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_gad3554f4f3e55ac97b562a6e262eef509}} 
+\index{Slider@{Slider}!reg\_event@{reg\_event}}
+\index{reg\_event@{reg\_event}!Slider@{Slider}}
+\subsubsection{reg\_event()}
+{\footnotesize\ttfamily uint32\+\_\+t slider\+\_\+js\+\_\+c\+::reg\+\_\+event (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set slider update event (JS method \char`\"{}reg\+\_\+event\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file in\+\_\+js\+\_\+class\+\_\+slider\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga43c4db5e9647225f17c6b0ce7e71435a}} 
+\index{Slider@{Slider}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Slider@{Slider}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void slider\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+interface\+\_\+void }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+gui\+\_\+interface\+\_\+void \+: Pointer on registered class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+slider\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga654bdf60ebf1ea858c0a1107cc1caea0}} 
+\index{Slider@{Slider}!set@{set}}
+\index{set@{set}!Slider@{Slider}}
+\subsubsection{set()}
+{\footnotesize\ttfamily uint32\+\_\+t slider\+\_\+js\+\_\+c\+::set (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set slider data (JS function \char`\"{}set\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file in\+\_\+js\+\_\+class\+\_\+slider\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga5591b0cc822d9ed0a2be2f3cfbdec989}} 
+\index{Slider@{Slider}!set\_slider\_data@{set\_slider\_data}}
+\index{set\_slider\_data@{set\_slider\_data}!Slider@{Slider}}
+\subsubsection{set\_slider\_data()}
+{\footnotesize\ttfamily void gui\+\_\+frame\+::set\+\_\+slider\+\_\+data (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d,  }\item[{double}]{data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set slider data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+d} & \+: Component index \\
+\hline
+{\em data\+\_\+d} & \+: Data value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t \+: Button event reg status 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___slider_ga16761e25d91253d2e6d9c4bc90d522c5}} 
+\index{Slider@{Slider}!set\_slider\_event@{set\_slider\_event}}
+\index{set\_slider\_event@{set\_slider\_event}!Slider@{Slider}}
+\subsubsection{set\_slider\_event()}
+{\footnotesize\ttfamily bool gui\+\_\+frame\+::set\+\_\+slider\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d,  }\item[{wx\+String}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set slider event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+d} & \+: Component index \\
+\hline
+{\em event\+\_\+fct\+\_\+str} & \+: Reg function name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Button event reg status 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___slider_ga64813f8fbd229c0f5955687ef17c349e}} 
+\index{Slider@{Slider}!lv\_data\_slider\_buffer@{lv\_data\_slider\_buffer}}
+\index{lv\_data\_slider\_buffer@{lv\_data\_slider\_buffer}!Slider@{Slider}}
+\subsubsection{lv\_data\_slider\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ slider\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+slider\+\_\+buffer}
+
+Local variable 
+
+Definition at line 75 of file in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp.
+

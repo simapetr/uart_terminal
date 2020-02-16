@@ -1,0 +1,119 @@
+\section{gui\+\_\+frame Class Reference}
+\label{classgui__frame}\index{gui\_frame@{gui\_frame}}
+
+
+{\ttfamily \#include $<$in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+h.\+h$>$}
+
+
+
+Inheritance diagram for gui\+\_\+frame\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classgui__frame__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gui\+\_\+frame\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classgui__frame__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ gui\+\_\+frame} (wx\+Window $\ast$p\+\_\+parent\+\_\+window, void $\ast$p\+\_\+jerryscript\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$gui\+\_\+frame} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+wx\+Aui\+Manager $\ast$ \textbf{ get\+\_\+aui\+\_\+manager} (void)
+\begin{DoxyCompactList}\small\item\em Get A\+UI manager. \end{DoxyCompactList}\item 
+void \textbf{ frame\+\_\+show} (bool status\+\_\+b, wx\+String name\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Show frame. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+panel} (wx\+String panel\+\_\+name\+\_\+str, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add A\+UI panel. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ get\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get panel main sizer. \end{DoxyCompactList}\item 
+wx\+Panel $\ast$ \textbf{ get\+\_\+panel} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+sizer} (double sizer\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add sizer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add sizer. \end{DoxyCompactList}\item 
+wx\+Box\+Sizer $\ast$ \textbf{ get\+\_\+sizer} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\item 
+wx\+Panel $\ast$ \textbf{ get\+\_\+sizer\+\_\+panel} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get sizer panel. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+graph} (double sizer\+\_\+index\+\_\+d, wx\+String name\+\_\+str, double graph\+\_\+range\+\_\+d, double buffer\+\_\+length\+\_\+d, double time\+\_\+step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add graph window. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ insert\+\_\+signal} (uint32\+\_\+t graph\+\_\+ui32, wx\+String signal\+\_\+label\+\_\+str, uint32\+\_\+t color\+\_\+ui32=0, uint32\+\_\+t width\+\_\+ui32=1, uint32\+\_\+t style\+\_\+ui32=0)
+\begin{DoxyCompactList}\small\item\em Insert signal in to graph. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+graph\+\_\+data} (uint32\+\_\+t graph\+\_\+ui32, vector$<$ double $>$ \&pv\+\_\+data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Insert One sample for all signal in to graph window. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+button} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add button. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+button\+\_\+event} (double button\+\_\+index\+\_\+d, wx\+String event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set button event. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+slider} (double sizer\+\_\+index\+\_\+d, double min\+\_\+d, double max\+\_\+d, double proportion\+\_\+d, bool expand\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add slider. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+slider\+\_\+event} (double index\+\_\+d, wx\+String event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set slider event. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ get\+\_\+slider\+\_\+data} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get slider data. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+slider\+\_\+data} (double index\+\_\+d, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set slider data. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+static\+\_\+text} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add static\+\_\+text. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+static\+\_\+text} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set static\+\_\+text text. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+textctrl} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool multiline\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add Text control. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set textctrl text. \end{DoxyCompactList}\item 
+bool \textbf{ append\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Append textctrl text. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, uint32\+\_\+t line\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get textctrl text. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+check\+\_\+box} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add check box. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+check\+\_\+box\+\_\+event} (double check\+\_\+box\+\_\+index\+\_\+d, wx\+String event\+\_\+fct\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set check box event. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+check\+\_\+box} (double check\+\_\+box\+\_\+index\+\_\+d, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set check box state. \end{DoxyCompactList}\item 
+bool \textbf{ get\+\_\+check\+\_\+box} (double check\+\_\+box\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get check box state. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+gauge} (double sizer\+\_\+index\+\_\+d, double proportion\+\_\+d, bool expand\+\_\+b, double size\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add gauge. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+gauge} (double check\+\_\+box\+\_\+index\+\_\+d, double value\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set gauge state. \end{DoxyCompactList}\item 
+double \textbf{ get\+\_\+gauge} (double check\+\_\+box\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get gauge value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct
+
+Class 
+
+Definition at line 58 of file in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+h.\+h}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+button\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+check\+\_\+box\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+gauge\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+static\+\_\+text\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="main_frame::open_port" name="main_frame::open_port">
+<area shape="rect" id="node1" title="Open UART with GUI setting." alt="" coords="5,31,160,57"/>
+<area shape="rect" id="node2" href="$group___u_a_r_t__terminal.html#gaf35761b36e4263c36d35a49a2375666b" title="Get UART port settings from GUI." alt="" coords="208,5,364,32"/>
+<area shape="rect" id="node3" href="$group___u_a_r_t.html#gac26ae08fc1eb378c84567ed1f751edf5" title="Open and set UART port communication." alt="" coords="231,56,341,83"/>
+</map>

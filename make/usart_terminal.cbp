@@ -161,7 +161,6 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_textctrl_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_core_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_debugger_h.h" />
-		<Unit filename="../infrastructure/jerryscript/in_jerryscript_doc_h.h" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/in_jerryscript_port_h.h" />
 		<Unit filename="../infrastructure/main/in_main_app_cpp.cpp" />
@@ -170,6 +169,7 @@
 		<Unit filename="../infrastructure/thread/in_thread_worker_h.h" />
 		<Unit filename="../infrastructure/wx/led.cpp" />
 		<Unit filename="../infrastructure/wx/mathplot.cpp" />
+		<Unit filename="js/jerryscript_h.h" />
 		<Unit filename="script/button.js" />
 		<Unit filename="script/check_box.js" />
 		<Unit filename="script/file.js" />

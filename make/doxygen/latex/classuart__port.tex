@@ -1,0 +1,62 @@
+\section{uart\+\_\+port Class Reference}
+\label{classuart__port}\index{uart\_port@{uart\_port}}
+
+
+{\ttfamily \#include $<$hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ uart\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$uart\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ get\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Get U\+A\+RT port list. \end{DoxyCompactList}\item 
+string $\ast$ \textbf{ get\+\_\+bus\+\_\+array} (void)
+\begin{DoxyCompactList}\small\item\em Get pointer on port array. \end{DoxyCompactList}\item 
+uart\+\_\+status\+\_\+t \textbf{ open} (\textbf{ uart\+\_\+cfg\+\_\+t} $\ast$p\+\_\+data\+\_\+uart\+\_\+cfg)
+\begin{DoxyCompactList}\small\item\em Open and set U\+A\+RT port communication. \end{DoxyCompactList}\item 
+void \textbf{ close} (void)
+\begin{DoxyCompactList}\small\item\em Close U\+A\+RT port communication. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ create\+\_\+event} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct, void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Associate driver event function. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ delete\+\_\+event} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct)
+\begin{DoxyCompactList}\small\item\em Delete associated event function. \end{DoxyCompactList}\item 
+void \textbf{ delete\+\_\+event\+\_\+all} (void)
+\begin{DoxyCompactList}\small\item\em Delete all associated event. \end{DoxyCompactList}\item 
+uart\+\_\+status\+\_\+t \textbf{ get\+\_\+state} (void)
+\begin{DoxyCompactList}\small\item\em Get port status (call after construction object for test correct open) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ get\+\_\+last\+\_\+error} (void)
+\begin{DoxyCompactList}\small\item\em Get port last error. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ wait\+\_\+rx\+\_\+event} (void)
+\begin{DoxyCompactList}\small\item\em Wait for receive data. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ flush} (void)
+\begin{DoxyCompactList}\small\item\em Erase communication buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ write\+\_\+data} (uint8\+\_\+t data\+\_\+ui8)
+\begin{DoxyCompactList}\small\item\em Write character. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ write\+\_\+data} (uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t len\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Write data string. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ write\+\_\+data} (vector$<$ uint8\+\_\+t $>$ \&pv\+\_\+data\+\_\+sui8)
+\begin{DoxyCompactList}\small\item\em Write data vector. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ read\+\_\+data} (uint8\+\_\+t $\ast$p\+\_\+data\+\_\+ui8)
+\begin{DoxyCompactList}\small\item\em Read character. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ read\+\_\+data} (string $\ast$p\+\_\+data\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read data from character buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ get\+\_\+com\+\_\+ctrl} (\textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t} pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Get com state. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+com\+\_\+ctrl} (uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+out, uint8\+\_\+t state\+\_\+ui8)
+\begin{DoxyCompactList}\small\item\em Set com state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class 
+
+Definition at line 126 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/hardware/drivers/uart/\textbf{ hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h}\item 
+D\+:/project/uart\+\_\+terminal/hardware/drivers/uart/\textbf{ hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp}\end{DoxyCompactItemize}

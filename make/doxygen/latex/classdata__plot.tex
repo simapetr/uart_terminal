@@ -1,0 +1,71 @@
+\section{data\+\_\+plot Class Reference}
+\label{classdata__plot}\index{data\_plot@{data\_plot}}
+
+
+{\ttfamily \#include $<$in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h$>$}
+
+
+
+Inheritance diagram for data\+\_\+plot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classdata__plot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for data\+\_\+plot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classdata__plot__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ data\+\_\+plot} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+String graph\+\_\+label\+\_\+str, double draph\+\_\+range\+\_\+d, double buffer\+\_\+length\+\_\+d, double time\+\_\+step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$data\+\_\+plot} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ insert\+\_\+signal} (wx\+String signal\+\_\+label\+\_\+str, wx\+Pen signal\+\_\+style\+\_\+pen)
+\begin{DoxyCompactList}\small\item\em Insert signal in to graph. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ get\+\_\+signal} (void)
+\begin{DoxyCompactList}\small\item\em Get number of signal in graph. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ insert\+\_\+data} (uint32\+\_\+t index\+\_\+ui32, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Insert data in to specific signal buffer. \end{DoxyCompactList}\item 
+void \textbf{ time\+\_\+increment} (void)
+\begin{DoxyCompactList}\small\item\em Increment time X scale (call after insert all single data) \end{DoxyCompactList}\item 
+void {\bfseries redraw\+\_\+event} (void)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const long \textbf{ l\+\_\+id\+\_\+graph\+\_\+name\+\_\+wxstatictext} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+x\+\_\+axis\+\_\+mpscalex} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+y\+\_\+axis\+\_\+mpscalex} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+graph\+\_\+mpwindow} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+graph\+\_\+signal\+\_\+wxgrid} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+redraw\+\_\+wxtimer} = wx\+New\+Id()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class 
+
+Definition at line 65 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/\textbf{ in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/\textbf{ in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp}\end{DoxyCompactItemize}

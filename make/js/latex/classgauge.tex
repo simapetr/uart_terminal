@@ -1,0 +1,136 @@
+\section{gauge Class Reference}
+\label{classgauge}\index{gauge@{gauge}}
+
+
+wx\+Gauge class interface  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ add} (double sizer\+\_\+index\+\_\+d, double proportion\+\_\+d, bool expand\+\_\+b, double size\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add new gauge. \end{DoxyCompactList}\item 
+double \textbf{ get} (double gauge\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get gauge value. \end{DoxyCompactList}\item 
+void \textbf{ set} (double gauge\+\_\+index\+\_\+d, double value\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set gauge value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+wx\+Gauge class interface 
+
+Definition at line 1270 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classgauge_a7204c33db14bd49c561cd715852bf331}} 
+\index{gauge@{gauge}!add@{add}}
+\index{add@{add}!gauge@{gauge}}
+\subsubsection{add()}
+{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{double}]{size\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Add new gauge. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_gauge;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_gauge = gui.gauge.add(test\_sizer, 0, \textcolor{keyword}{true},1000);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Parent sizer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & proportion\+\_\+d \+: Proportion in parent sizer element \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & expand\+\_\+b \+: Expand in sizer flag \begin{DoxyItemize}
+\item false \+: Default size \item true \+: Expand \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size\+\_\+d \+: Gauge size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: gauge buffer index 
+\end{DoxyReturn}
+\mbox{\label{classgauge_a6e28e891b585675fe1fc39de4fbd9c72}} 
+\index{gauge@{gauge}!get@{get}}
+\index{get@{get}!gauge@{gauge}}
+\subsubsection{get()}
+{\footnotesize\ttfamily double get (\begin{DoxyParamCaption}\item[{double}]{gauge\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get gauge value. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_gauge;}
+\DoxyCodeLine{var test\_gauge\_value;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_gauge = gui.gauge.add(test\_sizer, 0, \textcolor{keyword}{true},1000);}
+\DoxyCodeLine{test\_gauge\_value = gui.gauge.get(test\_gauge);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & gauge\+\_\+index\+\_\+d \+: gauge index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Set value 
+\end{DoxyReturn}
+\mbox{\label{classgauge_a1b342babb211d18a1467f54edb165fdd}} 
+\index{gauge@{gauge}!set@{set}}
+\index{set@{set}!gauge@{gauge}}
+\subsubsection{set()}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{double}]{gauge\+\_\+index\+\_\+d,  }\item[{double}]{value\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set gauge value. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_gauge;}
+\DoxyCodeLine{var test\_status\_bool;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_gauge = gui.gauge.add(test\_sizer, 0, \textcolor{keyword}{true},1000);}
+\DoxyCodeLine{test\_status\_bool = gui.gauge.set(test\_gauge, 600);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & gauge\+\_\+index\+\_\+d \+: gauge index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & value\+\_\+b \+: New gauge value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

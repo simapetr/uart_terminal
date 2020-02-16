@@ -1,0 +1,215 @@
+\section{file Class Reference}
+\label{classfile}\index{file@{file}}
+
+
+System file read/write.  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \textbf{ read} (string path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read string from text file. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \& \textbf{ read\+\_\+b} (string path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read array from binary file. \end{DoxyCompactList}\item 
+bool \textbf{ write} (string path\+\_\+str, vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Write binary array. \end{DoxyCompactList}\item 
+bool \textbf{ write} (string path\+\_\+str, string data\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Write text string. \end{DoxyCompactList}\item 
+bool \textbf{ append} (string path\+\_\+str, vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Append binary array. \end{DoxyCompactList}\item 
+bool \textbf{ append} (string path\+\_\+str, string data\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Append text string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+System file read/write. 
+
+Definition at line 614 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classfile_a50fc19c821482a9181022aa5b506db46}} 
+\index{file@{file}!append@{append}}
+\index{append@{append}!file@{file}}
+\subsubsection{append()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Append binary array. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_b;}
+\DoxyCodeLine{var data\_array;}
+\DoxyCodeLine{data\_array.push(0x01);}
+\DoxyCodeLine{data\_array.push(0x02);}
+\DoxyCodeLine{data\_array.push(0x03);}
+\DoxyCodeLine{state\_b = file.append(\textcolor{stringliteral}{"file.bin"}, data\_array);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & v\+\_\+data\+\_\+d \+: Write data buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Write status \begin{DoxyItemize}
+\item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classfile_acbc04e63b90204ea300106e633edfff9}} 
+\index{file@{file}!append@{append}}
+\index{append@{append}!file@{file}}
+\subsubsection{append()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{string}]{data\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Append text string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_b;}
+\DoxyCodeLine{state\_b = file.append(\textcolor{stringliteral}{"file.txt"}, \textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+str \+: Write data text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Write status \begin{DoxyItemize}
+\item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classfile_aa7cd42652ec367d983a3de4892df6617}} 
+\index{file@{file}!read@{read}}
+\index{read@{read}!file@{file}}
+\subsubsection{read()}
+{\footnotesize\ttfamily string read (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Read string from text file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_str;}
+\DoxyCodeLine{state\_str = file.read(\textcolor{stringliteral}{"file.txt"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \+: Read string 
+\end{DoxyReturn}
+\mbox{\label{classfile_a59d4760da225a342eab9465ccbd4226d}} 
+\index{file@{file}!read\_b@{read\_b}}
+\index{read\_b@{read\_b}!file@{file}}
+\subsubsection{read\_b()}
+{\footnotesize\ttfamily vector$<$double$>$\& read\+\_\+b (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Read array from binary file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_array;}
+\DoxyCodeLine{data\_array = file.read(\textcolor{stringliteral}{"file.bin"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string \+: Read string 
+\end{DoxyReturn}
+\mbox{\label{classfile_afb167410f8b055155d582a7877028661}} 
+\index{file@{file}!write@{write}}
+\index{write@{write}!file@{file}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool write (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Write binary array. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_b;}
+\DoxyCodeLine{var data\_array;}
+\DoxyCodeLine{data\_array.push(0x01);}
+\DoxyCodeLine{data\_array.push(0x02);}
+\DoxyCodeLine{data\_array.push(0x03);}
+\DoxyCodeLine{state\_b = file.write(\textcolor{stringliteral}{"file.bin"}, data\_array);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & v\+\_\+data\+\_\+d \+: Write data buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Write status \begin{DoxyItemize}
+\item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
+
+\end{DoxyReturn}
+\mbox{\label{classfile_a66dabb055fac6400295f47d855d74b31}} 
+\index{file@{file}!write@{write}}
+\index{write@{write}!file@{file}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool write (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{string}]{data\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Write text string. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var state\_b;}
+\DoxyCodeLine{state\_b = file.write(\textcolor{stringliteral}{"file.txt"}, \textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+str \+: Write data text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Write status \begin{DoxyItemize}
+\item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

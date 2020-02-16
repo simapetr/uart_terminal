@@ -1,0 +1,74 @@
+.TH "jerry_context_data_manager_t" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+jerry_context_data_manager_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_jerryscript_core_h\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBinit_cb\fP )(void *data)"
+.br
+.ti -1c
+.RI "void(* \fBdeinit_cb\fP )(void *data)"
+.br
+.ti -1c
+.RI "void(* \fBfinalize_cb\fP )(void *data)"
+.br
+.ti -1c
+.RI "size_t \fBbytes_needed\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+User context item manager 
+.PP
+Definition at line 296 of file in_jerryscript_core_h\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "size_t jerry_context_data_manager_t::bytes_needed"
+Number of bytes to allocate for this manager\&. This is the size of the buffer that JerryScript will allocate on behalf of the manager\&. The pointer to this buffer is passed into init_cb, deinit_cb and finalize_cb\&. It is also returned from the jerry_get_context_data () API\&. 
+.PP
+Definition at line 335 of file in_jerryscript_core_h\&.h\&.
+.SS "void(* jerry_context_data_manager_t::deinit_cb) (void *data)"
+Callback responsible for deinitializing a context item, or NULL\&. This is called as part of jerry_cleanup (), right \fIbefore\fP the VM has been cleaned up\&. This is a good place to release strong references to jerry_value_t's that the manager may be holding\&. Note: because the VM has not been fully cleaned up yet, \fBjerry_object_native_info_t\fP free_cb's can still get called \fIafter\fP all deinit_cb's have been run\&. See finalize_cb for a callback that is guaranteed to run \fIafter\fP all free_cb's have been run\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The buffer that JerryScript allocated for the manager\&. 
+.RE
+.PP
+
+.PP
+Definition at line 317 of file in_jerryscript_core_h\&.h\&.
+.SS "void(* jerry_context_data_manager_t::finalize_cb) (void *data)"
+Callback responsible for finalizing a context item, or NULL\&. This is called as part of jerry_cleanup (), right \fIafter\fP the VM has been cleaned up and destroyed and jerry_\&.\&.\&. APIs cannot be called any more\&. At this point, all values in the VM have been cleaned up\&. This is a good place to clean up native state that can only be cleaned up at the very end when there are no more VM values around that may need to access that state\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The buffer that JerryScript allocated for the manager\&. After returning from this callback, the data pointer may no longer be used\&. 
+.RE
+.PP
+
+.PP
+Definition at line 328 of file in_jerryscript_core_h\&.h\&.
+.SS "void(* jerry_context_data_manager_t::init_cb) (void *data)"
+Callback responsible for initializing a context item, or NULL to zero out the memory\&. This is called lazily, the first time jerry_get_context_data () is called with this manager\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The buffer that JerryScript allocated for the manager\&. The buffer is zeroed out\&. The size is determined by the bytes_needed field\&. The buffer is kept alive until jerry_cleanup () is called\&. 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file in_jerryscript_core_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

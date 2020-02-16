@@ -1,0 +1,115 @@
+.TH "button" 3 "Sun Feb 16 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+button \- wxButton class interface  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBadd\fP (double sizer_index_d, string text_str, double proportion_d, bool expand_b)"
+.br
+.RI "Add new button\&. "
+.ti -1c
+.RI "bool \fBreg_event\fP (double button_index_d, string event_fct_str)"
+.br
+.RI "Register button event\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+wxButton class interface 
+.PP
+Definition at line 828 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double add (double sizer_index_d, string text_str, double proportion_d, bool expand_b)"
+
+.PP
+Add new button\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_button;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_button = gui\&.button\&.add(test_sizer, "test", 0, false);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.br
+\fI[IN]\fP text_str : Button text 
+.br
+\fI[IN]\fP proportion_d : Proportion in parent sizer element 
+.br
+\fI[IN]\fP expand_b : Expand in sizer flag 
+.PD 0
+
+.IP "\(bu" 2
+false : Default size 
+.IP "\(bu" 2
+true : Expand 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : Button buffer index 
+.RE
+.PP
+
+.SS "bool reg_event (double button_index_d, string event_fct_str)"
+
+.PP
+Register button event\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_button;
+var reg_event_bool;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_button = gui\&.button\&.add(test_sizer, "test", 0, false);
+reg_event_bool = gui\&.button\&.reg_event(test_button, "on_button_click");
+function on_button_click (component_id)
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP button_index_d : Button index 
+.br
+\fI[IN]\fP event_fct_str : Function name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Event register status 
+.PD 0
+
+.IP "\(bu" 2
+false : Fail 
+.IP "\(bu" 2
+true : Event registered 
+.PP
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

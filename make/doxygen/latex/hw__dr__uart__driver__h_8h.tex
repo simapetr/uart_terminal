@@ -1,0 +1,99 @@
+\section{D\+:/project/uart\+\_\+terminal/hardware/drivers/uart/hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.h File Reference}
+\label{hw__dr__uart__driver__h_8h}\index{D:/project/uart\_terminal/hardware/drivers/uart/hw\_dr\_uart\_driver\_h.h@{D:/project/uart\_terminal/hardware/drivers/uart/hw\_dr\_uart\_driver\_h.h}}
+
+
+Driver for U\+A\+RT communication.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{hw__dr__uart__driver__h_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hw__dr__uart__driver__h_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ uart\+\_\+cfg\+\_\+t}
+\item 
+struct \textbf{ uart\+\_\+event\+\_\+buffer\+\_\+t}
+\item 
+class \textbf{ uart\+\_\+port}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{hw__dr__uart__driver__h_8h_a1ca888bd091694c05472e1b91df1a97b}} 
+\#define {\bfseries D\+L\+L\+\_\+\+E\+X\+P\+O\+RT}~\+\_\+\+\_\+declspec(dllimport)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \textbf{ uart\+\_\+event\+\_\+fct}) (void $\ast$p\+\_\+parametr\+\_\+void, uint32\+\_\+t event\+\_\+type\+\_\+ui32, uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t length\+\_\+ui32)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t} \{ \newline
+{\bfseries e\+\_\+rx} = 1, 
+{\bfseries e\+\_\+cts} = 2, 
+{\bfseries e\+\_\+dsr} = 3, 
+{\bfseries e\+\_\+ring} = 4, 
+\newline
+{\bfseries e\+\_\+rlsd} = 5
+ \}
+\item 
+\mbox{\label{group___u_a_r_t_ga780849ccdce6e933c3adff0ed074aafa}} 
+enum {\bfseries uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t} \{ \newline
+{\bfseries e\+\_\+dtr} = 0, 
+{\bfseries e\+\_\+rts} = 1, 
+{\bfseries e\+\_\+break} = 2, 
+{\bfseries e\+\_\+xoff} = 3, 
+\newline
+{\bfseries e\+\_\+xon} = 4
+ \}
+\item 
+\mbox{\label{group___u_a_r_t_gaf7d6a356f1601c95992ab6990320fd35}} 
+enum {\bfseries uart\+\_\+status\+\_\+t} \{ \newline
+{\bfseries e\+\_\+00\+\_\+open\+\_\+error} = 0, 
+{\bfseries e\+\_\+01\+\_\+open} = 1, 
+{\bfseries e\+\_\+02\+\_\+handle\+\_\+error} = 2, 
+{\bfseries e\+\_\+03\+\_\+write\+\_\+configuration\+\_\+error} = 3, 
+\newline
+{\bfseries e\+\_\+04\+\_\+write\+\_\+timeout\+\_\+error} = 4, 
+{\bfseries e\+\_\+05\+\_\+close\+\_\+error} = 5, 
+{\bfseries e\+\_\+06\+\_\+close} = 6, 
+{\bfseries e\+\_\+07\+\_\+opened} = 7
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Driver for U\+A\+RT communication. 
+
+\begin{DoxyAuthor}{Author}
+Ing. Petr Simek 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+V2.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29.\+04.\+2015 
+\end{DoxyDate}
+\begin{DoxyAttention}{Attention}
+\subsubsection*{\begin{center}\copyright{} C\+O\+P\+Y\+R\+I\+G\+HT P\+O\+R\+T\+T\+R\+O\+N\+IC\end{center} }
+\end{DoxyAttention}

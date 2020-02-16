@@ -1,0 +1,321 @@
+\section{Static\+\_\+text}
+\label{group___static__text}\index{Static\_text@{Static\_text}}
+
+
+Static text class definition.  
+
+
+Collaboration diagram for Static\+\_\+text\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{group___static__text}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ static\+\_\+text\+\_\+js\+\_\+c}
+\item 
+struct \textbf{ static\+\_\+text\+\_\+buffer\+\_\+t}
+\item 
+struct \textbf{ textctrl\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ static\+\_\+text\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+interface\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ static\+\_\+text\+\_\+js\+\_\+c\+::add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Add new Static text (JS function \char`\"{}add\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ static\+\_\+text\+\_\+js\+\_\+c\+::set} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set static text (JS method \char`\"{}set\char`\"{}) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gui\+\_\+frame\+::add\+\_\+static\+\_\+text} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add static\+\_\+text. \end{DoxyCompactList}\item 
+bool \textbf{ gui\+\_\+frame\+::set\+\_\+static\+\_\+text} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set static\+\_\+text text. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gui\+\_\+frame\+::add\+\_\+textctrl} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool multiline\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add Text control. \end{DoxyCompactList}\item 
+bool \textbf{ gui\+\_\+frame\+::set\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set textctrl text. \end{DoxyCompactList}\item 
+bool \textbf{ gui\+\_\+frame\+::append\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, wx\+String text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Append textctrl text. \end{DoxyCompactList}\item 
+wx\+String \textbf{ gui\+\_\+frame\+::get\+\_\+textctrl} (double static\+\_\+text\+\_\+index\+\_\+d, uint32\+\_\+t line\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get textctrl text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ static\+\_\+text\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+static\+\_\+text\+\_\+buffer}
+\item 
+\mbox{\label{group___static__text_ga36d872b1240e208aac1eb9ea3802cab3}} 
+uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+static\+\_\+text\+\_\+ui32} = 0
+\item 
+vector$<$ \textbf{ textctrl\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+textctrl\+\_\+buffer}
+\item 
+\mbox{\label{group___static__text_ga408c63166cadb78b37c89ad5aeb7cf33}} 
+uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+textctrl\+\_\+ui32} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Static text class definition. 
+
+G\+UI static\+\_\+text component.
+
+\subsection{Function Documentation}
+\mbox{\label{group___static__text_ga1376662ae5d279daa25c3b80de885324}} 
+\index{Static\_text@{Static\_text}!add@{add}}
+\index{add@{add}!Static\_text@{Static\_text}}
+\subsubsection{add()}
+{\footnotesize\ttfamily uint32\+\_\+t static\+\_\+text\+\_\+js\+\_\+c\+::add (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add new Static text (JS function \char`\"{}add\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file in\+\_\+js\+\_\+class\+\_\+static\+\_\+text\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga09706d887f825f132f32bb89176cace3}} 
+\index{Static\_text@{Static\_text}!add\_static\_text@{add\_static\_text}}
+\index{add\_static\_text@{add\_static\_text}!Static\_text@{Static\_text}}
+\subsubsection{add\_static\_text()}
+{\footnotesize\ttfamily uint32\+\_\+t gui\+\_\+frame\+::add\+\_\+static\+\_\+text (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add static\+\_\+text. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em sizer\+\_\+index\+\_\+d} & \+: Parent sizer index \\
+\hline
+{\em text\+\_\+str} & \+: Text \\
+\hline
+{\em proportion\+\_\+d} & \+: Relative proportion item in sizer \\
+\hline
+{\em expand\+\_\+b} & \+: Expand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: New static\+\_\+text buffer index 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file in\+\_\+js\+\_\+gui\+\_\+static\+\_\+text\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga4c6020ca7575192be5f4ea922d9b4fb3}} 
+\index{Static\_text@{Static\_text}!add\_textctrl@{add\_textctrl}}
+\index{add\_textctrl@{add\_textctrl}!Static\_text@{Static\_text}}
+\subsubsection{add\_textctrl()}
+{\footnotesize\ttfamily uint32\+\_\+t gui\+\_\+frame\+::add\+\_\+textctrl (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{bool}]{multiline\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add Text control. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em sizer\+\_\+index\+\_\+d} & \+: Parent sizer index \\
+\hline
+{\em text\+\_\+str} & \+: Text \\
+\hline
+{\em proportion\+\_\+d} & \+: Relative proportion item in sizer \\
+\hline
+{\em expand\+\_\+b} & \+: Expand \\
+\hline
+{\em multiline\+\_\+b} & \+: Multiline status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: New textctrl buffer index 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_gac895e185751e58d638486b8ee322580a}} 
+\index{Static\_text@{Static\_text}!append\_textctrl@{append\_textctrl}}
+\index{append\_textctrl@{append\_textctrl}!Static\_text@{Static\_text}}
+\subsubsection{append\_textctrl()}
+{\footnotesize\ttfamily bool gui\+\_\+frame\+::append\+\_\+textctrl (\begin{DoxyParamCaption}\item[{double}]{static\+\_\+text\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Append textctrl text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em static\+\_\+text\+\_\+index\+\_\+d} & \+: Static text index \\
+\hline
+{\em text\+\_\+str} & \+: Text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: textctrl change status 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_gafb4f6887bd20a74eaa57663276ddc3c2}} 
+\index{Static\_text@{Static\_text}!get\_textctrl@{get\_textctrl}}
+\index{get\_textctrl@{get\_textctrl}!Static\_text@{Static\_text}}
+\subsubsection{get\_textctrl()}
+{\footnotesize\ttfamily wx\+String gui\+\_\+frame\+::get\+\_\+textctrl (\begin{DoxyParamCaption}\item[{double}]{static\+\_\+text\+\_\+index\+\_\+d,  }\item[{uint32\+\_\+t}]{line\+\_\+ui32 }\end{DoxyParamCaption})}
+
+
+
+Get textctrl text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em static\+\_\+text\+\_\+index\+\_\+d} & \+: Static text index \\
+\hline
+{\em line\+\_\+ui32} & \+: Read line number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: textctrl text string 
+\end{DoxyReturn}
+
+
+Definition at line 176 of file in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga54524351538337edd54ece1c2f6d0620}} 
+\index{Static\_text@{Static\_text}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Static\_text@{Static\_text}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void static\+\_\+text\+\_\+js\+\_\+c\+::reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+interface\+\_\+void }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+gui\+\_\+interface\+\_\+void \+: Pointer on registered class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+static\+\_\+text\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga87b7bfc0b5cadea2b5ec952bf6964051}} 
+\index{Static\_text@{Static\_text}!set@{set}}
+\index{set@{set}!Static\_text@{Static\_text}}
+\subsubsection{set()}
+{\footnotesize\ttfamily uint32\+\_\+t static\+\_\+text\+\_\+js\+\_\+c\+::set (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set static text (JS method \char`\"{}set\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file in\+\_\+js\+\_\+class\+\_\+static\+\_\+text\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga52d7773dec4f95133ce691176064aef6}} 
+\index{Static\_text@{Static\_text}!set\_static\_text@{set\_static\_text}}
+\index{set\_static\_text@{set\_static\_text}!Static\_text@{Static\_text}}
+\subsubsection{set\_static\_text()}
+{\footnotesize\ttfamily bool gui\+\_\+frame\+::set\+\_\+static\+\_\+text (\begin{DoxyParamCaption}\item[{double}]{static\+\_\+text\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set static\+\_\+text text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em static\+\_\+text\+\_\+index\+\_\+d} & \+: Static text index \\
+\hline
+{\em text\+\_\+str} & \+: Text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: static\+\_\+text change status 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file in\+\_\+js\+\_\+gui\+\_\+static\+\_\+text\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_ga2508cd9160297f7afcaca833d287e7e0}} 
+\index{Static\_text@{Static\_text}!set\_textctrl@{set\_textctrl}}
+\index{set\_textctrl@{set\_textctrl}!Static\_text@{Static\_text}}
+\subsubsection{set\_textctrl()}
+{\footnotesize\ttfamily bool gui\+\_\+frame\+::set\+\_\+textctrl (\begin{DoxyParamCaption}\item[{double}]{static\+\_\+text\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set textctrl text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em static\+\_\+text\+\_\+index\+\_\+d} & \+: Static text index \\
+\hline
+{\em text\+\_\+str} & \+: Text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: textctrl change status 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___static__text_ga3182f133a872d9df1f836e8210e1f9d2}} 
+\index{Static\_text@{Static\_text}!lv\_data\_static\_text\_buffer@{lv\_data\_static\_text\_buffer}}
+\index{lv\_data\_static\_text\_buffer@{lv\_data\_static\_text\_buffer}!Static\_text@{Static\_text}}
+\subsubsection{lv\_data\_static\_text\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ static\+\_\+text\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+static\+\_\+text\+\_\+buffer}
+
+Local variable 
+
+Definition at line 71 of file in\+\_\+js\+\_\+gui\+\_\+static\+\_\+text\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___static__text_gaedebfc4d8564330649b912c46ee244a3}} 
+\index{Static\_text@{Static\_text}!lv\_data\_textctrl\_buffer@{lv\_data\_textctrl\_buffer}}
+\index{lv\_data\_textctrl\_buffer@{lv\_data\_textctrl\_buffer}!Static\_text@{Static\_text}}
+\subsubsection{lv\_data\_textctrl\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ textctrl\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+textctrl\+\_\+buffer}
+
+Local variable 
+
+Definition at line 76 of file in\+\_\+js\+\_\+gui\+\_\+textctrl\+\_\+cpp.\+cpp.
+
