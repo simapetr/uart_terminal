@@ -110,6 +110,7 @@ class main_frame: public wxFrame
         void on_wx_gui_sync_wxtimer_trigger(wxTimerEvent& event);
         void on_script_run_wxtogglebutton_toggle(wxCommandEvent& event);
         void on_speed_wxchoice_select(wxCommandEvent& event);
+        void on_js_doc_item_wxmenu_selected(wxCommandEvent& event);
         //*)
         void main_panel_set_port_choice(void);
         void uart_rx_data(uint8_t *p_data_sui8, uint32_t length_ui32);
@@ -149,6 +150,7 @@ class main_frame: public wxFrame
         static const long l_id_main_wxpanel;
         static const long l_id_file_quit_item_wxmenu;
         static const long l_id_help_about_item_wxmenu;
+        static const long l_id_help_js_doc_item_wxmenu;
         static const long l_id_bot_wxstatusbar;
         static const long l_id_dialog_caller_wxtimer;
         static const long l_id_wx_gui_sync_wxtimer;
@@ -185,6 +187,7 @@ class main_frame: public wxFrame
         wxMenuBar* lp_top_wxmenubar;
         wxMenuItem* lp_file_quit_item_wxmenu;
         wxMenuItem* lp_help_about_item_wxmenu;
+        wxMenuItem* lp_js_doc_item_wxmenu;
         wxPanel* lp_main_wxpanel;
         wxStaticBoxSizer* lp_port_control_wxstaticboxsizer;
         wxStaticBoxSizer* lp_port_state_wxstaticboxsizer;

@@ -378,6 +378,12 @@
 					<help>Show info about this application</help>
 					<handler function="menu_bar_help_about_item_selected" entry="EVT_MENU" />
 				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_help_js_doc_item_wxmenu" variable="lp_js_doc_item_wxmenu" member="yes">
+					<label>JS doc</label>
+					<help>Documentation internal JerryScript class</help>
+					<handler function="on_js_doc_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
 			</object>
 		</object>
 		<object class="wxStatusBar" name="l_id_bot_wxstatusbar" variable="lp_bot_wxstatusbar" member="yes">

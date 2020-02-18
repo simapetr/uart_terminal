@@ -100,6 +100,7 @@ const long main_frame::l_id_console_wxtextctrl = wxNewId();
 const long main_frame::l_id_main_wxpanel = wxNewId();
 const long main_frame::l_id_file_quit_item_wxmenu = wxNewId();
 const long main_frame::l_id_help_about_item_wxmenu = wxNewId();
+const long main_frame::l_id_help_js_doc_item_wxmenu = wxNewId();
 const long main_frame::l_id_bot_wxstatusbar = wxNewId();
 const long main_frame::l_id_dialog_caller_wxtimer = wxNewId();
 const long main_frame::l_id_wx_gui_sync_wxtimer = wxNewId();
@@ -284,6 +285,9 @@ int32_t select_i32;
     lp_help_wxmenu = new wxMenu();
     lp_help_about_item_wxmenu = new wxMenuItem(lp_help_wxmenu, l_id_help_about_item_wxmenu, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
     lp_help_wxmenu->Append(lp_help_about_item_wxmenu);
+    lp_help_wxmenu->AppendSeparator();
+    lp_js_doc_item_wxmenu = new wxMenuItem(lp_help_wxmenu, l_id_help_js_doc_item_wxmenu, _("JS doc"), _("Documentation internal JerryScript class"), wxITEM_NORMAL);
+    lp_help_wxmenu->Append(lp_js_doc_item_wxmenu);
     lp_top_wxmenubar->Append(lp_help_wxmenu, _("Help"));
     SetMenuBar(lp_top_wxmenubar);
     lp_bot_wxstatusbar = new wxStatusBar(this, l_id_bot_wxstatusbar, 0, _T("l_id_bot_wxstatusbar"));
@@ -309,6 +313,7 @@ int32_t select_i32;
     Connect(l_id_send_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_send_button_click);
     Connect(l_id_file_quit_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_file_quit_item_selected);
     Connect(l_id_help_about_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_help_about_item_selected);
+    Connect(l_id_help_js_doc_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::on_js_doc_item_wxmenu_selected);
     Connect(l_id_dialog_caller_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&main_frame::on_dialog_caller_wxtimer_trigger);
     Connect(l_id_wx_gui_sync_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&main_frame::on_wx_gui_sync_wxtimer_trigger);
     //*)
@@ -864,7 +869,7 @@ void main_frame::set_send_event (send_event_fct data_send_event_fct, void* p_par
 
 uint32_t main_frame::run_script(wxString path_str)
 {
-uint32_t run_status_ui32;
+uint32_t run_status_ui32 = 0;
 static bool f_init_b = false;
 static wxString script_file_str;
 wxString config_path_str;
@@ -964,7 +969,21 @@ void main_frame::menu_bar_file_quit_item_selected(wxCommandEvent& event)
 
 void main_frame::menu_bar_help_about_item_selected(wxCommandEvent& event)
 {
-    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : " __DATE__ "\nPORTTRONIC(c)"), _("About"));
+    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : " __DATE__ "\nPORTTRONIC(c)\nwxWidget 3.0.4\nJerryScript 2.2.0\nMinGW 5.1.0. x64"), _("About"));
+    return;
+}
+
+/** @brief JerryScript internal class documentation
+ *
+ * @param [IN] event : standard event input data
+ * @return void
+ *
+ */
+
+void main_frame::on_js_doc_item_wxmenu_selected(wxCommandEvent& event)
+{
+    // Show help for JerryScript
+    ShellExecute( NULL, _T( "open" ), _T( "js_doc.chm" ), NULL, NULL, SW_NORMAL );
     return;
 }
 
