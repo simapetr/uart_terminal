@@ -72,8 +72,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<slider_buffer_t> lv_data_slider_buffer;
-uint32_t l_cnt_slider_ui32 = 0;
+static vector<slider_buffer_t> lv_data_slider_buffer;
+static uint32_t l_cnt_slider_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -110,6 +110,7 @@ uint32_t index_ui32 = lv_data_slider_buffer.size();
     l_data_slider_buffer.change_b = false;
     lv_data_slider_buffer.push_back(l_data_slider_buffer);
     while(!lv_data_slider_buffer[index_ui32].p_data_wxslider){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

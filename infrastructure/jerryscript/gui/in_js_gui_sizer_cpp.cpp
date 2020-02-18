@@ -66,8 +66,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<sizer_buffer_t> lv_data_sizer_buffer;
-uint32_t l_cnt_sizer_ui32 = 0;
+static vector<sizer_buffer_t> lv_data_sizer_buffer;
+static uint32_t l_cnt_sizer_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -97,6 +97,7 @@ uint32_t index_ui32 = lv_data_sizer_buffer.size();
     l_data_sizer_buffer.panel_sizer_b = false;
     lv_data_sizer_buffer.push_back(l_data_sizer_buffer);
     while(!lv_data_sizer_buffer[index_ui32].p_data_wxboxsizer){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 
@@ -122,6 +123,7 @@ uint32_t index_ui32 = lv_data_sizer_buffer.size();
     l_data_sizer_buffer.panel_sizer_b = true;
     lv_data_sizer_buffer.push_back(l_data_sizer_buffer);
     while(!lv_data_sizer_buffer[index_ui32].p_data_wxboxsizer){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

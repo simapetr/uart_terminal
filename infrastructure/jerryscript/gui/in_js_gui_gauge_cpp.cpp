@@ -69,8 +69,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<gauge_buffer_t> lv_data_gauge_buffer;
-uint32_t l_cnt_gauge_ui32 = 0;
+static vector<gauge_buffer_t> lv_data_gauge_buffer;
+static uint32_t l_cnt_gauge_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -103,6 +103,7 @@ uint32_t index_ui32 = lv_data_gauge_buffer.size();
     data_gauge_buffer.update_b = false;
     lv_data_gauge_buffer.push_back(data_gauge_buffer);
     while(!lv_data_gauge_buffer[index_ui32].p_data_wxgauge){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

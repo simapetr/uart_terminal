@@ -70,8 +70,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<check_box_buffer_t> lv_data_check_box_buffer;
-uint32_t l_cnt_check_ui32 = 0;
+static vector<check_box_buffer_t> lv_data_check_box_buffer;
+static uint32_t l_cnt_check_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -106,6 +106,7 @@ uint32_t index_ui32 = lv_data_check_box_buffer.size();
     data_check_box_buffer.update_b = false;
     lv_data_check_box_buffer.push_back(data_check_box_buffer);
     while(!lv_data_check_box_buffer[index_ui32].p_data_wxcheckbox){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

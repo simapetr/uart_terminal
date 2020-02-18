@@ -73,8 +73,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<textctrl_buffer_t> lv_data_textctrl_buffer;
-uint32_t l_cnt_textctrl_ui32 = 0;
+static vector<textctrl_buffer_t> lv_data_textctrl_buffer;
+static uint32_t l_cnt_textctrl_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -112,6 +112,7 @@ uint32_t index_ui32 = lv_data_textctrl_buffer.size();
     l_data_textctrl_buffer.read_text_str = wxEmptyString;
     lv_data_textctrl_buffer.push_back(l_data_textctrl_buffer);
     while(!lv_data_textctrl_buffer[index_ui32].p_data_wxtextctrl){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

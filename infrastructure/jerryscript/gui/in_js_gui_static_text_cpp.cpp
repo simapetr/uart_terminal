@@ -68,8 +68,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<static_text_buffer_t> lv_data_static_text_buffer;
-uint32_t l_cnt_static_text_ui32 = 0;
+static vector<static_text_buffer_t> lv_data_static_text_buffer;
+static uint32_t l_cnt_static_text_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -101,6 +101,7 @@ uint32_t index_ui32 = lv_data_static_text_buffer.size();
     l_data_static_text_buffer.update_b = false;
     lv_data_static_text_buffer.push_back(l_data_static_text_buffer);
     while(!lv_data_static_text_buffer[index_ui32].p_data_wxstatictext){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

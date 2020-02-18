@@ -67,8 +67,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<graph_buffer_t> lv_data_graph_buffer;
-uint32_t l_cnt_graph_ui32 = 0;
+static vector<graph_buffer_t> lv_data_graph_buffer;
+static uint32_t l_cnt_graph_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -100,6 +100,7 @@ uint32_t index_ui32 = lv_data_graph_buffer.size();
     data_graph_buffer.p_graph_data_plot = NULL;
     lv_data_graph_buffer.push_back(data_graph_buffer);
     while(!lv_data_graph_buffer[index_ui32].p_graph_data_plot){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 

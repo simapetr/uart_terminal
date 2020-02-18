@@ -64,8 +64,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<panel_buffer_t> lv_data_panel_buffer;
-uint32_t l_cnt_panel_ui32 = 0;
+static vector<panel_buffer_t> lv_data_panel_buffer;
+static uint32_t l_cnt_panel_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -93,6 +93,7 @@ wxBoxSizer* p_data_wxboxsizer;
     l_data_panel_buffer.sizer_index_d = 0;
     lv_data_panel_buffer.push_back(l_data_panel_buffer);
     while(!lv_data_panel_buffer[index_ui32].p_data_wxpanel){wxMilliSleep(1);}
+    wxMilliSleep(1);
     lv_data_panel_buffer[index_ui32].sizer_index_d = this->add_panel_sizer(index_ui32, 1, horizontal_b);
     // Get box sizer
     p_data_wxboxsizer = this->get_sizer(lv_data_panel_buffer[index_ui32].sizer_index_d);

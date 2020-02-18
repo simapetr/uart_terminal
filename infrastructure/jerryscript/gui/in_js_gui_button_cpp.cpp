@@ -68,8 +68,8 @@ typedef struct
   ****************************************************************************
   */
 
-vector<button_buffer_t> lv_data_button_buffer;
-uint32_t l_cnt_button_ui32 = 0;
+static vector<button_buffer_t> lv_data_button_buffer;
+static uint32_t l_cnt_button_ui32 = 0;
 
 /**
   ****************************************************************************
@@ -101,6 +101,7 @@ uint32_t index_ui32 = lv_data_button_buffer.size();
     l_data_button_buffer.event_str = wxEmptyString;
     lv_data_button_buffer.push_back(l_data_button_buffer);
     while(!lv_data_button_buffer[index_ui32].p_data_wxbutton){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return index_ui32;
 }
 
