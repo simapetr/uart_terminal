@@ -125,61 +125,61 @@ typedef struct
 
 class DLL_EXPORT uart_port
 {
-public :
+    public :
 
-    uart_port(void);
-    ~uart_port(void);
-    void get_port(void);
-    string* get_bus_array(void);
-    uart_status_t open(uart_cfg_t *p_data_uart_cfg);
-    void close(void);
-    uint8_t create_event(uart_event_fct function_uart_event_fct , void* p_parametr_void);
-	uint8_t delete_event(uart_event_fct function_uart_event_fct);
-	void delete_event_all(void);
-    uart_status_t get_state(void);
-    uint32_t get_last_error(void);
-    uint32_t wait_rx_event(void);
-    uint8_t flush(void);
-    uint8_t write_data(uint8_t data_ui8);
-    uint8_t write_data(uint8_t *p_data_sui8, uint32_t len_ui32);
-    uint8_t write_data(vector<uint8_t>& pv_data_sui8);
-    uint8_t read_data(uint8_t *p_data_ui8);
-    uint8_t read_data(string *p_data_str);
-    uint8_t get_com_ctrl(uart_com_ctrl_in_t pin_uart_com_ctrl_in);
-    void set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8);
+        uart_port(void);
+        ~uart_port(void);
+        void get_port(void);
+        string* get_bus_array(void);
+        uart_status_t open(uart_cfg_t *p_data_uart_cfg);
+        void close(void);
+        uint8_t create_event(uart_event_fct function_uart_event_fct , void* p_parametr_void);
+        uint8_t delete_event(uart_event_fct function_uart_event_fct);
+        void delete_event_all(void);
+        uart_status_t get_state(void);
+        uint32_t get_last_error(void);
+        uint32_t wait_rx_event(void);
+        uint8_t flush(void);
+        uint8_t write_data(uint8_t data_ui8);
+        uint8_t write_data(uint8_t *p_data_sui8, uint32_t len_ui32);
+        uint8_t write_data(vector<uint8_t>& pv_data_sui8);
+        uint8_t read_data(uint8_t *p_data_ui8);
+        uint8_t read_data(string *p_data_str);
+        uint8_t get_com_ctrl(uart_com_ctrl_in_t pin_uart_com_ctrl_in);
+        void set_com_ctrl(uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8);
 
-private :
+    private :
 
-    static DWORD WINAPI uart_thread(PVOID parametr_pvoid);
+        static DWORD WINAPI uart_thread(PVOID parametr_pvoid);
 
-    HANDLE uart_thread_handle;
-    DWORD uart_thread_id_dword;
-    uint32_t uart_thread_run_ui32;
+        HANDLE uart_thread_handle;
+        DWORD uart_thread_id_dword;
+        uint32_t uart_thread_run_ui32;
 
-    vector<uart_event_buffer_t> lv_rx_uart_event_buffer;
+        vector<uart_event_buffer_t> lv_rx_uart_event_buffer;
 
-    // UART variable
-    HANDLE port_handle;
-    // Overlapped struct
-    OVERLAPPED port_overlapped;
-    // usart config struct
-    DCB port_setting_dcb;
-    // usart config timeout struct
-    COMMTIMEOUTS port_timeouts_commtimeouts;
-    // Port status
-    COMSTAT port_comstat;
-    // Port event type
-    DWORD port_event_dword;
-    // Critical section
-	CRITICAL_SECTION data_critical_section;
-	// Array of available port in system
-	string port_buffer_str;
-    // UART state
-    uart_status_t port_uart_status;
-    // Port error
-    uint32_t port_error_ui32;
-    // Read data
-    string read_data_buffer_str;
+        // UART variable
+        HANDLE port_handle;
+        // Overlapped struct
+        OVERLAPPED port_overlapped;
+        // usart config struct
+        DCB port_setting_dcb;
+        // usart config timeout struct
+        COMMTIMEOUTS port_timeouts_commtimeouts;
+        // Port status
+        COMSTAT port_comstat;
+        // Port event type
+        DWORD port_event_dword;
+        // Critical section
+        CRITICAL_SECTION data_critical_section;
+        // Array of available port in system
+        string port_buffer_str;
+        // UART state
+        uart_status_t port_uart_status;
+        // Port error
+        uint32_t port_error_ui32;
+        // Read data
+        string read_data_buffer_str;
 };
 
 /**

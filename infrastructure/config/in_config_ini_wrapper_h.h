@@ -40,22 +40,22 @@
 
 class config_ini
 {
-public:
+    public:
 
-	config_ini( wxString path_str );
-	~config_ini( void );
-	int32_t get_value( wxString path_str, wxString default_value_str );
-	wxString get_string( wxString path_str, wxString default_value_str );
-	void set_value( wxString path_str, int32_t value_i32 );
-	void set_string( wxString path_str, wxString value_str );
+        config_ini( wxString path_str );
+        ~config_ini( void );
+        int32_t get_value( wxString path_str, wxString default_value_str );
+        wxString get_string( wxString path_str, wxString default_value_str );
+        void set_value( wxString path_str, int32_t value_i32 );
+        void set_string( wxString path_str, wxString value_str );
 
-	// Error message
-	wxString error_text_str;
+        // Error message
+        wxString error_text_str;
 
-private:
+    private:
 
-    // Ini file path
-	wxString ini_file_path_str;
+        // Ini file path
+        wxString ini_file_path_str;
 
 };
 

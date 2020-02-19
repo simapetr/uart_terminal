@@ -62,48 +62,48 @@
 
 class jerryscript_c
 {
-public:
+    public:
 
-	jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b, bool init_b);
-	~jerryscript_c( void );
-	uint32_t run(wxString script_str);
-	void stop (void);
-	void call_event (wxString event_str, uint32_t component_id_ui32);
-	void reg_class (void);
-	void dereg_class (void);
+        jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b, bool init_b);
+        ~jerryscript_c( void );
+        uint32_t run(wxString script_str);
+        void stop (void);
+        void call_event (wxString event_str, uint32_t component_id_ui32);
+        void reg_class (void);
+        void dereg_class (void);
 
-private:
+    private:
 
-    static void worker(void* p_parametr_void);
-    static uint32_t delay(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-    static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-    static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static void worker(void* p_parametr_void);
+        static uint32_t delay(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
 
-    // Working thread
-    thread_c* lp_script_thread;
-    uint8_t l_run_script_ui8;
-    // File path
-	wxString l_jerryscript_code_str;
-	bool l_init_flag_b;
-	// GUI
-	gui_frame* lp_data_gui_frame;
-	void* lp_gui_main_frame_void;
-	bool l_debug_b;
-	uart_port* lp_com_uart_port;
-	// External class
-	time_js_c l_data_time_js;
-	file_js_c l_data_file_js;
-	uart_js_c l_port_uart_js;
-	main_frame_js_c l_gui_main_frame_js;
-	panel_js_c l_gui_panel_js;
-	sizer_js_c l_gui_sizer_js;
-	graph_js_c l_gui_graph_js;
-	button_js_c l_gui_button_js;
-	slider_js_c l_gui_slider_js;
-	static_text_js_c l_gui_static_text_js;
-	textctrl_js_c l_gui_textctrl_js;
-	check_box_js_c l_gui_check_box_js;
-	gauge_js_c l_gui_gauge_js;
+        // Working thread
+        thread_c* lp_script_thread;
+        uint8_t l_run_script_ui8;
+        // File path
+        wxString l_jerryscript_code_str;
+        bool l_init_flag_b;
+        // GUI
+        gui_frame* lp_data_gui_frame;
+        void* lp_gui_main_frame_void;
+        bool l_debug_b;
+        uart_port* lp_com_uart_port;
+        // External class
+        time_js_c l_data_time_js;
+        file_js_c l_data_file_js;
+        uart_js_c l_port_uart_js;
+        main_frame_js_c l_gui_main_frame_js;
+        panel_js_c l_gui_panel_js;
+        sizer_js_c l_gui_sizer_js;
+        graph_js_c l_gui_graph_js;
+        button_js_c l_gui_button_js;
+        slider_js_c l_gui_slider_js;
+        static_text_js_c l_gui_static_text_js;
+        textctrl_js_c l_gui_textctrl_js;
+        check_box_js_c l_gui_check_box_js;
+        gauge_js_c l_gui_gauge_js;
 
 };
 

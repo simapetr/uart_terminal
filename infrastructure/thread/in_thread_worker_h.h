@@ -49,23 +49,23 @@ typedef void (*thread_fct_t)(void* p_parametr_void);
 
 class thread_c : public wxThread
 {
-public:
+    public:
 
-    thread_c(void *p_parameter_void, thread_fct_t function_thread_fct, uint32_t timeout_ui32 = 0);
-    ~thread_c(void);
-    void signal(void);
-    void stop(void);
+        thread_c(void *p_parameter_void, thread_fct_t function_thread_fct, uint32_t timeout_ui32 = 0);
+        ~thread_c(void);
+        void signal(void);
+        void stop(void);
 
-protected:
+    protected:
 
-    virtual ExitCode Entry();
+        virtual ExitCode Entry();
 
-    void *lp_parameter_void;
-    bool l_run_flag_b;
-    thread_fct_t l_function_thread_fct;
-    uint32_t l_timeout_ui32;
-    wxMutex *lp_data_wxmutex;
-    wxCondition *lp_data_wxcondition;
+        void *lp_parameter_void;
+        bool l_run_flag_b;
+        thread_fct_t l_function_thread_fct;
+        uint32_t l_timeout_ui32;
+        wxMutex *lp_data_wxmutex;
+        wxCondition *lp_data_wxcondition;
 
 };
 
