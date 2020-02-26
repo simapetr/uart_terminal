@@ -158,7 +158,7 @@ private :
 
     // UART variable
     HANDLE port_handle;
-    uint8_t l_rx_data_sui8[0xffff];
+    uint8_t l_rx_data_sui8[0x10000];
     uint16_t l_rx_data_ptr_ui16;
     // Overlapped struct
     OVERLAPPED rd_port_overlapped;

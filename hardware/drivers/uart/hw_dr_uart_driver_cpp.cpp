@@ -611,23 +611,8 @@ COMSTAT port_comstat;
         {
             if (WaitCommEvent(p_bkp_this->port_handle, &event_mask_dword, &p_bkp_this->rd_port_overlapped))
             {
+                p_bkp_this->l_rx_data_ptr_ui16 = 0;
                 p_bkp_this->call(event_mask_dword);
-                if (event_mask_dword & EV_CTS)
-                {
-                    printf("CTS\n");
-                }
-                if (event_mask_dword & EV_DSR)
-                {
-                    printf("DSR\n");
-                }
-                if (event_mask_dword & EV_RING)
-                {
-                    printf("RING\n");
-                }
-                if (event_mask_dword & EV_RLSD)
-                {
-                    printf("RLSD\n");
-                }
             }
             else
             {
@@ -687,17 +672,21 @@ COMSTAT port_comstat;
                                         else
                                         {
                                             p_bkp_this->l_rx_data_ptr_ui16++;
+                                            if(p_bkp_this->l_rx_data_ptr_ui16 == 0xFFFF)
+                                            {
+                                                // Send full buffer
+                                                read_flag_b = FALSE;
+                                            }
                                         }
                                     }
                                 }
                             }
                             LeaveCriticalSection(&p_bkp_this->data_critical_section);
-                            if(p_bkp_this->l_rx_data_ptr_ui16)
+                            if(p_bkp_this->l_rx_data_ptr_ui16 || (event_mask_dword &(~EV_RXCHAR)))
                             {
                                 // Call events
-                                p_bkp_this->call(EV_RXCHAR);
+                                p_bkp_this->call(event_mask_dword);
                             }
-
                         }
                     }
                     break;
