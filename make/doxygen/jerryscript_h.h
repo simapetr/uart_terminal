@@ -24,6 +24,7 @@
   *
   * - Control main frame GUI
   * - Read system time
+  * - Event timer
   * - Read/Write file
   * - UART communication
   * - Create AUI panel and use selected wxWidget3.0 component
@@ -602,6 +603,112 @@ class time
          */
 
         string local_str(void);
+
+};
+
+/**
+  * @class timer
+  * @brief Event timer
+  *
+  */
+
+class timer
+{
+
+    public:
+
+        /** @brief Add new timer event
+         *
+         * @code
+         * var system_timer;
+         * system_timer = timer.add("timer_event", 10, true, false);
+         * function timer_event()
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] event_str : Event function name
+         * @param [IN] period_d : Time period
+         * @param [IN] start_b :Start timer after add
+         * @param [IN] one_shot_b : Call event only one after overflow
+         * @return double : Timer ID
+         *
+         */
+
+        double add(string event_str, double period_d, bool start_b, bool one_shot_b);
+
+        /** @brief Set timer period
+         *
+         * @code
+         * var system_timer;
+         * system_timer = timer.add("timer_event", 10, true, false);
+         * timer.set(system_timer, 200);
+         * function timer_event()
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] timer_index_d : Timer index
+         * @param [IN] period_d : Time period
+         * @return void
+         *
+         */
+
+        void set(double timer_index_d, double period_d);
+
+        /** @brief Start timer
+         *
+         * @code
+         * var system_timer;
+         * system_timer = timer.add("timer_event", 10);
+         * timer.start(system_timer);
+         * function timer_event()
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] timer_index_d : Timer index
+         * @return void
+         *
+         */
+
+        void start(double timer_index_d);
+
+        /** @brief Stop timer
+         *
+         * @code
+         * var system_timer;
+         * system_timer = timer.add("timer_event", 10, true, false);
+         * timer.stop(system_timer);
+         * function timer_event()
+         * {
+         * }
+         * @endcode
+         *
+         * @param [IN] timer_index_d : Timer index
+         * @return void
+         *
+         */
+
+        void stop(double timer_index_d);
+
+        /** @brief Reset delay time
+         *
+         * @code
+         * var system_timer;
+         * system_timer = timer.add("timer_event", 10, true, true);
+         * function timer_event()
+         * {
+         *     timer.reset(system_timer);
+         * }
+         * @endcode
+         *
+         * @param [IN] timer_index_d : Timer index
+         * @return void
+         *
+         */
+
+        void reset(double timer_index_d);
 
 };
 

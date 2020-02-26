@@ -24,6 +24,7 @@
 #include <wx/thread.h>
 #include "in_js_gui_frame_h.h"
 #include "hw_dr_uart_driver_h.h"
+#include "in_js_class_timer_js_h.h"
 #include "in_js_class_time_js_h.h"
 #include "in_js_class_file_js_h.h"
 #include "in_js_class_uart_js_h.h"
@@ -79,18 +80,8 @@ class jerryscript_c
         static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
 
-        // Working thread
-        thread_c* lp_script_thread;
-        uint8_t l_run_script_ui8;
-        // File path
-        wxString l_jerryscript_code_str;
-        bool l_init_flag_b;
-        // GUI
-        gui_frame* lp_data_gui_frame;
-        void* lp_gui_main_frame_void;
-        bool l_debug_b;
-        uart_port* lp_com_uart_port;
         // External class
+        timer_js_c l_data_timer_js;
         time_js_c l_data_time_js;
         file_js_c l_data_file_js;
         uart_js_c l_port_uart_js;
@@ -104,6 +95,17 @@ class jerryscript_c
         textctrl_js_c l_gui_textctrl_js;
         check_box_js_c l_gui_check_box_js;
         gauge_js_c l_gui_gauge_js;
+        // Working thread
+        thread_c* lp_script_thread;
+        uint8_t l_run_script_ui8;
+        // File path
+        wxString l_jerryscript_code_str;
+        bool l_init_flag_b;
+        // GUI
+        gui_frame* lp_data_gui_frame;
+        void* lp_gui_main_frame_void;
+        bool l_debug_b;
+        uart_port* lp_com_uart_port;
 
 };
 

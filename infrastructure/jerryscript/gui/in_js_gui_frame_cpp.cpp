@@ -168,6 +168,7 @@ wxAuiManager* gui_frame::get_aui_manager (void)
 void gui_frame::frame_show (bool status_b, wxString name_str)
 {
     l_frmae_show_b = status_b;
+    l_frame_show_bkp_b = !status_b;
     this->SetLabel(name_str);
     return;
 }

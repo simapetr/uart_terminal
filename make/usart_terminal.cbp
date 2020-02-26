@@ -62,14 +62,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-std=c++0x" />
-			<Add option="-pipe" />
-			<Add option="-mthreads" />
 			<Add option="-Wno-deprecated-declarations" />
-			<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
+			<Add option="-fexceptions" />
 			<Add option="-D__GNUWIN32__" />
 			<Add option="-D__WXMSW__" />
 			<Add option="-DNO_LIB" />
 			<Add option="-DJERRY_DEBUGGER" />
+			<Add option="-DWIN32" />
 			<Add directory="$(#wx)/include" />
 			<Add directory="$(#wx)/contrib/include" />
 			<Add directory="../hardware/drivers/uart" />
@@ -88,7 +87,6 @@
 		<Linker>
 			<Add option="-static-libstdc++" />
 			<Add option="-static-libgcc" />
-			<Add option="-mthreads" />
 			<Add library="libkernel32.a" />
 			<Add library="libuser32.a" />
 			<Add library="libgdi32.a" />
@@ -141,6 +139,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_textctrl_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_time_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_timer_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_timer_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_uart_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/gui/icon/lp_in_js_gui_ico_xpm.xpm" />
@@ -169,7 +169,7 @@
 		<Unit filename="../infrastructure/thread/in_thread_worker_h.h" />
 		<Unit filename="../infrastructure/wx/led.cpp" />
 		<Unit filename="../infrastructure/wx/mathplot.cpp" />
-		<Unit filename="js/jerryscript_h.h" />
+		<Unit filename="doxygen/jerryscript_h.h" />
 		<Unit filename="script/button.js" />
 		<Unit filename="script/check_box.js" />
 		<Unit filename="script/file.js" />

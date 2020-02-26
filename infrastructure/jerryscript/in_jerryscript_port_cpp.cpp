@@ -172,7 +172,6 @@ int siz_h_int = 0;
         this->lp_script_thread->stop();
         wxMilliSleep(400);
     }
-
     return;
 }
 
@@ -243,6 +242,7 @@ jerry_value_t name_jerry_value;
     jerry_set_object_native_pointer(global_jerry_value, this, NULL);
     jerry_release_value(global_jerry_value);
     // Register GUI class
+    this->l_data_timer_js.reg_host_class();
     this->l_data_time_js.reg_host_class();
     this->l_data_file_js.reg_host_class();
     this->l_port_uart_js.reg_host_class(this->lp_com_uart_port);
@@ -268,6 +268,7 @@ jerry_value_t name_jerry_value;
 
 void jerryscript_c::dereg_class (void)
 {
+    this->l_data_timer_js.dereg_host_class();
     this->l_port_uart_js.dereg_host_class();
     return;
 }
