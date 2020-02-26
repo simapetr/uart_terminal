@@ -608,7 +608,7 @@ uart_cfg_t data_uart_cfg;
         if (this->l_data_uart_status == e_01_open)
         {
             // Create read event
-            this->p_communication_uart_port->create_event((uart_event_fct)&this->uart_rx_event, this);
+            this->p_communication_uart_port->set((uart_event_fct)&this->uart_rx_event, this);
             text_bfr_str.Printf(wxT("uart open"));
             this->lp_bot_wxstatusbar->SetStatusText(text_bfr_str, d_ap_uart_terminal_status_port);
             // Disable settings component
@@ -626,7 +626,7 @@ uart_cfg_t data_uart_cfg;
             this->lp_port_control_rts_wxcheckbox->Enable();
             this->lp_port_control_tx_wxcheckbox->Enable();
             // Set state LED
-            if (this->p_communication_uart_port->get_com_ctrl(e_cts))
+            if (this->p_communication_uart_port->get(e_cts))
             {
                 this->l_cts_b = true;
             }
@@ -634,7 +634,7 @@ uart_cfg_t data_uart_cfg;
             {
                 this->l_cts_b = false;
             }
-            if (this->p_communication_uart_port->get_com_ctrl(e_dsr))
+            if (this->p_communication_uart_port->get(e_dsr))
             {
                 this->l_dsr_b = true;this->lp_port_state_cts_wxled->Enable();
             this->lp_port_state_dsr_wxled->Enable();
@@ -645,7 +645,7 @@ uart_cfg_t data_uart_cfg;
             {
                 this->l_dsr_b = false;
             }
-            if (this->p_communication_uart_port->get_com_ctrl(e_ring))
+            if (this->p_communication_uart_port->get(e_ring))
             {
                 this->l_ring_b = true;
             }
@@ -653,7 +653,7 @@ uart_cfg_t data_uart_cfg;
             {
                 this->l_ring_b = false;
             }
-            if (this->p_communication_uart_port->get_com_ctrl(e_rlsd))
+            if (this->p_communication_uart_port->get(e_rlsd))
             {
                 this->l_rlsd_b = true;
             }
@@ -803,7 +803,7 @@ uint32_t data_bkp_ui32;
     wxSscanf(lp_stop_bit_wxchoice->GetString(lp_stop_bit_wxchoice->GetSelection()),wxT("%u"),&data_bkp_ui32);
     data_uart_cfg.stop_bits_ui8 = data_bkp_ui32;
     // Set timeout
-    data_uart_cfg.bite_timeout_ui32 = 1;
+    data_uart_cfg.bite_timeout_ui32 = 0;
     return data_uart_cfg;
 }
 
@@ -1016,7 +1016,7 @@ static uint8_t selected_port_ui8 = 0;
     // Read available port
     this->p_communication_uart_port->get_port();
     // Read pointer on com array
-    available_port_str = this->p_communication_uart_port->get_bus_array();
+    available_port_str = this->p_communication_uart_port->get_port();
     // Read selected port
     if (selected_port_ui8 != 0)
     {
@@ -1130,7 +1130,7 @@ wxString data_text_str;
         }
         if (this->l_consle_rx_enable_b)
         {
-            if (this->p_communication_uart_port->write_data(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
+            if (this->p_communication_uart_port->send(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
             {
                 this->lp_bot_wxstatusbar->SetStatusText(wxT("data do not transmit"), d_ap_uart_terminal_status_port);
             }
@@ -1237,7 +1237,7 @@ void main_frame::on_script_run_wxtogglebutton_toggle(wxCommandEvent& event)
 
 void main_frame::on_port_control_dtr_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set_com_ctrl(e_dtr , (uint8_t)this->lp_port_control_dtr_wxcheckbox->GetValue());
+    this->p_communication_uart_port->set(e_dtr , (uint8_t)this->lp_port_control_dtr_wxcheckbox->GetValue());
     return;
 }
 
@@ -1250,7 +1250,7 @@ void main_frame::on_port_control_dtr_wxcheckbox_click(wxCommandEvent& event)
 
 void main_frame::on_port_control_rts_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set_com_ctrl(e_rts, (uint8_t)this->lp_port_control_rts_wxcheckbox->GetValue());
+    this->p_communication_uart_port->set(e_rts, (uint8_t)this->lp_port_control_rts_wxcheckbox->GetValue());
     return;
 }
 
@@ -1263,7 +1263,7 @@ void main_frame::on_port_control_rts_wxcheckbox_click(wxCommandEvent& event)
 
 void main_frame::on_port_control_tx_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set_com_ctrl(e_break, (uint8_t)this->lp_port_control_tx_wxcheckbox->GetValue());
+    this->p_communication_uart_port->set(e_break, (uint8_t)this->lp_port_control_tx_wxcheckbox->GetValue());
     return;
 }
 
@@ -1327,7 +1327,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_CTS)
     {
-        if (p_bkp_this->p_communication_uart_port->get_com_ctrl(e_cts))
+        if (p_bkp_this->p_communication_uart_port->get(e_cts))
         {
             p_bkp_this->l_cts_b = true;
         }
@@ -1338,7 +1338,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_DSR)
     {
-        if (p_bkp_this->p_communication_uart_port->get_com_ctrl(e_dsr))
+        if (p_bkp_this->p_communication_uart_port->get(e_dsr))
         {
             p_bkp_this->l_dsr_b = true;
         }
@@ -1349,7 +1349,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_RING)
     {
-        if (p_bkp_this->p_communication_uart_port->get_com_ctrl(e_ring))
+        if (p_bkp_this->p_communication_uart_port->get(e_ring))
         {
             p_bkp_this->l_ring_b = true;
         }
@@ -1360,7 +1360,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_RLSD)
     {
-        if (p_bkp_this->p_communication_uart_port->get_com_ctrl(e_rlsd))
+        if (p_bkp_this->p_communication_uart_port->get(e_rlsd))
         {
             p_bkp_this->l_rlsd_b = true;
         }

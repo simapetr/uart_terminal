@@ -260,6 +260,7 @@ uint32_t cols_num_ui32;
             this->lp_graph_mpwindow->Fit(this->lv_time_data_plot_d[1], this->lv_time_data_plot_d[this->lv_time_data_plot_d.size()], (-this->l_graph_range_d),this->l_graph_range_d);
             // set text value
             value_text_str.Printf("%f",(float)this->lv_graph_data_plot_buffer[signal_cnt_ui32].v_buffer_data_plot_d.at(this->lv_graph_data_plot_buffer[signal_cnt_ui32].v_buffer_data_plot_d.size() - 1));
+
             this->lp_graph_signal_wxgrid->SetCellValue(value_text_str, 0, signal_cnt_ui32);
         }
     }

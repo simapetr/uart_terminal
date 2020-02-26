@@ -67,19 +67,6 @@ typedef struct
 
 /**
   ****************************************************************************
-  * Local variable
-  ****************************************************************************
-  */
-
-static packet_buffer_t l_rx_data_packet_buffer[0x10000];
-static uint16_t l_rx_data_wr_ptr_ui16 = 0;
-static uint16_t l_rx_data_rd_ptr_ui16 = 0;
-static packet_buffer_t l_tx_data_packet_buffer[0x10000];
-static uint16_t l_tx_data_wr_ptr_ui16 = 0;
-static uint16_t l_tx_data_rd_ptr_ui16 = 0;
-
-/**
-  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -152,12 +139,6 @@ jerry_value_t name_jerry_value;
     this->l_global_ui32 = 0;
     // Initialization Rx event function name
     this->l_rx_event_name_sui8[0] = 0x00;
-    if(this->lp_com_uart_port)
-    {
-        // Run RX thread
-        this->lp_rx_thread = new thread_c(this, this->rx_queue);
-        this->lp_tx_thread = new thread_c(this, this->tx_queue);
-    }
     return;
 }
 
@@ -170,7 +151,7 @@ jerry_value_t name_jerry_value;
 
 void uart_js_c::dereg_host_class (void)
 {
-    this->lp_com_uart_port->delete_event(this->rx_event);
+    this->lp_com_uart_port->clear(this->rx_event);
     return;
 }
 
@@ -186,7 +167,7 @@ void uart_js_c::dereg_host_class (void)
 
 uint32_t uart_js_c::open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
 {
-double status_d = 0.0;
+double status_d = 0;
 void* p_arg_void;
 uart_js_c* p_bkp_this = NULL;
 uart_cfg_t port_uart_cfg;
@@ -295,7 +276,7 @@ uart_js_c* p_bkp_this = NULL;
                 {
                     p_bkp_this->l_reg_fct_ui32 = (uint32_t)jerry_get_property((jerry_value_t)p_bkp_this->l_global_ui32, p_args_ui32[0]);
                 }
-                p_bkp_this->lp_com_uart_port->create_event(p_bkp_this->rx_event, p_bkp_this);
+                p_bkp_this->lp_com_uart_port->set(p_bkp_this->rx_event, p_bkp_this);
                 status_ui32 = 1;
             }
         }
@@ -316,11 +297,11 @@ uart_js_c* p_bkp_this = NULL;
 
 uint32_t uart_js_c::write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
 {
-double status_d = 0.0;
+double status_d = 0;
 void* p_arg_void;
 uart_js_c* p_bkp_this = NULL;
 uint32_t data_cnt_ui32;
-bool signal_b = false;
+packet_buffer_t data_packet_buffer;
 
     if(jerry_get_object_native_pointer(this_ui32, &p_arg_void, NULL))
     {
@@ -332,40 +313,34 @@ bool signal_b = false;
             if(jerry_value_is_number (p_args_ui32[0]))
             {
                 // Call class method
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = 1;
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[0] = (uint8_t)jerry_get_number_value(p_args_ui32[0]);
-                l_tx_data_wr_ptr_ui16++;
-                signal_b = true;
+                data_packet_buffer.length_ui32 = 1;
+                data_packet_buffer.data_sui8[0] = (uint8_t)jerry_get_number_value(p_args_ui32[0]);
+                status_d = (double)p_bkp_this->lp_com_uart_port->send(data_packet_buffer.data_sui8, data_packet_buffer.length_ui32);
             }
             else if (jerry_value_is_array (p_args_ui32[0]))
             {
                 // Call class method
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_array_length(p_args_ui32[0]);
-                if (l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 > d_buffer_size)
+                data_packet_buffer.length_ui32 = jerry_get_array_length(p_args_ui32[0]);
+                if (data_packet_buffer.length_ui32 > d_buffer_size)
                 {
-                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
+                    data_packet_buffer.length_ui32 = d_buffer_size;
                 }
-                for (data_cnt_ui32 = 0; data_cnt_ui32 < l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32; data_cnt_ui32++)
+                for (data_cnt_ui32 = 0; data_cnt_ui32 < data_packet_buffer.length_ui32; data_cnt_ui32++)
                 {
-                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
+                    data_packet_buffer.data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
                 }
-                l_tx_data_wr_ptr_ui16++;
-                signal_b = true;
+                status_d = (double)p_bkp_this->lp_com_uart_port->send(data_packet_buffer.data_sui8, data_packet_buffer.length_ui32);
             }
             else if(jerry_value_is_string (p_args_ui32[0]))
             {
                 // Read function argument
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_string_size(p_args_ui32[0]);
-                if (l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 > d_buffer_size)
+                data_packet_buffer.length_ui32 = jerry_get_string_size(p_args_ui32[0]);
+                if (data_packet_buffer.length_ui32 > d_buffer_size)
                 {
-                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
+                    data_packet_buffer.length_ui32 = d_buffer_size;
                 }
-                jerry_string_to_char_buffer(p_args_ui32[0],l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8,l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32);
-                l_tx_data_wr_ptr_ui16++;
-                signal_b = true;
+                jerry_string_to_char_buffer(p_args_ui32[0],data_packet_buffer.data_sui8,data_packet_buffer.length_ui32);
+                status_d = (double)p_bkp_this->lp_com_uart_port->send(data_packet_buffer.data_sui8, data_packet_buffer.length_ui32);
             }
             else
             {
@@ -380,27 +355,18 @@ bool signal_b = false;
               )
             {
                 // Read function argument
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32 = jerry_get_array_length(p_args_ui32[0]);
+                data_packet_buffer.length_ui32 = jerry_get_array_length(p_args_ui32[0]);
                 // Call class method
-                l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].event_type_ui32 = 0;
-                for (data_cnt_ui32 = 0; data_cnt_ui32 < l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].length_ui32; data_cnt_ui32++)
+                for (data_cnt_ui32 = 0; data_cnt_ui32 < data_packet_buffer.length_ui32; data_cnt_ui32++)
                 {
-                    l_tx_data_packet_buffer[l_tx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
+                    data_packet_buffer.data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[0], data_cnt_ui32));
                 }
-                l_tx_data_wr_ptr_ui16++;
-                signal_b = true;
+                status_d = (double)p_bkp_this->lp_com_uart_port->send(data_packet_buffer.data_sui8, data_packet_buffer.length_ui32);
             }
         }
         else
         {
 
-        }
-    }
-    if (signal_b)
-    {
-        if (p_bkp_this->lp_tx_thread)
-        {
-            p_bkp_this->lp_tx_thread->signal();
         }
     }
     // Cast it back to JavaScript and return
@@ -441,23 +407,23 @@ uart_js_c* p_bkp_this = NULL;
                 {
                     if(!strncmp((char*)p_data_sui8, "RX", data_len_ui32))
                     {
-                        status_b = p_bkp_this->lp_com_uart_port->get_com_ctrl(e_rx);
+                        status_b = p_bkp_this->lp_com_uart_port->get(e_rx);
                     }
                     else if(!strncmp((char*)p_data_sui8, "CTS", data_len_ui32))
                     {
-                        status_b = p_bkp_this->lp_com_uart_port->get_com_ctrl(e_cts);
+                        status_b = p_bkp_this->lp_com_uart_port->get(e_cts);
                     }
                     else if(!strncmp((char*)p_data_sui8, "DSR", data_len_ui32))
                     {
-                        status_b = p_bkp_this->lp_com_uart_port->get_com_ctrl(e_dsr);
+                        status_b = p_bkp_this->lp_com_uart_port->get(e_dsr);
                     }
                     else if(!strncmp((char*)p_data_sui8, "RING", data_len_ui32))
                     {
-                        status_b = p_bkp_this->lp_com_uart_port->get_com_ctrl(e_ring);
+                        status_b = p_bkp_this->lp_com_uart_port->get(e_ring);
                     }
                     else if(!strncmp((char*)p_data_sui8, "RLSD", data_len_ui32))
                     {
-                        status_b = p_bkp_this->lp_com_uart_port->get_com_ctrl(e_rlsd);
+                        status_b = p_bkp_this->lp_com_uart_port->get(e_rlsd);
                     }
                     else
                     {
@@ -505,23 +471,23 @@ uart_js_c* p_bkp_this = NULL;
                 {
                     if(!strncmp((char*)p_data_sui8, "DTR", data_len_ui32))
                     {
-                        p_bkp_this->lp_com_uart_port->set_com_ctrl(e_dtr,jerry_get_boolean_value(p_args_ui32[1]));
+                        p_bkp_this->lp_com_uart_port->set(e_dtr,jerry_get_boolean_value(p_args_ui32[1]));
                     }
                     else if(!strncmp((char*)p_data_sui8, "RTS", data_len_ui32))
                     {
-                        p_bkp_this->lp_com_uart_port->set_com_ctrl(e_rts,jerry_get_boolean_value(p_args_ui32[1]));
+                        p_bkp_this->lp_com_uart_port->set(e_rts,jerry_get_boolean_value(p_args_ui32[1]));
                     }
                     else if(!strncmp((char*)p_data_sui8, "BREAK", data_len_ui32))
                     {
-                        p_bkp_this->lp_com_uart_port->set_com_ctrl(e_break,jerry_get_boolean_value(p_args_ui32[1]));
+                        p_bkp_this->lp_com_uart_port->set(e_break,jerry_get_boolean_value(p_args_ui32[1]));
                     }
                     else if(!strncmp((char*)p_data_sui8, "XOFF", data_len_ui32))
                     {
-                        p_bkp_this->lp_com_uart_port->set_com_ctrl(e_xoff,jerry_get_boolean_value(p_args_ui32[1]));
+                        p_bkp_this->lp_com_uart_port->set(e_xoff,jerry_get_boolean_value(p_args_ui32[1]));
                     }
                     else if(!strncmp((char*)p_data_sui8, "XON", data_len_ui32))
                     {
-                        p_bkp_this->lp_com_uart_port->set_com_ctrl(e_xon,jerry_get_boolean_value(p_args_ui32[1]));
+                        p_bkp_this->lp_com_uart_port->set(e_xon,jerry_get_boolean_value(p_args_ui32[1]));
                     }
                     else
                     {
@@ -550,93 +516,45 @@ void uart_js_c::rx_event(void* p_parametr_void, uint32_t event_type_ui32, uint8_
 {
 uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
 uint32_t data_cnt_ui32;
-
+packet_buffer_t data_packet_buffer;
 
     // Save event type
-    l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].event_type_ui32 = event_type_ui32;
-    // Save data
+    data_packet_buffer.event_type_ui32 = event_type_ui32;
+    // Save length
     if (length_ui32 > d_buffer_size)
     {
-        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 = d_buffer_size;
+        data_packet_buffer.length_ui32 = d_buffer_size;
     }
     else
     {
-        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 = length_ui32;
+        data_packet_buffer.length_ui32 = length_ui32;
     }
-
-    for(data_cnt_ui32 = 0 ; data_cnt_ui32 < l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].length_ui32 ; data_cnt_ui32++)
+    // Save data
+    for(data_cnt_ui32 = 0 ; data_cnt_ui32 < data_packet_buffer.length_ui32 ; data_cnt_ui32++)
     {
-        l_rx_data_packet_buffer[l_rx_data_wr_ptr_ui16].data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
+        data_packet_buffer.data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
     }
-    l_rx_data_wr_ptr_ui16++;
-    // Signal new data
-    if (p_bkp_this->lp_rx_thread)
+    // Call function
+    jerry_value_t val_args[2];
+    val_args[0] = jerry_create_number(data_packet_buffer.event_type_ui32);
+    val_args[1] = jerry_create_array(data_packet_buffer.length_ui32);
+    // Set data array
+    for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_packet_buffer.length_ui32 ; data_cnt_ui32++)
     {
-        p_bkp_this->lp_rx_thread->signal();
+        jerry_value_t data_item_val = jerry_create_number(double(data_packet_buffer.data_sui8[data_cnt_ui32]));
+        jerry_value_t eval_ret = jerry_set_property_by_index (val_args[1], data_cnt_ui32, data_item_val);
+        jerry_release_value (eval_ret);
+        jerry_release_value (data_item_val);
     }
-
-    return;
-}
-
-/** @brief Data RX queue
- *
- * @param [IN] p_parametr_void : Handle on registered object
- * @return void
- *
- */
-
-void uart_js_c::rx_queue(void* p_parametr_void)
-{
-uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
-static jerry_value_t val_args[2];
-
-    while(l_rx_data_rd_ptr_ui16 != l_rx_data_wr_ptr_ui16)
+    // Call function
+    if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
     {
-        if (l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 > d_buffer_size)
-        {
-            l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 = d_buffer_size;
-        }
-        // Call function
-        val_args[0] = jerry_create_number(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].event_type_ui32);
-        val_args[1] = jerry_create_array(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32);
-        // Set data array
-        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].length_ui32 ; data_cnt_ui32++)
-        {
-            jerry_set_property_by_index (val_args[1], data_cnt_ui32, jerry_value_to_number(jerry_create_number(double(l_rx_data_packet_buffer[l_rx_data_rd_ptr_ui16].data_sui8[data_cnt_ui32]))));
-        }
-        // Call function
-        if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
-        {
-            jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 2);
-        }
-        // Clear buffer item
-        jerry_release_value (val_args[0]);
-        jerry_release_value (val_args[1]);
-        // Set next message
-        l_rx_data_rd_ptr_ui16++;
+        jerry_value_t eval_ret = jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 2);
+        jerry_release_value (eval_ret);
     }
-    return;
-}
-
-/** @brief Data TX queue
- *
- * @param [IN] p_parametr_void : Handle on registered object
- * @return void
- *
- */
-
-void uart_js_c::tx_queue(void* p_parametr_void)
-{
-uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
-
-    while(l_tx_data_rd_ptr_ui16 != l_tx_data_wr_ptr_ui16)
-    {
-        if (p_bkp_this->lp_com_uart_port->write_data(l_tx_data_packet_buffer[l_tx_data_rd_ptr_ui16].data_sui8, l_tx_data_packet_buffer[l_tx_data_rd_ptr_ui16].length_ui32))
-        {
-            // Clear buffer item
-            l_tx_data_rd_ptr_ui16++;
-        }
-    }
+    // Clear buffer item
+    jerry_release_value (val_args[0]);
+    jerry_release_value (val_args[1]);
     return;
 }
 
