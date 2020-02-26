@@ -44,6 +44,14 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="now_ms"><param name="Local" value="classtime.html#a2a7a51110c7f6cb8331a444312a37c71"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="str"><param name="Local" value="classtime.html#ae06c4c6e38e7ac957418e120c3e63f60"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="timer"><param name="Local" value="classtimer.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="add"><param name="Local" value="classtimer.html#aa759149ac5cf6b8b104eed363e74d938"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="reset"><param name="Local" value="classtimer.html#a0e3978cc0fb1727497219c20a3253173"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="set"><param name="Local" value="classtimer.html#ad1cb33ee25cf634170a842d412846c12"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="start"><param name="Local" value="classtimer.html#aa5098af6c680dea87be85b228a7e8fc7"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="stop"><param name="Local" value="classtimer.html#aab4afb35da82a8ff268383d7dde876bb"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="file"><param name="Local" value="classfile.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="append"><param name="Local" value="classfile.html#a50fc19c821482a9181022aa5b506db46"><param name="ImageNumber" value="11"></OBJECT>
@@ -232,6 +240,14 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="now"><param name="Local" value="classtime.html#a5602e9c6b2da7a1db11ed8a76d19fde3"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="now_ms"><param name="Local" value="classtime.html#a2a7a51110c7f6cb8331a444312a37c71"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="str"><param name="Local" value="classtime.html#ae06c4c6e38e7ac957418e120c3e63f60"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="timer"><param name="Local" value="classtimer.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="add"><param name="Local" value="classtimer.html#aa759149ac5cf6b8b104eed363e74d938"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="reset"><param name="Local" value="classtimer.html#a0e3978cc0fb1727497219c20a3253173"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="set"><param name="Local" value="classtimer.html#ad1cb33ee25cf634170a842d412846c12"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="start"><param name="Local" value="classtimer.html#aa5098af6c680dea87be85b228a7e8fc7"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="stop"><param name="Local" value="classtimer.html#aab4afb35da82a8ff268383d7dde876bb"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="uart"><param name="Local" value="classuart.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>

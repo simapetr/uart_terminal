@@ -13,5 +13,6 @@ var annotated_dup =
     [ "static_text", "classstatic__text.html", "classstatic__text" ],
     [ "textctrl", "classtextctrl.html", "classtextctrl" ],
     [ "time", "classtime.html", "classtime" ],
+    [ "timer", "classtimer.html", "classtimer" ],
     [ "uart", "classuart.html", "classuart" ]
 ];

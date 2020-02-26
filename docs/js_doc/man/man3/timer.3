@@ -1,0 +1,188 @@
+.TH "timer" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timer \- Event timer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBadd\fP (string event_str, double period_d, bool start_b, bool one_shot_b)"
+.br
+.RI "Add new timer event\&. "
+.ti -1c
+.RI "void \fBset\fP (double timer_index_d, double period_d)"
+.br
+.RI "Set timer period\&. "
+.ti -1c
+.RI "void \fBstart\fP (double timer_index_d)"
+.br
+.RI "Start timer\&. "
+.ti -1c
+.RI "void \fBstop\fP (double timer_index_d)"
+.br
+.RI "Stop timer\&. "
+.ti -1c
+.RI "void \fBreset\fP (double timer_index_d)"
+.br
+.RI "Reset delay time\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Event timer\&. 
+.PP
+Definition at line 615 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double add (string event_str, double period_d, bool start_b, bool one_shot_b)"
+
+.PP
+Add new timer event\&. 
+.PP
+.nf
+var system_timer;
+system_timer = timer\&.add("timer_event", 10, true, false);
+function timer_event()
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP event_str : Event function name 
+.br
+\fI[IN]\fP period_d : Time period 
+.br
+\fI[IN]\fP start_b :Start timer after add 
+.br
+\fI[IN]\fP one_shot_b : Call event only one after overflow 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double : Timer ID 
+.RE
+.PP
+
+.SS "void reset (double timer_index_d)"
+
+.PP
+Reset delay time\&. 
+.PP
+.nf
+var system_timer;
+system_timer = timer\&.add("timer_event", 10, true, true);
+function timer_event()
+{
+    timer\&.reset(system_timer);
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP timer_index_d : Timer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "void set (double timer_index_d, double period_d)"
+
+.PP
+Set timer period\&. 
+.PP
+.nf
+var system_timer;
+system_timer = timer\&.add("timer_event", 10, true, false);
+timer\&.set(system_timer, 200);
+function timer_event()
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP timer_index_d : Timer index 
+.br
+\fI[IN]\fP period_d : Time period 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "void start (double timer_index_d)"
+
+.PP
+Start timer\&. 
+.PP
+.nf
+var system_timer;
+system_timer = timer\&.add("timer_event", 10);
+timer\&.start(system_timer);
+function timer_event()
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP timer_index_d : Timer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "void stop (double timer_index_d)"
+
+.PP
+Stop timer\&. 
+.PP
+.nf
+var system_timer;
+system_timer = timer\&.add("timer_event", 10, true, false);
+timer\&.stop(system_timer);
+function timer_event()
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP timer_index_d : Timer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

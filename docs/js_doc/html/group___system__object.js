@@ -32,6 +32,13 @@ var group___system__object =
       [ "now_ms", "classtime.html#a2a7a51110c7f6cb8331a444312a37c71", null ],
       [ "str", "classtime.html#ae06c4c6e38e7ac957418e120c3e63f60", null ]
     ] ],
+    [ "timer", "classtimer.html", [
+      [ "add", "classtimer.html#aa759149ac5cf6b8b104eed363e74d938", null ],
+      [ "reset", "classtimer.html#a0e3978cc0fb1727497219c20a3253173", null ],
+      [ "set", "classtimer.html#ad1cb33ee25cf634170a842d412846c12", null ],
+      [ "start", "classtimer.html#aa5098af6c680dea87be85b228a7e8fc7", null ],
+      [ "stop", "classtimer.html#aab4afb35da82a8ff268383d7dde876bb", null ]
+    ] ],
     [ "file", "classfile.html", [
       [ "append", "classfile.html#a50fc19c821482a9181022aa5b506db46", null ],
       [ "append", "classfile.html#acbc04e63b90204ea300106e633edfff9", null ],

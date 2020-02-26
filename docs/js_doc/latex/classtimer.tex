@@ -1,0 +1,191 @@
+\section{timer Class Reference}
+\label{classtimer}\index{timer@{timer}}
+
+
+Event timer.  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ add} (string event\+\_\+str, double period\+\_\+d, bool start\+\_\+b, bool one\+\_\+shot\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Add new timer event. \end{DoxyCompactList}\item 
+void \textbf{ set} (double timer\+\_\+index\+\_\+d, double period\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set timer period. \end{DoxyCompactList}\item 
+void \textbf{ start} (double timer\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\item 
+void \textbf{ stop} (double timer\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Stop timer. \end{DoxyCompactList}\item 
+void \textbf{ reset} (double timer\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Reset delay time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Event timer. 
+
+Definition at line 615 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classtimer_aa759149ac5cf6b8b104eed363e74d938}} 
+\index{timer@{timer}!add@{add}}
+\index{add@{add}!timer@{timer}}
+\subsubsection{add()}
+{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+str,  }\item[{double}]{period\+\_\+d,  }\item[{bool}]{start\+\_\+b,  }\item[{bool}]{one\+\_\+shot\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Add new timer event. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var system\_timer;}
+\DoxyCodeLine{system\_timer = timer.add(\textcolor{stringliteral}{"timer\_event"}, 10, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{\textcolor{keyword}{function} timer\_event()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & event\+\_\+str \+: Event function name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & period\+\_\+d \+: Time period \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & start\+\_\+b \+:Start timer after add \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & one\+\_\+shot\+\_\+b \+: Call event only one after overflow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double \+: Timer ID 
+\end{DoxyReturn}
+\mbox{\label{classtimer_a0e3978cc0fb1727497219c20a3253173}} 
+\index{timer@{timer}!reset@{reset}}
+\index{reset@{reset}!timer@{timer}}
+\subsubsection{reset()}
+{\footnotesize\ttfamily void reset (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Reset delay time. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var system\_timer;}
+\DoxyCodeLine{system\_timer = timer.add(\textcolor{stringliteral}{"timer\_event"}, 10, \textcolor{keyword}{true}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\textcolor{keyword}{function} timer\_event()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    timer.reset(system\_timer);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timer\+\_\+index\+\_\+d \+: Timer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classtimer_ad1cb33ee25cf634170a842d412846c12}} 
+\index{timer@{timer}!set@{set}}
+\index{set@{set}!timer@{timer}}
+\subsubsection{set()}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d,  }\item[{double}]{period\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set timer period. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var system\_timer;}
+\DoxyCodeLine{system\_timer = timer.add(\textcolor{stringliteral}{"timer\_event"}, 10, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{timer.set(system\_timer, 200);}
+\DoxyCodeLine{\textcolor{keyword}{function} timer\_event()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timer\+\_\+index\+\_\+d \+: Timer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & period\+\_\+d \+: Time period \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classtimer_aa5098af6c680dea87be85b228a7e8fc7}} 
+\index{timer@{timer}!start@{start}}
+\index{start@{start}!timer@{timer}}
+\subsubsection{start()}
+{\footnotesize\ttfamily void start (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Start timer. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var system\_timer;}
+\DoxyCodeLine{system\_timer = timer.add(\textcolor{stringliteral}{"timer\_event"}, 10);}
+\DoxyCodeLine{timer.start(system\_timer);}
+\DoxyCodeLine{\textcolor{keyword}{function} timer\_event()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timer\+\_\+index\+\_\+d \+: Timer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{classtimer_aab4afb35da82a8ff268383d7dde876bb}} 
+\index{timer@{timer}!stop@{stop}}
+\index{stop@{stop}!timer@{timer}}
+\subsubsection{stop()}
+{\footnotesize\ttfamily void stop (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Stop timer. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var system\_timer;}
+\DoxyCodeLine{system\_timer = timer.add(\textcolor{stringliteral}{"timer\_event"}, 10, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{timer.stop(system\_timer);}
+\DoxyCodeLine{\textcolor{keyword}{function} timer\_event()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timer\+\_\+index\+\_\+d \+: Timer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}
