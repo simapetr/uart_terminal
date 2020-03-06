@@ -156,6 +156,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.check_box.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(check_box_index_d);
@@ -204,6 +208,10 @@ static uint8_t *p_data_sui8 = NULL;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_check_box_event(jerry_get_number_value(p_args_ui32[0]), text_str);
             }
         }
+        else
+        {
+            printf("Error gui.check_box.reg_event wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -241,6 +249,10 @@ wxString text_str = wxEmptyString;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_check_box(jerry_get_number_value(p_args_ui32[0]), jerry_get_boolean_value(p_args_ui32[1]));
             }
         }
+        else
+        {
+            printf("Error gui.check_box.set wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -273,6 +285,10 @@ bool status_b = false;
             {
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->get_check_box(jerry_get_number_value(p_args_ui32[0]));
             }
+        }
+        else
+        {
+            printf("Error gui.check_box.get wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

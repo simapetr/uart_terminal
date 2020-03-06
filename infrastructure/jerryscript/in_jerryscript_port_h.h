@@ -72,6 +72,7 @@ class jerryscript_c
         void call_event (wxString event_str, uint32_t component_id_ui32);
         void reg_class (void);
         void dereg_class (void);
+        static uint32_t call(void);
 
     private:
 
@@ -106,7 +107,9 @@ class jerryscript_c
         void* lp_gui_main_frame_void;
         bool l_debug_b;
         uart_port* lp_com_uart_port;
-
+        // Thread
+        wxMutex *lp_data_wxmutex;
+        wxCondition *lp_data_wxcondition;
 };
 
 /**

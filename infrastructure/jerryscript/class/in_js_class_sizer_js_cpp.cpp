@@ -124,6 +124,10 @@ double panel_index_d = 0.0;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.sizer.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(panel_index_d);

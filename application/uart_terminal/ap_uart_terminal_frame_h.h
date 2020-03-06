@@ -73,18 +73,25 @@ class main_frame: public wxFrame
 
         main_frame(wxWindow* p_parent_window, wxArrayString* p_cmd_arg_arraystring);
         virtual ~main_frame();
-        void gui (bool status_b);
-        config_ini* get_project (void);
-        void console_rx_enable (bool status_b);
+        void gui(bool status_b);
+        config_ini* get_project(void);
+        void js_hide(bool status_b);
+        void console_rx_enable(bool status_b);
         bool is_console_rx_enable (void);
-        void printf(wxString console_text_str);
+        void js_printf(wxString console_text_str);
+        void js_status(wxString status_text_str);
         void status(wxString status_text_str);
+        void js_clear(void);
         void clear(void);
+        void js_open_port(void);
         void open_port(void);
+        void js_close_port(void);
         void close_port(void);
+        uart_status_t js_get_open_status(void);
         uart_status_t get_open_status(void);
+        void js_set_config (uart_cfg_t data_uart_cfg);
         void set_config (uart_cfg_t data_uart_cfg);
-        uart_cfg_t get_config (void);
+        uart_cfg_t get_config(void);
         wxString get_data (wxString text_str);
         void set_progress (wxString text_str, uint32_t progress_ui32);
         void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
@@ -215,7 +222,6 @@ class main_frame: public wxFrame
         DWORD uart_thread_id_dword;
         uint32_t uart_thread_run_ui32;
         uart_status_t l_data_uart_status;
-        bool l_consle_rx_enable_b;
         config_ini *p_data_config_ini;
         config_ini *lp_script_config_ini;
         jerryscript_c *lp_interpret_jerryscript;

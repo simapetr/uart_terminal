@@ -130,6 +130,10 @@ double time_d = 0.0;
         {
             time_d = (double)wxGetUTCTime();
         }
+        else
+        {
+            printf("Error time.now wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(time_d);
@@ -159,6 +163,10 @@ double time_d = 0.0;
         if(args_cnt_ui32 == 0 && p_bkp_this)
         {
             time_d = wxGetUTCTimeMillis().ToDouble();
+        }
+        else
+        {
+            printf("Error time.now_ms wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -196,6 +204,10 @@ wxString data_str;
                 data_str.Printf("%04u-%02u-%02u %02u:%02u:%02u", value_wxdatetime.GetYear(0), (value_wxdatetime.GetMonth(0) + 1), value_wxdatetime.GetDay(0), value_wxdatetime.GetHour(0), value_wxdatetime.GetMinute(0), value_wxdatetime.GetSecond(0));
             }
         }
+        else
+        {
+            printf("Error time.str wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_string((const jerry_char_t*)data_str.To8BitData().data());
@@ -231,6 +243,10 @@ wxString data_str;
                 value_wxdatetime.Set((time_t)jerry_get_number_value(p_args_ui32[0]));
                 data_str.Printf("%04u-%02u-%02u %02u:%02u:%02u", value_wxdatetime.GetYear(), (value_wxdatetime.GetMonth() + 1), value_wxdatetime.GetDay(), value_wxdatetime.GetHour(), value_wxdatetime.GetMinute(), value_wxdatetime.GetSecond());
             }
+        }
+        else
+        {
+            printf("Error time.local_str wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

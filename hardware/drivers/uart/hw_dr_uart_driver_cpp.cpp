@@ -201,6 +201,7 @@ size_t port_position_size = string::npos;
                             {
                                 SetCommMask(this->port_handle, (EV_RXCHAR | EV_CTS | EV_DSR | EV_RING | EV_RLSD));
                                 this->flush();
+                                printf("UART open : %u %u %u-%u-%u\n", this->data_uart_cfg.port_num_ui8, this->data_uart_cfg.baudrate_ui32, this->data_uart_cfg.bit_length_ui8, this->data_uart_cfg.parity_ui8, this->data_uart_cfg.stop_bits_ui8);
                                 data_uart_status =  e_01_open;
                             }
                             else
@@ -612,7 +613,7 @@ COMSTAT port_comstat;
             if (WaitCommEvent(p_bkp_this->port_handle, &event_mask_dword, &p_bkp_this->rd_port_overlapped))
             {
                 p_bkp_this->l_rx_data_ptr_ui16 = 0;
-                p_bkp_this->call(event_mask_dword);
+                p_bkp_this->call(event_mask_dword, &p_bkp_this->l_rx_data_sui8[0], p_bkp_this->l_rx_data_ptr_ui16);
             }
             else
             {
@@ -681,12 +682,13 @@ COMSTAT port_comstat;
                                     }
                                 }
                             }
-                            LeaveCriticalSection(&p_bkp_this->data_critical_section);
+                            // Call all registered event
                             if(p_bkp_this->l_rx_data_ptr_ui16 || (event_mask_dword &(~EV_RXCHAR)))
                             {
                                 // Call events
-                                p_bkp_this->call(event_mask_dword);
+                                p_bkp_this->call(event_mask_dword, &p_bkp_this->l_rx_data_sui8[0], p_bkp_this->l_rx_data_ptr_ui16);
                             }
+                            LeaveCriticalSection(&p_bkp_this->data_critical_section);
                         }
                     }
                     break;
@@ -705,14 +707,18 @@ COMSTAT port_comstat;
 /** @brief Call all registered Rx event
  *
  * @param [IN] event_type_ui32 : Call event type
+ * @param [IN] p_data_sui8 : Rx data buffer
+ * @param [IN] length_ui32 : Rx data length
  * @return void
  *
  */
 
-void uart_port::call(uint32_t event_type_ui32)
+void uart_port::call(uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32)
 {
 uint32_t event_counter_ui32;
 uint32_t port_ui32;
+static uint32_t call_cnt_ui32 = 0;
+static uint32_t print_cnt_ui32 = 1;
 
     // Get port number
     port_ui32 = this->data_uart_cfg.port_num_ui8;
@@ -722,8 +728,20 @@ uint32_t port_ui32;
     for (event_counter_ui32 = 0 ; event_counter_ui32 < this->lv_rx_uart_event_buffer.size() ; event_counter_ui32++)
     {
         // Call event
-        this->lv_rx_uart_event_buffer[event_counter_ui32].p_usr_uart_event_fct(this->lv_rx_uart_event_buffer[event_counter_ui32].p_parametr_void, event_type_ui32, &this->l_rx_data_sui8[0], (uint32_t)this->l_rx_data_ptr_ui16);
+        this->lv_rx_uart_event_buffer[event_counter_ui32].p_usr_uart_event_fct(this->lv_rx_uart_event_buffer[event_counter_ui32].p_parametr_void, event_type_ui32, p_data_sui8, length_ui32);
     }
+
+    if(call_cnt_ui32 > 249)
+    {
+        call_cnt_ui32 = 0;
+        printf("Rx : %u\n", (print_cnt_ui32 * 249));
+        print_cnt_ui32++;
+    }
+    else
+    {
+        call_cnt_ui32++;
+    }
+
     return;
 }
 

@@ -46,22 +46,6 @@ using namespace std;
 
 /**
   ****************************************************************************
-  * Struct
-  ****************************************************************************
-  */
-
-typedef struct
-{
-    uint32_t event_fct_ui32;
-    double cnt_d;
-    double period_d;
-    bool run_b;
-    bool one_shot_b;
-    bool one_flag_b;
-}timer_buffer_t;
-
-/**
-  ****************************************************************************
   * Class
   ****************************************************************************
   */
@@ -77,17 +61,11 @@ class timer_js_c
         static uint32_t start(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t stop(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t reset(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static void call(void* p_parametr_void);
 
     private:
 
-        static void worker(void* p_parametr_void);
-
-        // Global class reference
-        thread_c* lp_timer_thread;
-        uint8_t l_run_timer_ui8;
         uint32_t l_global_ui32;
-        // Timer buffer
-        vector<timer_buffer_t> lv_main_timer_buffer;
 
 };
 

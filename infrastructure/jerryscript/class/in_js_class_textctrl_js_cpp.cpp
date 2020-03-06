@@ -156,6 +156,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.textctrl.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(button_index_d);
@@ -204,6 +208,10 @@ static uint8_t *p_data_sui8 = NULL;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_textctrl(jerry_get_number_value(p_args_ui32[0]), text_str);
             }
         }
+        else
+        {
+            printf("Error gui.textctrl.set wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -249,7 +257,7 @@ wxString text_str = wxEmptyString;
         }
         else
         {
-
+            printf("Error gui.textctrl.get wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -298,6 +306,10 @@ static uint8_t *p_data_sui8 = NULL;
                 delete[] p_data_sui8;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->append_textctrl(jerry_get_number_value(p_args_ui32[0]), text_str);
             }
+        }
+        else
+        {
+            printf("Error gui.textctrl.append wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

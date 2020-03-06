@@ -137,6 +137,10 @@ double gauge_index_d = 0.0;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.gauge.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(gauge_index_d);
@@ -174,6 +178,10 @@ wxString text_str = wxEmptyString;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_gauge(jerry_get_number_value(p_args_ui32[0]), jerry_get_number_value(p_args_ui32[1]));
             }
         }
+        else
+        {
+            printf("Error gui.gauge.set wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -206,6 +214,10 @@ double value_d = 0;
             {
                 value_d = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->get_gauge(jerry_get_number_value(p_args_ui32[0]));
             }
+        }
+        else
+        {
+            printf("Error gui.gauge.get wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

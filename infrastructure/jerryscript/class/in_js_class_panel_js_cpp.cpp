@@ -141,6 +141,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.panel.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(panel_index_d);
@@ -179,6 +183,10 @@ double sizer_index_d = 0.0;
                     sizer_index_d = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->get_panel_sizer(jerry_get_number_value(p_args_ui32[0]));
                 }
             }
+        }
+        else
+        {
+            printf("Error gui.panel.get_sizer wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

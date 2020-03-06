@@ -46,6 +46,34 @@
 
 /**
   ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+typedef struct
+{
+    uint32_t event_fct_ui32;
+    double cnt_d;
+    double period_d;
+    bool run_b;
+    bool one_shot_b;
+    bool one_flag_b;
+}timer_buffer_t;
+
+/**
+  ****************************************************************************
+  * Local variable
+  ****************************************************************************
+  */
+
+// Global class reference
+uint8_t l_run_timer_ui8;
+uint32_t l_global_ui32;
+// Timer buffer
+vector<timer_buffer_t> lv_main_timer_buffer;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -108,9 +136,7 @@ jerry_value_t name_jerry_value;
     jerry_release_value(object_jerry_value);
     this->l_global_ui32 = global_jerry_value;
     // Create timer thread
-    this->l_run_timer_ui8 = 0;
-    this->lp_timer_thread = new thread_c(this, this->worker, 1);
-    this->lp_timer_thread->SetPriority(wxPRIORITY_MAX);
+    l_run_timer_ui8 = 0;
     return;
 }
 
@@ -123,9 +149,8 @@ jerry_value_t name_jerry_value;
 
 void timer_js_c::dereg_host_class (void)
 {
-    this->l_run_timer_ui8 = 0;
+    l_run_timer_ui8 = 0;
     lv_main_timer_buffer.clear();
-    this->lp_timer_thread->stop();
     return;
 }
 
@@ -152,7 +177,7 @@ timer_buffer_t data_timer_buffer;
         p_bkp_this = reinterpret_cast<timer_js_c*>(p_arg_void);
         if(p_bkp_this)
         {
-            p_bkp_this->l_run_timer_ui8 = 0;
+            l_run_timer_ui8 = 0;
             // Reset one shot flag
             data_timer_buffer.one_flag_b = false;
             // Extract function argument
@@ -166,7 +191,7 @@ timer_buffer_t data_timer_buffer;
                     // Call class method
                     if (p_bkp_this)
                     {
-                        timer_index_d = p_bkp_this->lv_main_timer_buffer.size();
+                        timer_index_d = lv_main_timer_buffer.size();
                         data_timer_buffer.event_fct_ui32 = (uint32_t)jerry_get_property(p_bkp_this->l_global_ui32, p_args_ui32[0]);
                         data_timer_buffer.cnt_d = 0;
                         data_timer_buffer.period_d = jerry_get_number_value(p_args_ui32[1]);
@@ -174,7 +199,7 @@ timer_buffer_t data_timer_buffer;
                         data_timer_buffer.one_shot_b = false;
                         if(data_timer_buffer.period_d)
                         {
-                            p_bkp_this->lv_main_timer_buffer.push_back(data_timer_buffer);
+                            lv_main_timer_buffer.push_back(data_timer_buffer);
                         }
                     }
                 }
@@ -190,7 +215,7 @@ timer_buffer_t data_timer_buffer;
                     // Call class method
                     if (p_bkp_this)
                     {
-                        timer_index_d = p_bkp_this->lv_main_timer_buffer.size();
+                        timer_index_d = lv_main_timer_buffer.size();
                         data_timer_buffer.event_fct_ui32 = (uint32_t)jerry_get_property(p_bkp_this->l_global_ui32, p_args_ui32[0]);
                         data_timer_buffer.cnt_d = 0;
                         data_timer_buffer.period_d = jerry_get_number_value(p_args_ui32[1]);
@@ -198,7 +223,7 @@ timer_buffer_t data_timer_buffer;
                         data_timer_buffer.one_shot_b = false;
                         if(data_timer_buffer.period_d)
                         {
-                            p_bkp_this->lv_main_timer_buffer.push_back(data_timer_buffer);
+                            lv_main_timer_buffer.push_back(data_timer_buffer);
                         }
                     }
                 }
@@ -215,7 +240,7 @@ timer_buffer_t data_timer_buffer;
                     // Call class method
                     if (p_bkp_this)
                     {
-                        timer_index_d = p_bkp_this->lv_main_timer_buffer.size();
+                        timer_index_d = lv_main_timer_buffer.size();
                         data_timer_buffer.event_fct_ui32 = (uint32_t)jerry_get_property(p_bkp_this->l_global_ui32, p_args_ui32[0]);
                         data_timer_buffer.cnt_d = 0;
                         data_timer_buffer.period_d = jerry_get_number_value(p_args_ui32[1]);
@@ -223,16 +248,16 @@ timer_buffer_t data_timer_buffer;
                         data_timer_buffer.one_shot_b = jerry_get_boolean_value(p_args_ui32[3]);
                         if(data_timer_buffer.period_d)
                         {
-                            p_bkp_this->lv_main_timer_buffer.push_back(data_timer_buffer);
+                            lv_main_timer_buffer.push_back(data_timer_buffer);
                         }
                     }
                 }
             }
             else
             {
-
+                printf("Error timer.add wrong parameter\n");
             }
-            p_bkp_this->l_run_timer_ui8 = 1;
+            l_run_timer_ui8 = 1;
         }
     }
     // Cast it back to JavaScript and return
@@ -271,12 +296,16 @@ double timer_index_d = 0.0;
                 // Set timer period
                 if (p_bkp_this)
                 {
-                    if(timer_index_d < p_bkp_this->lv_main_timer_buffer.size())
+                    if(timer_index_d < lv_main_timer_buffer.size())
                     {
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].period_d = jerry_get_number_value(p_args_ui32[1]);
+                        lv_main_timer_buffer[timer_index_d].period_d = jerry_get_number_value(p_args_ui32[1]);
                     }
                 }
             }
+        }
+        else
+        {
+            printf("Error timer.set wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -313,14 +342,18 @@ double timer_index_d = 0.0;
                 // Start timer
                 if (p_bkp_this)
                 {
-                    if(timer_index_d < p_bkp_this->lv_main_timer_buffer.size())
+                    if(timer_index_d < lv_main_timer_buffer.size())
                     {
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].cnt_d = 0;
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].run_b = true;
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].one_flag_b = false;
+                        lv_main_timer_buffer[timer_index_d].cnt_d = 0;
+                        lv_main_timer_buffer[timer_index_d].run_b = true;
+                        lv_main_timer_buffer[timer_index_d].one_flag_b = false;
                     }
                 }
             }
+        }
+        else
+        {
+            printf("Error timer.start wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -356,12 +389,16 @@ double timer_index_d = 0.0;
                 // Stop timer
                 if (p_bkp_this)
                 {
-                    if(timer_index_d < p_bkp_this->lv_main_timer_buffer.size())
+                    if(timer_index_d < lv_main_timer_buffer.size())
                     {
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].run_b = false;
+                        lv_main_timer_buffer[timer_index_d].run_b = false;
                     }
                 }
             }
+        }
+        else
+        {
+            printf("Error timer.stop wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -397,12 +434,16 @@ double timer_index_d = 0.0;
                 // Reset timer counter
                 if (p_bkp_this)
                 {
-                    if(timer_index_d < p_bkp_this->lv_main_timer_buffer.size())
+                    if(timer_index_d < lv_main_timer_buffer.size())
                     {
-                        p_bkp_this->lv_main_timer_buffer[timer_index_d].cnt_d = 0;
+                        lv_main_timer_buffer[timer_index_d].cnt_d = 0;
                     }
                 }
             }
+        }
+        else
+        {
+            printf("Error timer.reset wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -415,14 +456,14 @@ double timer_index_d = 0.0;
   ****************************************************************************
   */
 
-/** @brief Script RUN thread
+/** @brief Timer thread
  *
  * @param void
  * @return wxThread::ExitCode : thread end status
  *
  */
 
-void timer_js_c::worker(void* p_parametr_void)
+void timer_js_c::call(void* p_parametr_void)
 {
 timer_js_c* p_bkp_this = (timer_js_c*)p_parametr_void;
 static uint32_t buffer_cnt_ui32;
@@ -430,36 +471,36 @@ static jerry_value_t eval_ret;
 double time_d = wxGetUTCTimeMillis().ToDouble();
 
     // Thread worker
-    if((p_bkp_this) && (p_bkp_this->l_run_timer_ui8))
+    if((p_bkp_this) && (l_run_timer_ui8))
     {
-        for(buffer_cnt_ui32 = 0 ; buffer_cnt_ui32 < p_bkp_this->lv_main_timer_buffer.size() ; buffer_cnt_ui32++)
+        for(buffer_cnt_ui32 = 0 ; buffer_cnt_ui32 < lv_main_timer_buffer.size() ; buffer_cnt_ui32++)
         {
-            if(p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].cnt_d == 0)
+            if(lv_main_timer_buffer[buffer_cnt_ui32].cnt_d == 0)
             {
-                p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].cnt_d = (time_d + p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].period_d);
+                lv_main_timer_buffer[buffer_cnt_ui32].cnt_d = (time_d + lv_main_timer_buffer[buffer_cnt_ui32].period_d);
             }
-            if(time_d >= p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].cnt_d)
+            if(time_d >= lv_main_timer_buffer[buffer_cnt_ui32].cnt_d)
             {
                 // Set new trigger
-                p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].cnt_d += p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].period_d;
-                if((p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].run_b) && (!p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].one_flag_b))
+                lv_main_timer_buffer[buffer_cnt_ui32].cnt_d += lv_main_timer_buffer[buffer_cnt_ui32].period_d;
+                if((lv_main_timer_buffer[buffer_cnt_ui32].run_b) && (!lv_main_timer_buffer[buffer_cnt_ui32].one_flag_b))
                 {
                     // Call function
-                    if (p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].event_fct_ui32)
+                    if (lv_main_timer_buffer[buffer_cnt_ui32].event_fct_ui32)
                     {
                         jerry_value_t val_args[1];
                         uint16_t val_argv = 1;
                         // Create function argument
                         val_args[0] = jerry_create_number(buffer_cnt_ui32);
-                        eval_ret = jerry_call_function((jerry_value_t)p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].event_fct_ui32, p_bkp_this->l_global_ui32, val_args, val_argv);
+                        eval_ret = jerry_call_function((jerry_value_t)lv_main_timer_buffer[buffer_cnt_ui32].event_fct_ui32, p_bkp_this->l_global_ui32, val_args, val_argv);
                         jerry_release_value(eval_ret);
                         jerry_release_value(val_args[0]);
                     }
                 }
                 // One shot
-                if(p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].one_shot_b)
+                if(lv_main_timer_buffer[buffer_cnt_ui32].one_shot_b)
                 {
-                    p_bkp_this->lv_main_timer_buffer[buffer_cnt_ui32].one_flag_b = true;
+                    lv_main_timer_buffer[buffer_cnt_ui32].one_flag_b = true;
                 }
             }
         }

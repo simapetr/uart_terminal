@@ -46,7 +46,7 @@
 
 /**
   ****************************************************************************
-  * Struct
+  * Define
   ****************************************************************************
   */
 
@@ -67,6 +67,14 @@ typedef struct
 
 /**
   ****************************************************************************
+  * Local variable
+  ****************************************************************************
+  */
+
+vector<packet_buffer_t> lv_main_packet_buffer;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -74,11 +82,12 @@ typedef struct
 /** @brief Registration object in to class
  *
  * @param [IN] p_com_uart_port : Pointer on registered class
+ * @param [IN] p_data_wxcondition : Rx data call event
  * @return void
  *
  */
 
-void uart_js_c::reg_host_class (uart_port* p_com_uart_port)
+void uart_js_c::reg_host_class (uart_port* p_com_uart_port, wxCondition *p_data_wxcondition)
 {
 jerry_value_t global_jerry_value;
 jerry_value_t object_jerry_value;
@@ -86,6 +95,7 @@ jerry_value_t funct_jerry_value;
 jerry_value_t name_jerry_value;
 
     this->lp_com_uart_port = p_com_uart_port;
+    this->lp_data_wxcondition = p_data_wxcondition;
     // Create method
     object_jerry_value = jerry_create_object ();
     // Open port
@@ -202,6 +212,10 @@ uart_cfg_t port_uart_cfg;
                 }
             }
         }
+        else
+        {
+            printf("Error uart.open wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(status_d);
@@ -235,6 +249,10 @@ uart_js_c* p_bkp_this = NULL;
                 wxMilliSleep(100);
                 p_bkp_this->lp_com_uart_port->close();
             }
+        }
+        else
+        {
+            printf("Error uart.close wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -279,6 +297,10 @@ uart_js_c* p_bkp_this = NULL;
                 p_bkp_this->lp_com_uart_port->set(p_bkp_this->rx_event, p_bkp_this);
                 status_ui32 = 1;
             }
+        }
+        else
+        {
+            printf("Error uart.reg_event wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -366,7 +388,7 @@ packet_buffer_t data_packet_buffer;
         }
         else
         {
-
+            printf("Error uart.write wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -433,6 +455,10 @@ uart_js_c* p_bkp_this = NULL;
                 delete[] p_data_sui8;
             }
         }
+        else
+        {
+            printf("Error uart.get_ctrl wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -497,10 +523,64 @@ uart_js_c* p_bkp_this = NULL;
                 delete[] p_data_sui8;
             }
         }
+        else
+        {
+            printf("Error uart.set_ctrl wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
 }
+
+/** @brief Call UART data RX event (Must be called form JS thread)
+ *
+ * @param [IN] p_parametr_void : Handle on registered object
+ * @return uint32_t : number of item in UART buffer
+ *
+ */
+
+uint32_t uart_js_c::call(void* p_parametr_void)
+{
+uart_js_c *p_bkp_this = (uart_js_c*)p_parametr_void;
+static packet_buffer_t data_packet_buffer;
+jerry_value_t val_args[2];
+jerry_value_t data_item_val;
+jerry_value_t eval_ret;
+
+    if(lv_main_packet_buffer.size())
+    {
+        // Get data from fifo
+        data_packet_buffer = lv_main_packet_buffer[0];
+        lv_main_packet_buffer.erase(lv_main_packet_buffer.begin() + 0);
+        // Set parameters
+        val_args[0] = jerry_create_number(data_packet_buffer.event_type_ui32);
+        val_args[1] = jerry_create_array(data_packet_buffer.length_ui32);
+        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_packet_buffer.length_ui32 ; data_cnt_ui32++)
+        {
+            data_item_val = jerry_create_number(double(data_packet_buffer.data_sui8[data_cnt_ui32]));
+            eval_ret = jerry_set_property_by_index (val_args[1], data_cnt_ui32, data_item_val);
+            jerry_release_value (eval_ret);
+            jerry_release_value (data_item_val);
+        }
+        // Call function
+        if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
+        {
+            eval_ret = jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 2);
+            jerry_release_value (eval_ret);
+        }
+        // Clear buffer item
+        jerry_release_value (val_args[0]);
+        jerry_release_value (val_args[1]);
+    }
+    return lv_main_packet_buffer.size();
+}
+
+/**
+  ****************************************************************************
+  * Private
+  ****************************************************************************
+  */
+
 
 /** @brief Data in UART buffer event
  *
@@ -529,32 +609,15 @@ packet_buffer_t data_packet_buffer;
     {
         data_packet_buffer.length_ui32 = length_ui32;
     }
-    // Save data
+    // Set data
     for(data_cnt_ui32 = 0 ; data_cnt_ui32 < data_packet_buffer.length_ui32 ; data_cnt_ui32++)
     {
         data_packet_buffer.data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
     }
-    // Call function
-    jerry_value_t val_args[2];
-    val_args[0] = jerry_create_number(data_packet_buffer.event_type_ui32);
-    val_args[1] = jerry_create_array(data_packet_buffer.length_ui32);
-    // Set data array
-    for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_packet_buffer.length_ui32 ; data_cnt_ui32++)
-    {
-        jerry_value_t data_item_val = jerry_create_number(double(data_packet_buffer.data_sui8[data_cnt_ui32]));
-        jerry_value_t eval_ret = jerry_set_property_by_index (val_args[1], data_cnt_ui32, data_item_val);
-        jerry_release_value (eval_ret);
-        jerry_release_value (data_item_val);
-    }
-    // Call function
-    if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
-    {
-        jerry_value_t eval_ret = jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 2);
-        jerry_release_value (eval_ret);
-    }
-    // Clear buffer item
-    jerry_release_value (val_args[0]);
-    jerry_release_value (val_args[1]);
+    // Save data
+    lv_main_packet_buffer.push_back(data_packet_buffer);
+    // Set event
+    p_bkp_this->lp_data_wxcondition->Broadcast();
     return;
 }
 

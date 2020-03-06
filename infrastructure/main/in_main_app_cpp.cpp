@@ -94,6 +94,10 @@ int32_t cmd_cnt_i32;
     // Application initialization
     bool wxsOK = true;
     wxInitAllImageHandlers();
+    // Set Application info
+    SetAppName(wxT("uart_terminal"));
+    SetVendorName(wxT("PORTTRONIC"));
+    // Open main window
     if ( wxsOK )
     {
     	main_frame* Frame = new main_frame(0, lp_cmd_buffer_arraystring);

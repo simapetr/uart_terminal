@@ -20,7 +20,7 @@
   ****************************************************************************
   */
 
-
+#include "in_thread_worker_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -54,11 +54,11 @@ class main_frame_js_c
 {
     public:
 
-        void reg_host_class (void* p_gui_main_frame_void);
+        void reg_host_class (void* p_gui_main_frame_void, wxCondition *p_data_wxcondition);
         static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t is_console_rx_enable(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-        static uint32_t printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static uint32_t js_printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t status(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t clear(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t open(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
@@ -68,6 +68,7 @@ class main_frame_js_c
         static uint32_t set_progress(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t reg_event(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t hide(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static uint32_t call(void* p_parametr_void);
 
     private:
 
@@ -75,7 +76,10 @@ class main_frame_js_c
 
         void* lp_gui_main_frame_void;
         void* lp_data_wxtextentrydialog_void;
+        wxCondition *lp_data_wxcondition;
         uint8_t l_rx_event_name_sui8[256];
+        uint32_t l_reg_fct_ui32;
+        uint32_t l_global_ui32;
 
 };
 

@@ -54,14 +54,38 @@
 
 /**
   ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+typedef struct
+{
+    wxString text_str;
+}console_buffer_t;
+
+/**
+  ****************************************************************************
   * Local variable
   ****************************************************************************
   */
 
 // GUI frame create flag
+static bool l_frame_hide_b = false;
 static bool l_frame_enable_b = false;
 static bool l_frame_show_status_b = false;
 static bool l_grame_gui_close_b = false;
+static bool l_frame_status_b = false;
+static bool l_frame_clear_b = false;
+static bool l_frame_open_b = false;
+static bool l_frame_close_b = false;
+static bool l_frame_set_b = false;
+static bool l_frame_rx_b = false;
+// GUI sync state
+static bool l_frame_hide_state_b = false;
+static wxString l_frame_status_str;
+static uart_cfg_t l_frame_data_uart_cfg;
+static vector<console_buffer_t> lv_frame_main_console_buffer;
+static uart_status_t l_frame_uart_status;
 // application icon
 #include "icon/ap_ut_icon_app_xpm.xpm"
 #include "icon/lp_play_ico_xpm.xpm"
@@ -376,7 +400,7 @@ int32_t select_i32;
     this->lp_data_wxprogressdialog = NULL;
     this->l_progress_info_str = wxEmptyString;
     this->l_progress_end_b = true;
-    this->l_consle_rx_enable_b = true;
+    l_frame_rx_b = true;
     // Initialization LED
     this->l_cts_b = true;
     this->l_dsr_b = true;
@@ -397,7 +421,7 @@ int32_t select_i32;
     // Set debug flag
     if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
     {
-        this->l_script_debug_b = true;
+        //this->l_script_debug_b = true;
         AllocConsole();
         freopen("CONOUT$", "w", stdout);
         freopen("CONOUT$", "w", stderr);
@@ -522,6 +546,22 @@ config_ini* main_frame::get_project (void)
     return this->lp_script_config_ini;
 }
 
+/** @brief Hide main frame from JerryScript
+ *
+ * @param [IN] status_b : Show main frame
+ * @return void
+ *
+ */
+
+void main_frame::js_hide(bool status_b)
+{
+    l_frame_hide_state_b = status_b;
+    l_frame_hide_b = true;
+    while(l_frame_hide_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
+    return;
+}
+
 /** @brief Set RX data show status
  *
  * @param [IN] status_b : Show RX data status
@@ -531,7 +571,7 @@ config_ini* main_frame::get_project (void)
 
 void main_frame::console_rx_enable (bool status_b)
 {
-    this->l_consle_rx_enable_b = status_b;
+    l_frame_rx_b = status_b;
     return;
 }
 
@@ -544,20 +584,39 @@ void main_frame::console_rx_enable (bool status_b)
 
 bool main_frame::is_console_rx_enable (void)
 {
-    return this->l_consle_rx_enable_b;
+    return l_frame_rx_b;
 }
 
-/** @brief Print string on console
+/** @brief Print string on console from JerryScript
  *
  * @param [IN] console_text_str : Print text
  * @return void
  *
  */
 
-void main_frame::printf(wxString console_text_str)
+void main_frame::js_printf(wxString console_text_str)
 {
-    this->lp_console_wxtextctrl->SetInsertionPointEnd();
-    this->lp_console_wxtextctrl->WriteText(console_text_str);
+console_buffer_t bfr_console_buffer;
+
+    // Add data in to buffer
+    bfr_console_buffer.text_str = console_text_str;
+    lv_frame_main_console_buffer.push_back(bfr_console_buffer);
+    return;
+}
+
+/** @brief Print string on status bar from JerryScript
+ *
+ * @param [IN] console_text_str : Print text
+ * @return void
+ *
+ */
+
+void main_frame::js_status(wxString status_text_str)
+{
+    l_frame_status_str = status_text_str;
+    l_frame_status_b = true;
+    while(l_frame_status_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return;
 }
 
@@ -574,6 +633,21 @@ void main_frame::status(wxString status_text_str)
     return;
 }
 
+/** @brief Clear console text from JerryScript
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void main_frame::js_clear(void)
+{
+    l_frame_clear_b = true;
+    while(l_frame_clear_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
+    return;
+}
+
 /** @brief Clear console text
  *
  * @param void
@@ -584,6 +658,21 @@ void main_frame::status(wxString status_text_str)
 void main_frame::clear(void)
 {
     this->lp_console_wxtextctrl->Clear();
+    return;
+}
+
+/** @brief Open UART form JerryScript
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void main_frame::js_open_port(void)
+{
+    l_frame_open_b = true;
+    while(l_frame_open_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
     return;
 }
 
@@ -605,6 +694,7 @@ uart_cfg_t data_uart_cfg;
         data_uart_cfg = this->get_config();
         // Open port
         this->l_data_uart_status = this->p_communication_uart_port->open(&data_uart_cfg);
+        l_frame_uart_status = this->l_data_uart_status;
         if (this->l_data_uart_status == e_01_open)
         {
             // Create read event
@@ -678,6 +768,21 @@ uart_cfg_t data_uart_cfg;
     return;
 }
 
+/** @brief Close port from JerryScript
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+void main_frame::js_close_port(void)
+{
+    l_frame_close_b = true;
+    while(l_frame_close_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
+    return;
+}
+
 /** @brief Close port wit GUI setting
  *
  * @param void
@@ -705,8 +810,6 @@ void main_frame::close_port(void)
         this->lp_port_control_dtr_wxcheckbox->Disable();
         this->lp_port_control_rts_wxcheckbox->Disable();
         this->lp_port_control_tx_wxcheckbox->Disable();
-        // Close UART
-        this->p_communication_uart_port->close();
         // Check for new COM
         this->main_panel_set_port_choice();
         this->uart_thread_run_ui32 = 0;
@@ -714,6 +817,18 @@ void main_frame::close_port(void)
         this->l_open_b = false;
     }
     return;
+}
+
+/** @brief Get port open status from JerryScript
+ *
+ * @param void
+ * @return uart_status_t : UART port status
+ *
+ */
+
+uart_status_t main_frame::js_get_open_status(void)
+{
+    return l_frame_uart_status;
 }
 
 /** @brief Get port open status
@@ -726,6 +841,23 @@ void main_frame::close_port(void)
 uart_status_t main_frame::get_open_status(void)
 {
     return this->l_data_uart_status;
+}
+
+/** @brief Set UART port from JerryScript
+ *
+ * @param [IN] data_uart_cfg : UART port configuration structure
+ * @return void
+ *
+ */
+
+void main_frame::js_set_config (uart_cfg_t data_uart_cfg)
+{
+    // Set new configuration
+    l_frame_data_uart_cfg = data_uart_cfg;
+    l_frame_set_b = true;
+    while(l_frame_set_b){wxMilliSleep(1);}
+    wxMilliSleep(1);
+    return;
 }
 
 /** @brief Set UART port settings in GUI
@@ -1128,7 +1260,7 @@ wxString data_text_str;
                 data_cnt_ui16++;
             }
         }
-        if (this->l_consle_rx_enable_b)
+        if (l_frame_rx_b)
         {
             if (this->p_communication_uart_port->send(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
             {
@@ -1301,7 +1433,7 @@ uint32_t data_cnt_ui32;
         data_str += "\n";
     }
     // Show data
-    this->printf(data_str);
+    this->js_printf(data_str);
     return;
 }
 
@@ -1320,7 +1452,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
 	main_frame *p_bkp_this = (main_frame*)p_parametr_void;
     if (event_type_ui32 & EV_RXCHAR)
     {
-        if (p_bkp_this->l_consle_rx_enable_b)
+        if (l_frame_rx_b)
         {
             p_bkp_this->uart_rx_data(p_data_sui8, length_ui32);
         }
@@ -1524,6 +1656,52 @@ wxCommandEvent data_wxcommandevent;
         }
         f_rlsd_old_b = l_rlsd_b;
     }
+    // Add console text
+    if(lv_frame_main_console_buffer.size())
+    {
+        while(lv_frame_main_console_buffer.size())
+        {
+            this->lp_console_wxtextctrl->SetInsertionPointEnd();
+            this->lp_console_wxtextctrl->WriteText(lv_frame_main_console_buffer[0].text_str);
+            lv_frame_main_console_buffer.erase(lv_frame_main_console_buffer.begin() + 0);
+        }
+    }
+    // Set status
+    if(l_frame_status_b)
+    {
+        this->status(l_frame_status_str);
+        l_frame_status_b = false;
+    }
+    // Clear port
+    if(l_frame_clear_b)
+    {
+        this->clear();
+        l_frame_clear_b = false;
+    }
+    // Open port
+    if(l_frame_open_b)
+    {
+        this->open_port();
+        l_frame_open_b = false;
+    }
+    // Close port
+    if(l_frame_close_b)
+    {
+        this->close_port();
+        l_frame_close_b = false;
+    }
+    // Set port
+    if(l_frame_set_b)
+    {
+        this->set_config(l_frame_data_uart_cfg);
+        l_frame_set_b = false;
+    }
+    // Main frame hide
+    if(l_frame_hide_b)
+    {
+        this->Show(l_frame_hide_state_b);
+        l_frame_hide_b = false;
+    }
     return;
 }
 
@@ -1544,7 +1722,6 @@ void main_frame::on_speed_wxchoice_select(wxCommandEvent& event)
     {
         this->lp_speed_wxtextctrl->Show(false);
     }
-    //this->lp_main_setting_wxboxsizer->Fit(lp_main_wxpanel);
     this->lp_main_setting_wxboxsizer->Layout();
     return;
 }

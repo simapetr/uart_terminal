@@ -85,7 +85,6 @@ uint32_t gui_frame::add_panel (wxString panel_name_str, bool horizontal_b)
 {
 panel_buffer_t l_data_panel_buffer;
 uint32_t index_ui32 = lv_data_panel_buffer.size();
-wxBoxSizer* p_data_wxboxsizer;
 
     l_data_panel_buffer.name_str = panel_name_str;
     l_data_panel_buffer.sizer_orientation_b = horizontal_b;
@@ -94,13 +93,6 @@ wxBoxSizer* p_data_wxboxsizer;
     lv_data_panel_buffer.push_back(l_data_panel_buffer);
     while(!lv_data_panel_buffer[index_ui32].p_data_wxpanel){wxMilliSleep(1);}
     wxMilliSleep(1);
-    lv_data_panel_buffer[index_ui32].sizer_index_d = this->add_panel_sizer(index_ui32, 1, horizontal_b);
-    // Get box sizer
-    p_data_wxboxsizer = this->get_sizer(lv_data_panel_buffer[index_ui32].sizer_index_d);
-    lv_data_panel_buffer[index_ui32].p_data_wxpanel->SetSizer(p_data_wxboxsizer);
-    // Update
-    p_data_wxboxsizer->Fit(lv_data_panel_buffer[index_ui32].p_data_wxpanel);
-    p_data_wxboxsizer->SetSizeHints(lv_data_panel_buffer[index_ui32].p_data_wxpanel);
     return index_ui32;
 }
 
@@ -114,9 +106,19 @@ wxBoxSizer* p_data_wxboxsizer;
 uint32_t gui_frame::get_panel_sizer (double panel_index_d)
 {
 uint32_t sizer_index_ui32 = 0;
+wxBoxSizer* p_data_wxboxsizer;
 
     if (panel_index_d < lv_data_panel_buffer.size())
     {
+        // Add main sizer
+        lv_data_panel_buffer[panel_index_d].sizer_index_d = this->add_panel_sizer(panel_index_d, 1, lv_data_panel_buffer[panel_index_d].sizer_orientation_b);
+        // Get box sizer
+        p_data_wxboxsizer = this->get_sizer(lv_data_panel_buffer[panel_index_d].sizer_index_d);
+        lv_data_panel_buffer[panel_index_d].p_data_wxpanel->SetSizer(p_data_wxboxsizer);
+        // Update
+        p_data_wxboxsizer->Fit(lv_data_panel_buffer[panel_index_d].p_data_wxpanel);
+        p_data_wxboxsizer->SetSizeHints(lv_data_panel_buffer[panel_index_d].p_data_wxpanel);
+        // Set index
         sizer_index_ui32 = lv_data_panel_buffer[panel_index_d].sizer_index_d;
     }
     return sizer_index_ui32;

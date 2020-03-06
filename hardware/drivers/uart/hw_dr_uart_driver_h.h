@@ -148,7 +148,7 @@ public :
 private :
 
     static DWORD WINAPI uart_thread(PVOID parametr_pvoid);
-    void call(uint32_t event_type_ui32);
+    void call(uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t length_ui32);
 
     HANDLE uart_thread_handle;
     DWORD uart_thread_id_dword;

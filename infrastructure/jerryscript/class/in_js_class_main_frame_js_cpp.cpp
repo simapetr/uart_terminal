@@ -47,6 +47,34 @@
 
 /**
   ****************************************************************************
+  * Define
+  ****************************************************************************
+  */
+
+#define d_buffer_size 4096
+
+/**
+  ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+typedef struct
+{
+    uint32_t length_ui32;
+    uint8_t data_sui8[d_buffer_size];
+}send_buffer_t;
+
+/**
+  ****************************************************************************
+  * Local variable
+  ****************************************************************************
+  */
+
+vector<send_buffer_t> lv_main_send_buffer;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -54,11 +82,12 @@
 /** @brief Registration object in to class
  *
  * @param [IN] p_gui_main_frame_void : Pointer on registered class
+ * @param [IN] p_data_wxcondition : Rx data call event
  * @return void
  *
  */
 
-void main_frame_js_c::reg_host_class (void* p_gui_main_frame_void)
+void main_frame_js_c::reg_host_class (void* p_gui_main_frame_void, wxCondition *p_data_wxcondition)
 {
 jerry_value_t global_jerry_value;
 jerry_value_t object_jerry_value;
@@ -66,6 +95,7 @@ jerry_value_t funct_jerry_value;
 jerry_value_t name_jerry_value;
 
     this->lp_gui_main_frame_void = p_gui_main_frame_void;
+    this->lp_data_wxcondition = p_data_wxcondition;
     // Create method
     object_jerry_value = jerry_create_object ();
     // GUI enable
@@ -86,8 +116,8 @@ jerry_value_t name_jerry_value;
     jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
-    // Print string
-    funct_jerry_value = jerry_create_external_function(this->printf);
+    // Print string (Different name for sole std printf overload)
+    funct_jerry_value = jerry_create_external_function(this->js_printf);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"printf");
     jerry_set_property (object_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
@@ -190,6 +220,10 @@ main_frame_js_c* p_bkp_this = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error main_frame.gui wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
@@ -226,6 +260,10 @@ main_frame_js_c* p_bkp_this = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error main_frame.console_rx_enable wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
@@ -260,6 +298,10 @@ bool status_b = true;
                 status_b = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->is_console_rx_enable();
             }
         }
+        else
+        {
+            printf("Error main_frame.is_console_rx_enable wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -275,7 +317,7 @@ bool status_b = true;
  *
  */
 
-uint32_t main_frame_js_c::printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+uint32_t main_frame_js_c::js_printf(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
 {
 void* p_arg_void;
 main_frame_js_c* p_bkp_this = NULL;
@@ -304,9 +346,13 @@ wxString console_text_str;
                 // Call class method
                 if (p_bkp_this)
                 {
-                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->printf(console_text_str);
+                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_printf(console_text_str);
                 }
             }
+        }
+        else
+        {
+            printf("Error main_frame.printf wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -352,9 +398,13 @@ wxString console_text_str;
                 // Call class method
                 if (p_bkp_this)
                 {
-                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->status(console_text_str);
+                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_status(console_text_str);
                 }
             }
+        }
+        else
+        {
+            printf("Error main_frame.status wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -386,8 +436,12 @@ wxString console_text_str;
         {
             if (p_bkp_this)
             {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->clear();
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_clear();
             }
+        }
+        else
+        {
+            printf("Error main_frame.clear wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -420,7 +474,7 @@ uart_cfg_t port_uart_cfg;
         {
             if (p_bkp_this)
             {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->open_port();
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_open_port();
             }
         }
         else if(args_cnt_ui32 == 6 && p_bkp_this)
@@ -444,17 +498,14 @@ uart_cfg_t port_uart_cfg;
                 // Call class method
                 if (p_bkp_this)
                 {
-                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->set_config(port_uart_cfg);
-                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->open_port();
+                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_set_config(port_uart_cfg);
+                    ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_open_port();
                 }
             }
         }
         else
         {
-            if (p_bkp_this)
-            {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->status(wxT("Error main_frame.open wrong parameter\n"));
-            }
+            printf("Error main_frame.open wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -485,15 +536,12 @@ main_frame_js_c* p_bkp_this = NULL;
         {
             if (p_bkp_this)
             {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->close_port();
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_close_port();
             }
         }
         else
         {
-            if (p_bkp_this)
-            {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->status(wxT("Error main_frame.close wrong parameter\n"));
-            }
+            printf("Error main_frame.close wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -525,15 +573,12 @@ uart_status_t open_uart_status = e_00_open_error;
         {
             if (p_bkp_this)
             {
-                open_uart_status = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_open_status();
+                open_uart_status = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_get_open_status();
             }
         }
         else
         {
-            if (p_bkp_this)
-            {
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->printf(wxT("Error main_frame.get_open_status wrong parameter\n"));
-            }
+            printf("Error main_frame.get_open_status wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -580,6 +625,10 @@ wxString data_str;
                 // Call class method
                 data_str = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_data(text_str);
             }
+        }
+        else
+        {
+            printf("Error main_frame.get_data wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -635,7 +684,7 @@ wxString data_str;
         }
         else
         {
-
+            printf("Error main_frame.set_progress wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -671,9 +720,19 @@ main_frame_js_c* p_bkp_this = NULL;
                 const uint32_t data_len_ui32 = jerry_get_string_size(p_args_ui32[0]);
                 jerry_string_to_char_buffer(p_args_ui32[0],&p_bkp_this->l_rx_event_name_sui8[0],data_len_ui32);
                 p_bkp_this->l_rx_event_name_sui8[data_len_ui32] = 0x00;
+                // Reg function create
+                p_bkp_this->l_global_ui32 = (uint32_t)jerry_get_global_object();
+                if(p_bkp_this->l_global_ui32)
+                {
+                    p_bkp_this->l_reg_fct_ui32 = (uint32_t)jerry_get_property((jerry_value_t)p_bkp_this->l_global_ui32, p_args_ui32[0]);
+                }
                 ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->set_send_event(p_bkp_this->send_event, p_bkp_this);
                 status_ui32 = 1;
             }
+        }
+        else
+        {
+            printf("Error main_frame.reg_event wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -705,13 +764,64 @@ main_frame_js_c* p_bkp_this = NULL;
             if(jerry_value_is_boolean(p_args_ui32[0]))
             {
                 // Set main frame visibility
-                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->Show(!jerry_get_boolean_value(p_args_ui32[0]));
+                ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->js_hide(!jerry_get_boolean_value(p_args_ui32[0]));
             }
+        }
+        else
+        {
+            printf("Error main_frame.hide wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
 }
+
+/** @brief Call Tx data send event (Must be called form JS thread)
+ *
+ * @param [IN] p_parametr_void : Handle on registered object
+ * @return uint32_t : number of item in UART buffer
+ *
+ */
+
+uint32_t main_frame_js_c::call(void* p_parametr_void)
+{
+main_frame_js_c *p_bkp_this = (main_frame_js_c*)p_parametr_void;
+static send_buffer_t data_send_buffer;
+jerry_value_t val_args[1];
+jerry_value_t data_item_val;
+jerry_value_t eval_ret;
+
+    if(lv_main_send_buffer.size())
+    {
+        // Get data from fifo
+        data_send_buffer = lv_main_send_buffer[0];
+        lv_main_send_buffer.erase(lv_main_send_buffer.begin() + 0);
+        // Set parameters
+        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < data_send_buffer.length_ui32 ; data_cnt_ui32++)
+        {
+            data_item_val = jerry_create_number(double(data_send_buffer.data_sui8[data_cnt_ui32]));
+            eval_ret = jerry_set_property_by_index (val_args[0], data_cnt_ui32, data_item_val);
+            jerry_release_value (eval_ret);
+            jerry_release_value (data_item_val);
+        }
+        // Call function
+        if (p_bkp_this->l_reg_fct_ui32 && p_bkp_this->l_global_ui32)
+        {
+            eval_ret = jerry_call_function (p_bkp_this->l_reg_fct_ui32, p_bkp_this->l_global_ui32, val_args, 1);
+            jerry_release_value (eval_ret);
+        }
+        // Clear buffer item
+        jerry_release_value (val_args[0]);
+    }
+    return lv_main_send_buffer.size();
+}
+
+/**
+  ****************************************************************************
+  * Private
+  ****************************************************************************
+  */
+
 
 /** @brief Data in UART buffer event
  *
@@ -726,39 +836,27 @@ main_frame_js_c* p_bkp_this = NULL;
 void main_frame_js_c::send_event(void* p_parametr_void, uint8_t *p_data_sui8, uint32_t length_ui32)
 {
 main_frame_js_c *p_bkp_this = (main_frame_js_c*)p_parametr_void;
-jerry_value_t global_obj = jerry_get_global_object ();
-jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)&p_bkp_this->l_rx_event_name_sui8[0]);
-jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
+uint32_t data_cnt_ui32;
+send_buffer_t data_send_buffer;
 
-    jerry_release_value (sys_name);
-
-    if (!jerry_value_is_function (sysloop_func))
+    // Save length
+    if (length_ui32 > d_buffer_size)
     {
-        jerry_release_value (global_obj);
-        jerry_release_value (sysloop_func);
+        data_send_buffer.length_ui32 = d_buffer_size;
     }
     else
     {
-        // Call function
-        jerry_value_t val_args[1];
-        uint16_t val_argv = 1;
-        val_args[0] = jerry_create_array(length_ui32);
-        // Set data array
-        for (uint32_t data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
-        {
-            jerry_value_t data_jerry_value = jerry_create_number(double(p_data_sui8[data_cnt_ui32]));
-            jerry_set_property_by_index (val_args[0], data_cnt_ui32, jerry_value_to_number(data_jerry_value));
-            jerry_release_value(data_jerry_value);
-        }
-        // Call function
-        if (jerry_call_function (sysloop_func, global_obj, val_args, val_argv))
-        {
-            //char status = -3;
-        }
-        jerry_release_value (val_args[0]);
+        data_send_buffer.length_ui32 = length_ui32;
     }
-    jerry_release_value (global_obj);
-    jerry_release_value (sysloop_func);
+    // Set data
+    for(data_cnt_ui32 = 0 ; data_cnt_ui32 < data_send_buffer.length_ui32 ; data_cnt_ui32++)
+    {
+        data_send_buffer.data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32];
+    }
+    // Save data
+    lv_main_send_buffer.push_back(data_send_buffer);
+    // Set event
+    p_bkp_this->lp_data_wxcondition->Broadcast();
     return;
 }
 

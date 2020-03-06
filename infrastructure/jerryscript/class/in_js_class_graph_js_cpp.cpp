@@ -150,6 +150,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.graph.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(graph_num_ui32);
@@ -206,6 +210,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.graph.insert_signal wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(signal_num_ui32);
@@ -248,6 +256,10 @@ vector<double> v_data_d;
                 // Call function
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_main_frame_void))->set_graph_data((uint32_t)jerry_get_number_value(p_args_ui32[0]),v_data_d);
             }
+        }
+        else
+        {
+            printf("Error gui.graph.set wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

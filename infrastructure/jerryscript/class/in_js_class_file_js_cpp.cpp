@@ -155,6 +155,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error file.read wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_string((const jerry_char_t*)data_str.To8BitData().data());
@@ -218,6 +222,10 @@ jerry_value_t data_array_jerry_value = jerry_create_array(0);
                     delete p_stcipt_wxfile;
                 }
             }
+        }
+        else
+        {
+            printf("Error file.read_b wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
@@ -313,6 +321,10 @@ uint8_t *p_data_sui8;
 
             }
         }
+        else
+        {
+            printf("Error file.write wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -406,6 +418,10 @@ uint8_t *p_data_sui8;
             {
 
             }
+        }
+        else
+        {
+            printf("Error file.append wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

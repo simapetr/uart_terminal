@@ -144,6 +144,10 @@ double slider_index_d = 0.0;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.slider.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(slider_index_d);
@@ -192,6 +196,10 @@ static uint8_t *p_data_sui8 = NULL;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_slider_event(jerry_get_number_value(p_args_ui32[0]), text_str);
             }
         }
+        else
+        {
+            printf("Error gui.slider.reg_event wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_boolean(status_b);
@@ -231,6 +239,10 @@ double data_d = 0.0;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.slider.get wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(data_d);
@@ -269,6 +281,10 @@ slider_js_c* p_bkp_this = NULL;
                     ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_slider_data(jerry_get_number_value(p_args_ui32[0]), jerry_get_number_value(p_args_ui32[1]));
                 }
             }
+        }
+        else
+        {
+            printf("Error gui.slider.set wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

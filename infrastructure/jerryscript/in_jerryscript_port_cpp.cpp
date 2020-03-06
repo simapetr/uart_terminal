@@ -44,11 +44,24 @@
 
 /**
   ****************************************************************************
+  * Struct
+  ****************************************************************************
+  */
+
+typedef struct
+{
+    wxString event_str;
+    uint32_t component_id_ui32;
+}event_buffer_t;
+
+/**
+  ****************************************************************************
   * Local variable
   ****************************************************************************
   */
 
 bool l_in_js_port_gui_enable_b = false;
+vector<event_buffer_t> lv_main_event_buffer;
 
 /**
   ****************************************************************************
@@ -79,6 +92,12 @@ jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame
     // Initialize GUI window
     this->lp_data_gui_frame = new gui_frame((wxWindow*)this->lp_gui_main_frame_void, this);
     this->lp_data_gui_frame->Show();
+    // Create wait event
+    this->lp_data_wxmutex = new wxMutex();
+    if(this->lp_data_wxmutex)
+    {
+        this->lp_data_wxcondition = new wxCondition(*this->lp_data_wxmutex);
+    }
     return;
 }
 
@@ -114,6 +133,7 @@ uint32_t status_ui32 = 1;
     this->l_jerryscript_code_str = script_str;
     // Run working thread
     this->lp_script_thread = new thread_c(this, this->worker);
+    this->lp_script_thread->SetPriority(wxPRIORITY_MAX);
     wxMilliSleep(10);
     // Create Worker thread
     if(this->lp_script_thread)
@@ -137,36 +157,12 @@ uint32_t status_ui32 = 1;
 
 void jerryscript_c::stop (void)
 {
-config_ini *p_position_config_ini;
-int pos_x_int = 0;
-int pos_y_int = 0;
-int siz_w_int = 0;
-int siz_h_int = 0;
-
-    if (this->lp_data_gui_frame != NULL && ((main_frame*)(this->lp_gui_main_frame_void)) != NULL)
-    {
-        p_position_config_ini = ((main_frame*)(this->lp_gui_main_frame_void))->get_project();
-        p_position_config_ini->set_string(wxT("POSITION/perspective"),this->lp_data_gui_frame->get_aui_manager()->SavePerspective());
-        // Save window position
-        this->lp_data_gui_frame->GetPosition(&pos_x_int, &pos_y_int);
-        p_position_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
-        p_position_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
-        if (this->lp_data_gui_frame->IsMaximized())
-        {
-            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
-        }
-        else
-        {
-            this->lp_data_gui_frame->GetClientSize(&siz_w_int, &siz_h_int);
-            p_position_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
-            p_position_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
-            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
-        }
-    }
     if(this->l_run_script_ui8)
     {
         // Stop script
         this->l_run_script_ui8 = 0;
+        wxMilliSleep(50);
+        this->lp_data_wxcondition->Broadcast();
         wxMilliSleep(50);
         // Stop thread
         this->lp_script_thread->stop();
@@ -185,23 +181,15 @@ int siz_h_int = 0;
 
 void jerryscript_c::call_event (wxString event_str, uint32_t component_id_ui32)
 {
-jerry_value_t global_obj = jerry_get_global_object ();
-jerry_value_t sys_name = jerry_create_string ((const jerry_char_t*)event_str.To8BitData().data());
-jerry_value_t sysloop_func = jerry_get_property (global_obj, sys_name);
+event_buffer_t data_event_buffer;
 
-    if (sysloop_func != 4)
-    {
-        jerry_value_t val_args[1];
-        uint16_t val_argv = 1;
-        // Create function argument
-        val_args[0] = jerry_create_number(component_id_ui32);
-        // Call function
-        jerry_call_function(sysloop_func, global_obj, val_args, val_argv);
-        jerry_release_value (val_args[0]);
-    }
-    jerry_release_value (global_obj);
-    jerry_release_value (sysloop_func);
-    jerry_release_value (sys_name);
+    // Set data
+    data_event_buffer.event_str = event_str;
+    data_event_buffer.component_id_ui32 = component_id_ui32;
+    // Save in to buffer
+    lv_main_event_buffer.push_back(data_event_buffer);
+    // Set event
+    this->lp_data_wxcondition->Broadcast();
     return;
 }
 
@@ -245,8 +233,8 @@ jerry_value_t name_jerry_value;
     this->l_data_timer_js.reg_host_class();
     this->l_data_time_js.reg_host_class();
     this->l_data_file_js.reg_host_class();
-    this->l_port_uart_js.reg_host_class(this->lp_com_uart_port);
-    this->l_gui_main_frame_js.reg_host_class(this->lp_gui_main_frame_void);
+    this->l_port_uart_js.reg_host_class(this->lp_com_uart_port, this->lp_data_wxcondition);
+    this->l_gui_main_frame_js.reg_host_class(this->lp_gui_main_frame_void, this->lp_data_wxcondition);
     this->l_gui_panel_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_sizer_js.reg_host_class(this->lp_data_gui_frame);
     this->l_gui_graph_js.reg_host_class(this->lp_data_gui_frame);
@@ -273,9 +261,52 @@ void jerryscript_c::dereg_class (void)
     return;
 }
 
+/** @brief Call GUI event (Must be called form JS thread)
+ *
+ * @param void
+ * @return uint32_t : number of item in UART buffer
+ *
+ */
+
+uint32_t jerryscript_c::call(void)
+{
+static event_buffer_t data_event_buffer;
+jerry_value_t global_obj;
+jerry_value_t sys_name;
+jerry_value_t sysloop_func;
+jerry_value_t val_args[1];
+uint16_t val_argv = 1;
+
+    if(lv_main_event_buffer.size())
+    {
+        // Get global object
+        global_obj = jerry_get_global_object();
+        // Get data from fifo
+        data_event_buffer = lv_main_event_buffer[0];
+        lv_main_event_buffer.erase(lv_main_event_buffer.begin() + 0);
+        // Get function reference
+        sys_name = jerry_create_string ((const jerry_char_t*)data_event_buffer.event_str.To8BitData().data());
+        sysloop_func = jerry_get_property (global_obj, sys_name);
+        // Call function
+        if (sysloop_func != 4)
+        {
+            // Create function argument
+            val_args[0] = jerry_create_number(data_event_buffer.component_id_ui32);
+            // Call function
+            jerry_call_function(sysloop_func, global_obj, val_args, val_argv);
+        }
+        // Release all used variable
+        jerry_release_value (val_args[0]);
+        jerry_release_value (global_obj);
+        jerry_release_value (sysloop_func);
+        jerry_release_value (sys_name);
+    }
+    return lv_main_event_buffer.size();
+}
+
 /**
   ****************************************************************************
-  * Local function
+  * Private
   ****************************************************************************
   */
 
@@ -292,6 +323,10 @@ jerryscript_c* p_bkp_this = (jerryscript_c*)p_parametr_void;
 static jerry_value_t eval_ret_jerry_value;
 config_ini *p_position_config_ini;
 wxString perspective_str;
+int pos_x_int = 0;
+int pos_y_int = 0;
+int siz_w_int = 0;
+int siz_h_int = 0;
 
     // Run thread
     p_bkp_this->l_run_script_ui8 = 1;
@@ -319,28 +354,79 @@ wxString perspective_str;
     if (p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
         p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
-        p_bkp_this->lp_data_gui_frame->Move(wxPoint(p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),p_position_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
+        pos_x_int = p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10"));
+        pos_y_int = p_position_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"));
+        p_bkp_this->lp_data_gui_frame->Move(wxPoint(pos_x_int, pos_y_int));
         if (p_position_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
         {
             p_bkp_this->lp_data_gui_frame->Maximize();
         }
         else
         {
-            p_bkp_this->lp_data_gui_frame->SetClientSize(wxSize(p_position_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+            siz_w_int = p_position_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800"));
+            siz_h_int = p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"));
+            p_bkp_this->lp_data_gui_frame->SetClientSize(wxSize(siz_w_int, siz_h_int));
         }
         // Load perspective
         perspective_str = p_position_config_ini->get_string(wxT("POSITION/perspective"),wxT(""));
         if(perspective_str != wxEmptyString)
         {
             // Load AUI position
+            wxMilliSleep(10);
             p_bkp_this->lp_data_gui_frame->get_aui_manager()->LoadPerspective(perspective_str);
-            // Update AUI manager
-            p_bkp_this->lp_data_gui_frame->get_aui_manager()->Update();
         }
     }
     while(p_bkp_this->l_run_script_ui8)
     {
-        wxMilliSleep(10);
+        if(p_bkp_this->lp_data_wxcondition)
+        {
+            switch(p_bkp_this->lp_data_wxcondition->WaitTimeout(1))
+            {
+                case wxCOND_NO_ERROR:
+                {
+                    // Call Rx data event
+                    while(p_bkp_this->l_port_uart_js.call(&p_bkp_this->l_port_uart_js)){}
+                    // Call GUI event
+                    while(p_bkp_this->call()){}
+                    // Call main frame event
+                    while(p_bkp_this->l_gui_main_frame_js.call(&p_bkp_this->l_gui_main_frame_js)){}
+                    // Prevent timer call
+                    p_bkp_this->l_data_timer_js.call(&p_bkp_this->l_data_timer_js);
+                }
+                break;
+                case wxCOND_TIMEOUT:
+                {
+                    p_bkp_this->l_data_timer_js.call(&p_bkp_this->l_data_timer_js);
+                }
+                break;
+                default:
+                {
+
+                }
+                break;
+            }
+        }
+    }
+    // Save frame and AUI position
+    if (p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
+    {
+        p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
+        p_position_config_ini->set_string(wxT("POSITION/perspective"),p_bkp_this->lp_data_gui_frame->get_aui_manager()->SavePerspective());
+        // Save window position
+        p_bkp_this->lp_data_gui_frame->GetPosition(&pos_x_int, &pos_y_int);
+        p_position_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
+        p_position_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
+        if (p_bkp_this->lp_data_gui_frame->IsMaximized())
+        {
+            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
+        }
+        else
+        {
+            p_bkp_this->lp_data_gui_frame->GetClientSize(&siz_w_int, &siz_h_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
+            p_position_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
+        }
     }
     // Unregister class
     p_bkp_this->dereg_class();
@@ -370,6 +456,10 @@ uint32_t jerryscript_c::delay(const uint32_t funct_ui32, const uint32_t this_ui3
         {
             wxMilliSleep((uint32_t)jerry_get_number_value(p_args_ui32[0]));
         }
+    }
+    else
+    {
+        printf("Error delay wrong parameter\n");
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
@@ -408,6 +498,10 @@ wxString text_str;
             // Call class method
             wxMessageBox( text_str, wxT("Alert"));
         }
+    }
+    else
+    {
+        printf("Error alert wrong parameter\n");
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();

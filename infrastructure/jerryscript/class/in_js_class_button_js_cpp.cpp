@@ -143,6 +143,10 @@ static uint8_t *p_data_sui8 = NULL;
                 }
             }
         }
+        else
+        {
+            printf("Error gui.button.add wrong parameter\n");
+        }
     }
     // Cast it back to JavaScript and return
     return jerry_create_number(button_index_d);
@@ -190,6 +194,10 @@ static uint8_t *p_data_sui8 = NULL;
                 delete[] p_data_sui8;
                 status_b = ((gui_frame*)(p_bkp_this->lp_gui_interface_void))->set_button_event(jerry_get_number_value(p_args_ui32[0]), text_str);
             }
+        }
+        else
+        {
+            printf("Error gui.button.reg_event wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return
