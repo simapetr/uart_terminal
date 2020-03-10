@@ -1,25 +1,90 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxPanel" name="data_plot">
+		<pos>-1,-1</pos>
 		<id_arg>0</id_arg>
-		<object class="wxBoxSizer" variable="lp_graph_wxboxsizer" member="yes">
+		<style>wxALWAYS_SHOW_SB</style>
+		<object class="wxBoxSizer" variable="lp_frame_wxboxsizer" member="yes">
 			<orient>wxVERTICAL</orient>
 			<object class="sizeritem">
-				<object class="wxStaticText" name="l_id_graph_name_wxstatictext" variable="lp_graph_name_wxstatictext" member="yes">
-					<label>Graph</label>
+				<object class="wxStaticText" name="l_id_name_wxstatictext" variable="lp_name_wxstatictext" member="yes">
+					<label></label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+						<face>Tahoma</face>
+					</font>
 				</object>
 				<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="mpWindow" name="l_id_graph_mpwindow" variable="lp_graph_mpwindow" member="yes">
-					<object class="mpAxis" name="l_id_x_axis_mpscalex" variable="lp_x_axis_mpscalex" member="yes">
-						<mLabel>time</mLabel>
+				<object class="wxBoxSizer" variable="lp_mathplot_setting_wxboxsizer" member="yes">
+					<object class="sizeritem">
+						<object class="wxToggleButton" name="l_id_pause_wxtogglebutton" variable="lp_pause_wxtogglebutton" member="yes">
+							<size>23,23</size>
+							<handler function="on_pause_wxtogglebutton_toggle" entry="EVT_TOGGLEBUTTON" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
 					</object>
-					<object class="mpAxis" name="l_id_y_axis_mpscalex" variable="lp_y_axis_mpscalex" member="yes">
-						<mType>Y-Axis</mType>
-						<mLabel>value</mLabel>
-						<mAlign>mpALIGN_BORDER_LEFT</mAlign>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_zoom_wxbutton" variable="lp_zoom_wxbutton" member="yes">
+							<size>23,23</size>
+							<handler function="on_zoom_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_zoom_plus_wxbutton" variable="lp_zoom_plus_wxbutton" member="yes">
+							<size>23,23</size>
+							<handler function="on_zoom_plus_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_zoom_minus_wxbutton" variable="lp_zoom_minus_wxbutton" member="yes">
+							<size>23,23</size>
+							<handler function="on_zoom_minus_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxCheckBox" name="l_id_legend_wxcheckbox" variable="lp_legend_wxcheckbox" member="yes">
+							<label>Legend</label>
+							<checked>1</checked>
+							<handler function="on_legend_wxcheckbox_click" entry="EVT_CHECKBOX" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxBoxSizer" variable="lp_mathplot_graph_wxboxsizer" member="yes">
+					<object class="sizeritem">
+						<object class="mpWindow" name="l_id_graph_mpwindow" variable="lp_graph_mpwindow" member="yes">
+							<object class="mpAxis" name="l_id_x_axis_mpscalex" variable="lp_x_axis_mpscalex" member="yes">
+								<mLabel>Time</mLabel>
+								<style>wxALWAYS_SHOW_SB</style>
+							</object>
+							<object class="mpAxis" name="l_id_y_axis_mpscalex" variable="lp_y_axis_mpscalex" member="yes">
+								<mType>Y-Axis</mType>
+								<mLabel>Value</mLabel>
+								<mAlign>mpALIGN_BORDER_LEFT</mAlign>
+							</object>
+						</object>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
 					</object>
 				</object>
 				<flag>wxEXPAND</flag>
@@ -27,16 +92,29 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxGrid" name="l_id_graph_signal_wxgrid" variable="lp_graph_signal_wxgrid" member="yes">
-					<rows>1</rows>
+				<object class="wxBoxSizer" variable="lp_grid_wxboxsizer" member="yes">
+					<object class="sizeritem">
+						<object class="wxGrid" name="l_id_graph_signal_wxgrid" variable="lp_graph_signal_wxgrid" member="yes">
+							<rows>1</rows>
+						</object>
+						<flag>wxALIGN_LEFT</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
 				</object>
 				<flag>wxEXPAND</flag>
 				<border>5</border>
 			</object>
 		</object>
-		<object class="wxTimer" name="l_id_redraw_wxtimer" variable="lp_redraw_wxtimer" member="yes">
-			<interval>20</interval>
-			<handler function="on_redraw_wxtimer_trigger" entry="EVT_TIMER" />
+		<object class="wxImageList" variable="icon_wximagelist" member="yes">
+			<image_list>
+				<item>16</item>
+				<item>16</item>
+			</image_list>
+			<image_text>
+				<item2>16</item2>
+				<item2>16</item2>
+			</image_text>
 		</object>
 	</object>
 </wxsmith>

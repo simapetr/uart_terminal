@@ -109,6 +109,8 @@
 		</Unit>
 		<Unit filename="../application/uart_terminal/ap_uart_terminal_frame_wxs.wxs" />
 		<Unit filename="../application/uart_terminal/icon/ap_ut_icon_app_xpm.xpm" />
+		<Unit filename="../application/uart_terminal/icon/lp_play_ico_xpm.xpm" />
+		<Unit filename="../application/uart_terminal/icon/lp_stop_ico_xpm.xpm" />
 		<Unit filename="../hardware/drivers/uart/hw_dr_uart_driver_cpp.cpp" />
 		<Unit filename="../hardware/drivers/uart/hw_dr_uart_driver_h.h" />
 		<Unit filename="../infrastructure/config/in_config_ini_wrapper_cpp.cpp" />

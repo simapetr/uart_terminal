@@ -59,7 +59,15 @@ typedef struct
     double buffer_length_d;
     double time_step_d;
     data_plot* p_graph_data_plot;
+    bool redraw_b;
 }graph_buffer_t;
+
+typedef struct
+{
+    wxString name_str;
+    wxPen signal_style_pen;
+    uint32_t graph_ui32;
+}signal_buffer_t;
 
 /**
   ****************************************************************************
@@ -69,6 +77,8 @@ typedef struct
 
 static vector<graph_buffer_t> lv_data_graph_buffer;
 static uint32_t l_cnt_graph_ui32 = 0;
+static signal_buffer_t l_graph_signal_buffer;
+static bool l_signal_add_b = false;
 
 /**
   ****************************************************************************
@@ -127,13 +137,14 @@ wxPen signal_style_pen;
 
     if (graph_ui32 < lv_data_graph_buffer.size())
     {
-        signal_style_pen.SetColour(((unsigned char)color_ui32), ((unsigned char)(color_ui32 >> 8)), ((unsigned char)(color_ui32 >> 16)));
-        signal_style_pen.SetWidth(width_ui32);
-        signal_style_pen.SetStyle((style_ui32 + 100));
-        if(lv_data_graph_buffer[graph_ui32].p_graph_data_plot)
-        {
-            lv_data_graph_buffer[graph_ui32].p_graph_data_plot->insert_signal(signal_label_str, signal_style_pen);
-        }
+        l_graph_signal_buffer.graph_ui32 = graph_ui32;
+        l_graph_signal_buffer.name_str = signal_label_str;
+        l_graph_signal_buffer.signal_style_pen.SetColour(((unsigned char)color_ui32), ((unsigned char)(color_ui32 >> 8)), ((unsigned char)(color_ui32 >> 16)));
+        l_graph_signal_buffer.signal_style_pen.SetWidth(width_ui32);
+        l_graph_signal_buffer.signal_style_pen.SetStyle((style_ui32 + 100));
+        l_signal_add_b = true;
+        while(l_signal_add_b){wxMilliSleep(1);}
+        wxMilliSleep(1);
         signal_ui32 = 1;
     }
     return signal_ui32;
@@ -156,11 +167,11 @@ uint32_t signal_cnt_ui32;
     {
         if(lv_data_graph_buffer[graph_ui32].p_graph_data_plot)
         {
-            for (signal_cnt_ui32 = 0 ; signal_cnt_ui32 < lv_data_graph_buffer[graph_ui32].p_graph_data_plot->get_signal() ; signal_cnt_ui32++)
+            for (signal_cnt_ui32 = 0 ; signal_cnt_ui32 < lv_data_graph_buffer[graph_ui32].p_graph_data_plot->get() ; signal_cnt_ui32++)
             {
-                lv_data_graph_buffer[graph_ui32].p_graph_data_plot->insert_data(signal_cnt_ui32, pv_data_d[signal_cnt_ui32]);
+                lv_data_graph_buffer[graph_ui32].p_graph_data_plot->set(signal_cnt_ui32, pv_data_d[signal_cnt_ui32]);
             }
-            lv_data_graph_buffer[graph_ui32].p_graph_data_plot->time_increment();
+            lv_data_graph_buffer[graph_ui32].redraw_b = true;
         }
         status_b = true;
     }
@@ -185,6 +196,7 @@ void gui_frame::on_update_graph(void)
 wxPanel* p_data_wxpanel;
 wxBoxSizer* p_data_wxboxsizer;
 data_plot* p_buffer_data_plot = NULL;
+uint32_t graph_cnt_ui32;
 
     // Add graph
     while (l_cnt_graph_ui32 < lv_data_graph_buffer.size())
@@ -194,7 +206,7 @@ data_plot* p_buffer_data_plot = NULL;
         // Get origin panel
         p_data_wxpanel = this->get_sizer_panel(lv_data_graph_buffer[l_cnt_graph_ui32].sizer_index_d);
         // Create new graph
-        p_buffer_data_plot = new data_plot(p_data_wxpanel, lv_data_graph_buffer[l_cnt_graph_ui32].name_str, lv_data_graph_buffer[l_cnt_graph_ui32].graph_range_d, lv_data_graph_buffer[l_cnt_graph_ui32].buffer_length_d, lv_data_graph_buffer[l_cnt_graph_ui32].time_step_d);
+        p_buffer_data_plot = new data_plot(p_data_wxpanel, lv_data_graph_buffer[l_cnt_graph_ui32].name_str, -lv_data_graph_buffer[l_cnt_graph_ui32].graph_range_d, lv_data_graph_buffer[l_cnt_graph_ui32].graph_range_d, lv_data_graph_buffer[l_cnt_graph_ui32].buffer_length_d, lv_data_graph_buffer[l_cnt_graph_ui32].time_step_d);
         if(p_buffer_data_plot)
         {
             // Insert in to sizer
@@ -207,6 +219,24 @@ data_plot* p_buffer_data_plot = NULL;
             lv_data_graph_buffer[l_cnt_graph_ui32].p_graph_data_plot = p_buffer_data_plot;
         }
         l_cnt_graph_ui32++;
+    }
+    // Add signal in to graph
+    if(l_signal_add_b)
+    {
+        if(l_graph_signal_buffer.graph_ui32 < lv_data_graph_buffer.size())
+        {
+            lv_data_graph_buffer[l_graph_signal_buffer.graph_ui32].p_graph_data_plot->add(l_graph_signal_buffer.name_str, l_graph_signal_buffer.signal_style_pen);
+        }
+        l_signal_add_b = false;
+    }
+    // Redraw graph
+    for(graph_cnt_ui32 = 0 ; graph_cnt_ui32 < lv_data_graph_buffer.size() ; graph_cnt_ui32++)
+    {
+        if(lv_data_graph_buffer[graph_cnt_ui32].redraw_b)
+        {
+            lv_data_graph_buffer[graph_cnt_ui32].p_graph_data_plot->redraw();
+            lv_data_graph_buffer[graph_cnt_ui32].redraw_b = false;
+        }
     }
     return;
 }

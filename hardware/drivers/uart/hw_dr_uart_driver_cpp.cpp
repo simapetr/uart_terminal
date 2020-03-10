@@ -717,8 +717,6 @@ void uart_port::call(uint32_t event_type_ui32, uint8_t *p_data_sui8, uint32_t le
 {
 uint32_t event_counter_ui32;
 uint32_t port_ui32;
-static uint32_t call_cnt_ui32 = 0;
-static uint32_t print_cnt_ui32 = 1;
 
     // Get port number
     port_ui32 = this->data_uart_cfg.port_num_ui8;
@@ -730,18 +728,6 @@ static uint32_t print_cnt_ui32 = 1;
         // Call event
         this->lv_rx_uart_event_buffer[event_counter_ui32].p_usr_uart_event_fct(this->lv_rx_uart_event_buffer[event_counter_ui32].p_parametr_void, event_type_ui32, p_data_sui8, length_ui32);
     }
-
-    if(call_cnt_ui32 > 249)
-    {
-        call_cnt_ui32 = 0;
-        printf("Rx : %u\n", (print_cnt_ui32 * 249));
-        print_cnt_ui32++;
-    }
-    else
-    {
-        call_cnt_ui32++;
-    }
-
     return;
 }
 
