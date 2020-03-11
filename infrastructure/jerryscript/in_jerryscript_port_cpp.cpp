@@ -20,6 +20,8 @@
 #include <wx/utils.h>
 #include <wx/msgdlg.h>
 #include <wx/time.h>
+#include <stdlib.h>
+#include <time.h>
 #include "in_jerryscript_port_h.h"
 #include "in_jerryscript_core_h.h"
 #include "in_jerryscript_debugger_h.h"
@@ -211,6 +213,12 @@ jerry_value_t name_jerry_value;
     // Register Delay (in ms)
     funct_jerry_value = jerry_create_external_function(this->delay);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"delay");
+    jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
+    // Register rand number generator function
+    funct_jerry_value = jerry_create_external_function(this->js_rand);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"rand");
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
@@ -464,6 +472,48 @@ uint32_t jerryscript_c::delay(const uint32_t funct_ui32, const uint32_t this_ui3
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
+}
+
+/** @brief Get random number (JS function "rand")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t jerryscript_c::js_rand(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+double number_d = 0;
+int32_t min_i32;
+int32_t max_i32;
+
+    // Extract function argument
+    if(args_cnt_ui32 == 0)
+    {
+        // Get value
+        number_d = (double)rand();
+    }
+    else if(args_cnt_ui32 == 2)
+    {
+        if(
+           jerry_value_is_number (p_args_ui32[0]) &&
+           jerry_value_is_number (p_args_ui32[1])
+          )
+        {
+            min_i32 = (uint32_t)jerry_get_number_value(p_args_ui32[0]);
+            max_i32 = (uint32_t)jerry_get_number_value(p_args_ui32[1]);
+            number_d = (double)((rand() % (max_i32 + 1 - min_i32)) + min_i32);
+        }
+    }
+    else
+    {
+        printf("Error delay wrong parameter\n");
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_number(number_d);
 }
 
 /** @brief Alert info dialog (JS function "alert")

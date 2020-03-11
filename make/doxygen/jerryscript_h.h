@@ -289,6 +289,33 @@ class main_frame
 
 void delay(double time_d);
 
+/** @brief Get random value
+ *
+ * @code
+ * var random_val = rand();
+ * @endcode
+ *
+ * @param void
+ * @return double : Random value
+ *
+ */
+
+double rand(void);
+
+/** @brief Get random value from range
+ *
+ * @code
+ * var random_val = rand(-10, 10);
+ * @endcode
+ *
+ * @param [IN] min_d : Min value
+ * @param [IN] max_d : Max value
+ * @return double : Random value
+ *
+ */
+
+double rand(double min_d, double max_d);
+
 /** @brief Show alert dialog
  *
  * @code
