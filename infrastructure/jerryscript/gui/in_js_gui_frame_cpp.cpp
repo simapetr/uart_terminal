@@ -58,6 +58,7 @@ bool l_frame_show_bkp_b = false;
 #include "icon/lp_in_js_gui_ico_xpm.xpm"
 //(*IdInit(gui_frame)
 const long gui_frame::l_id_update_wxtimer = wxNewId();
+const long gui_frame::l_id_js_quit_wxmenu = wxNewId();
 //*)
 #include <wx/imaglist.h>
 
@@ -92,9 +93,18 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     lp_main_wxauimanager = new wxAuiManager(this, wxAUI_MGR_ALLOW_FLOATING|wxAUI_MGR_DEFAULT);
     lp_update_wxtimer.SetOwner(this, l_id_update_wxtimer);
     lp_update_wxtimer.Start(1, false);
+    lp_main_wxmenubar = new wxMenuBar();
+    lp_file_wxmenu = new wxMenu();
+    lp_js_quit_wxmenu = new wxMenuItem(lp_file_wxmenu, l_id_js_quit_wxmenu, _("Quit\tAlt-F4"), _("Quit JS application"), wxITEM_NORMAL);
+    lp_file_wxmenu->Append(lp_js_quit_wxmenu);
+    lp_main_wxmenubar->Append(lp_file_wxmenu, _("&File"));
+    lp_view_wxmenu = new wxMenu();
+    lp_main_wxmenubar->Append(lp_view_wxmenu, _("View"));
+    SetMenuBar(lp_main_wxmenubar);
 
     lp_main_wxauimanager->Connect(wxEVT_AUI_PANE_CLOSE,(wxObjectEventFunction)&gui_frame::on_frame_auimanager_pane_close,0,this);
     Connect(l_id_update_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&gui_frame::on_update_wxtimer_trigger);
+    Connect(l_id_js_quit_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&gui_frame::on_js_quit_wxmenu_selected);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&gui_frame::on_close_event);
     Connect(wxEVT_SIZE,(wxObjectEventFunction)&gui_frame::on_frame_resize);
     //*)
@@ -175,7 +185,7 @@ void gui_frame::frame_show (bool status_b, wxString name_str)
 
 /** @brief Close plug-in window
  *
- * @param  event : Event parameter
+ * @param [IN] event : Event parameter
  * @return void
  *
  */
@@ -183,12 +193,14 @@ void gui_frame::frame_show (bool status_b, wxString name_str)
 void gui_frame::on_frame_auimanager_pane_close(wxAuiManagerEvent& event)
 {
     event.GetPane()->Show(false);
+    this->set_panel_view();
+    //this->lp_view_wxmenu->FindChildItem(this->lp_view_wxmenu->FindItem(event.GetPane()->caption))->Check(false);
     return;
 }
 
 /** @brief Resize window
  *
- * @param  event : Event parameter
+ * @param [IN] event : Event parameter
  * @return void
  *
  */
@@ -201,7 +213,7 @@ void gui_frame::on_frame_resize(wxSizeEvent& event)
 
 /** @brief Close window
  *
- * @param  event : Event parameter
+ * @param [IN] event : Event parameter
  * @return void
  *
  */
@@ -256,6 +268,27 @@ void gui_frame::on_update_wxtimer_trigger(wxTimerEvent& event)
     return;
 }
 
+/** @brief Menu quit event
+ *
+ * @param [IN] event : Event parameter
+ * @return void
+ *
+ */
+
+void gui_frame::on_js_quit_wxmenu_selected(wxCommandEvent& event)
+{
+    // Call event stop
+    if (this->GetParent()->IsShown())
+    {
+        reinterpret_cast<main_frame*>(this->GetParent()->GetClientData())->stop_event();
+    }
+    else
+    {
+        this->GetParent()->Close();
+    }
+    return;
+}
+
 /**
 * @}
 */
@@ -265,5 +298,7 @@ void gui_frame::on_update_wxtimer_trigger(wxTimerEvent& event)
 */
 
 /*****************************************************END OF FILE************/
+
+
 
 

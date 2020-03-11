@@ -873,6 +873,38 @@ class panel
 
         double add(string name_str, bool horizontal_b);
 
+        /** @brief Get panel show status
+         *
+         * @code
+         * var test_panel;
+         * test_panel = gui.panel.add("test_panel", true);
+         * gui.panel.set(test_panel, false);
+         * @endcode
+         *
+         * @param [IN] panel_d : Panel buffer index
+         * @param [IN] show_b : Panel show status
+         * @return void
+         *
+         */
+
+        void set(double panel_d, bool show_b);
+
+        /** @brief Get panel show status
+         *
+         * @code
+         * var test_panel;
+         * var show_status;
+         * test_panel = gui.panel.add("test_panel", true);
+         * show_status = gui.panel.get(test_panel);
+         * @endcode
+         *
+         * @param [IN] panel_d : Panel buffer index
+         * @return bool : Show status
+         *
+         */
+
+        bool get(double panel_d);
+
         /** @brief Get panel main sizer
          *
          * @code

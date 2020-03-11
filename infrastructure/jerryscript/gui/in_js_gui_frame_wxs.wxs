@@ -14,5 +14,19 @@
 			<interval>1</interval>
 			<handler function="on_update_wxtimer_trigger" entry="EVT_TIMER" />
 		</object>
+		<object class="wxMenuBar" variable="lp_main_wxmenubar" member="yes">
+			<object class="wxMenu" variable="lp_file_wxmenu" member="yes">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="l_id_js_quit_wxmenu" variable="lp_js_quit_wxmenu" member="yes">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit JS application</help>
+					<handler function="on_js_quit_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="lp_view_wxmenu" member="yes">
+				<label>View</label>
+			</object>
+		</object>
 	</object>
 </wxsmith>

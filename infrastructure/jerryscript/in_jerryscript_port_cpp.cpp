@@ -374,6 +374,7 @@ int siz_h_int = 0;
             // Load AUI position
             wxMilliSleep(10);
             p_bkp_this->lp_data_gui_frame->get_aui_manager()->LoadPerspective(perspective_str);
+            p_bkp_this->lp_data_gui_frame->set_panel_view();
         }
     }
     while(p_bkp_this->l_run_script_ui8)

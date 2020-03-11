@@ -23,6 +23,7 @@
 //(*Headers(gui_frame)
 #include <wx/aui/aui.h>
 #include <wx/frame.h>
+#include <wx/menu.h>
 #include <wx/timer.h>
 //*)
 #include <wx/panel.h>
@@ -66,6 +67,9 @@ class gui_frame: public wxFrame
         uint32_t add_panel (wxString panel_name_str, bool horizontal_b);
         uint32_t get_panel_sizer (double panel_index_d);
         wxPanel* get_panel (double index_d);
+        bool get_panel_show(double index_d);
+        void set_panel_show(double index_d, bool show_b);
+        void set_panel_view(void);
         uint32_t add_sizer (double sizer_index_d, double proportion_d, bool horizontal_b);
         uint32_t add_panel_sizer (double panel_index_d, double proportion_d, bool horizontal_b);
         wxBoxSizer* get_sizer (double index_d);
@@ -102,6 +106,8 @@ class gui_frame: public wxFrame
         void on_frame_auimanager_pane_close(wxAuiManagerEvent& event);
         void on_frame_resize(wxSizeEvent& event);
         void on_close_event(wxCloseEvent& event);
+        void on_js_quit_wxmenu_selected(wxCommandEvent& event);
+        void on_js_panel_view_wxmenu_selected(wxCommandEvent& event);
         //*)
         void on_update_panel(void);
         void on_clear_panel(void);
@@ -127,10 +133,15 @@ class gui_frame: public wxFrame
 
         //(*Identifiers(gui_frame)
         static const long l_id_update_wxtimer;
+        static const long l_id_js_quit_wxmenu;
         //*)
 
         //(*Declarations(gui_frame)
         wxAuiManager* lp_main_wxauimanager;
+        wxMenu* lp_file_wxmenu;
+        wxMenu* lp_view_wxmenu;
+        wxMenuBar* lp_main_wxmenubar;
+        wxMenuItem* lp_js_quit_wxmenu;
         wxTimer lp_update_wxtimer;
         //*)
 
