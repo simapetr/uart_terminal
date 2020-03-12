@@ -122,6 +122,7 @@ wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
     this->on_clear_textctrl();
     this->on_clear_check_box();
     this->on_clear_gauge();
+    this->on_clear_led();
     return;
 }
 
@@ -148,6 +149,7 @@ gui_frame::~gui_frame()
     this->on_clear_textctrl();
     this->on_clear_check_box();
     this->on_clear_gauge();
+    this->on_clear_led();
     // Close window
     this->Show(false);
     l_frmae_show_b = false;
@@ -194,7 +196,6 @@ void gui_frame::on_frame_auimanager_pane_close(wxAuiManagerEvent& event)
 {
     event.GetPane()->Show(false);
     this->set_panel_view();
-    //this->lp_view_wxmenu->FindChildItem(this->lp_view_wxmenu->FindItem(event.GetPane()->caption))->Check(false);
     return;
 }
 
@@ -263,8 +264,10 @@ void gui_frame::on_update_wxtimer_trigger(wxTimerEvent& event)
     this->on_update_textctrl();
     // Add check box
     this->on_update_check_box();
-    // Add check box
+    // Add gauge
     this->on_update_gauge();
+    // Add led
+    this->on_update_led();
     return;
 }
 

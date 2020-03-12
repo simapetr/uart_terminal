@@ -128,6 +128,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_gauge_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_graph_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_led_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_led_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_cpp.cpp" />
@@ -157,6 +159,7 @@
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_frame_wxs.wxs" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_gauge_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_graph_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_led_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_panel_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_sizer_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/gui/in_js_gui_slider_cpp.cpp" />
@@ -175,15 +178,19 @@
 		<Unit filename="doxygen/jerryscript_h.h" />
 		<Unit filename="script/button.js" />
 		<Unit filename="script/check_box.js" />
+		<Unit filename="script/demo.js" />
 		<Unit filename="script/file.js" />
 		<Unit filename="script/gauge.js" />
+		<Unit filename="script/graph.js" />
 		<Unit filename="script/gui.js" />
+		<Unit filename="script/led.js" />
 		<Unit filename="script/panel.js" />
 		<Unit filename="script/protocol.js" />
 		<Unit filename="script/slider.js" />
 		<Unit filename="script/static_text.js" />
 		<Unit filename="script/textctrl.js" />
 		<Unit filename="script/time.js" />
+		<Unit filename="script/timer.js" />
 		<Unit filename="script/uart.js" />
 		<Unit filename="usart_terminal.cbp" />
 		<Extensions>

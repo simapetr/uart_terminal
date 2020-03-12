@@ -38,6 +38,7 @@
 #include "in_js_class_textctrl_js_h.h"
 #include "in_js_class_check_box_js_h.h"
 #include "in_js_class_gauge_js_h.h"
+#include "in_js_class_led_js_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -97,6 +98,7 @@ class jerryscript_c
         textctrl_js_c l_gui_textctrl_js;
         check_box_js_c l_gui_check_box_js;
         gauge_js_c l_gui_gauge_js;
+        led_js_c l_gui_led_js;
         // Working thread
         thread_c* lp_script_thread;
         uint8_t l_run_script_ui8;

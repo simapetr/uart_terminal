@@ -1505,6 +1505,97 @@ class gauge
 };
 
 /**
+  * @class LED
+  * @brief wxLed class interface
+  *
+  */
+
+class led
+{
+
+    public:
+
+        /** @brief Add new LED
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_led;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_led = gui.led.add(test_sizer);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @return double : LED buffer index
+         *
+         */
+
+        double add(double sizer_index_d);
+
+        /** @brief Add new LED with custom state color
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_led;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_led = gui.led.add(test_sizer, 0x0000FFFF, 0x00808080);
+         * @endcode
+         *
+         * @param [IN] sizer_index_d : Parent sizer index
+         * @param [IN] on_color_d : On state LED color
+         * @param [IN] off_color_d : On state LED color
+         * @return double : LED buffer index
+         *
+         */
+
+        double add(double sizer_index_d, double on_color_d, double off_color_d)
+
+        /** @brief Get gauge value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_led;
+         * var state_led_b;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_led = gui.led.add(test_sizer);
+         * state_led_b = gui.led.get(test_led);
+         * @endcode
+         *
+         * @param [IN] led_index_d : LED index
+         * @return bool : Set value
+         *
+         */
+
+        bool get(double led_index_d);
+
+        /** @brief Get gauge value
+         *
+         * @code
+         * var test_panel;
+         * var test_sizer;
+         * var test_led;
+         * test_panel = gui.panel.add("test_panel", true);
+         * test_sizer = gui.panel.get_sizer(test_panel);
+         * test_led = gui.led.add(test_sizer);
+         * gui.led.set(test_led, true);
+         * @endcode
+         *
+         * @param [IN] led_index_d : LED index
+         * @param [IN] value_b : New LED state
+         * @return bool : Set value
+         *
+         */
+
+        void set(double gauge_index_d, bool value_b);
+
+};
+
+/**
 * @}
 */
 
@@ -1634,6 +1725,7 @@ class gui
     static_text static_text;
     slider slider;
     gauge gauge;
+    led led;
     graph graph;
 
 };
