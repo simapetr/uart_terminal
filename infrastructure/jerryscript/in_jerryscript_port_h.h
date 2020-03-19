@@ -27,6 +27,7 @@
 #include "in_js_class_timer_js_h.h"
 #include "in_js_class_time_js_h.h"
 #include "in_js_class_file_js_h.h"
+#include "in_js_class_project_js_h.h"
 #include "in_js_class_uart_js_h.h"
 #include "in_js_class_main_frame_js_h.h"
 #include "in_js_class_panel_js_h.h"
@@ -87,6 +88,7 @@ class jerryscript_c
         timer_js_c l_data_timer_js;
         time_js_c l_data_time_js;
         file_js_c l_data_file_js;
+        project_js_c l_data_project_js;
         uart_js_c l_port_uart_js;
         main_frame_js_c l_gui_main_frame_js;
         panel_js_c l_gui_panel_js;
@@ -105,6 +107,8 @@ class jerryscript_c
         // File path
         wxString l_jerryscript_code_str;
         bool l_init_flag_b;
+        // Project
+        wxString l_project_str;
         // GUI
         gui_frame* lp_data_gui_frame;
         void* lp_gui_main_frame_void;

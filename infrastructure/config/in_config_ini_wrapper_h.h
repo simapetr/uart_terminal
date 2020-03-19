@@ -48,6 +48,7 @@ class config_ini
         wxString get_string( wxString path_str, wxString default_value_str );
         void set_value( wxString path_str, int32_t value_i32 );
         void set_string( wxString path_str, wxString value_str );
+        wxString get_path(void){return ini_file_path_str;}
 
         // Error message
         wxString error_text_str;

@@ -1,13 +1,13 @@
-#ifndef IN_JS_CLASS_FILE_JS_H_H_INCLUDED
-#define IN_JS_CLASS_FILE_JS_H_H_INCLUDED
+#ifndef IN_JS_CLASS_PROJECT_JS_H_H_INCLUDED
+#define IN_JS_CLASS_PROJECT_JS_H_H_INCLUDED
 
 /**
   ****************************************************************************
-  * @file    in_js_class_file_js_h.h
+  * @file    in_js_class_project_js_h.h
   * @author  Ing. Petr Simek
   * @version V1.0
-  * @date    18.04.2018
-  * @brief   JerryScript wrapper for wxfile class
+  * @date    18.03.2020
+  * @brief   JerryScript wrapper for script project
   ****************************************************************************
   * @attention
   * <h2><center>&copy; COPYRIGHT PORTTRONIC</center></h2>
@@ -20,7 +20,6 @@
   ****************************************************************************
   */
 
-//#include "hw_dr_uart_driver_h.h"
 
 /**
   * @addtogroup Infrastructure
@@ -38,7 +37,7 @@
   */
 
 /**
-  * @addtogroup File
+  * @addtogroup Project
   * @{
   */
 
@@ -48,15 +47,13 @@
   ****************************************************************************
   */
 
-class file_js_c
+class project_js_c
 {
     public:
 
-        void reg_host_class (void);
+        void reg_host_class (wxString project_str);
         static uint32_t read(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-        static uint32_t read_b(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t write(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
-        static uint32_t append(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
 
 };
 
@@ -78,4 +75,4 @@ class file_js_c
 
 /*****************************************************END OF FILE************/
 
-#endif // IN_JS_CLASS_UART_JS_H_H_INCLUDED
+#endif // IN_JS_CLASS_PROJECT_JS_H_H_INCLUDED

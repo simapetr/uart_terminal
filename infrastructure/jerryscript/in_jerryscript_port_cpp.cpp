@@ -241,6 +241,7 @@ jerry_value_t name_jerry_value;
     this->l_data_timer_js.reg_host_class();
     this->l_data_time_js.reg_host_class();
     this->l_data_file_js.reg_host_class();
+    this->l_data_project_js.reg_host_class(this->l_project_str);
     this->l_port_uart_js.reg_host_class(this->lp_com_uart_port, this->lp_data_wxcondition);
     this->l_gui_main_frame_js.reg_host_class(this->lp_gui_main_frame_void, this->lp_data_wxcondition);
     this->l_gui_panel_js.reg_host_class(this->lp_data_gui_frame);
@@ -340,7 +341,7 @@ int siz_h_int = 0;
     // Run thread
     p_bkp_this->l_run_script_ui8 = 1;
     // Interpreter initialization
-    if (!p_bkp_this->l_init_flag_b)
+    if(!p_bkp_this->l_init_flag_b)
     {
         p_bkp_this->l_init_flag_b = true;
         jerry_init (JERRY_INIT_EMPTY);
@@ -351,6 +352,10 @@ int siz_h_int = 0;
             jerryx_debugger_after_connect (jerryx_debugger_tcp_create (5001) && jerryx_debugger_ws_create ());
         }
     }
+    if(((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
+    {
+        p_bkp_this->l_project_str = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project()->get_path();
+    }
     // Reg all class
     p_bkp_this->reg_class();
     // Run script
@@ -360,7 +365,7 @@ int siz_h_int = 0;
         jerry_release_value (eval_ret_jerry_value);
     }
     // Reload window and AUI position
-    if (p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
+    if(p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
         p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
         pos_x_int = p_position_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10"));
@@ -418,7 +423,7 @@ int siz_h_int = 0;
         }
     }
     // Save frame and AUI position
-    if (p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
+    if(p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
         p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
         p_position_config_ini->set_string(wxT("POSITION/perspective"),p_bkp_this->lp_data_gui_frame->get_aui_manager()->SavePerspective());

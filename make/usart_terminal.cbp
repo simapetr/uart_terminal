@@ -134,6 +134,8 @@
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_main_frame_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_panel_js_h.h" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_project_js_cpp.cpp" />
+		<Unit filename="../infrastructure/jerryscript/class/in_js_class_project_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_cpp.cpp" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_sizer_js_h.h" />
 		<Unit filename="../infrastructure/jerryscript/class/in_js_class_slider_js_cpp.cpp" />
@@ -185,6 +187,7 @@
 		<Unit filename="script/gui.js" />
 		<Unit filename="script/led.js" />
 		<Unit filename="script/panel.js" />
+		<Unit filename="script/project.js" />
 		<Unit filename="script/protocol.js" />
 		<Unit filename="script/slider.js" />
 		<Unit filename="script/static_text.js" />

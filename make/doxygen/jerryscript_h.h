@@ -857,6 +857,77 @@ class file
 };
 
 /**
+  * @class project
+  * @brief Script project file
+  *
+  */
+
+class project
+{
+
+    public:
+
+        /** @brief Read string from project file
+         *
+         * @code
+         * var data_str;
+         * data_str = file.read("JS_DATA/user_text", "Hello World!");
+         * @endcode
+         *
+         * @param [IN] path_str : Variable path
+         * @param [IN] default_str : Default data
+         * @return string : Read string
+         *
+         */
+
+        string read(string path_str, string default_str);
+
+        /** @brief Read value from project file
+         *
+         * @code
+         * var data_var;
+         * data_var = file.read("JS_DATA/user_var", 100);
+         * @endcode
+         *
+         * @param [IN] path_str : Variable path
+         * @param [IN] default_d : Default data
+         * @return double : Read string
+         *
+         */
+
+        double read(string path_str, double default_d);
+
+        /** @brief Write string to project file
+         *
+         * @code
+         * file.write("JS_DATA/user_text", "Hello World!");
+         * @endcode
+         *
+         * @param [IN] path_str : Variable path
+         * @param [IN] data_str : Data string
+         * @return void
+         *
+         */
+
+        void write(string path_str, string data_str);
+
+        /** @brief Write value to project file
+         *
+         * @code
+         * file.write("JS_DATA/user_var", 100);
+         * @endcode
+         *
+         * @param [IN] path_str : Variable path
+         * @param [IN] data_d : Data variable
+         * @return void
+         *
+         */
+
+        void write(string path_str, double data_d);
+
+};
+
+/**
 * @}
 */
 

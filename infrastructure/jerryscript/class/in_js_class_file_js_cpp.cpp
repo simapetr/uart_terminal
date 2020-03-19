@@ -4,7 +4,7 @@
   * @author  Ing. Petr Simek
   * @version V1.0
   * @date    18.04.2018
-  * @brief   JerryScript wrapper for for wxfile class
+  * @brief   JerryScript wrapper for wxfile class
   ****************************************************************************
   * @attention
   * <h2><center>&copy; COPYRIGHT PORTTRONIC</center></h2>
