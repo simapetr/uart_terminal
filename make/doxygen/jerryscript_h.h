@@ -379,6 +379,22 @@ void gui(bool enable_b, string text_str);
 
 void gui(bool enable_b, string text_str, bool enable_b);
 
+/** @brief Register exit callback
+ *
+ * @code
+ * reg_exit("exit");
+ * function exit()
+ * {
+ * }
+ * @endcode
+ *
+ * @param [IN] function_str : Callback function
+ * @return void
+ *
+ */
+
+void reg_exit(string function_str);
+
 /**
   * @class uart
   * @brief System UART port driver

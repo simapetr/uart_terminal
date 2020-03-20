@@ -442,11 +442,15 @@ int32_t select_i32;
         SetClientSize(wxSize(this->p_data_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), this->p_data_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
     }
     this->Show();
+    // Init state flag
+    this->l_script_start_b = false;
+    this->l_script_stop_b = false;
     // run script path
     if ((this->lp_cmd_arg_arraystring->GetCount() == 2) && (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Item(1).Find(wxT(".js"))))
     {
         // Run drag&drop script
-        this->run_script(this->lp_cmd_arg_arraystring->Item(1));
+        this->lp_script_path_wxtextctrl->WriteText(this->lp_cmd_arg_arraystring->Item(1));
+        this->l_script_start_b = false;
     }
     return;
 }
@@ -1047,23 +1051,30 @@ wxString config_path_str;
 /** @brief Stop JS script
  *
  * @param void
- * @return void
+ * @return uint32_t : Stop status
  *
  */
 
-void main_frame::stop_script(void)
+uint32_t main_frame::stop_script(void)
 {
+uint32_t status_ui32 = 0;
+
     if(this->l_run_b)
     {
         if(this->lp_interpret_jerryscript)
         {
-            // Load JavaScript interpreter
-            delete this->lp_interpret_jerryscript;
-            this->lp_interpret_jerryscript = NULL;
+            status_ui32 = this->lp_interpret_jerryscript->stop();
+            // Wait for script complete terminate must wait for call registered exit function
+            if(status_ui32)
+            {
+                // Load JavaScript interpreter
+                delete this->lp_interpret_jerryscript;
+                this->lp_interpret_jerryscript = NULL;
+                this->l_run_b = false;
+            }
         }
-        this->l_run_b = false;
     }
-    return;
+    return status_ui32;
 }
 
 /** @brief Stop JS script event
@@ -1318,44 +1329,11 @@ void main_frame::on_script_run_wxtogglebutton_toggle(wxCommandEvent& event)
 {
     if (lp_script_run_wxtogglebutton->GetValue())
     {
-        // Disable script path component
-        this->lp_script_load_wxbutton->Disable();
-        this->lp_script_path_wxtextctrl->Disable();
-        if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
-        {
-            // Start Java Script
-            switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
-            {
-                case 0:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                case 1:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                case 2:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                default:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
-                }
-                break;
-            }
-        }
+        this->l_script_start_b = true;
     }
     else
     {
-        // Stop JavaScript
-        this->stop_script();
-        // Enable script path component
-        this->lp_script_load_wxbutton->Enable();
-        this->lp_script_path_wxtextctrl->Enable();
+        this->l_script_stop_b = true;
     }
     return;
 }
@@ -1575,12 +1553,57 @@ static bool f_rlsd_old_b = false;
 static bool f_port_open_b = true;
 wxCommandEvent data_wxcommandevent;
 
+    if(this->l_script_start_b)
+    {
+        this->l_script_start_b = false;
+        // Disable script path component
+        this->lp_script_load_wxbutton->Disable();
+        this->lp_script_path_wxtextctrl->Disable();
+        if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
+        {
+            // Start Java Script
+            switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
+            {
+                case 0:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                case 1:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                case 2:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                default:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
+                }
+                break;
+            }
+        }
+    }
+    if(this->l_script_stop_b)
+    {
+        // Stop JavaScript
+        if(this->stop_script())
+        {
+            this->l_script_stop_b = false;
+            // Enable script path component
+            this->lp_script_load_wxbutton->Enable();
+            this->lp_script_path_wxtextctrl->Enable();
+        }
+    }
     // Stop script request
     if (l_grame_gui_close_b)
     {
-        l_grame_gui_close_b = false;
         this->lp_script_run_wxtogglebutton->SetValue(false);
         this->on_script_run_wxtogglebutton_toggle(data_wxcommandevent);
+        l_grame_gui_close_b = false;
     }
     // Set led activation
     if (f_port_open_b != this->l_open_b)

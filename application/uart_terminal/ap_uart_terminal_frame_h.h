@@ -96,7 +96,7 @@ class main_frame: public wxFrame
         void set_progress (wxString text_str, uint32_t progress_ui32);
         void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
         uint32_t run_script(wxString path_str);
-        void stop_script(void);
+        uint32_t stop_script(void);
         static void stop_event(void);
 
 
@@ -243,6 +243,8 @@ class main_frame: public wxFrame
 
         wxArrayString* lp_cmd_arg_arraystring;
         bool l_script_debug_b;
+        bool l_script_start_b;
+        bool l_script_stop_b;
 
         DECLARE_EVENT_TABLE()
 };

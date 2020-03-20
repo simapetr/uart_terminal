@@ -25,7 +25,7 @@ var load_button = 0;
 var slider_static_text = 0;
 var data_textctrl = 0;
 var default_text;
- 
+
 /**
   ****************************************************************************
   * script
@@ -37,6 +37,8 @@ main_frame.clear();
 main_frame.printf("GUI test :\n");
 // Show gui frame
 gui(true);
+// Register exit function
+reg_exit("exit");
 // Create new AUI panel
 main_panel = gui.panel.add("test_panel", false);
 // Add basic sizer in to panel
@@ -72,14 +74,14 @@ on_slider_update(set_slider);
  * @return void
  *
  */
- 
-function on_slider_update (component_id)
+
+function on_slider_update(component_id)
 {
 var text_str = "Value : ";
-	
+
 	// Update text
-	text_str += gui.slider.get(set_slider); 
-	gui.static_text.set(slider_static_text, text_str); 
+	text_str += gui.slider.get(set_slider);
+	gui.static_text.set(slider_static_text, text_str);
 }
 
 /** @brief Button event
@@ -88,8 +90,8 @@ var text_str = "Value : ";
  * @return void
  *
  */
- 
-function on_button_click (component_id)
+
+function on_button_click(component_id)
 {
 	switch(component_id)
 	{
@@ -108,7 +110,19 @@ function on_button_click (component_id)
 		}
 		break;
 	}
-	
+}
+
+/** @brief Exit event
+ *
+ * @param void
+ * @return void
+ *
+ */
+
+function exit()
+{
+    project.write("JS_DATA/default_pos", gui.slider.get(set_slider));
+    project.write("JS_DATA/user_text", gui.textctrl.get(data_textctrl, 0));
 }
 
 /*****************************************************END OF FILE************/

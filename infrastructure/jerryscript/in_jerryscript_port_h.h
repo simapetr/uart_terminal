@@ -70,7 +70,7 @@ class jerryscript_c
         jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b, bool init_b);
         ~jerryscript_c( void );
         uint32_t run(wxString script_str);
-        void stop (void);
+        uint32_t stop (void);
         void call_event (wxString event_str, uint32_t component_id_ui32);
         void reg_class (void);
         void dereg_class (void);
@@ -83,6 +83,7 @@ class jerryscript_c
         static uint32_t js_rand(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t alert(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
         static uint32_t gui(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
+        static uint32_t reg_exit(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32);
 
         // External class
         timer_js_c l_data_timer_js;

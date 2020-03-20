@@ -64,6 +64,9 @@ typedef struct
 
 bool l_in_js_port_gui_enable_b = false;
 vector<event_buffer_t> lv_main_event_buffer;
+uint32_t l_exit_event_fct_ui32;
+bool l_exit_event_fct_reg_b = false;
+uint32_t l_exit_state_ui32;
 
 /**
   ****************************************************************************
@@ -91,6 +94,8 @@ jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame
     this->lp_com_uart_port = p_com_uart_port;
     // Set initialization flag
     this->l_init_flag_b = init_b;
+    // Initialize exit state
+    l_exit_state_ui32 = 0;
     // Initialize GUI window
     this->lp_data_gui_frame = new gui_frame((wxWindow*)this->lp_gui_main_frame_void, this);
     this->lp_data_gui_frame->Show();
@@ -153,11 +158,11 @@ uint32_t status_ui32 = 1;
 /** @brief Stop script
  *
  * @param void
- * @return void
+ * @return uint32_t : Stop state
  *
  */
 
-void jerryscript_c::stop (void)
+uint32_t jerryscript_c::stop (void)
 {
     if(this->l_run_script_ui8)
     {
@@ -168,9 +173,9 @@ void jerryscript_c::stop (void)
         wxMilliSleep(50);
         // Stop thread
         this->lp_script_thread->stop();
-        wxMilliSleep(400);
+        l_exit_state_ui32 = 0;
     }
-    return;
+    return l_exit_state_ui32;
 }
 
 /** @brief Call JS event function
@@ -231,6 +236,12 @@ jerry_value_t name_jerry_value;
     // Register GUI frame control
     funct_jerry_value = jerry_create_external_function(this->gui);
     name_jerry_value = jerry_create_string((const jerry_char_t*)"gui");
+    jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
+    // Register exit callback
+    funct_jerry_value = jerry_create_external_function(this->reg_exit);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"reg_exit");
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
@@ -331,6 +342,7 @@ void jerryscript_c::worker(void* p_parametr_void)
 {
 jerryscript_c* p_bkp_this = (jerryscript_c*)p_parametr_void;
 static jerry_value_t eval_ret_jerry_value;
+jerry_value_t global_jerry_value;
 config_ini *p_position_config_ini;
 wxString perspective_str;
 int pos_x_int = 0;
@@ -391,6 +403,7 @@ int siz_h_int = 0;
             p_bkp_this->lp_data_gui_frame->set_panel_view();
         }
     }
+    // Script worker thread
     while(p_bkp_this->l_run_script_ui8)
     {
         if(p_bkp_this->lp_data_wxcondition)
@@ -422,6 +435,15 @@ int siz_h_int = 0;
             }
         }
     }
+    // Call exit callback
+    if(l_exit_event_fct_reg_b)
+    {
+        l_exit_event_fct_reg_b = false;
+        global_jerry_value = jerry_get_global_object();
+        eval_ret_jerry_value = jerry_call_function((jerry_value_t)l_exit_event_fct_ui32, global_jerry_value, NULL, 0);
+        jerry_release_value(eval_ret_jerry_value);
+        jerry_release_value(global_jerry_value);
+    }
     // Save frame and AUI position
     if(p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
@@ -449,6 +471,7 @@ int siz_h_int = 0;
     // Initialize engine
     //jerry_cleanup();
     //wxMilliSleep(100);
+    l_exit_state_ui32 = 1;
     return;
 }
 
@@ -470,6 +493,10 @@ uint32_t jerryscript_c::delay(const uint32_t funct_ui32, const uint32_t this_ui3
         if(jerry_value_is_number(p_args_ui32[0]))
         {
             wxMilliSleep((uint32_t)jerry_get_number_value(p_args_ui32[0]));
+        }
+        else
+        {
+            printf("Error delay wrong parameter type\n");
         }
     }
     else
@@ -513,6 +540,10 @@ int32_t max_i32;
             max_i32 = (uint32_t)jerry_get_number_value(p_args_ui32[1]);
             number_d = (double)((rand() % (max_i32 + 1 - min_i32)) + min_i32);
         }
+        else
+        {
+            printf("Error delay wrong parameter type\n");
+        }
     }
     else
     {
@@ -554,6 +585,10 @@ wxString text_str;
             delete[] p_data_sui8;
             // Call class method
             wxMessageBox( text_str, wxT("Alert"));
+        }
+        else
+        {
+            printf("Error alert wrong parameter type\n");
         }
     }
     else
@@ -633,10 +668,59 @@ static uint8_t *p_data_sui8 = NULL;
                 p_bkp_this->lp_data_gui_frame->frame_show(jerry_get_boolean_value(p_args_ui32[0]), text_str);
                 ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->Show(jerry_get_boolean_value(p_args_ui32[2]));
             }
+            else
+            {
+                printf("Error gui wrong parameter type\n");
+            }
         }
         else
         {
+            printf("Error gui wrong parameter\n");
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_undefined();
+}
 
+/** @brief Register exit callback (JS function "reg_exit")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t jerryscript_c::reg_exit(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+void* p_arg_void;
+jerryscript_c* p_bkp_this = NULL;
+jerry_value_t global_jerry_value;
+
+    if(jerry_get_object_native_pointer(jerry_get_global_object(), &p_arg_void, NULL))
+    {
+         // Extract this
+        p_bkp_this = reinterpret_cast<jerryscript_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 1 && p_bkp_this)
+        {
+            if(jerry_value_is_string(p_args_ui32[0]))
+            {
+                // Read global object
+                global_jerry_value = jerry_get_global_object();
+                l_exit_event_fct_ui32 = (uint32_t)jerry_get_property(global_jerry_value, p_args_ui32[0]);
+                jerry_release_value(global_jerry_value);
+                l_exit_event_fct_reg_b = true;
+            }
+            else
+            {
+                printf("Error reg_exit wrong parameter type\n");
+            }
+        }
+        else
+        {
+            printf("Error reg_exit wrong parameter\n");
         }
     }
     // Cast it back to JavaScript and return

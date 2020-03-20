@@ -182,7 +182,8 @@ wxString text_str = wxEmptyString;
     {
         lv_data_textctrl_buffer[static_text_index_d].read_line_ui32 = line_ui32;
         lv_data_textctrl_buffer[static_text_index_d].read_b = true;
-        wxMilliSleep(40);
+        while(lv_data_textctrl_buffer[static_text_index_d].read_b){wxMilliSleep(1);}
+        wxMilliSleep(1);
         text_str = lv_data_textctrl_buffer[static_text_index_d].read_text_str;
     }
     return text_str;
