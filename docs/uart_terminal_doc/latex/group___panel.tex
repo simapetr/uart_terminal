@@ -5,7 +5,8 @@
 Panel class definition.  
 
 
-Collaboration diagram for Panel\+:\nopagebreak
+Collaboration diagram for Panel\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,23 +26,25 @@ struct \textbf{ panel\+\_\+buffer\+\_\+t}
 void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+interface\+\_\+void)
 \begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
-\begin{DoxyCompactList}\small\item\em Get actual epoch time in s (JS function \char`\"{}now\char`\"{}) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Add new A\+UI panel (JS function \char`\"{}now\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ set} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set panel show (JS function \char`\"{}set\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ get} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Get panel show state (JS function \char`\"{}get\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ get\+\_\+sizer} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
-\begin{DoxyCompactList}\small\item\em Get panel sizer indef (JS function \char`\"{}get\+\_\+sizer\char`\"{}) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get panel main sizer (JS function \char`\"{}get\+\_\+sizer\char`\"{}) \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ add\+\_\+panel} (wx\+String panel\+\_\+name\+\_\+str, bool horizontal\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add A\+UI panel. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ get\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get panel main sizer. \end{DoxyCompactList}\item 
 wx\+Panel $\ast$ \textbf{ get\+\_\+panel} (double index\+\_\+d)
-\begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-vector$<$ \textbf{ panel\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+panel\+\_\+buffer}
-\item 
-\mbox{\label{group___panel_ga1770e13b6e7d0c01858a84984cc92599}} 
-uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+panel\+\_\+ui32} = 0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\item 
+bool \textbf{ get\+\_\+panel\+\_\+show} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get panel show. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+panel\+\_\+show} (double index\+\_\+d, bool show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set panel show. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+panel\+\_\+view} (void)
+\begin{DoxyCompactList}\small\item\em Set view status for all panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -58,7 +61,7 @@ G\+UI panel component.
 
 
 
-Get actual epoch time in s (JS function \char`\"{}now\char`\"{}) 
+Add new A\+UI panel (JS function \char`\"{}now\char`\"{}) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -76,7 +79,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 107 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 119 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___panel_ga1c59e19c2b6fb7c164fbf334fb5fa7f6}} 
 \index{Panel@{Panel}!add\_panel@{add\_panel}}
@@ -90,9 +93,9 @@ Add A\+UI panel.
 
 Function
 \begin{DoxyParams}{Parameters}
-{\em panel\+\_\+name\+\_\+str} & \+: Panel name \\
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+name\+\_\+str \+: Panel name \\
 \hline
-{\em horizontal\+\_\+b} & \+: Sizer orientation \\
+{\em \mbox{[}\+I\+N\mbox{]}} & horizontal\+\_\+b \+: Sizer orientation \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -100,68 +103,17 @@ uint32\+\_\+t \+: new panel buffer index
 \end{DoxyReturn}
 
 
-Definition at line 84 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+Definition at line 95 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=264pt]{group___panel_ga1c59e19c2b6fb7c164fbf334fb5fa7f6_cgraph}
-\end{center}
-\end{figure}
-\mbox{\label{group___panel_ga90edbd17cb06193898dc67904b748a12}} 
-\index{Panel@{Panel}!get\_panel@{get\_panel}}
-\index{get\_panel@{get\_panel}!Panel@{Panel}}
-\subsubsection{get\_panel()}
-{\footnotesize\ttfamily wx\+Panel $\ast$ get\+\_\+panel (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+\mbox{\label{group___panel_ga6cd14b01f8af2a160a96d216bc86f260}} 
+\index{Panel@{Panel}!get@{get}}
+\index{get@{get}!Panel@{Panel}}
+\subsubsection{get()}
+{\footnotesize\ttfamily uint32\+\_\+t get (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Get sizer. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em index\+\_\+d} & \+: Sizer index \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-wx\+Box\+Sizer$\ast$ \+: Box sizer object pointer 
-\end{DoxyReturn}
-
-
-Definition at line 131 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___panel_gae7793b79ca78e3750f183921a0cdbf7f}} 
-\index{Panel@{Panel}!get\_panel\_sizer@{get\_panel\_sizer}}
-\index{get\_panel\_sizer@{get\_panel\_sizer}!Panel@{Panel}}
-\subsubsection{get\_panel\_sizer()}
-{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+panel\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{panel\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
-
-
-
-Get panel main sizer. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em panel\+\_\+index\+\_\+d} & \+: Panel index \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint32\+\_\+t \+: Sizer index 
-\end{DoxyReturn}
-
-
-Definition at line 113 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___panel_gad9a078f6234681b96bba71f9a09df0e6}} 
-\index{Panel@{Panel}!get\_sizer@{get\_sizer}}
-\index{get\_sizer@{get\_sizer}!Panel@{Panel}}
-\subsubsection{get\_sizer()}
-{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+sizer (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Get panel sizer indef (JS function \char`\"{}get\+\_\+sizer\char`\"{}) 
+Get panel show state (JS function \char`\"{}get\char`\"{}) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -179,7 +131,101 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 159 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 218 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_ga90edbd17cb06193898dc67904b748a12}} 
+\index{Panel@{Panel}!get\_panel@{get\_panel}}
+\index{get\_panel@{get\_panel}!Panel@{Panel}}
+\subsubsection{get\_panel()}
+{\footnotesize\ttfamily wx\+Panel $\ast$ get\+\_\+panel (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get sizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & index\+\_\+d \+: Sizer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+Box\+Sizer$\ast$ \+: Box sizer object pointer 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_ga1fe8a261f9b782c059f0fac4a6990ca4}} 
+\index{Panel@{Panel}!get\_panel\_show@{get\_panel\_show}}
+\index{get\_panel\_show@{get\_panel\_show}!Panel@{Panel}}
+\subsubsection{get\_panel\_show()}
+{\footnotesize\ttfamily bool get\+\_\+panel\+\_\+show (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get panel show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & index\+\_\+d \+: Panel index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Show status 
+\end{DoxyReturn}
+
+
+Definition at line 164 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_gae7793b79ca78e3750f183921a0cdbf7f}} 
+\index{Panel@{Panel}!get\_panel\_sizer@{get\_panel\_sizer}}
+\index{get\_panel\_sizer@{get\_panel\_sizer}!Panel@{Panel}}
+\subsubsection{get\_panel\_sizer()}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+panel\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{panel\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Get panel main sizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+index\+\_\+d \+: Panel index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: Sizer index 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_gad9a078f6234681b96bba71f9a09df0e6}} 
+\index{Panel@{Panel}!get\_sizer@{get\_sizer}}
+\index{get\_sizer@{get\_sizer}!Panel@{Panel}}
+\subsubsection{get\_sizer()}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+sizer (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get panel main sizer (JS function \char`\"{}get\+\_\+sizer\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___panel_gac715b4a43bb361fc96ce6f1b50d68a8b}} 
 \index{Panel@{Panel}!reg\_host\_class@{reg\_host\_class}}
@@ -203,16 +249,77 @@ void
 
 Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
 
+\mbox{\label{group___panel_gaddd13ecddc86a2824924f6fd5a27cb74}} 
+\index{Panel@{Panel}!set@{set}}
+\index{set@{set}!Panel@{Panel}}
+\subsubsection{set()}
+{\footnotesize\ttfamily uint32\+\_\+t set (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
-\subsection{Variable Documentation}
-\mbox{\label{group___panel_ga7ffe23ce476a3584619128bee46861c8}} 
-\index{Panel@{Panel}!lv\_data\_panel\_buffer@{lv\_data\_panel\_buffer}}
-\index{lv\_data\_panel\_buffer@{lv\_data\_panel\_buffer}!Panel@{Panel}}
-\subsubsection{lv\_data\_panel\_buffer}
-{\footnotesize\ttfamily vector$<$\textbf{ panel\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+panel\+\_\+buffer}
 
-Local variable 
+Set panel show (JS function \char`\"{}set\char`\"{}) 
 
-Definition at line 67 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file in\+\_\+js\+\_\+class\+\_\+panel\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_ga02244a83243fabab284b385f094a6e64}} 
+\index{Panel@{Panel}!set\_panel\_show@{set\_panel\_show}}
+\index{set\_panel\_show@{set\_panel\_show}!Panel@{Panel}}
+\subsubsection{set\_panel\_show()}
+{\footnotesize\ttfamily void set\+\_\+panel\+\_\+show (\begin{DoxyParamCaption}\item[{double}]{index\+\_\+d,  }\item[{bool}]{show\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set panel show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & index\+\_\+d \+: Panel index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+b \+: Show status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___panel_gae0259c4bb452db0844d01eeb9a5c0cb2}} 
+\index{Panel@{Panel}!set\_panel\_view@{set\_panel\_view}}
+\index{set\_panel\_view@{set\_panel\_view}!Panel@{Panel}}
+\subsubsection{set\_panel\_view()}
+{\footnotesize\ttfamily void set\+\_\+panel\+\_\+view (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set view status for all panel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 200 of file in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp.
 

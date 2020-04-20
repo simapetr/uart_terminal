@@ -1,12 +1,13 @@
 <map id="gui" name="gui">
-<area shape="rect" id="node1" title="Main JS GUI object." alt="" coords="369,95,407,121"/>
+<area shape="rect" id="node1" title="Main JS GUI object." alt="" coords="405,95,443,121"/>
 <area shape="rect" id="node2" href="$classslider.html" title="wxSlider class interface" alt="" coords="5,5,59,32"/>
 <area shape="rect" id="node3" href="$classcheck__box.html" title="wxCheckBox class interface" alt="" coords="83,5,168,32"/>
 <area shape="rect" id="node4" href="$classbutton.html" title="wxButton class interface" alt="" coords="192,5,251,32"/>
 <area shape="rect" id="node5" href="$classgauge.html" title="wxGauge class interface" alt="" coords="275,5,333,32"/>
 <area shape="rect" id="node6" href="$classtextctrl.html" title="wxTextCtrl class interface" alt="" coords="357,5,419,32"/>
-<area shape="rect" id="node7" href="$classsizer.html" title="wxSizer class interface" alt="" coords="444,5,495,32"/>
-<area shape="rect" id="node8" href="$classgraph.html" title="data_plot class interface" alt="" coords="519,5,574,32"/>
-<area shape="rect" id="node9" href="$classpanel.html" title="wxAui panel class" alt="" coords="599,5,652,32"/>
-<area shape="rect" id="node10" href="$classstatic__text.html" title="wxStaticText class interface" alt="" coords="676,5,759,32"/>
+<area shape="rect" id="node7" href="$classled.html" title="wxLed class interface" alt="" coords="443,5,482,32"/>
+<area shape="rect" id="node8" href="$classsizer.html" title="wxSizer class interface" alt="" coords="507,5,557,32"/>
+<area shape="rect" id="node9" href="$classgraph.html" title="data_plot class interface" alt="" coords="582,5,637,32"/>
+<area shape="rect" id="node10" href="$classpanel.html" title="wxAui panel class" alt="" coords="661,5,715,32"/>
+<area shape="rect" id="node11" href="$classstatic__text.html" title="wxStaticText class interface" alt="" coords="739,5,821,32"/>
 </map>

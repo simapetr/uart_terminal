@@ -1,4 +1,4 @@
-.TH "Slider" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Slider" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -57,16 +57,6 @@ Slider \- Slider class definition\&.
 .br
 .RI "Set slider data\&. "
 .in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBslider_buffer_t\fP > \fBlv_data_slider_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_slider_ui32\fP = 0"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
 Slider class definition\&. 
@@ -123,7 +113,7 @@ uint32_t : New slider buffer index
 .PP
 
 .PP
-Definition at line 95 of file in_js_gui_slider_cpp\&.cpp\&.
+Definition at line 100 of file in_js_gui_slider_cpp\&.cpp\&.
 .SS "uint32_t get (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -147,7 +137,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 210 of file in_js_class_slider_js_cpp\&.cpp\&.
+Definition at line 218 of file in_js_class_slider_js_cpp\&.cpp\&.
 .SS "int32_t get_slider_data (double index_d)"
 
 .PP
@@ -165,7 +155,7 @@ int32_t : Button event reg status
 .PP
 
 .PP
-Definition at line 143 of file in_js_gui_slider_cpp\&.cpp\&.
+Definition at line 149 of file in_js_gui_slider_cpp\&.cpp\&.
 .SS "uint32_t reg_event (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -189,7 +179,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 162 of file in_js_class_slider_js_cpp\&.cpp\&.
+Definition at line 166 of file in_js_class_slider_js_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -231,7 +221,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 249 of file in_js_class_slider_js_cpp\&.cpp\&.
+Definition at line 261 of file in_js_class_slider_js_cpp\&.cpp\&.
 .SS "void set_slider_data (double index_d, double data_d)"
 
 .PP
@@ -251,7 +241,7 @@ int32_t : Button event reg status
 .PP
 
 .PP
-Definition at line 162 of file in_js_gui_slider_cpp\&.cpp\&.
+Definition at line 168 of file in_js_gui_slider_cpp\&.cpp\&.
 .SS "bool set_slider_event (double index_d, wxString event_fct_str)"
 
 .PP
@@ -271,13 +261,7 @@ bool : Button event reg status
 .PP
 
 .PP
-Definition at line 124 of file in_js_gui_slider_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBslider_buffer_t\fP> lv_data_slider_buffer"
-Local variable 
-.PP
-Definition at line 75 of file in_js_gui_slider_cpp\&.cpp\&.
+Definition at line 130 of file in_js_gui_slider_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

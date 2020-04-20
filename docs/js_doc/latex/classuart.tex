@@ -12,39 +12,39 @@ System U\+A\+RT port driver.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ open} (double bite\+\_\+timeout\+\_\+d, double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double port\+\_\+num\+\_\+d)
+\textbf{ open} (bite\+\_\+timeout\+\_\+d, baudrate\+\_\+d, stop\+\_\+bits\+\_\+d, parity\+\_\+d, bit\+\_\+length\+\_\+d, port\+\_\+num\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Open and set port communication. \end{DoxyCompactList}\item 
-void \textbf{ close} (void)
+\textbf{ close} ()
 \begin{DoxyCompactList}\small\item\em Close port communication. \end{DoxyCompactList}\item 
-double \textbf{ reg\+\_\+event} (string event\+\_\+name\+\_\+str)
+\textbf{ reg\+\_\+event} (event\+\_\+name\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Register receive event. \end{DoxyCompactList}\item 
-double \textbf{ write} (double char\+\_\+d)
+\textbf{ write} (char\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Write character. \end{DoxyCompactList}\item 
-double \textbf{ write} (vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\textbf{ write} (v\+\_\+data\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Write data array. \end{DoxyCompactList}\item 
-double \textbf{ write} (string char\+\_\+str)
+\textbf{ write} (char\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Write A\+S\+CI string. \end{DoxyCompactList}\item 
-double \textbf{ write} (vector$<$ double $>$ \&v\+\_\+data\+\_\+d, double length\+\_\+d)
+\textbf{ write} (v\+\_\+data\+\_\+d, length\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Write data array user size. \end{DoxyCompactList}\item 
-bool \textbf{ get\+\_\+ctrl} (string name\+\_\+str)
+\textbf{ get\+\_\+ctrl} (name\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Get port control line state. \end{DoxyCompactList}\item 
-void \textbf{ set\+\_\+ctrl} (string name\+\_\+str, bool state\+\_\+b)
+\textbf{ set\+\_\+ctrl} (name\+\_\+str, state\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set port control line state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 System U\+A\+RT port driver. 
 
-Definition at line 361 of file jerryscript\+\_\+h.\+h.
+Definition at line 298 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classuart_a67b72387b99fb35706b11eeba7070bc4}} 
+\mbox{\label{classuart_aa69c8bf1f1dcf4e72552efff1fe3e87e}} 
 \index{uart@{uart}!close@{close}}
 \index{close@{close}!uart@{uart}}
 \subsubsection{close()}
-{\footnotesize\ttfamily void close (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -58,17 +58,14 @@ Close port communication.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\label{classuart_a84cca1155f5d878543d5fe04da7e9154}} 
+\mbox{\label{classuart_a8a563dc7cad903afc951acca9efc37f2}} 
 \index{uart@{uart}!get\_ctrl@{get\_ctrl}}
 \index{get\_ctrl@{get\_ctrl}!uart@{uart}}
 \subsubsection{get\_ctrl()}
-{\footnotesize\ttfamily bool get\+\_\+ctrl (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get\+\_\+ctrl (\begin{DoxyParamCaption}\item[{name\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -90,13 +87,13 @@ Get port control line state.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Control line logic state 
+Control line logic state 
 \end{DoxyReturn}
-\mbox{\label{classuart_ad3c901fe01e5eb46c89975a96911e0fc}} 
+\mbox{\label{classuart_abe660e412aec60f8c6331dc1ecc5bd06}} 
 \index{uart@{uart}!open@{open}}
 \index{open@{open}!uart@{uart}}
 \subsubsection{open()}
-{\footnotesize\ttfamily double open (\begin{DoxyParamCaption}\item[{double}]{bite\+\_\+timeout\+\_\+d,  }\item[{double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double}]{port\+\_\+num\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily open (\begin{DoxyParamCaption}\item[{bite\+\_\+timeout\+\_\+d}]{,  }\item[{baudrate\+\_\+d}]{,  }\item[{stop\+\_\+bits\+\_\+d}]{,  }\item[{parity\+\_\+d}]{,  }\item[{bit\+\_\+length\+\_\+d}]{,  }\item[{port\+\_\+num\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -128,13 +125,13 @@ Open and set port communication.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Open status (See uart\+\_\+status\+\_\+t) 
+Open status (See uart\+\_\+status\+\_\+t) 
 \end{DoxyReturn}
-\mbox{\label{classuart_a2a17340cdc57799ae1efa09098911396}} 
+\mbox{\label{classuart_ac02264b91f2868a2f44115bfb0a60cbd}} 
 \index{uart@{uart}!reg\_event@{reg\_event}}
 \index{reg\_event@{reg\_event}!uart@{uart}}
 \subsubsection{reg\_event()}
-{\footnotesize\ttfamily double reg\+\_\+event (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+name\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reg\+\_\+event (\begin{DoxyParamCaption}\item[{event\+\_\+name\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -164,13 +161,13 @@ Register receive event.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Register status 
+Register status 
 \end{DoxyReturn}
-\mbox{\label{classuart_a00cc786dbdcb7eaa0ea83423ce1cc581}} 
+\mbox{\label{classuart_a14d67f9c440a2438900c40c13c7e93e6}} 
 \index{uart@{uart}!set\_ctrl@{set\_ctrl}}
 \index{set\_ctrl@{set\_ctrl}!uart@{uart}}
 \subsubsection{set\_ctrl()}
-{\footnotesize\ttfamily void set\+\_\+ctrl (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set\+\_\+ctrl (\begin{DoxyParamCaption}\item[{name\+\_\+str}]{,  }\item[{state\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -193,13 +190,13 @@ Set port control line state.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classuart_a3322f7e9a9f20fa53e6c1307ac1c75db}} 
+\mbox{\label{classuart_a6375c10bf3a4f3aa53b2514a43b502cc}} 
 \index{uart@{uart}!write@{write}}
 \index{write@{write}!uart@{uart}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{double}]{char\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{char\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -218,13 +215,13 @@ Write character.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Send status 
+Send status 
 \end{DoxyReturn}
-\mbox{\label{classuart_a96578e29a16d696c649260d1deb7f610}} 
+\mbox{\label{classuart_a5241e222abf3ac21e20c195de34746df}} 
 \index{uart@{uart}!write@{write}}
 \index{write@{write}!uart@{uart}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{v\+\_\+data\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -247,13 +244,13 @@ Write data array.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Send status 
+Send status 
 \end{DoxyReturn}
-\mbox{\label{classuart_ac68442e2dbd073ee686220fe0b525662}} 
+\mbox{\label{classuart_aa6c744f9ea627c18aa89f38733d5e82d}} 
 \index{uart@{uart}!write@{write}}
 \index{write@{write}!uart@{uart}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{string}]{char\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{char\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -274,13 +271,13 @@ Write A\+S\+CI string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Send status 
+Send status 
 \end{DoxyReturn}
-\mbox{\label{classuart_a0be86e407bbaa1dccd550f1898dcb8ca}} 
+\mbox{\label{classuart_ab38f66cd3b846fe15f8100bd1d29b8be}} 
 \index{uart@{uart}!write@{write}}
 \index{write@{write}!uart@{uart}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily double write (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d,  }\item[{double}]{length\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{v\+\_\+data\+\_\+d}]{,  }\item[{length\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -306,7 +303,7 @@ Write data array user size.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Send status 
+Send status 
 \end{DoxyReturn}
 
 

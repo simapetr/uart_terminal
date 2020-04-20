@@ -12,35 +12,37 @@ System Main frame G\+UI control.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ gui} (bool show\+\_\+b)
+\textbf{ gui} (show\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\item 
-void \textbf{ console\+\_\+rx\+\_\+enable} (bool enable\+\_\+b)
+\textbf{ console\+\_\+rx\+\_\+enable} (enable\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set show Rx data in main frame console. \end{DoxyCompactList}\item 
-bool \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (void)
+\textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} ()
 \begin{DoxyCompactList}\small\item\em Get console enable state. \end{DoxyCompactList}\item 
-void \textbf{ printf} (string text\+\_\+str)
+\textbf{ printf} (text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Print text sting in to console. \end{DoxyCompactList}\item 
-void \textbf{ status} (string text\+\_\+str)
+\textbf{ status} (text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Print status text sting in to main frame status. \end{DoxyCompactList}\item 
-void \textbf{ clear} (void)
+\textbf{ clear} ()
 \begin{DoxyCompactList}\small\item\em Clear main frame console text. \end{DoxyCompactList}\item 
-void \textbf{ open} (double bite\+\_\+timeout\+\_\+d, double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double port\+\_\+num\+\_\+d)
+\textbf{ open} ()
+\begin{DoxyCompactList}\small\item\em Open communication and G\+UI component in main frame. \end{DoxyCompactList}\item 
+\textbf{ open} (bite\+\_\+timeout\+\_\+d, baudrate\+\_\+d, stop\+\_\+bits\+\_\+d, parity\+\_\+d, bit\+\_\+length\+\_\+d, port\+\_\+num\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Open and set port communication and G\+UI component in main frame. \end{DoxyCompactList}\item 
-void \textbf{ close} (void)
+\textbf{ close} ()
 \begin{DoxyCompactList}\small\item\em Close communication in main frame. \end{DoxyCompactList}\item 
-double \textbf{ get\+\_\+open\+\_\+status} (void)
+\textbf{ get\+\_\+open\+\_\+status} ()
 \begin{DoxyCompactList}\small\item\em Get communication open status. \end{DoxyCompactList}\item 
-string \textbf{ get\+\_\+data} (string info\+\_\+str) void set\+\_\+progress(string text\+\_\+str
+\textbf{ get\+\_\+data} (info\+\_\+str) set\+\_\+progress(text\+\_\+str
 \begin{DoxyCompactList}\small\item\em Show input dialog with user info text and return user input data. \end{DoxyCompactList}\item 
-double \textbf{ reg\+\_\+event} (string event\+\_\+fct\+\_\+str)
+\textbf{ reg\+\_\+event} (event\+\_\+fct\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Register event on send button click (in event function is parameter array with console input data) \end{DoxyCompactList}\item 
-void \textbf{ hide} (bool enable\+\_\+b)
+\textbf{ hide} (enable\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\label{classmain__frame_ad8890da38ee09bca1d0a8e8f5989e6fe}} 
-string double {\bfseries progress\+\_\+d}
+\mbox{\label{classmain__frame_aa3e8365c54a730c0b8806fdd9b158d31}} 
+{\bfseries progress\+\_\+d}
 \end{DoxyCompactItemize}
 
 
@@ -52,11 +54,11 @@ Definition at line 59 of file jerryscript\+\_\+h.\+h.
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classmain__frame_ae683fe63c33c388e9ba1c6392dd477eb}} 
+\mbox{\label{classmain__frame_aa821bec12eaa7e0f649397c9675ff505}} 
 \index{main\_frame@{main\_frame}!clear@{clear}}
 \index{clear@{clear}!main\_frame@{main\_frame}}
 \subsubsection{clear()}
-{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -70,17 +72,14 @@ Clear main frame console text.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\label{classmain__frame_a67b72387b99fb35706b11eeba7070bc4}} 
+\mbox{\label{classmain__frame_aa69c8bf1f1dcf4e72552efff1fe3e87e}} 
 \index{main\_frame@{main\_frame}!close@{close}}
 \index{close@{close}!main\_frame@{main\_frame}}
 \subsubsection{close()}
-{\footnotesize\ttfamily void close (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -94,17 +93,14 @@ Close communication in main frame.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-\mbox{\label{classmain__frame_a42466769794c3edd479bc62db0f796f1}} 
+\mbox{\label{classmain__frame_ab2f41cb5c107ff572fd4cf2054593e85}} 
 \index{main\_frame@{main\_frame}!console\_rx\_enable@{console\_rx\_enable}}
 \index{console\_rx\_enable@{console\_rx\_enable}!main\_frame@{main\_frame}}
 \subsubsection{console\_rx\_enable()}
-{\footnotesize\ttfamily void console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}\item[{bool}]{enable\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}\item[{enable\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -124,13 +120,13 @@ Set show Rx data in main frame console.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_aaae434e0d6a898619ff85e42ad3f795d}} 
+\mbox{\label{classmain__frame_a1d5fe8687a955a4fc5f803dc47b644df}} 
 \index{main\_frame@{main\_frame}!get\_data@{get\_data}}
 \index{get\_data@{get\_data}!main\_frame@{main\_frame}}
 \subsubsection{get\_data()}
-{\footnotesize\ttfamily string get\+\_\+data (\begin{DoxyParamCaption}\item[{string}]{info\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get\+\_\+data (\begin{DoxyParamCaption}\item[{info\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -149,7 +145,7 @@ Show input dialog with user info text and return user input data.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: User input text\+Set status progress in progress dialog
+User input text string\+Set status progress in progress dialog
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
@@ -170,13 +166,13 @@ string \+: User input text\+Set status progress in progress dialog
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_aefe5b38f87e41cd0a2cbf8405b6c3cc1}} 
+\mbox{\label{classmain__frame_a7e4ce3b50be33239672b4a51e974baa0}} 
 \index{main\_frame@{main\_frame}!get\_open\_status@{get\_open\_status}}
 \index{get\_open\_status@{get\_open\_status}!main\_frame@{main\_frame}}
 \subsubsection{get\_open\_status()}
-{\footnotesize\ttfamily double get\+\_\+open\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get\+\_\+open\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -191,19 +187,14 @@ Get communication open status.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-double \+: communication status \begin{DoxyItemize}
-\item 0 \+: Open error \item 1 \+: Open \item 2 \+: Handle error \item 3 \+: Write configuration error \item 4 \+: Write timeout error \item 5 \+: Close error \item 6 \+: Close \item 7 \+: Opened \end{DoxyItemize}
-
-\end{DoxyReturn}
-\mbox{\label{classmain__frame_a61f0cb0eb41e16d4797c2e33c5af8c7d}} 
+\mbox{\label{classmain__frame_aebbde0b9de677f5038f5e61c3748e4c6}} 
 \index{main\_frame@{main\_frame}!gui@{gui}}
 \index{gui@{gui}!main\_frame@{main\_frame}}
 \subsubsection{gui()}
-{\footnotesize\ttfamily void \textbf{ gui} (\begin{DoxyParamCaption}\item[{bool}]{show\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \textbf{ gui} (\begin{DoxyParamCaption}\item[{show\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -223,13 +214,13 @@ Set show main frame.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_a282bf29e2a338ad6ff537b3c98162561}} 
+\mbox{\label{classmain__frame_a9daa589d2e74c269cc78bccaca50bf40}} 
 \index{main\_frame@{main\_frame}!hide@{hide}}
 \index{hide@{hide}!main\_frame@{main\_frame}}
 \subsubsection{hide()}
-{\footnotesize\ttfamily void hide (\begin{DoxyParamCaption}\item[{bool}]{enable\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily hide (\begin{DoxyParamCaption}\item[{enable\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -249,13 +240,13 @@ Set show main frame.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_a7ba59ce4eb6c8eb6bdf549389b59ef43}} 
+\mbox{\label{classmain__frame_a52c27dfc34aa450413b632c62a2e1266}} 
 \index{main\_frame@{main\_frame}!is\_console\_rx\_enable@{is\_console\_rx\_enable}}
 \index{is\_console\_rx\_enable@{is\_console\_rx\_enable}!main\_frame@{main\_frame}}
 \subsubsection{is\_console\_rx\_enable()}
-{\footnotesize\ttfamily bool is\+\_\+console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily is\+\_\+console\+\_\+rx\+\_\+enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -270,19 +261,35 @@ Get console enable state.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-bool \+: Console enable state \begin{DoxyItemize}
-\item false \+: Disable \item true \+: Enable \end{DoxyItemize}
-
-\end{DoxyReturn}
-\mbox{\label{classmain__frame_a2cab3b1832cb16b04d1df3a6e570825f}} 
+\mbox{\label{classmain__frame_a44a2ac59a3b91f8c18905dce700934d6}} 
 \index{main\_frame@{main\_frame}!open@{open}}
 \index{open@{open}!main\_frame@{main\_frame}}
-\subsubsection{open()}
-{\footnotesize\ttfamily void open (\begin{DoxyParamCaption}\item[{double}]{bite\+\_\+timeout\+\_\+d,  }\item[{double baudrate\+\_\+d double stop\+\_\+bits\+\_\+d double parity\+\_\+d double bit\+\_\+length\+\_\+d double}]{port\+\_\+num\+\_\+d }\end{DoxyParamCaption})}
+\subsubsection{open()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Open communication and G\+UI component in main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{main\_frame.open();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classmain__frame_abe660e412aec60f8c6331dc1ecc5bd06}} 
+\index{main\_frame@{main\_frame}!open@{open}}
+\index{open@{open}!main\_frame@{main\_frame}}
+\subsubsection{open()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily open (\begin{DoxyParamCaption}\item[{bite\+\_\+timeout\+\_\+d}]{,  }\item[{baudrate\+\_\+d}]{,  }\item[{stop\+\_\+bits\+\_\+d}]{,  }\item[{parity\+\_\+d}]{,  }\item[{bit\+\_\+length\+\_\+d}]{,  }\item[{port\+\_\+num\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -290,7 +297,7 @@ Open and set port communication and G\+UI component in main frame.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{uart.open(1,57600,0,0,8,4);}
+\DoxyCodeLine{main\_frame.open(1,57600,0,0,8,4);}
 \end{DoxyCode}
 
 
@@ -310,17 +317,19 @@ Open and set port communication and G\+UI component in main frame.
 \hline
 {\em \mbox{[}\+I\+N\mbox{]}} & bit\+\_\+length\+\_\+d \+: Character bit length \\
 \hline
-{\em \mbox{[}\+I\+N\mbox{]}} & port\+\_\+num\+\_\+d \+: Port number \\
+{\em \mbox{[}\+I\+N\mbox{]}} & port\+\_\+num\+\_\+d \+: Port number \begin{DoxyItemize}
+\item 0 \+: Get number from main frame port setting \end{DoxyItemize}
+\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_a9e920dc62c65350fc91a14a0aea468ff}} 
+\mbox{\label{classmain__frame_a79b426eee04cbf6119282385151c235c}} 
 \index{main\_frame@{main\_frame}!printf@{printf}}
 \index{printf@{printf}!main\_frame@{main\_frame}}
 \subsubsection{printf()}
-{\footnotesize\ttfamily void printf (\begin{DoxyParamCaption}\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily printf (\begin{DoxyParamCaption}\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -338,13 +347,13 @@ Print text sting in to console.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_a5de0221752900adfbd902ddbe445eee4}} 
+\mbox{\label{classmain__frame_a182485bf94b7e6b5b3f0da6935ef40b1}} 
 \index{main\_frame@{main\_frame}!reg\_event@{reg\_event}}
 \index{reg\_event@{reg\_event}!main\_frame@{main\_frame}}
 \subsubsection{reg\_event()}
-{\footnotesize\ttfamily double reg\+\_\+event (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reg\+\_\+event (\begin{DoxyParamCaption}\item[{event\+\_\+fct\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -365,15 +374,15 @@ Register event on send button click (in event function is parameter array with c
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: registration status \begin{DoxyItemize}
+registration status \begin{DoxyItemize}
 \item 0 \+: Registration error \item 1 \+: Registered \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classmain__frame_acfdcad0ad326ba921b048b0be0b4299e}} 
+\mbox{\label{classmain__frame_aa7e74abc2c1d1874144fe30c711112ef}} 
 \index{main\_frame@{main\_frame}!status@{status}}
 \index{status@{status}!main\_frame@{main\_frame}}
 \subsubsection{status()}
-{\footnotesize\ttfamily void status (\begin{DoxyParamCaption}\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily status (\begin{DoxyParamCaption}\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -391,7 +400,7 @@ Print status text sting in to main frame status.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
 
 

@@ -1,0 +1,139 @@
+.TH "project" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+project \- Script project file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBread\fP (path_str, default_str)"
+.br
+.RI "Read string from project file\&. "
+.ti -1c
+.RI "\fBread\fP (path_str, default_d)"
+.br
+.RI "Read value from project file\&. "
+.ti -1c
+.RI "\fBwrite\fP (path_str, data_str)"
+.br
+.RI "Write string to project file\&. "
+.ti -1c
+.RI "\fBwrite\fP (path_str, data_d)"
+.br
+.RI "Write value to project file\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Script project file\&. 
+.PP
+Definition at line 775 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "read (path_str, default_str)"
+
+.PP
+Read string from project file\&. 
+.PP
+.nf
+var data_str;
+data_str = file\&.read("JS_DATA/user_text", "Hello World!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Variable path 
+.br
+\fI[IN]\fP default_str : Default data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Read string 
+.RE
+.PP
+
+.SS "read (path_str, default_d)"
+
+.PP
+Read value from project file\&. 
+.PP
+.nf
+var data_var;
+data_var = file\&.read("JS_DATA/user_var", 100);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Variable path 
+.br
+\fI[IN]\fP default_d : Default data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Read string 
+.RE
+.PP
+
+.SS "write (path_str, data_str)"
+
+.PP
+Write string to project file\&. 
+.PP
+.nf
+file\&.write("JS_DATA/user_text", "Hello World!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Variable path 
+.br
+\fI[IN]\fP data_str : Data string 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "write (path_str, data_d)"
+
+.PP
+Write value to project file\&. 
+.PP
+.nf
+file\&.write("JS_DATA/user_var", 100);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Variable path 
+.br
+\fI[IN]\fP data_d : Data variable 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

@@ -22,6 +22,5 @@ var group___check__box =
     [ "reg_host_class", "group___check__box.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
     [ "set", "group___check__box.html#gaddd13ecddc86a2824924f6fd5a27cb74", null ],
     [ "set_check_box", "group___check__box.html#gaad72efcd60d7e89c97f557511127fabe", null ],
-    [ "set_check_box_event", "group___check__box.html#ga0806a33469976f628de37adde1f4a4a0", null ],
-    [ "lv_data_check_box_buffer", "group___check__box.html#gafd5502a3268148ed92bef51643dc7b8d", null ]
+    [ "set_check_box_event", "group___check__box.html#ga0806a33469976f628de37adde1f4a4a0", null ]
 ];

@@ -8,21 +8,41 @@ Java\+Script interpreter port.
 {\ttfamily \#include $<$wx/utils.\+h$>$}\newline
 {\ttfamily \#include $<$wx/msgdlg.\+h$>$}\newline
 {\ttfamily \#include $<$wx/time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}in\+\_\+jerryscript\+\_\+port\+\_\+h.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}in\+\_\+jerryscript\+\_\+core\+\_\+h.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}in\+\_\+jerryscript\+\_\+debugger\+\_\+h.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h\char`\"{}}\newline
-Include dependency graph for in\+\_\+jerryscript\+\_\+port\+\_\+cpp.\+cpp\+:\nopagebreak
+Include dependency graph for in\+\_\+jerryscript\+\_\+port\+\_\+cpp.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{in__jerryscript__port__cpp_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ event\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+double \textbf{ g\+\_\+time\+\_\+d}
+\item 
+double {\bfseries g\+\_\+time\+\_\+ms\+\_\+d}
+\item 
 bool \textbf{ l\+\_\+in\+\_\+js\+\_\+port\+\_\+gui\+\_\+enable\+\_\+b} = false
+\item 
+vector$<$ \textbf{ event\+\_\+buffer\+\_\+t} $>$ {\bfseries lv\+\_\+main\+\_\+event\+\_\+buffer}
+\item 
+uint32\+\_\+t {\bfseries l\+\_\+exit\+\_\+event\+\_\+fct\+\_\+ui32}
+\item 
+bool {\bfseries l\+\_\+exit\+\_\+event\+\_\+fct\+\_\+reg\+\_\+b} = false
+\item 
+uint32\+\_\+t {\bfseries l\+\_\+exit\+\_\+state\+\_\+ui32}
 \end{DoxyCompactItemize}
 
 

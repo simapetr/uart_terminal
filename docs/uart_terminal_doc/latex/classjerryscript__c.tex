@@ -13,7 +13,7 @@
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ run} (wx\+String script\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Run script. \end{DoxyCompactList}\item 
-void \textbf{ stop} (void)
+uint32\+\_\+t \textbf{ stop} (void)
 \begin{DoxyCompactList}\small\item\em Stop script. \end{DoxyCompactList}\item 
 void \textbf{ call\+\_\+event} (wx\+String event\+\_\+str, uint32\+\_\+t component\+\_\+id\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Call JS event function. \end{DoxyCompactList}\item 
@@ -21,12 +21,17 @@ void \textbf{ reg\+\_\+class} (void)
 \begin{DoxyCompactList}\small\item\em Register JS class. \end{DoxyCompactList}\item 
 void \textbf{ dereg\+\_\+class} (void)
 \begin{DoxyCompactList}\small\item\em Deregister JS class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\+\_\+t \textbf{ call} (void)
+\begin{DoxyCompactList}\small\item\em Call G\+UI event (Must be called form JS thread) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class 
 
-Definition at line 63 of file in\+\_\+jerryscript\+\_\+port\+\_\+h.\+h.
+Definition at line 66 of file in\+\_\+jerryscript\+\_\+port\+\_\+h.\+h.
 
 
 

@@ -1,0 +1,552 @@
+\section{Editor}
+\label{group___editor}\index{Editor@{Editor}}
+
+
+Java\+Script text file editor.  
+
+
+Collaboration diagram for Editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{group___editor}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ editor\+\_\+event\+\_\+buffer\+\_\+t}
+\item 
+class \textbf{ editor}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t($\ast$ \textbf{ editor\+\_\+event\+\_\+fct}) (void $\ast$p\+\_\+parametr\+\_\+void, uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t length\+\_\+ui32)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ editor} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+Window\+ID text\+\_\+wxwindowid=wx\+I\+D\+\_\+\+A\+NY, const wx\+Point \&pos\+\_\+wxpoint=wx\+Default\+Position, const wx\+Size \&panel\+\_\+wxsize=wx\+Default\+Size, uint32\+\_\+t style\+\_\+ui32=wx\+V\+S\+C\+R\+O\+LL)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$editor} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ load} (void)
+\begin{DoxyCompactList}\small\item\em Load file. \end{DoxyCompactList}\item 
+void \textbf{ load} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Load file. \end{DoxyCompactList}\item 
+void \textbf{ save} (void)
+\begin{DoxyCompactList}\small\item\em Save file. \end{DoxyCompactList}\item 
+bool \textbf{ save\+\_\+as} (void)
+\begin{DoxyCompactList}\small\item\em Save file as. \end{DoxyCompactList}\item 
+void \textbf{ find} (void)
+\begin{DoxyCompactList}\small\item\em Find dialog show. \end{DoxyCompactList}\item 
+void \textbf{ find\+\_\+next} (void)
+\begin{DoxyCompactList}\small\item\em Find next word. \end{DoxyCompactList}\item 
+void \textbf{ find\+\_\+prev} (void)
+\begin{DoxyCompactList}\small\item\em Find previous word. \end{DoxyCompactList}\item 
+void \textbf{ replace} (void)
+\begin{DoxyCompactList}\small\item\em Replace dialog show. \end{DoxyCompactList}\item 
+void \textbf{ goto\+\_\+line} (void)
+\begin{DoxyCompactList}\small\item\em Replace dialog show. \end{DoxyCompactList}\item 
+void \textbf{ new\+\_\+file} (void)
+\begin{DoxyCompactList}\small\item\em New file. \end{DoxyCompactList}\item 
+void \textbf{ new\+\_\+template} (void)
+\begin{DoxyCompactList}\small\item\em New template file. \end{DoxyCompactList}\item 
+void \textbf{ set} (uint8\+\_\+t type\+\_\+ui8, void $\ast$p\+\_\+parametr\+\_\+void, \textbf{ editor\+\_\+event\+\_\+fct} data\+\_\+editor\+\_\+event\+\_\+fct)
+\begin{DoxyCompactList}\small\item\em Set event function. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Get cursor position. \end{DoxyCompactList}\item 
+void \textbf{ run} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set run button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const long \textbf{ l\+\_\+id\+\_\+save\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_ga284d0279229729f59343bed79e2cc465}} 
+static const long {\bfseries l\+\_\+id\+\_\+save\+\_\+as\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_ga21e7bf11b35bfc90d70cfc7cd27f5cff}} 
+static const long {\bfseries l\+\_\+id\+\_\+new\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gafc6a4341616d7bf19fffa42ea1b04be7}} 
+static const long {\bfseries l\+\_\+id\+\_\+new\+\_\+template\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gaff46ff902fd09a652b2d66bce0cccd15}} 
+static const long {\bfseries l\+\_\+id\+\_\+open\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gaebc030d86850559ddf32f6336e67b354}} 
+static const long {\bfseries l\+\_\+id\+\_\+file\+\_\+wxstaticline} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_ga279ca27ce48455db61dae83b35394114}} 
+static const long {\bfseries l\+\_\+id\+\_\+search\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_ga4918849684ac7bfd736ad0ee73aca38d}} 
+static const long {\bfseries l\+\_\+id\+\_\+replace\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gadbaaaeec284ff44110a6c2eadd1a3413}} 
+static const long {\bfseries l\+\_\+id\+\_\+search\+\_\+wxstaticline} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gac92c5e98a0714456c7f9e6bfa755414a}} 
+static const long {\bfseries l\+\_\+id\+\_\+script\+\_\+run\+\_\+wxtogglebutton} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gaf27057b31557e61d15fd980a12382f66}} 
+static const long {\bfseries l\+\_\+id\+\_\+main\+\_\+text\+\_\+edit} = wx\+New\+Id()
+\item 
+\mbox{\label{group___editor_gab70552035844395dd050a8fe0e7e5825}} 
+static const long {\bfseries l\+\_\+id\+\_\+edit\+\_\+event\+\_\+wxtimer} = wx\+New\+Id()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Java\+Script text file editor. 
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\label{group___editor_ga20f4bfcf0a897eefd73be09de813f118}} 
+\index{Editor@{Editor}!editor\_event\_fct@{editor\_event\_fct}}
+\index{editor\_event\_fct@{editor\_event\_fct}!Editor@{Editor}}
+\subsubsection{editor\_event\_fct}
+{\footnotesize\ttfamily typedef uint32\+\_\+t($\ast$ editor\+\_\+event\+\_\+fct) (void $\ast$p\+\_\+parametr\+\_\+void, uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t length\+\_\+ui32)}
+
+Type 
+
+Definition at line 58 of file in\+\_\+jerryscript\+\_\+editor\+\_\+h.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___editor_gad6d21023c29b49cfe1eb7a536ce1c3d2}} 
+\index{Editor@{Editor}!editor@{editor}}
+\index{editor@{editor}!Editor@{Editor}}
+\subsubsection{editor()}
+{\footnotesize\ttfamily \textbf{ editor} (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{p\+\_\+parent\+\_\+wxwindow,  }\item[{wx\+Window\+ID}]{text\+\_\+wxwindowid = {\ttfamily wxID\+\_\+ANY},  }\item[{const wx\+Point \&}]{pos\+\_\+wxpoint = {\ttfamily wxDefaultPosition},  }\item[{const wx\+Size \&}]{panel\+\_\+wxsize = {\ttfamily wxDefaultSize},  }\item[{uint32\+\_\+t}]{style\+\_\+ui32 = {\ttfamily wxVSCROLL} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Event table
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parent\+\_\+wxwindow \+: Parent window \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+wxwindowid \+: Parent window ID string \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & pos\+\_\+wxpoint \+: Parent window \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+wxsize \+: Panle size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & style\+\_\+ui32 \+: Panel style \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga7830bc6c7a1a608593c8073e6c491f75}} 
+\index{Editor@{Editor}!find@{find}}
+\index{find@{find}!Editor@{Editor}}
+\subsubsection{find()}
+{\footnotesize\ttfamily void find (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Find dialog show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 302 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga306490084cfa296140f0bd0538724747}} 
+\index{Editor@{Editor}!find\_next@{find\_next}}
+\index{find\_next@{find\_next}!Editor@{Editor}}
+\subsubsection{find\_next()}
+{\footnotesize\ttfamily void find\+\_\+next (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Find next word. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 330 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga376f52d4e92217aba926a0684015f610}} 
+\index{Editor@{Editor}!find\_prev@{find\_prev}}
+\index{find\_prev@{find\_prev}!Editor@{Editor}}
+\subsubsection{find\_prev()}
+{\footnotesize\ttfamily void find\+\_\+prev (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Find previous word. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 351 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_gad833fe8055e535b4696cfc376a286f80}} 
+\index{Editor@{Editor}!get@{get}}
+\index{get@{get}!Editor@{Editor}}
+\subsubsection{get()}
+{\footnotesize\ttfamily wx\+String get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get cursor position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: Cursor position string 
+\end{DoxyReturn}
+
+
+Definition at line 558 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga8d657d9e2799a4f4978e933a412faf62}} 
+\index{Editor@{Editor}!goto\_line@{goto\_line}}
+\index{goto\_line@{goto\_line}!Editor@{Editor}}
+\subsubsection{goto\_line()}
+{\footnotesize\ttfamily void goto\+\_\+line (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Replace dialog show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 402 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga11d83bf35f0346e4f579df0257171252}} 
+\index{Editor@{Editor}!load@{load}}
+\index{load@{load}!Editor@{Editor}}
+\subsubsection{load()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void load (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Load file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 209 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga8caf41718ffb5bf060de703f18f72546}} 
+\index{Editor@{Editor}!load@{load}}
+\index{load@{load}!Editor@{Editor}}
+\subsubsection{load()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void load (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Load file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 234 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___editor_ga8caf41718ffb5bf060de703f18f72546_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___editor_ga24e4d4948e63a16f025b4d2c19546ca0}} 
+\index{Editor@{Editor}!new\_file@{new\_file}}
+\index{new\_file@{new\_file}!Editor@{Editor}}
+\subsubsection{new\_file()}
+{\footnotesize\ttfamily void new\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+New file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 422 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{group___editor_ga24e4d4948e63a16f025b4d2c19546ca0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___editor_ga9b68cbeec78749fe78f75c3a94ab47f4}} 
+\index{Editor@{Editor}!new\_template@{new\_template}}
+\index{new\_template@{new\_template}!Editor@{Editor}}
+\subsubsection{new\_template()}
+{\footnotesize\ttfamily void new\+\_\+template (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+New template file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 439 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___editor_ga9b68cbeec78749fe78f75c3a94ab47f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___editor_gac444d1d43a4b21e9aa8a6b948c0b4c82}} 
+\index{Editor@{Editor}!replace@{replace}}
+\index{replace@{replace}!Editor@{Editor}}
+\subsubsection{replace()}
+{\footnotesize\ttfamily void replace (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Replace dialog show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 372 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga7f023340b8930afdb091542b289c015b}} 
+\index{Editor@{Editor}!run@{run}}
+\index{run@{run}!Editor@{Editor}}
+\subsubsection{run()}
+{\footnotesize\ttfamily void run (\begin{DoxyParamCaption}\item[{bool}]{status\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set run button state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & status\+\_\+b \+: Run state \begin{DoxyItemize}
+\item true \+: Run \item false \+: Stop \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 578 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga1e03263353a7ba1bf855a8fe86b072e6}} 
+\index{Editor@{Editor}!save@{save}}
+\index{save@{save}!Editor@{Editor}}
+\subsubsection{save()}
+{\footnotesize\ttfamily void save (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Save file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{group___editor_ga1e03263353a7ba1bf855a8fe86b072e6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___editor_gafc875a0c47eb079e45aae60a3fea6296}} 
+\index{Editor@{Editor}!save\_as@{save\_as}}
+\index{save\_as@{save\_as}!Editor@{Editor}}
+\subsubsection{save\_as()}
+{\footnotesize\ttfamily bool save\+\_\+as (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Save file as. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Status 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{group___editor_gafc875a0c47eb079e45aae60a3fea6296_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___editor_ga9436732644f96b2f9ebe50c7682d775e}} 
+\index{Editor@{Editor}!set@{set}}
+\index{set@{set}!Editor@{Editor}}
+\subsubsection{set()}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type\+\_\+ui8,  }\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void,  }\item[{\textbf{ editor\+\_\+event\+\_\+fct}}]{data\+\_\+editor\+\_\+event\+\_\+fct }\end{DoxyParamCaption})}
+
+
+
+Set event function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & type\+\_\+ui8 \+: Event type \begin{DoxyItemize}
+\item e\+\_\+start \+: Script start \item e\+\_\+path \+: Set script path \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parametr\+\_\+void \+: File path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+editor\+\_\+event\+\_\+fct \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 541 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___editor_ga21b36b626c80f92d80547d74e0bb402f}} 
+\index{Editor@{Editor}!````~editor@{$\sim$editor}}
+\index{````~editor@{$\sim$editor}!Editor@{Editor}}
+\subsubsection{$\sim$editor()}
+{\footnotesize\ttfamily $\sim$\textbf{ editor} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 187 of file in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{group___editor_ga21b36b626c80f92d80547d74e0bb402f_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___editor_ga4ef36534ca48c5e12b04fe8847c295f3}} 
+\index{Editor@{Editor}!l\_id\_save\_wxbutton@{l\_id\_save\_wxbutton}}
+\index{l\_id\_save\_wxbutton@{l\_id\_save\_wxbutton}!Editor@{Editor}}
+\subsubsection{l\_id\_save\_wxbutton}
+{\footnotesize\ttfamily const long l\+\_\+id\+\_\+save\+\_\+wxbutton = wx\+New\+Id()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Local variable 
+
+Definition at line 124 of file in\+\_\+jerryscript\+\_\+editor\+\_\+h.\+h.
+

@@ -1,4 +1,4 @@
-.TH "check_box" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "check_box" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,19 +13,19 @@ check_box \- wxCheckBox class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b)"
+.RI "\fBadd\fP (sizer_index_d, text_str, proportion_d, expand_b, state_b)"
 .br
 .RI "Add new check box\&. "
 .ti -1c
-.RI "bool \fBreg_event\fP (double check_box_index_d, string event_fct_str)"
+.RI "\fBreg_event\fP (check_box_index_d, event_fct_str)"
 .br
 .RI "Register check box event\&. "
 .ti -1c
-.RI "bool \fBget\fP (double check_box_index_d)"
+.RI "\fBget\fP (check_box_index_d)"
 .br
 .RI "Get check box state\&. "
 .ti -1c
-.RI "bool \fBset\fP (double check_box_index_d, bool state_b)"
+.RI "\fBset\fP (check_box_index_d, state_b)"
 .br
 .RI "Set check box state\&. "
 .in -1c
@@ -33,10 +33,10 @@ check_box \- wxCheckBox class interface
 .PP 
 wxCheckBox class interface 
 .PP
-Definition at line 997 of file jerryscript_h\&.h\&.
+Definition at line 1037 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b)"
+.SS "add (sizer_index_d, text_str, proportion_d, expand_b, state_b)"
 
 .PP
 Add new check box\&. 
@@ -81,11 +81,11 @@ true : Checked
 .PP
 \fBReturns:\fP
 .RS 4
-double : Check box buffer index 
+Check box index 
 .RE
 .PP
 
-.SS "bool get (double check_box_index_d)"
+.SS "get (check_box_index_d)"
 
 .PP
 Get check box state\&. 
@@ -110,7 +110,7 @@ test_state_bool = gui\&.check_box\&.get(test_check_box);
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Check box state 
+Check box state 
 .PD 0
 
 .IP "\(bu" 2
@@ -121,7 +121,7 @@ true : Checked
 .RE
 .PP
 
-.SS "bool reg_event (double check_box_index_d, string event_fct_str)"
+.SS "reg_event (check_box_index_d, event_fct_str)"
 
 .PP
 Register check box event\&. 
@@ -151,7 +151,7 @@ function on_check_box_click (component_id)
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Event register status 
+Event register status 
 .PD 0
 
 .IP "\(bu" 2
@@ -162,7 +162,7 @@ true : Event registered
 .RE
 .PP
 
-.SS "bool set (double check_box_index_d, bool state_b)"
+.SS "set (check_box_index_d, state_b)"
 
 .PP
 Set check box state\&. 
@@ -196,7 +196,7 @@ true : Checked
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Change status 
+Change status 
 .PD 0
 
 .IP "\(bu" 2

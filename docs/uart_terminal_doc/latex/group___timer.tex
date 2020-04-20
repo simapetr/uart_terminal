@@ -1,0 +1,277 @@
+\section{Timer}
+\label{group___timer}\index{Timer@{Timer}}
+
+
+Timer class definition.  
+
+
+Collaboration diagram for Timer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{group___timer}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ timer\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ reg\+\_\+host\+\_\+class} (void)
+\begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
+void \textbf{ dereg\+\_\+host\+\_\+class} (void)
+\begin{DoxyCompactList}\small\item\em Deregistration object in to class. \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ add} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Add new timer event (JS function \char`\"{}add\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ set} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Set timer period (JS function \char`\"{}set\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ start} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Start timer count (JS function \char`\"{}start\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ stop} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Stop timer count (JS function \char`\"{}stop\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ reset} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+\begin{DoxyCompactList}\small\item\em Reset timer counter (JS function \char`\"{}reset\char`\"{}) \end{DoxyCompactList}\item 
+static void \textbf{ call} (void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Timer thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ l\+\_\+run\+\_\+timer\+\_\+ui8}
+\item 
+\mbox{\label{group___timer_gaaf24f52eacb5becb96873fc78fe380c8}} 
+uint32\+\_\+t {\bfseries l\+\_\+global\+\_\+ui32}
+\item 
+\mbox{\label{group___timer_ga0e8baa380b2340a5859e05e24b95fc21}} 
+vector$<$ \textbf{ timer\+\_\+buffer\+\_\+t} $>$ {\bfseries lv\+\_\+main\+\_\+timer\+\_\+buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer class definition. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___timer_ga490542606fe12f142cd2b00cb1ecaefd}} 
+\index{Timer@{Timer}!add@{add}}
+\index{add@{add}!Timer@{Timer}}
+\subsubsection{add()}
+{\footnotesize\ttfamily uint32\+\_\+t add (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Add new timer event (JS function \char`\"{}add\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 167 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_ga13711d954b6e843f3456a553b76612ae}} 
+\index{Timer@{Timer}!call@{call}}
+\index{call@{call}!Timer@{Timer}}
+\subsubsection{call()}
+{\footnotesize\ttfamily void call (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Timer thread. 
+
+Private function
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+Thread\+::\+Exit\+Code \+: thread end status 
+\end{DoxyReturn}
+
+
+Definition at line 466 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_ga8effd7f56034a13e7aa545821d729383}} 
+\index{Timer@{Timer}!dereg\_host\_class@{dereg\_host\_class}}
+\index{dereg\_host\_class@{dereg\_host\_class}!Timer@{Timer}}
+\subsubsection{dereg\_host\_class()}
+{\footnotesize\ttfamily void dereg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Deregistration object in to class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_ga69ac449c8b71f2f20b05676a828a8382}} 
+\index{Timer@{Timer}!reg\_host\_class@{reg\_host\_class}}
+\index{reg\_host\_class@{reg\_host\_class}!Timer@{Timer}}
+\subsubsection{reg\_host\_class()}
+{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Registration object in to class. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_gaff5533e32f3367fc799c8f054a3b8d8e}} 
+\index{Timer@{Timer}!reset@{reset}}
+\index{reset@{reset}!Timer@{Timer}}
+\subsubsection{reset()}
+{\footnotesize\ttfamily uint32\+\_\+t reset (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reset timer counter (JS function \char`\"{}reset\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 418 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_gaddd13ecddc86a2824924f6fd5a27cb74}} 
+\index{Timer@{Timer}!set@{set}}
+\index{set@{set}!Timer@{Timer}}
+\subsubsection{set()}
+{\footnotesize\ttfamily uint32\+\_\+t set (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set timer period (JS function \char`\"{}set\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 277 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_gae9949b56a3ab1bf5fd6b51c676680071}} 
+\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\subsubsection{start()}
+{\footnotesize\ttfamily uint32\+\_\+t start (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Start timer count (JS function \char`\"{}start\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 326 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___timer_ga2a8a66ff023c6e2ca45293e84db2f97d}} 
+\index{Timer@{Timer}!stop@{stop}}
+\index{stop@{stop}!Timer@{Timer}}
+\subsubsection{stop()}
+{\footnotesize\ttfamily uint32\+\_\+t stop (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Stop timer count (JS function \char`\"{}stop\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 373 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___timer_ga43d9bdb3ffd36499132e82b8f9026c01}} 
+\index{Timer@{Timer}!l\_run\_timer\_ui8@{l\_run\_timer\_ui8}}
+\index{l\_run\_timer\_ui8@{l\_run\_timer\_ui8}!Timer@{Timer}}
+\subsubsection{l\_run\_timer\_ui8}
+{\footnotesize\ttfamily uint8\+\_\+t l\+\_\+run\+\_\+timer\+\_\+ui8}
+
+Local variable 
+
+Definition at line 70 of file in\+\_\+js\+\_\+class\+\_\+timer\+\_\+js\+\_\+cpp.\+cpp.
+

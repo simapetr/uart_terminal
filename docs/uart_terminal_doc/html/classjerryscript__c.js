@@ -6,5 +6,5 @@ var classjerryscript__c =
     [ "dereg_class", "group___port.html#ga028c4a3d2af780017a3fb63a77e05adc", null ],
     [ "reg_class", "group___port.html#ga27e437e9c4a6a850e656d35c61bb9bbf", null ],
     [ "run", "group___port.html#gafacd49c835b8497d00c0a928232b12e2", null ],
-    [ "stop", "group___port.html#gaacf6bf8e121fea8b0a92d7197b73fe27", null ]
+    [ "stop", "group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a", null ]
 ];

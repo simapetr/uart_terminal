@@ -1,4 +1,4 @@
-.TH "main_frame_js_c" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "main_frame_js_c" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,7 +12,7 @@ main_frame_js_c
 
 .in +1c
 .ti -1c
-.RI "void \fBreg_host_class\fP (void *p_gui_main_frame_void)"
+.RI "void \fBreg_host_class\fP (void *p_gui_main_frame_void, wxCondition *p_data_wxcondition)"
 .br
 .RI "Registration object in to class\&. "
 .in -1c
@@ -32,7 +32,7 @@ main_frame_js_c
 .br
 .RI "GUI enable console rx data (JS method 'is_console_rx_enable') "
 .ti -1c
-.RI "static uint32_t \fBprintf\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.RI "static uint32_t \fBjs_printf\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
 .RI "GUI textctrl console printf data (JS method 'printf') "
 .ti -1c
@@ -71,6 +71,10 @@ main_frame_js_c
 .RI "static uint32_t \fBhide\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
 .RI "Hide main frame (JS method 'hide') "
+.ti -1c
+.RI "static uint32_t \fBcall\fP (void *p_parametr_void)"
+.br
+.RI "Call Tx data send event (Must be called form JS thread) "
 .in -1c
 .SH "Detailed Description"
 .PP 

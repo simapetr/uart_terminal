@@ -42,6 +42,7 @@
 #include "hw_dr_uart_driver_h.h"
 #include "in_config_ini_wrapper_h.h"
 #include "in_jerryscript_port_h.h"
+#include "ap_editor_frame_h.h"
 
 /**
   * @addtogroup Application
@@ -73,11 +74,14 @@ class main_frame: public wxFrame
 
         main_frame(wxWindow* p_parent_window, wxArrayString* p_cmd_arg_arraystring);
         virtual ~main_frame();
+        void set(wxString path_str);
+        void run(bool status_b = true);
+        wxString get(void);
         void gui(bool status_b);
         config_ini* get_project(void);
         void js_hide(bool status_b);
         void console_rx_enable(bool status_b);
-        bool is_console_rx_enable (void);
+        bool is_console_rx_enable(void);
         void js_printf(wxString console_text_str);
         void js_status(wxString status_text_str);
         void status(wxString status_text_str);
@@ -89,12 +93,12 @@ class main_frame: public wxFrame
         void close_port(void);
         uart_status_t js_get_open_status(void);
         uart_status_t get_open_status(void);
-        void js_set_config (uart_cfg_t data_uart_cfg);
-        void set_config (uart_cfg_t data_uart_cfg);
+        void js_set_config(uart_cfg_t data_uart_cfg);
+        void set_config(uart_cfg_t data_uart_cfg);
         uart_cfg_t get_config(void);
-        wxString get_data (wxString text_str);
-        void set_progress (wxString text_str, uint32_t progress_ui32);
-        void set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void);
+        wxString get_data(wxString text_str);
+        void set_progress(wxString text_str, uint32_t progress_ui32);
+        void set_send_event(send_event_fct data_send_event_fct, void* p_parametr_void);
         uint32_t run_script(wxString path_str);
         uint32_t stop_script(void);
         static void stop_event(void);
@@ -104,8 +108,6 @@ class main_frame: public wxFrame
 
         //(*Handlers(main_frame)
         void main_panel_clear_button_click(wxCommandEvent& event);
-        void main_panel_close_button_click(wxCommandEvent& event);
-        void main_panel_open_button_click(wxCommandEvent& event);
         void main_panel_send_button_click(wxCommandEvent& event);
         void menu_bar_file_quit_item_selected(wxCommandEvent& event);
         void menu_bar_help_about_item_selected(wxCommandEvent& event);
@@ -118,6 +120,8 @@ class main_frame: public wxFrame
         void on_script_run_wxtogglebutton_toggle(wxCommandEvent& event);
         void on_speed_wxchoice_select(wxCommandEvent& event);
         void on_js_doc_item_wxmenu_selected(wxCommandEvent& event);
+        void on_editor_wxbutton_click(wxCommandEvent& event);
+        void on_connect_wxtogglebutton_toggle(wxCommandEvent& event);
         //*)
         void main_panel_set_port_choice(void);
         void uart_rx_data(uint8_t *p_data_sui8, uint32_t length_ui32);
@@ -131,11 +135,10 @@ class main_frame: public wxFrame
         static const long l_id_length_wxchoice;
         static const long l_id_parity_wxchoice;
         static const long l_id_stop_bit_wxchoice;
-        static const long l_id_clear_wxbutton;
-        static const long l_id_close_wxbutton;
-        static const long l_id_open_wxbutton;
+        static const long l_id_connect_wxtogglebutton;
         static const long l_id_text_cr_wxcheckbox;
         static const long l_id_text_lf_wxcheckbox;
+        static const long l_id_clear_wxbutton;
         static const long l_id_port_control_dtr_wxcheckbox;
         static const long l_id_port_control_rts_wxcheckbox;
         static const long l_id_port_control_tx_wxcheckbox;
@@ -148,13 +151,15 @@ class main_frame: public wxFrame
         static const long l_id_port_state_rlsd_wxled;
         static const long l_id_port_state_rlsd_wxstatictext;
         static const long l_id_script_path_wxtextctrl;
-        static const long l_id_script_load_wxbutton;
+        static const long l_id_editor_wxbutton;
         static const long l_id_script_run_wxtogglebutton;
         static const long l_id_command_wxtextctrl;
         static const long l_id_hex_wxcheckbox;
         static const long l_id_send_wxbutton;
         static const long l_id_console_wxtextctrl;
         static const long l_id_main_wxpanel;
+        static const long l_id_file_open_item_wxmenu;
+        static const long l_id_file_edit_item_wxmenu;
         static const long l_id_file_quit_item_wxmenu;
         static const long l_id_help_about_item_wxmenu;
         static const long l_id_help_js_doc_item_wxmenu;
@@ -169,9 +174,7 @@ class main_frame: public wxFrame
         wxBoxSizer* lp_main_setting_wxboxsizer;
         wxBoxSizer* lp_main_wxboxsizer;
         wxButton* lp_clear_wxbutton;
-        wxButton* lp_close_wxbutton;
-        wxButton* lp_open_wxbutton;
-        wxButton* lp_script_load_wxbutton;
+        wxButton* lp_editor_wxbutton;
         wxButton* lp_send_wxbutton;
         wxCheckBox* lp_hex_wxcheckbox;
         wxCheckBox* lp_port_control_dtr_wxcheckbox;
@@ -192,6 +195,8 @@ class main_frame: public wxFrame
         wxMenu* lp_file_wxmenu;
         wxMenu* lp_help_wxmenu;
         wxMenuBar* lp_top_wxmenubar;
+        wxMenuItem* l_file_edit_item_wxmenu;
+        wxMenuItem* l_file_open_item_wxmenu;
         wxMenuItem* lp_file_quit_item_wxmenu;
         wxMenuItem* lp_help_about_item_wxmenu;
         wxMenuItem* lp_js_doc_item_wxmenu;
@@ -212,17 +217,16 @@ class main_frame: public wxFrame
         wxTextCtrl* lp_speed_wxtextctrl;
         wxTimer lp_dialog_caller_wxtimer;
         wxTimer lp_wx_gui_sync_wxtimer;
+        wxToggleButton* lp_connect_wxtogglebutton;
         wxToggleButton* lp_script_run_wxtogglebutton;
         //*)
+        editor_frame* lp_data_editor_frame;
         bool l_open_b;
         bool l_run_b;
         bool l_stop_req_b;
-        uart_port* p_communication_uart_port;
-        HANDLE uart_thread_handle;
-        DWORD uart_thread_id_dword;
-        uint32_t uart_thread_run_ui32;
+        uart_port* lp_communication_uart_port;
         uart_status_t l_data_uart_status;
-        config_ini *p_data_config_ini;
+        config_ini *lp_data_config_ini;
         config_ini *lp_script_config_ini;
         jerryscript_c *lp_interpret_jerryscript;
         wxTextEntryDialog* lp_data_wxtextentrydialog;

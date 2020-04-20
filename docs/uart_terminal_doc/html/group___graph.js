@@ -8,8 +8,14 @@ var group___graph =
       [ "graph_range_d", "structgraph__buffer__t.html#acdc7d1aa78e855984e1073f7e975258d", null ],
       [ "name_str", "structgraph__buffer__t.html#a4f420117d8c68001f3c555687fee0d84", null ],
       [ "p_graph_data_plot", "structgraph__buffer__t.html#ac23ca840d85a64471e2c2d46b38994a4", null ],
+      [ "redraw_b", "structgraph__buffer__t.html#a41a6ffa0a419bd1cc86b38f4a04c3467", null ],
       [ "sizer_index_d", "structgraph__buffer__t.html#aae99f717aadbf88f890c71a293468af8", null ],
       [ "time_step_d", "structgraph__buffer__t.html#a812bd0a869f23ca14d35715545713db0", null ]
+    ] ],
+    [ "signal_buffer_t", "structsignal__buffer__t.html", [
+      [ "graph_ui32", "structsignal__buffer__t.html#a88b278f90960a1b582874b89be1146ac", null ],
+      [ "name_str", "structsignal__buffer__t.html#a4f420117d8c68001f3c555687fee0d84", null ],
+      [ "signal_style_pen", "structsignal__buffer__t.html#a9ca1806bdffcf2b5ec036202957ec74e", null ]
     ] ],
     [ "add", "group___graph.html#ga490542606fe12f142cd2b00cb1ecaefd", null ],
     [ "add_graph", "group___graph.html#gac5374b808848e3291c0f627f632a9d58", null ],
@@ -17,6 +23,5 @@ var group___graph =
     [ "insert_signal", "group___graph.html#ga57349d827129ad1bd54887dda50609df", null ],
     [ "reg_host_class", "group___graph.html#ga9e569b67117ef902f5a4afe4a825b678", null ],
     [ "set", "group___graph.html#gaddd13ecddc86a2824924f6fd5a27cb74", null ],
-    [ "set_graph_data", "group___graph.html#ga4e9353b837f57c5c436140db51393ad0", null ],
-    [ "lv_data_graph_buffer", "group___graph.html#ga70d4a6633d9b5972dcb026390127f139", null ]
+    [ "set_graph_data", "group___graph.html#ga4e9353b837f57c5c436140db51393ad0", null ]
 ];

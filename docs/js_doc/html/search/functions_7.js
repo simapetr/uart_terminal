@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['now',['now',['../classtime.html#a5602e9c6b2da7a1db11ed8a76d19fde3',1,'time']]],
-  ['now_5fms',['now_ms',['../classtime.html#a2a7a51110c7f6cb8331a444312a37c71',1,'time']]]
+  ['now',['now',['../classtime.html#a80593ccdc0339775ddd5d82c37ca4f6b',1,'time']]],
+  ['now_5fms',['now_ms',['../classtime.html#a94c9883e54d4b8ed4417920c65bd70dc',1,'time']]]
 ];

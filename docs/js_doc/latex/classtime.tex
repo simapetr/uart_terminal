@@ -12,54 +12,54 @@ System time interface.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ now} (void)
+\textbf{ now} ()
 \begin{DoxyCompactList}\small\item\em Get actual time in s. \end{DoxyCompactList}\item 
-double \textbf{ now\+\_\+ms} (void)
+\textbf{ now\+\_\+ms} ()
 \begin{DoxyCompactList}\small\item\em Get actual time in ms. \end{DoxyCompactList}\item 
-string \textbf{ str} (void)
+\textbf{ str} (time\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get actual U\+TC time string. \end{DoxyCompactList}\item 
-string \textbf{ local\+\_\+str} (void)
-\begin{DoxyCompactList}\small\item\em Get actual local time string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ local\+\_\+str} (time\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get actual system time string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 System time interface. 
 
-Definition at line 546 of file jerryscript\+\_\+h.\+h.
+Definition at line 483 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classtime_a90260b78bd47ed6283e47ac4a049e347}} 
+\mbox{\label{classtime_a849383e572aadbebabadf4db9ce39702}} 
 \index{time@{time}!local\_str@{local\_str}}
 \index{local\_str@{local\_str}!time@{time}}
 \subsubsection{local\_str()}
-{\footnotesize\ttfamily string local\+\_\+str (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily local\+\_\+str (\begin{DoxyParamCaption}\item[{time\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
-Get actual local time string. 
+Get actual system time string. 
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{var time\_str;}
-\DoxyCodeLine{time\_str = time.local\_str();}
+\DoxyCodeLine{time\_str = time.local\_str(time.now());}
 \end{DoxyCode}
 
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em \mbox{[}\+I\+N\mbox{]}} & time\+\_\+d \+: time I\+SO 8601 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Time and date (Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD H\+H\+:\+MM\+:SS) 
+String time and date (Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD H\+H\+:\+MM\+:SS) 
 \end{DoxyReturn}
-\mbox{\label{classtime_a5602e9c6b2da7a1db11ed8a76d19fde3}} 
+\mbox{\label{classtime_a80593ccdc0339775ddd5d82c37ca4f6b}} 
 \index{time@{time}!now@{now}}
 \index{now@{now}!time@{time}}
 \subsubsection{now()}
-{\footnotesize\ttfamily double now (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily now (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -74,17 +74,14 @@ Get actual time in s.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-double \+: Number of s from (I\+SO 8601\+: 1970-\/01-\/01T00\+:00\+:00Z) 
-\end{DoxyReturn}
-\mbox{\label{classtime_a2a7a51110c7f6cb8331a444312a37c71}} 
+\mbox{\label{classtime_a94c9883e54d4b8ed4417920c65bd70dc}} 
 \index{time@{time}!now\_ms@{now\_ms}}
 \index{now\_ms@{now\_ms}!time@{time}}
 \subsubsection{now\_ms()}
-{\footnotesize\ttfamily double now\+\_\+ms (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily now\+\_\+ms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -99,17 +96,14 @@ Get actual time in ms.
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-double \+: Number of ms from (I\+SO 8601\+: 1970-\/01-\/01T00\+:00\+:00Z) 
-\end{DoxyReturn}
-\mbox{\label{classtime_ae06c4c6e38e7ac957418e120c3e63f60}} 
+\mbox{\label{classtime_a582e9110fc17ab45f9b815eadbe15c10}} 
 \index{time@{time}!str@{str}}
 \index{str@{str}!time@{time}}
 \subsubsection{str()}
-{\footnotesize\ttfamily string str (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily str (\begin{DoxyParamCaption}\item[{time\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -118,17 +112,17 @@ Get actual U\+TC time string.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{var time\_str;}
-\DoxyCodeLine{time\_str = time.str();}
+\DoxyCodeLine{time\_str = time.str(time.now());}
 \end{DoxyCode}
 
 
 
 \begin{DoxyParams}{Parameters}
-{\em void} & \\
+{\em \mbox{[}\+I\+N\mbox{]}} & time\+\_\+d \+: time I\+SO 8601 \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Time and date (Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD H\+H\+:\+MM\+:SS) 
+String time and date (Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD H\+H\+:\+MM\+:SS) 
 \end{DoxyReturn}
 
 

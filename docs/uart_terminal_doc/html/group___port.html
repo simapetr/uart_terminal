@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -112,6 +112,8 @@ Collaboration diagram for Port:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structevent__buffer__t.html">event_buffer_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjerryscript__c.html">jerryscript_c</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -126,9 +128,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gafacd49c835b8497d00c0a928232b12e2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#gafacd49c835b8497d00c0a928232b12e2">run</a> (wxString script_str)</td></tr>
 <tr class="memdesc:gafacd49c835b8497d00c0a928232b12e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run script.  <a href="#gafacd49c835b8497d00c0a928232b12e2">More...</a><br /></td></tr>
 <tr class="separator:gafacd49c835b8497d00c0a928232b12e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaacf6bf8e121fea8b0a92d7197b73fe27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#gaacf6bf8e121fea8b0a92d7197b73fe27">stop</a> (void)</td></tr>
-<tr class="memdesc:gaacf6bf8e121fea8b0a92d7197b73fe27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop script.  <a href="#gaacf6bf8e121fea8b0a92d7197b73fe27">More...</a><br /></td></tr>
-<tr class="separator:gaacf6bf8e121fea8b0a92d7197b73fe27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga317e8c9771295ad8aba4e6b3fe79904a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a">stop</a> (void)</td></tr>
+<tr class="memdesc:ga317e8c9771295ad8aba4e6b3fe79904a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop script.  <a href="#ga317e8c9771295ad8aba4e6b3fe79904a">More...</a><br /></td></tr>
+<tr class="separator:ga317e8c9771295ad8aba4e6b3fe79904a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga66c5eaf23bd946414ba9e21faad798a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#ga66c5eaf23bd946414ba9e21faad798a5">call_event</a> (wxString event_str, uint32_t component_id_ui32)</td></tr>
 <tr class="memdesc:ga66c5eaf23bd946414ba9e21faad798a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call JS event function.  <a href="#ga66c5eaf23bd946414ba9e21faad798a5">More...</a><br /></td></tr>
 <tr class="separator:ga66c5eaf23bd946414ba9e21faad798a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,15 +140,72 @@ Functions</h2></td></tr>
 <tr class="memitem:ga028c4a3d2af780017a3fb63a77e05adc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#ga028c4a3d2af780017a3fb63a77e05adc">dereg_class</a> (void)</td></tr>
 <tr class="memdesc:ga028c4a3d2af780017a3fb63a77e05adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregister JS class.  <a href="#ga028c4a3d2af780017a3fb63a77e05adc">More...</a><br /></td></tr>
 <tr class="separator:ga028c4a3d2af780017a3fb63a77e05adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab3618d6d3f311110e029970dc96afd3"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#gaab3618d6d3f311110e029970dc96afd3">call</a> (void)</td></tr>
+<tr class="memdesc:gaab3618d6d3f311110e029970dc96afd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call GUI event (Must be called form JS thread)  <a href="#gaab3618d6d3f311110e029970dc96afd3">More...</a><br /></td></tr>
+<tr class="separator:gaab3618d6d3f311110e029970dc96afd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ga11e8aedc05744a3edca22a50f6fb1899"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#ga11e8aedc05744a3edca22a50f6fb1899">g_time_d</a></td></tr>
+<tr class="separator:ga11e8aedc05744a3edca22a50f6fb1899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd"><td class="memItemLeft" align="right" valign="top"><a id="ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>g_time_ms_d</b></td></tr>
+<tr class="separator:ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad52187b22dd0de50cb3dfe7dae1a4e4d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#gad52187b22dd0de50cb3dfe7dae1a4e4d">l_in_js_port_gui_enable_b</a> = false</td></tr>
 <tr class="separator:gad52187b22dd0de50cb3dfe7dae1a4e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24356c34737c91bb2e0f3d0a271f10ae"><td class="memItemLeft" align="right" valign="top"><a id="ga24356c34737c91bb2e0f3d0a271f10ae"></a>
+vector&lt; <a class="el" href="structevent__buffer__t.html">event_buffer_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lv_main_event_buffer</b></td></tr>
+<tr class="separator:ga24356c34737c91bb2e0f3d0a271f10ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa29a12a818276cb4d43e6032ca8e29d5"><td class="memItemLeft" align="right" valign="top"><a id="gaa29a12a818276cb4d43e6032ca8e29d5"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_event_fct_ui32</b></td></tr>
+<tr class="separator:gaa29a12a818276cb4d43e6032ca8e29d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02c37c39af21d427d709d8cd104e798a"><td class="memItemLeft" align="right" valign="top"><a id="ga02c37c39af21d427d709d8cd104e798a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_event_fct_reg_b</b> = false</td></tr>
+<tr class="separator:ga02c37c39af21d427d709d8cd104e798a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22f54b7863fb8ecc5f92343b46c5903f"><td class="memItemLeft" align="right" valign="top"><a id="ga22f54b7863fb8ecc5f92343b46c5903f"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_state_ui32</b></td></tr>
+<tr class="separator:ga22f54b7863fb8ecc5f92343b46c5903f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>JavaScript interpreter port. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaab3618d6d3f311110e029970dc96afd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab3618d6d3f311110e029970dc96afd3">&#9670;&nbsp;</a></span>call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t call </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Call GUI event (Must be called form JS thread) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : number of item in UART buffer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00300">300</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ga66c5eaf23bd946414ba9e21faad798a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga66c5eaf23bd946414ba9e21faad798a5">&#9670;&nbsp;</a></span>call_event()</h2>
 
@@ -183,16 +242,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00187">187</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group___port_ga66c5eaf23bd946414ba9e21faad798a5_cgraph.png" border="0" usemap="#group___port_ga66c5eaf23bd946414ba9e21faad798a5_cgraph" alt=""/></div>
-<map name="group___port_ga66c5eaf23bd946414ba9e21faad798a5_cgraph" id="group___port_ga66c5eaf23bd946414ba9e21faad798a5_cgraph">
-<area shape="rect"  title="Call JS event function." alt="" coords="5,5,84,32"/>
-<area shape="rect"  href="group___core.html#ga8a249ac8571ce518e80f2492d650dd23" title=" " alt="" coords="132,5,287,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00197">197</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,15 +271,16 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00269">269</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00286">286</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___port_ga028c4a3d2af780017a3fb63a77e05adc_cgraph.png" border="0" usemap="#group___port_ga028c4a3d2af780017a3fb63a77e05adc_cgraph" alt=""/></div>
 <map name="group___port_ga028c4a3d2af780017a3fb63a77e05adc_cgraph" id="group___port_ga028c4a3d2af780017a3fb63a77e05adc_cgraph">
-<area shape="rect"  title="Deregister JS class." alt="" coords="5,13,97,39"/>
-<area shape="rect"  href="group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="145,5,292,47"/>
-<area shape="rect"  href="group___u_a_r_t.html#ga5d455e1ba65f4dee563b13f7f744855a" title="Delete associated event function." alt="" coords="340,13,493,39"/>
+<area shape="rect"  title="Deregister JS class." alt="" coords="5,46,97,73"/>
+<area shape="rect"  href="group___timer.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="145,5,300,47"/>
+<area shape="rect"  href="group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="149,71,296,112"/>
+<area shape="rect"  href="group___u_a_r_t.html#ga754f82a7989318270e055e912e8b8f49" title="Delete associated event function." alt="" coords="348,78,457,105"/>
 </map>
 </div>
 
@@ -285,7 +336,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00069">69</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00096">96</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,7 +365,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00216">216</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00218">218</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -352,7 +403,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : Run status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00109">109</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00143">143</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -365,14 +416,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="gaacf6bf8e121fea8b0a92d7197b73fe27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaacf6bf8e121fea8b0a92d7197b73fe27">&#9670;&nbsp;</a></span>stop()</h2>
+<a id="ga317e8c9771295ad8aba4e6b3fe79904a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga317e8c9771295ad8aba4e6b3fe79904a">&#9670;&nbsp;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stop </td>
+          <td class="memname">uint32_t stop </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -388,20 +439,17 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : Stop state </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00138">138</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00173">173</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group___port_gaacf6bf8e121fea8b0a92d7197b73fe27_cgraph.png" border="0" usemap="#group___port_gaacf6bf8e121fea8b0a92d7197b73fe27_cgraph" alt=""/></div>
-<map name="group___port_gaacf6bf8e121fea8b0a92d7197b73fe27_cgraph" id="group___port_gaacf6bf8e121fea8b0a92d7197b73fe27_cgraph">
-<area shape="rect"  title="Stop script." alt="" coords="5,93,52,120"/>
-<area shape="rect"  href="group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="100,5,241,32"/>
-<area shape="rect"  href="group___g_u_i.html#ga0a532f834b1cca1b27d9a4d2c515d312" title="Get AUI manager." alt="" coords="107,57,235,98"/>
-<area shape="rect"  href="group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="101,123,240,149"/>
-<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="118,173,223,200"/>
-<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="289,173,404,200"/>
+<div class="center"><img src="group___port_ga317e8c9771295ad8aba4e6b3fe79904a_cgraph.png" border="0" usemap="#group___port_ga317e8c9771295ad8aba4e6b3fe79904a_cgraph" alt=""/></div>
+<map name="group___port_ga317e8c9771295ad8aba4e6b3fe79904a_cgraph" id="group___port_ga317e8c9771295ad8aba4e6b3fe79904a_cgraph">
+<area shape="rect"  title="Stop script." alt="" coords="5,5,52,32"/>
+<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="100,5,205,32"/>
+<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="253,5,368,32"/>
 </map>
 </div>
 
@@ -432,25 +480,39 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00092">92</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00126">126</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___port_gada28d8430f0b476ab1f392245b2b5fc4_cgraph.png" border="0" usemap="#group___port_gada28d8430f0b476ab1f392245b2b5fc4_cgraph" alt=""/></div>
 <map name="group___port_gada28d8430f0b476ab1f392245b2b5fc4_cgraph" id="group___port_gada28d8430f0b476ab1f392245b2b5fc4_cgraph">
-<area shape="rect"  title="Destructor." alt="" coords="5,93,107,120"/>
-<area shape="rect"  href="group___port.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop script." alt="" coords="155,93,201,120"/>
-<area shape="rect"  href="group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="249,5,391,32"/>
-<area shape="rect"  href="group___g_u_i.html#ga0a532f834b1cca1b27d9a4d2c515d312" title="Get AUI manager." alt="" coords="256,57,384,98"/>
-<area shape="rect"  href="group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="251,123,389,149"/>
-<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="267,173,373,200"/>
-<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="439,173,553,200"/>
+<area shape="rect"  title="Destructor." alt="" coords="5,5,107,32"/>
+<area shape="rect"  href="group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a" title="Stop script." alt="" coords="155,5,201,32"/>
+<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="249,5,355,32"/>
+<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="403,5,517,32"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ga11e8aedc05744a3edca22a50f6fb1899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11e8aedc05744a3edca22a50f6fb1899">&#9670;&nbsp;</a></span>g_time_d</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_time_d</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Global variable </p>
+
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00065">65</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+
+</div>
+</div>
 <a id="gad52187b22dd0de50cb3dfe7dae1a4e4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad52187b22dd0de50cb3dfe7dae1a4e4d">&#9670;&nbsp;</a></span>l_in_js_port_gui_enable_b</h2>
 
@@ -464,7 +526,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Local variable </p>
 
-<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00051">51</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html#l00074">74</a> of file <a class="el" href="in__jerryscript__port__cpp_8cpp_source.html">in_jerryscript_port_cpp.cpp</a>.</p>
 
 </div>
 </div>

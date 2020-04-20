@@ -1,0 +1,195 @@
+.TH "Edit_text_autocompetation" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Edit_text_autocompetation \- JavaScript text editor autocompetation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmethod_t\fP"
+.br
+.ti -1c
+.RI "struct \fBvar_t\fP"
+.br
+.ti -1c
+.RI "struct \fBobject_t\fP"
+.br
+.ti -1c
+.RI "class \fBauto_comp_c\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBauto_comp_c\fP (void)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~auto_comp_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBload_h\fP (wxString file_str)"
+.br
+.RI "Load object from c++ header file\&. "
+.ti -1c
+.RI "void \fBload_js\fP (wxString file_str)"
+.br
+.RI "Load object from JavaScript header file\&. "
+.ti -1c
+.RI "void \fBload_lex\fP (uint32_t type_ui32, wxString &data_str)"
+.br
+.RI "Get global lexer word\&. "
+.ti -1c
+.RI "wxString \fBget\fP (wxArrayString command_arraystring)"
+.br
+.RI "Get autocomp info\&. "
+.ti -1c
+.RI "wxArrayString \fBget_info\fP (wxArrayString command_arraystring)"
+.br
+.RI "Get autocomp info\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+JavaScript text editor autocompetation\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBauto_comp_c\fP (void)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "wxString get (wxArrayString command_arraystring)"
+
+.PP
+Get autocomp info\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP command_arraystring : Command file array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxString : Autocompetation info string 
+.RE
+.PP
+
+.PP
+Definition at line 428 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "wxArrayString get_info (wxArrayString command_arraystring)"
+
+.PP
+Get autocomp info\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP command_arraystring : Command file array 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxString : Autocompetation info string 
+.RE
+.PP
+
+.PP
+Definition at line 608 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "void load_h (wxString file_str)"
+
+.PP
+Load object from c++ header file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP file_str : Text file string C++ header (modified) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 83 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "void load_js (wxString file_str)"
+
+.PP
+Load object from JavaScript header file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP file_str : JavaScript file 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "void load_lex (uint32_t type_ui32, wxString & data_str)"
+
+.PP
+Get global lexer word\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP type_ui32 : Lexer type 
+.br
+\fI[IN]\fP data_str : Lexer type 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 393 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SS "~\fBauto_comp_c\fP (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file in_js_edit_text_autocomp_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

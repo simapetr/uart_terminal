@@ -1,4 +1,4 @@
-.TH "graph" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "graph" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,15 +13,15 @@ graph \- data_plot class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, string name_str, double graph_range_d, double buffer_length_d, double time_step_d)"
+.RI "\fBadd\fP (sizer_index_d, name_str, graph_range_d, buffer_length_d, time_step_d)"
 .br
 .RI "Add new graph\&. "
 .ti -1c
-.RI "double \fBinsert_signal\fP (double graph_index_d, string name_str, double color_d, double width_d, double style_d)"
+.RI "\fBinsert_signal\fP (graph_index_d, name_str, color_d, width_d, style_d)"
 .br
 .RI "Insert graph signal\&. "
 .ti -1c
-.RI "bool \fBset\fP (double graph_index_d, vector< double > &v_data_d)"
+.RI "\fBset\fP (graph_index_d, v_data_d)"
 .br
 .RI "Set graph value\&. "
 .in -1c
@@ -29,10 +29,10 @@ graph \- data_plot class interface
 .PP 
 data_plot class interface 
 .PP
-Definition at line 1464 of file jerryscript_h\&.h\&.
+Definition at line 1595 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, string name_str, double graph_range_d, double buffer_length_d, double time_step_d)"
+.SS "add (sizer_index_d, name_str, graph_range_d, buffer_length_d, time_step_d)"
 
 .PP
 Add new graph\&. 
@@ -63,11 +63,11 @@ test_graph = gui\&.graph\&.add(test_sizer, "data", 3000\&.0, 40\&.0, 0\&.1);
 .PP
 \fBReturns:\fP
 .RS 4
-double : graph buffer index 
+graph index 
 .RE
 .PP
 
-.SS "double insert_signal (double graph_index_d, string name_str, double color_d, double width_d, double style_d)"
+.SS "insert_signal (graph_index_d, name_str, color_d, width_d, style_d)"
 
 .PP
 Insert graph signal\&. 
@@ -115,11 +115,11 @@ graph_signal\&.push(0);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Signal insert status 
+Signal insert status 
 .RE
 .PP
 
-.SS "bool set (double graph_index_d, vector< double > & v_data_d)"
+.SS "set (graph_index_d, v_data_d)"
 
 .PP
 Set graph value\&. 
@@ -154,7 +154,7 @@ gui\&.graph\&.set(test_graph, graph_signal);
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Set status 
+Set status 
 .PD 0
 
 .IP "\(bu" 2

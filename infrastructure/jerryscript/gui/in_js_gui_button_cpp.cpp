@@ -22,7 +22,12 @@
 #include <wx/button.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -221,6 +226,10 @@ void gui_frame::on_clear_button(void)
     l_cnt_button_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

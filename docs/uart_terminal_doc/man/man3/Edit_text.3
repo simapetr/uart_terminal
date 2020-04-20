@@ -1,0 +1,151 @@
+.TH "Edit_text" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Edit_text \- JavaScript text editor\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBautocomp_buffer_t\fP"
+.br
+.ti -1c
+.RI "class \fBtext_edit_c\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtext_edit_c\fP (wxWindow *p_parent_wxwindow, wxWindowID text_wxwindowid=wxID_ANY, const wxPoint &pos_wxpoint=wxDefaultPosition, const wxSize &panel_wxsize=wxDefaultSize, uint32_t style_ui32=wxVSCROLL)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~text_edit_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBload\fP (wxString path_str)"
+.br
+.RI "Load text file\&. "
+.ti -1c
+.RI "void \fBsave\fP (wxString path_str)"
+.br
+.RI "Save text file\&. "
+.ti -1c
+.RI "void \fBtext_highlight\fP (void)"
+.br
+.RI "Highlight all selected text duplicate\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+JavaScript text editor\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void load (wxString path_str)"
+
+.PP
+Load text file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 263 of file in_js_edit_text_cpp\&.cpp\&.
+.SS "void save (wxString path_str)"
+
+.PP
+Save text file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : File path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 281 of file in_js_edit_text_cpp\&.cpp\&.
+.SS "\fBtext_edit_c\fP (wxWindow * p_parent_wxwindow, wxWindowID text_wxwindowid = \fCwxID_ANY\fP, const wxPoint & pos_wxpoint = \fCwxDefaultPosition\fP, const wxSize & panel_wxsize = \fCwxDefaultSize\fP, uint32_t style_ui32 = \fCwxVSCROLL\fP)"
+
+.PP
+Constructor\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_parent_wxwindow : Parent window 
+.br
+\fI[IN]\fP text_wxwindowid : Parent window ID string 
+.br
+\fI[IN]\fP pos_wxpoint : Parent window 
+.br
+\fI[IN]\fP panel_wxsize : Panle size 
+.br
+\fI[IN]\fP style_ui32 : Panel style 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 70 of file in_js_edit_text_cpp\&.cpp\&.
+.SS "void text_highlight (void)"
+
+.PP
+Highlight all selected text duplicate\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file in_js_edit_text_cpp\&.cpp\&.
+.SS "~\fBtext_edit_c\fP (void)"
+
+.PP
+Destructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file in_js_edit_text_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

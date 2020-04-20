@@ -5,7 +5,8 @@
 Time class definition.  
 
 
-Collaboration diagram for Time\+:\nopagebreak
+Collaboration diagram for Time\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,6 +17,8 @@ Collaboration diagram for Time\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 class \textbf{ time\+\_\+js\+\_\+c}
+\item 
+class \textbf{ timer\+\_\+js\+\_\+c}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -30,6 +33,14 @@ static uint32\+\_\+t \textbf{ str} (const uint32\+\_\+t funct\+\_\+ui32, const u
 \begin{DoxyCompactList}\small\item\em Convert time in U\+TC second to time \& date string value (JS function \char`\"{}str\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ local\+\_\+str} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Convert time in local second to local time \& date string value (JS function \char`\"{}local\+\_\+str\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ g\+\_\+time\+\_\+d}
+\item 
+\mbox{\label{group___time_ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd}} 
+double {\bfseries g\+\_\+time\+\_\+ms\+\_\+d}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -64,7 +75,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 214 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 235 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___time_ga706684bb530ff12b30b8dc387a0eeded}} 
 \index{Time@{Time}!now@{now}}
@@ -92,7 +103,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 118 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 127 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___time_ga05320edaddf1206ca337815d332a5f48}} 
 \index{Time@{Time}!now\_ms@{now\_ms}}
@@ -120,7 +131,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 148 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 161 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___time_ga69ac449c8b71f2f20b05676a828a8382}} 
 \index{Time@{Time}!reg\_host\_class@{reg\_host\_class}}
@@ -142,7 +153,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 62 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 71 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___time_ga804e44ca52a30b33305828cafe024a7d}} 
 \index{Time@{Time}!str@{str}}
@@ -170,5 +181,18 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 178 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 195 of file in\+\_\+js\+\_\+class\+\_\+time\+\_\+js\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___time_ga11e8aedc05744a3edca22a50f6fb1899}} 
+\index{Time@{Time}!g\_time\_d@{g\_time\_d}}
+\index{g\_time\_d@{g\_time\_d}!Time@{Time}}
+\subsubsection{g\_time\_d}
+{\footnotesize\ttfamily double g\+\_\+time\+\_\+d}
+
+Global variable 
+
+Definition at line 65 of file in\+\_\+jerryscript\+\_\+port\+\_\+cpp.\+cpp.
 

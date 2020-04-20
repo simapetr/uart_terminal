@@ -1,4 +1,4 @@
-.TH "Panel" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Panel" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -27,11 +27,19 @@ Panel \- Panel class definition\&.
 .ti -1c
 .RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
-.RI "Get actual epoch time in s (JS function 'now') "
+.RI "Add new AUI panel (JS function 'now') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set panel show (JS function 'set') "
+.ti -1c
+.RI "static uint32_t \fBget\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get panel show state (JS function 'get') "
 .ti -1c
 .RI "static uint32_t \fBget_sizer\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
-.RI "Get panel sizer indef (JS function 'get_sizer') "
+.RI "Get panel main sizer (JS function 'get_sizer') "
 .ti -1c
 .RI "uint32_t \fBadd_panel\fP (wxString panel_name_str, bool horizontal_b)"
 .br
@@ -44,16 +52,18 @@ Panel \- Panel class definition\&.
 .RI "wxPanel * \fBget_panel\fP (double index_d)"
 .br
 .RI "Get sizer\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
 .ti -1c
-.RI "vector< \fBpanel_buffer_t\fP > \fBlv_data_panel_buffer\fP"
+.RI "bool \fBget_panel_show\fP (double index_d)"
 .br
+.RI "Get panel show\&. "
 .ti -1c
-.RI "uint32_t \fBl_cnt_panel_ui32\fP = 0"
+.RI "void \fBset_panel_show\fP (double index_d, bool show_b)"
 .br
+.RI "Set panel show\&. "
+.ti -1c
+.RI "void \fBset_panel_view\fP (void)"
+.br
+.RI "Set view status for all panel\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -65,7 +75,7 @@ GUI panel component\&.
 .SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
-Get actual epoch time in s (JS function 'now') 
+Add new AUI panel (JS function 'now') 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -85,7 +95,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 107 of file in_js_class_panel_js_cpp\&.cpp\&.
+Definition at line 119 of file in_js_class_panel_js_cpp\&.cpp\&.
 .SS "uint32_t add_panel (wxString panel_name_str, bool horizontal_b)"
 
 .PP
@@ -93,9 +103,9 @@ Add AUI panel\&. Function
 .PP
 \fBParameters:\fP
 .RS 4
-\fIpanel_name_str\fP : Panel name 
+\fI[IN]\fP panel_name_str : Panel name 
 .br
-\fIhorizontal_b\fP : Sizer orientation 
+\fI[IN]\fP horizontal_b : Sizer orientation 
 .RE
 .PP
 \fBReturns:\fP
@@ -105,47 +115,11 @@ uint32_t : new panel buffer index
 .PP
 
 .PP
-Definition at line 84 of file in_js_gui_panel_cpp\&.cpp\&.
-.SS "wxPanel * get_panel (double index_d)"
+Definition at line 95 of file in_js_gui_panel_cpp\&.cpp\&.
+.SS "uint32_t get (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
-Get sizer\&. 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIindex_d\fP : Sizer index 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-wxBoxSizer* : Box sizer object pointer 
-.RE
-.PP
-
-.PP
-Definition at line 131 of file in_js_gui_panel_cpp\&.cpp\&.
-.SS "uint32_t get_panel_sizer (double panel_index_d)"
-
-.PP
-Get panel main sizer\&. 
-.PP
-\fBParameters:\fP
-.RS 4
-\fIpanel_index_d\fP : Panel index 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-uint32_t : Sizer index 
-.RE
-.PP
-
-.PP
-Definition at line 113 of file in_js_gui_panel_cpp\&.cpp\&.
-.SS "uint32_t get_sizer (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
-
-.PP
-Get panel sizer indef (JS function 'get_sizer') 
+Get panel show state (JS function 'get') 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -165,7 +139,85 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 159 of file in_js_class_panel_js_cpp\&.cpp\&.
+Definition at line 218 of file in_js_class_panel_js_cpp\&.cpp\&.
+.SS "wxPanel * get_panel (double index_d)"
+
+.PP
+Get sizer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP index_d : Sizer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxBoxSizer* : Box sizer object pointer 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file in_js_gui_panel_cpp\&.cpp\&.
+.SS "bool get_panel_show (double index_d)"
+
+.PP
+Get panel show\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP index_d : Panel index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : Show status 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file in_js_gui_panel_cpp\&.cpp\&.
+.SS "uint32_t get_panel_sizer (double panel_index_d)"
+
+.PP
+Get panel main sizer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP panel_index_d : Panel index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : Sizer index 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file in_js_gui_panel_cpp\&.cpp\&.
+.SS "uint32_t get_sizer (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get panel main sizer (JS function 'get_sizer') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file in_js_class_panel_js_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -184,12 +236,68 @@ void
 
 .PP
 Definition at line 61 of file in_js_class_panel_js_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBpanel_buffer_t\fP> lv_data_panel_buffer"
-Local variable 
+.SS "uint32_t set (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
 .PP
-Definition at line 67 of file in_js_gui_panel_cpp\&.cpp\&.
+Set panel show (JS function 'set') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file in_js_class_panel_js_cpp\&.cpp\&.
+.SS "void set_panel_show (double index_d, bool show_b)"
+
+.PP
+Set panel show\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP index_d : Panel index 
+.br
+\fI[IN]\fP show_b : Show status 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file in_js_gui_panel_cpp\&.cpp\&.
+.SS "void set_panel_view (void)"
+
+.PP
+Set view status for all panel\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file in_js_gui_panel_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

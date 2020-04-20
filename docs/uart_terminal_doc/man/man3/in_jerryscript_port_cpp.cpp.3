@@ -1,4 +1,4 @@
-.TH "D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,6 +13,10 @@ D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp 
 .br
 \fC#include <wx/time\&.h>\fP
 .br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
 \fC#include 'in_jerryscript_port_h\&.h'\fP
 .br
 \fC#include 'in_jerryscript_core_h\&.h'\fP
@@ -22,11 +26,36 @@ D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_port_cpp.cpp 
 \fC#include 'ap_uart_terminal_frame_h\&.h'\fP
 .br
 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBevent_buffer_t\fP"
+.br
+.in -1c
 .SS "Variables"
 
 .in +1c
 .ti -1c
+.RI "double \fBg_time_d\fP"
+.br
+.ti -1c
+.RI "double \fBg_time_ms_d\fP"
+.br
+.ti -1c
 .RI "bool \fBl_in_js_port_gui_enable_b\fP = false"
+.br
+.ti -1c
+.RI "vector< \fBevent_buffer_t\fP > \fBlv_main_event_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_exit_event_fct_ui32\fP"
+.br
+.ti -1c
+.RI "bool \fBl_exit_event_fct_reg_b\fP = false"
+.br
+.ti -1c
+.RI "uint32_t \fBl_exit_state_ui32\fP"
 .br
 .in -1c
 .SH "Detailed Description"

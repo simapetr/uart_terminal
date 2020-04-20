@@ -5,7 +5,8 @@
 Graph interface.  
 
 
-Collaboration diagram for Graph\+:\nopagebreak
+Collaboration diagram for Graph\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,6 +19,8 @@ Collaboration diagram for Graph\+:\nopagebreak
 class \textbf{ graph\+\_\+js\+\_\+c}
 \item 
 struct \textbf{ graph\+\_\+buffer\+\_\+t}
+\item 
+struct \textbf{ signal\+\_\+buffer\+\_\+t}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -36,14 +39,6 @@ uint32\+\_\+t \textbf{ insert\+\_\+signal} (uint32\+\_\+t graph\+\_\+ui32, wx\+S
 \begin{DoxyCompactList}\small\item\em Insert signal in to graph. \end{DoxyCompactList}\item 
 bool \textbf{ set\+\_\+graph\+\_\+data} (uint32\+\_\+t graph\+\_\+ui32, vector$<$ double $>$ \&pv\+\_\+data\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Insert One sample for all signal in to graph window. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-vector$<$ \textbf{ graph\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+data\+\_\+graph\+\_\+buffer}
-\item 
-\mbox{\label{group___graph_ga13361911adaa361953384d128f6a8048}} 
-uint32\+\_\+t {\bfseries l\+\_\+cnt\+\_\+graph\+\_\+ui32} = 0
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -108,7 +103,7 @@ uint32\+\_\+t \+: Graph window number
 \end{DoxyReturn}
 
 
-Definition at line 90 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+Definition at line 105 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___graph_gae5300d3a6fa86e167939354a923cca63}} 
 \index{Graph@{Graph}!insert\_signal@{insert\_signal}}
@@ -136,7 +131,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 168 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 172 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___graph_ga57349d827129ad1bd54887dda50609df}} 
 \index{Graph@{Graph}!insert\_signal@{insert\_signal}}
@@ -168,7 +163,7 @@ uint32\+\_\+t \+: Insert status
 \end{DoxyReturn}
 
 
-Definition at line 122 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+Definition at line 138 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___graph_ga9e569b67117ef902f5a4afe4a825b678}} 
 \index{Graph@{Graph}!reg\_host\_class@{reg\_host\_class}}
@@ -218,7 +213,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 224 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 232 of file in\+\_\+js\+\_\+class\+\_\+graph\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___graph_ga4e9353b837f57c5c436140db51393ad0}} 
 \index{Graph@{Graph}!set\_graph\_data@{set\_graph\_data}}
@@ -242,18 +237,5 @@ bool \+: Insert data status
 \end{DoxyReturn}
 
 
-Definition at line 149 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
-
-
-
-\subsection{Variable Documentation}
-\mbox{\label{group___graph_ga70d4a6633d9b5972dcb026390127f139}} 
-\index{Graph@{Graph}!lv\_data\_graph\_buffer@{lv\_data\_graph\_buffer}}
-\index{lv\_data\_graph\_buffer@{lv\_data\_graph\_buffer}!Graph@{Graph}}
-\subsubsection{lv\_data\_graph\_buffer}
-{\footnotesize\ttfamily vector$<$\textbf{ graph\+\_\+buffer\+\_\+t}$>$ lv\+\_\+data\+\_\+graph\+\_\+buffer}
-
-Local variable 
-
-Definition at line 70 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
+Definition at line 166 of file in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp.
 

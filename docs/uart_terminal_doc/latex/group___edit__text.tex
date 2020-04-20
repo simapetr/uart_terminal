@@ -1,0 +1,185 @@
+\section{Edit\+\_\+text}
+\label{group___edit__text}\index{Edit\_text@{Edit\_text}}
+
+
+Java\+Script text editor.  
+
+
+Collaboration diagram for Edit\+\_\+text\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{group___edit__text}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ autocomp\+\_\+buffer\+\_\+t}
+\item 
+class \textbf{ text\+\_\+edit\+\_\+c}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ text\+\_\+edit\+\_\+c} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+Window\+ID text\+\_\+wxwindowid=wx\+I\+D\+\_\+\+A\+NY, const wx\+Point \&pos\+\_\+wxpoint=wx\+Default\+Position, const wx\+Size \&panel\+\_\+wxsize=wx\+Default\+Size, uint32\+\_\+t style\+\_\+ui32=wx\+V\+S\+C\+R\+O\+LL)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$text\+\_\+edit\+\_\+c} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ load} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Load text file. \end{DoxyCompactList}\item 
+void \textbf{ save} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Save text file. \end{DoxyCompactList}\item 
+void \textbf{ text\+\_\+highlight} (void)
+\begin{DoxyCompactList}\small\item\em Highlight all selected text duplicate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Java\+Script text editor. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___edit__text_ga8caf41718ffb5bf060de703f18f72546}} 
+\index{Edit\_text@{Edit\_text}!load@{load}}
+\index{load@{load}!Edit\_text@{Edit\_text}}
+\subsubsection{load()}
+{\footnotesize\ttfamily void load (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Load text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{group___edit__text_ga8caf41718ffb5bf060de703f18f72546_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___edit__text_gabf07e1a2024a4600e34a062879c73bed}} 
+\index{Edit\_text@{Edit\_text}!save@{save}}
+\index{save@{save}!Edit\_text@{Edit\_text}}
+\subsubsection{save()}
+{\footnotesize\ttfamily void save (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Save text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: File path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 281 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text_ga513efd9e5d0b86d9619dff02300ad4a4}} 
+\index{Edit\_text@{Edit\_text}!text\_edit\_c@{text\_edit\_c}}
+\index{text\_edit\_c@{text\_edit\_c}!Edit\_text@{Edit\_text}}
+\subsubsection{text\_edit\_c()}
+{\footnotesize\ttfamily \textbf{ text\+\_\+edit\+\_\+c} (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{p\+\_\+parent\+\_\+wxwindow,  }\item[{wx\+Window\+ID}]{text\+\_\+wxwindowid = {\ttfamily wxID\+\_\+ANY},  }\item[{const wx\+Point \&}]{pos\+\_\+wxpoint = {\ttfamily wxDefaultPosition},  }\item[{const wx\+Size \&}]{panel\+\_\+wxsize = {\ttfamily wxDefaultSize},  }\item[{uint32\+\_\+t}]{style\+\_\+ui32 = {\ttfamily wxVSCROLL} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parent\+\_\+wxwindow \+: Parent window \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+wxwindowid \+: Parent window ID string \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & pos\+\_\+wxpoint \+: Parent window \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+wxsize \+: Panle size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & style\+\_\+ui32 \+: Panel style \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{group___edit__text_ga513efd9e5d0b86d9619dff02300ad4a4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___edit__text_gabc33159c7782eb276cc5d3e54350cdfc}} 
+\index{Edit\_text@{Edit\_text}!text\_highlight@{text\_highlight}}
+\index{text\_highlight@{text\_highlight}!Edit\_text@{Edit\_text}}
+\subsubsection{text\_highlight()}
+{\footnotesize\ttfamily void text\+\_\+highlight (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Highlight all selected text duplicate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 294 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text_ga31999fc5de94e7fb992c8cdea0916481}} 
+\index{Edit\_text@{Edit\_text}!````~text\_edit\_c@{$\sim$text\_edit\_c}}
+\index{````~text\_edit\_c@{$\sim$text\_edit\_c}!Edit\_text@{Edit\_text}}
+\subsubsection{$\sim$text\_edit\_c()}
+{\footnotesize\ttfamily $\sim$\textbf{ text\+\_\+edit\+\_\+c} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___edit__text_ga31999fc5de94e7fb992c8cdea0916481_cgraph}
+\end{center}
+\end{figure}

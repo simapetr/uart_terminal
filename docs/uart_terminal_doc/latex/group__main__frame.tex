@@ -5,7 +5,8 @@
 Main frame interface.  
 
 
-Collaboration diagram for Main\+\_\+frame\+:\nopagebreak
+Collaboration diagram for Main\+\_\+frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,12 +16,19 @@ Collaboration diagram for Main\+\_\+frame\+:\nopagebreak
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
+struct \textbf{ send\+\_\+buffer\+\_\+t}
+\item 
 class \textbf{ main\+\_\+frame\+\_\+js\+\_\+c}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ d\+\_\+buffer\+\_\+size}~4096
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void)
+void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void, wx\+Condition $\ast$p\+\_\+data\+\_\+wxcondition)
 \begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ gui} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI base function (JS function \char`\"{}gui\char`\"{}) \end{DoxyCompactList}\item 
@@ -28,7 +36,7 @@ static uint32\+\_\+t \textbf{ console\+\_\+rx\+\_\+enable} (const uint32\+\_\+t 
 \begin{DoxyCompactList}\small\item\em G\+UI enable console rx data (JS method \char`\"{}console\+\_\+rx\+\_\+enable\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI enable console rx data (JS method \char`\"{}is\+\_\+console\+\_\+rx\+\_\+enable\char`\"{}) \end{DoxyCompactList}\item 
-static uint32\+\_\+t \textbf{ printf} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+static uint32\+\_\+t \textbf{ js\+\_\+printf} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI textctrl console printf data (JS method \char`\"{}printf\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ status} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI Status\+Text status bar (JS method \char`\"{}status\char`\"{}) \end{DoxyCompactList}\item 
@@ -47,7 +55,14 @@ static uint32\+\_\+t \textbf{ set\+\_\+progress} (const uint32\+\_\+t funct\+\_\
 static uint32\+\_\+t \textbf{ reg\+\_\+event} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Set G\+UI send data event (JS method \char`\"{}reg\+\_\+event\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ hide} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
-\begin{DoxyCompactList}\small\item\em Hide main frame (JS method \char`\"{}hide\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Hide main frame (JS method \char`\"{}hide\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ call} (void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Call Tx data send event (Must be called form JS thread) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ send\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+main\+\_\+send\+\_\+buffer}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -55,7 +70,42 @@ Main frame interface.
 
 
 
+\subsection{Macro Definition Documentation}
+\mbox{\label{group__main__frame_ga8c96cc9b53c76c39830354bb412ff059}} 
+\index{Main\_frame@{Main\_frame}!d\_buffer\_size@{d\_buffer\_size}}
+\index{d\_buffer\_size@{d\_buffer\_size}!Main\_frame@{Main\_frame}}
+\subsubsection{d\_buffer\_size}
+{\footnotesize\ttfamily \#define d\+\_\+buffer\+\_\+size~4096}
+
+Define 
+
+Definition at line 54 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+
+
+
 \subsection{Function Documentation}
+\mbox{\label{group__main__frame_ga0f26df9896cdb77a44c97bf86311027e}} 
+\index{Main\_frame@{Main\_frame}!call@{call}}
+\index{call@{call}!Main\_frame@{Main\_frame}}
+\subsubsection{call()}
+{\footnotesize\ttfamily uint32\+\_\+t call (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Call Tx data send event (Must be called form JS thread) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parametr\+\_\+void \+: Handle on registered object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: number of item in U\+A\+RT buffer 
+\end{DoxyReturn}
+
+
+Definition at line 786 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+
 \mbox{\label{group__main__frame_ga8c521537b2065ae6bcc3a419e786d024}} 
 \index{Main\_frame@{Main\_frame}!clear@{clear}}
 \index{clear@{clear}!Main\_frame@{Main\_frame}}
@@ -82,7 +132,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 374 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 424 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga363ba96e4e056bcbd74e568cf8ba2e53}} 
 \index{Main\_frame@{Main\_frame}!close@{close}}
@@ -110,7 +160,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 474 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 525 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga8506530b26366f2dada4d0a35110ad9b}} 
 \index{Main\_frame@{Main\_frame}!console\_rx\_enable@{console\_rx\_enable}}
@@ -138,7 +188,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 208 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 242 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga050d1c1819c2ba6de6880815fb3f3a66}} 
 \index{Main\_frame@{Main\_frame}!get\_data@{get\_data}}
@@ -166,7 +216,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 553 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 598 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga48556c09a59650314abf10f0b77fec92}} 
 \index{Main\_frame@{Main\_frame}!get\_open\_status@{get\_open\_status}}
@@ -194,7 +244,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 513 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 561 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga8a85079d2dbeac9879aeea2f154989f8}} 
 \index{Main\_frame@{Main\_frame}!gui@{gui}}
@@ -222,7 +272,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 172 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 202 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga4fe0692f613dc3449133b4ddcbc5a933}} 
 \index{Main\_frame@{Main\_frame}!hide@{hide}}
@@ -250,7 +300,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 693 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 752 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga018e04117e3911c2dc101ee624cccff1}} 
 \index{Main\_frame@{Main\_frame}!is\_console\_rx\_enable@{is\_console\_rx\_enable}}
@@ -278,7 +328,35 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 244 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 282 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__main__frame_ga13dc402113c369f24bebf6bea0e0e006}} 
+\index{Main\_frame@{Main\_frame}!js\_printf@{js\_printf}}
+\index{js\_printf@{js\_printf}!Main\_frame@{Main\_frame}}
+\subsubsection{js\_printf()}
+{\footnotesize\ttfamily uint32\+\_\+t js\+\_\+printf (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+G\+UI textctrl console printf data (JS method \char`\"{}printf\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: returned data 
+\end{DoxyReturn}
+
+
+Definition at line 320 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga13d19359523c4a5fb930a4a07141abbb}} 
 \index{Main\_frame@{Main\_frame}!open@{open}}
@@ -306,35 +384,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 407 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
-
-\mbox{\label{group__main__frame_ga87083671bd23bba4407fcf2723d3dc0e}} 
-\index{Main\_frame@{Main\_frame}!printf@{printf}}
-\index{printf@{printf}!Main\_frame@{Main\_frame}}
-\subsubsection{printf()}
-{\footnotesize\ttfamily uint32\+\_\+t printf (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{funct\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{this\+\_\+ui32,  }\item[{const uint32\+\_\+t $\ast$}]{p\+\_\+args\+\_\+ui32,  }\item[{const uint32\+\_\+t}]{args\+\_\+cnt\+\_\+ui32 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-G\+UI textctrl console printf data (JS method \char`\"{}printf\char`\"{}) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & funct\+\_\+ui32 \+: Unused \\
-\hline
-{\em \mbox{[}\+I\+N\mbox{]}} & this\+\_\+ui32 \+: Pointer on construct class \\
-\hline
-{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+args\+\_\+ui32 \+: Pointer on argument field \\
-\hline
-{\em \mbox{[}\+I\+N\mbox{]}} & args\+\_\+cnt\+\_\+ui32 \+: Argument field size \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint32\+\_\+t \+: returned data 
-\end{DoxyReturn}
-
-
-Definition at line 278 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 461 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_gaec005a4f579a1a6d57a16392e5cdd07e}} 
 \index{Main\_frame@{Main\_frame}!reg\_event@{reg\_event}}
@@ -362,13 +412,13 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 655 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 704 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
-\mbox{\label{group__main__frame_ga9e569b67117ef902f5a4afe4a825b678}} 
+\mbox{\label{group__main__frame_ga25e598d5efc99b6c91485f27d104802b}} 
 \index{Main\_frame@{Main\_frame}!reg\_host\_class@{reg\_host\_class}}
 \index{reg\_host\_class@{reg\_host\_class}!Main\_frame@{Main\_frame}}
 \subsubsection{reg\_host\_class()}
-{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void,  }\item[{wx\+Condition $\ast$}]{p\+\_\+data\+\_\+wxcondition }\end{DoxyParamCaption})}
 
 
 
@@ -378,13 +428,15 @@ Function
 \begin{DoxyParams}{Parameters}
 {\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void \+: Pointer on registered class \\
 \hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+data\+\_\+wxcondition \+: Rx data call event \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
 
 
-Definition at line 61 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 90 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_ga6c9f339fd14b7f8053f4011f3900cfd2}} 
 \index{Main\_frame@{Main\_frame}!set\_progress@{set\_progress}}
@@ -412,7 +464,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 599 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 648 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group__main__frame_gaa4e3cb0080b1debb17c00ba69afb8983}} 
 \index{Main\_frame@{Main\_frame}!status@{status}}
@@ -440,5 +492,18 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 326 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 372 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group__main__frame_ga67b9772d1d4ab27f02761c51ff6bca8f}} 
+\index{Main\_frame@{Main\_frame}!lv\_main\_send\_buffer@{lv\_main\_send\_buffer}}
+\index{lv\_main\_send\_buffer@{lv\_main\_send\_buffer}!Main\_frame@{Main\_frame}}
+\subsubsection{lv\_main\_send\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ send\+\_\+buffer\+\_\+t}$>$ lv\+\_\+main\+\_\+send\+\_\+buffer}
+
+Local variable 
+
+Definition at line 74 of file in\+\_\+js\+\_\+class\+\_\+main\+\_\+frame\+\_\+js\+\_\+cpp.\+cpp.
 

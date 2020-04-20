@@ -1,4 +1,4 @@
-.TH "data_plot" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "data_plot" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -14,7 +14,7 @@ Inherits wxPanel\&.
 
 .in +1c
 .ti -1c
-.RI "\fBdata_plot\fP (wxWindow *p_parent_wxwindow, wxString graph_label_str, double draph_range_d, double buffer_length_d, double time_step_d)"
+.RI "\fBdata_plot\fP (wxWindow *p_parent_wxwindow, wxString name_str, double min_d, double max_d, double length_d, double step_d)"
 .br
 .RI "Constructor\&. "
 .ti -1c
@@ -22,30 +22,70 @@ Inherits wxPanel\&.
 .br
 .RI "Destructor\&. "
 .ti -1c
-.RI "void \fBinsert_signal\fP (wxString signal_label_str, wxPen signal_style_pen)"
+.RI "void \fBadd\fP (wxString signal_label_str, wxPen signal_style_pen)"
 .br
-.RI "Insert signal in to graph\&. "
+.RI "Add new plot signal\&. "
 .ti -1c
-.RI "uint32_t \fBget_signal\fP (void)"
+.RI "void \fBerase\fP (wxString signal_label_str)"
 .br
-.RI "Get number of signal in graph\&. "
+.RI "Delete signal from math plot\&. "
 .ti -1c
-.RI "uint8_t \fBinsert_data\fP (uint32_t index_ui32, double data_d)"
+.RI "uint32_t \fBget\fP (void)"
 .br
-.RI "Insert data in to specific signal buffer\&. "
+.RI "Return number of signal buffer in graph\&. "
 .ti -1c
-.RI "void \fBtime_increment\fP (void)"
+.RI "bool \fBset\fP (wxString signal_label_str, double data_d)"
 .br
-.RI "Increment time X scale (call after insert all single data) "
+.RI "Set signal data by name\&. "
 .ti -1c
-.RI "void \fBredraw_event\fP (void)"
+.RI "bool \fBset\fP (uint32_t signal_ui32, double data_d)"
 .br
+.RI "Set signal data by index\&. "
+.ti -1c
+.RI "void \fBshow\fP (wxString signal_label_str, bool show_b)"
+.br
+.RI "Set signal visibility\&. "
+.ti -1c
+.RI "bool \fBset_time\fP (double length_d, double step_d)"
+.br
+.RI "Set logged data length and sample period\&. "
+.ti -1c
+.RI "void \fBset_range\fP (double max_d, double min_d)"
+.br
+.RI "Set graph range\&. "
+.ti -1c
+.RI "void \fBredraw\fP (void)"
+.br
+.RI "Redraw new data and set time cursor\&. "
+.ti -1c
+.RI "void \fBfit\fP (bool default_b=true)"
+.br
+.RI "Set graph in to default zoom\&. "
+.ti -1c
+.RI "void \fBpause\fP (bool pause_b)"
+.br
+.RI "Redraw data pause\&. "
 .in -1c
 .SS "Static Protected Attributes"
 
 .in +1c
 .ti -1c
-.RI "static const long \fBl_id_graph_name_wxstatictext\fP = wxNewId()"
+.RI "static const long \fBl_id_name_wxstatictext\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_pause_wxtogglebutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_zoom_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_zoom_plus_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_zoom_minus_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_legend_wxcheckbox\fP = wxNewId()"
 .br
 .ti -1c
 .RI "static const long \fBl_id_x_axis_mpscalex\fP = wxNewId()"
@@ -59,15 +99,20 @@ Inherits wxPanel\&.
 .ti -1c
 .RI "static const long \fBl_id_graph_signal_wxgrid\fP = wxNewId()"
 .br
-.ti -1c
-.RI "static const long \fBl_id_redraw_wxtimer\fP = wxNewId()"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
 Class 
 .PP
-Definition at line 65 of file in_data_plot_graph_h\&.h\&.
+Definition at line 69 of file in_data_plot_graph_h\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "const long l_id_name_wxstatictext = wxNewId()\fC [static]\fP, \fC [protected]\fP"
+Library
+.PP
+Local variable 
+.PP
+Definition at line 90 of file in_data_plot_graph_h\&.h\&.
 
 .SH "Author"
 .PP 

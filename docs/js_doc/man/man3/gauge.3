@@ -1,4 +1,4 @@
-.TH "gauge" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "gauge" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,15 +13,15 @@ gauge \- wxGauge class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, double proportion_d, bool expand_b, double size_d)"
+.RI "\fBadd\fP (sizer_index_d, proportion_d, expand_b, size_d)"
 .br
 .RI "Add new gauge\&. "
 .ti -1c
-.RI "double \fBget\fP (double gauge_index_d)"
+.RI "\fBget\fP (gauge_index_d)"
 .br
 .RI "Get gauge value\&. "
 .ti -1c
-.RI "void \fBset\fP (double gauge_index_d, double value_b)"
+.RI "\fBset\fP (gauge_index_d, value_b)"
 .br
 .RI "Set gauge value\&. "
 .in -1c
@@ -29,10 +29,10 @@ gauge \- wxGauge class interface
 .PP 
 wxGauge class interface 
 .PP
-Definition at line 1377 of file jerryscript_h\&.h\&.
+Definition at line 1417 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, double proportion_d, bool expand_b, double size_d)"
+.SS "add (sizer_index_d, proportion_d, expand_b, size_d)"
 
 .PP
 Add new gauge\&. 
@@ -68,11 +68,11 @@ true : Expand
 .PP
 \fBReturns:\fP
 .RS 4
-double : gauge buffer index 
+Gauge index 
 .RE
 .PP
 
-.SS "double get (double gauge_index_d)"
+.SS "get (gauge_index_d)"
 
 .PP
 Get gauge value\&. 
@@ -97,11 +97,11 @@ test_gauge_value = gui\&.gauge\&.get(test_gauge);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Set value 
+Set value 
 .RE
 .PP
 
-.SS "void set (double gauge_index_d, double value_b)"
+.SS "set (gauge_index_d, value_b)"
 
 .PP
 Set gauge value\&. 
@@ -128,7 +128,6 @@ test_status_bool = gui\&.gauge\&.set(test_gauge, 600);
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 

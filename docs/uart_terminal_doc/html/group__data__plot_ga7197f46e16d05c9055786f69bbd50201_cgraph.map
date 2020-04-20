@@ -1,0 +1,6 @@
+<map id="erase" name="erase">
+<area shape="rect" id="node1" title="Delete signal from math plot." alt="" coords="5,21,60,47"/>
+<area shape="rect" id="node2" href="$group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="213,21,253,47"/>
+<area shape="rect" id="node3" href="$group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace" title="Redraw data pause." alt="" coords="108,21,165,47"/>
+<area shape="rect" id="node4" href="$group__data__plot.html#ga6ebd3de1e1c0236f8e54525ebe52fead" title="Set signal visibility." alt="" coords="111,71,163,98"/>
+</map>

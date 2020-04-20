@@ -1,0 +1,215 @@
+\section{Edit\+\_\+text\+\_\+autocompetation}
+\label{group___edit__text__autocompetation}\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+
+
+Java\+Script text editor autocompetation.  
+
+
+Collaboration diagram for Edit\+\_\+text\+\_\+autocompetation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{group___edit__text__autocompetation}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ method\+\_\+t}
+\item 
+struct \textbf{ var\+\_\+t}
+\item 
+struct \textbf{ object\+\_\+t}
+\item 
+class \textbf{ auto\+\_\+comp\+\_\+c}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ auto\+\_\+comp\+\_\+c} (void)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$auto\+\_\+comp\+\_\+c} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ load\+\_\+h} (wx\+String file\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Load object from c++ header file. \end{DoxyCompactList}\item 
+void \textbf{ load\+\_\+js} (wx\+String file\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Load object from Java\+Script header file. \end{DoxyCompactList}\item 
+void \textbf{ load\+\_\+lex} (uint32\+\_\+t type\+\_\+ui32, wx\+String \&data\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Get global lexer word. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get} (wx\+Array\+String command\+\_\+arraystring)
+\begin{DoxyCompactList}\small\item\em Get autocomp info. \end{DoxyCompactList}\item 
+wx\+Array\+String \textbf{ get\+\_\+info} (wx\+Array\+String command\+\_\+arraystring)
+\begin{DoxyCompactList}\small\item\em Get autocomp info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Java\+Script text editor autocompetation. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___edit__text__autocompetation_gab0272736c03bc9cb847693c09d2b62a4}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!auto\_comp\_c@{auto\_comp\_c}}
+\index{auto\_comp\_c@{auto\_comp\_c}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{auto\_comp\_c()}
+{\footnotesize\ttfamily \textbf{ auto\+\_\+comp\+\_\+c} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text__autocompetation_ga75d2bc4ad7e176998bb9ae72a0c6a32f}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!get@{get}}
+\index{get@{get}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{get()}
+{\footnotesize\ttfamily wx\+String get (\begin{DoxyParamCaption}\item[{wx\+Array\+String}]{command\+\_\+arraystring }\end{DoxyParamCaption})}
+
+
+
+Get autocomp info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & command\+\_\+arraystring \+: Command file array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: Autocompetation info string 
+\end{DoxyReturn}
+
+
+Definition at line 428 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text__autocompetation_ga680445f3d07576260ad38580846d5c58}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!get\_info@{get\_info}}
+\index{get\_info@{get\_info}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{get\_info()}
+{\footnotesize\ttfamily wx\+Array\+String get\+\_\+info (\begin{DoxyParamCaption}\item[{wx\+Array\+String}]{command\+\_\+arraystring }\end{DoxyParamCaption})}
+
+
+
+Get autocomp info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & command\+\_\+arraystring \+: Command file array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: Autocompetation info string 
+\end{DoxyReturn}
+
+
+Definition at line 608 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{group___edit__text__autocompetation_ga680445f3d07576260ad38580846d5c58_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group___edit__text__autocompetation_ga90cad5423e4758c807f93093ec2ca4fa}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!load\_h@{load\_h}}
+\index{load\_h@{load\_h}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{load\_h()}
+{\footnotesize\ttfamily void load\+\_\+h (\begin{DoxyParamCaption}\item[{wx\+String}]{file\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Load object from c++ header file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & file\+\_\+str \+: Text file string C++ header (modified) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 83 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text__autocompetation_ga570d734046c87a9c8e3e0d8fe0370517}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!load\_js@{load\_js}}
+\index{load\_js@{load\_js}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{load\_js()}
+{\footnotesize\ttfamily void load\+\_\+js (\begin{DoxyParamCaption}\item[{wx\+String}]{file\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Load object from Java\+Script header file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & file\+\_\+str \+: Java\+Script file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text__autocompetation_gae56921ac74c8785e5db4a21f34dee23e}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!load\_lex@{load\_lex}}
+\index{load\_lex@{load\_lex}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{load\_lex()}
+{\footnotesize\ttfamily void load\+\_\+lex (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{type\+\_\+ui32,  }\item[{wx\+String \&}]{data\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Get global lexer word. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & type\+\_\+ui32 \+: Lexer type \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+str \+: Lexer type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 393 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___edit__text__autocompetation_ga81a95e4195c665a167b15394fb156f7c}} 
+\index{Edit\_text\_autocompetation@{Edit\_text\_autocompetation}!````~auto\_comp\_c@{$\sim$auto\_comp\_c}}
+\index{````~auto\_comp\_c@{$\sim$auto\_comp\_c}!Edit\_text\_autocompetation@{Edit\_text\_autocompetation}}
+\subsubsection{$\sim$auto\_comp\_c()}
+{\footnotesize\ttfamily $\sim$\textbf{ auto\+\_\+comp\+\_\+c} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file in\+\_\+js\+\_\+edit\+\_\+text\+\_\+autocomp\+\_\+cpp.\+cpp.
+

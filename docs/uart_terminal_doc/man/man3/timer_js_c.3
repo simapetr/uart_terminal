@@ -1,0 +1,59 @@
+.TH "timer_js_c" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timer_js_c
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_js_class_timer_js_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "void \fBdereg_host_class\fP (void)"
+.br
+.RI "Deregistration object in to class\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new timer event (JS function 'add') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set timer period (JS function 'set') "
+.ti -1c
+.RI "static uint32_t \fBstart\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Start timer count (JS function 'start') "
+.ti -1c
+.RI "static uint32_t \fBstop\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Stop timer count (JS function 'stop') "
+.ti -1c
+.RI "static uint32_t \fBreset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Reset timer counter (JS function 'reset') "
+.ti -1c
+.RI "static void \fBcall\fP (void *p_parametr_void)"
+.br
+.RI "Timer thread\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 53 of file in_js_class_timer_js_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

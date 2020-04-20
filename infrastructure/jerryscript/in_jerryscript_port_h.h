@@ -70,10 +70,10 @@ class jerryscript_c
         jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame_void, bool debug_b, bool init_b);
         ~jerryscript_c( void );
         uint32_t run(wxString script_str);
-        uint32_t stop (void);
-        void call_event (wxString event_str, uint32_t component_id_ui32);
-        void reg_class (void);
-        void dereg_class (void);
+        uint32_t stop(void);
+        void call_event(wxString event_str, uint32_t component_id_ui32);
+        void reg_class(void);
+        void dereg_class(void);
         static uint32_t call(void);
 
     private:
@@ -108,8 +108,6 @@ class jerryscript_c
         // File path
         wxString l_jerryscript_code_str;
         bool l_init_flag_b;
-        // Project
-        wxString l_project_str;
         // GUI
         gui_frame* lp_data_gui_frame;
         void* lp_gui_main_frame_void;

@@ -22,7 +22,12 @@
 #include <wx/stattext.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -160,6 +165,8 @@ wxStaticText* p_buffer_wxstatictext = NULL;
         static_text_name_str.Printf("id_static_text_%u", l_cnt_static_text_ui32);
         // Create new static text
         p_buffer_wxstatictext = new wxStaticText(p_data_wxpanel, lv_data_static_text_buffer[l_cnt_static_text_ui32].object_id_i32, lv_data_static_text_buffer[l_cnt_static_text_ui32].text_str, wxDefaultPosition, wxDefaultSize, 0, static_text_name_str);
+        wxFont StaticText1Font(10,wxFONTFAMILY_MODERN,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Lucida Console"),wxFONTENCODING_DEFAULT);
+        p_buffer_wxstatictext->SetFont(StaticText1Font);
         if(p_buffer_wxstatictext)
         {
             // Insert in to sizer
@@ -207,6 +214,10 @@ void gui_frame::on_clear_static_text(void)
     l_cnt_static_text_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

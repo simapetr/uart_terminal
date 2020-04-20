@@ -7,7 +7,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void)
+void \textbf{ reg\+\_\+host\+\_\+class} (void $\ast$p\+\_\+gui\+\_\+main\+\_\+frame\+\_\+void, wx\+Condition $\ast$p\+\_\+data\+\_\+wxcondition)
 \begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -18,7 +18,7 @@ static uint32\+\_\+t \textbf{ console\+\_\+rx\+\_\+enable} (const uint32\+\_\+t 
 \begin{DoxyCompactList}\small\item\em G\+UI enable console rx data (JS method \char`\"{}console\+\_\+rx\+\_\+enable\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI enable console rx data (JS method \char`\"{}is\+\_\+console\+\_\+rx\+\_\+enable\char`\"{}) \end{DoxyCompactList}\item 
-static uint32\+\_\+t \textbf{ printf} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
+static uint32\+\_\+t \textbf{ js\+\_\+printf} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI textctrl console printf data (JS method \char`\"{}printf\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ status} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em G\+UI Status\+Text status bar (JS method \char`\"{}status\char`\"{}) \end{DoxyCompactList}\item 
@@ -37,7 +37,9 @@ static uint32\+\_\+t \textbf{ set\+\_\+progress} (const uint32\+\_\+t funct\+\_\
 static uint32\+\_\+t \textbf{ reg\+\_\+event} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Set G\+UI send data event (JS method \char`\"{}reg\+\_\+event\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ hide} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
-\begin{DoxyCompactList}\small\item\em Hide main frame (JS method \char`\"{}hide\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Hide main frame (JS method \char`\"{}hide\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ call} (void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Call Tx data send event (Must be called form JS thread) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

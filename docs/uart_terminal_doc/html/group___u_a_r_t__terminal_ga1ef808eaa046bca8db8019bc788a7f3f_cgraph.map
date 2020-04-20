@@ -1,0 +1,6 @@
+<map id="stop_script" name="stop_script">
+<area shape="rect" id="node1" title="Stop JS script." alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node2" href="$group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a" title="Stop script." alt="" coords="140,5,267,32"/>
+<area shape="rect" id="node3" href="$group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="315,5,420,32"/>
+<area shape="rect" id="node4" href="$group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="468,5,583,32"/>
+</map>

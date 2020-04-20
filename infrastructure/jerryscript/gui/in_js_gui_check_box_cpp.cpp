@@ -22,7 +22,12 @@
 #include <wx/checkbox.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -278,6 +283,10 @@ void gui_frame::on_clear_check_box(void)
     l_cnt_check_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

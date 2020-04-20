@@ -1,8 +1,13 @@
 <map id="JerryScript" name="JerryScript">
-<area shape="rect" id="node1" href="$group___core.html" title="JavaScript interpreter core function." alt="" coords="293,5,343,31"/>
-<area shape="rect" id="node2" href="$group___infrastructure.html" title="Infrastructure layer." alt="" coords="5,80,103,105"/>
-<area shape="rect" id="node6" title="JavaScript interpret." alt="" coords="151,80,235,105"/>
-<area shape="rect" id="node3" href="$group___class.html" title="JavaScript class." alt="" coords="291,55,345,80"/>
-<area shape="rect" id="node4" href="$group___debuger.html" title=" " alt="" coords="283,104,353,129"/>
-<area shape="rect" id="node5" href="$group___port.html" title="JavaScript interpreter port." alt="" coords="295,153,341,179"/>
+<area shape="rect" id="node1" href="$group___core.html" title="JavaScript interpreter core function." alt="" coords="347,5,396,31"/>
+<area shape="rect" id="node2" href="$group___editor.html" title="JavaScript text file editor." alt="" coords="343,55,399,80"/>
+<area shape="rect" id="node3" href="$group___edit__text__gen.html" title="JavaScript text editor generated autocompetation." alt="" coords="320,104,423,129"/>
+<area shape="rect" id="node4" href="$group___g_u_i.html" title="GUI window." alt="" coords="349,153,393,179"/>
+<area shape="rect" id="node5" href="$group___edit__text.html" title="JavaScript text editor." alt="" coords="334,203,409,228"/>
+<area shape="rect" id="node6" href="$group___infrastructure.html" title="Infrastructure layer." alt="" coords="5,203,103,228"/>
+<area shape="rect" id="node11" title="JavaScript interpret." alt="" coords="151,203,235,228"/>
+<area shape="rect" id="node7" href="$group___edit__text__autocompetation.html" title="JavaScript text editor autocompetation." alt="" coords="283,252,460,277"/>
+<area shape="rect" id="node8" href="$group___class.html" title="JavaScript class." alt="" coords="344,301,399,327"/>
+<area shape="rect" id="node9" href="$group___debuger.html" title=" " alt="" coords="336,351,407,376"/>
+<area shape="rect" id="node10" href="$group___port.html" title="JavaScript interpreter port." alt="" coords="348,400,395,425"/>
 </map>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sizer',['Sizer',['../group___sizer.html',1,'']]],
-  ['slider',['Slider',['../group___slider.html',1,'']]],
-  ['static_5ftext',['Static_text',['../group___static__text.html',1,'']]]
+  ['main',['Main',['../group___main.html',1,'']]],
+  ['main_5fframe',['Main_frame',['../group__main__frame.html',1,'']]]
 ];

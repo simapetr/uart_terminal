@@ -1,0 +1,143 @@
+\section{project Class Reference}
+\label{classproject}\index{project@{project}}
+
+
+Script project file.  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ read} (path\+\_\+str, default\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Read string from project file. \end{DoxyCompactList}\item 
+\textbf{ read} (path\+\_\+str, default\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Read value from project file. \end{DoxyCompactList}\item 
+\textbf{ write} (path\+\_\+str, data\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Write string to project file. \end{DoxyCompactList}\item 
+\textbf{ write} (path\+\_\+str, data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Write value to project file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Script project file. 
+
+Definition at line 775 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classproject_a4b87ce8c608d374d8e178f521c20127c}} 
+\index{project@{project}!read@{read}}
+\index{read@{read}!project@{project}}
+\subsubsection{read()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily read (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{default\+\_\+str}]{ }\end{DoxyParamCaption})}
+
+
+
+Read string from project file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_str;}
+\DoxyCodeLine{data\_str = file.read(\textcolor{stringliteral}{"JS\_DATA/user\_text"}, \textcolor{stringliteral}{"Hello World!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Variable path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & default\+\_\+str \+: Default data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Read string 
+\end{DoxyReturn}
+\mbox{\label{classproject_affb82cb3ad891bffd251ea2752bc2d13}} 
+\index{project@{project}!read@{read}}
+\index{read@{read}!project@{project}}
+\subsubsection{read()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily read (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{default\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Read value from project file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var data\_var;}
+\DoxyCodeLine{data\_var = file.read(\textcolor{stringliteral}{"JS\_DATA/user\_var"}, 100);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Variable path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & default\+\_\+d \+: Default data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Read string 
+\end{DoxyReturn}
+\mbox{\label{classproject_aaf117f090d9f4647b6f61bba28aa109c}} 
+\index{project@{project}!write@{write}}
+\index{write@{write}!project@{project}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{data\+\_\+str}]{ }\end{DoxyParamCaption})}
+
+
+
+Write string to project file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{file.write(\textcolor{stringliteral}{"JS\_DATA/user\_text"}, \textcolor{stringliteral}{"Hello World!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Variable path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+str \+: Data string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{classproject_afdccef80eefb51ebec4659ab24b1b82f}} 
+\index{project@{project}!write@{write}}
+\index{write@{write}!project@{project}}
+\subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{data\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Write value to project file. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{file.write(\textcolor{stringliteral}{"JS\_DATA/user\_var"}, 100);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Variable path \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+d \+: Data variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "uart_terminal"
-#define MyAppVersion "2.0 RC2"
+#define MyAppVersion "2.0 RC4"
 #define MyAppPublisher "PORTTRONIC"
 #define MyAppURL "https://simapetr.github.io/uart_terminal/"
 #define MyAppExeName "uart_terminal.exe"
@@ -25,12 +25,16 @@ UsedUserAreasWarning=no
 LicenseFile=D:\project\uart_terminal\LICENSE
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputDir=D:\project\uart_terminal\make\install
-OutputBaseFilename=UART_terminal_V_2_0_RC2
+OutputDir=d:\project\uart_terminal\make\output\bin\Release
+OutputBaseFilename=UART_terminal_V_2_0_RC4
 SetupIconFile=D:\project\uart_terminal\make\terminal.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+ArchitecturesAllowed=x64
+ArchitecturesInstallIn64BitMode=x64
+ChangesAssociations=yes
+UserInfoPage=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -38,6 +42,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
+Name: "associate"; Description: "&Associate *.js files"; GroupDescription: "Other tasks:"; Flags: unchecked
 
 [Files]
 Source: "D:\project\uart_terminal\make\output\bin\Release\uart_terminal.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -50,6 +55,12 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
+[Registry]
+Root: HKA; Subkey: "Software\Classes\.js"; ValueType: string; ValueName: ""; ValueData: "uart_terminal_script.js"; Flags: uninsdeletevalue; Tasks: associate
+Root: HKA; Subkey: "Software\Classes\.js\OpenWithProgids"; ValueType: string; ValueName: "uart_terminal_script.js"; ValueData: ""; Flags: uninsdeletevalue; Tasks: associate
+Root: HKA; Subkey: "Software\Classes\uart_terminal_script.js"; ValueType: string; ValueName: ""; ValueData: "UART terminal script"; Flags: uninsdeletekey; Tasks: associate
+Root: HKA; Subkey: "Software\Classes\uart_terminal_script.js\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\uart_terminal.exe,0"; Tasks: associate
+Root: HKA; Subkey: "Software\Classes\uart_terminal_script.js\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\uart_terminal.exe"" ""%1"""; Tasks: associate
+
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-

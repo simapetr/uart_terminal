@@ -12,31 +12,31 @@ Event timer.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (string event\+\_\+str, double period\+\_\+d, bool start\+\_\+b, bool one\+\_\+shot\+\_\+b)
+\textbf{ add} (event\+\_\+str, period\+\_\+d, start\+\_\+b, one\+\_\+shot\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new timer event. \end{DoxyCompactList}\item 
-void \textbf{ set} (double timer\+\_\+index\+\_\+d, double period\+\_\+d)
+\textbf{ set} (timer\+\_\+index\+\_\+d, period\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Set timer period. \end{DoxyCompactList}\item 
-void \textbf{ start} (double timer\+\_\+index\+\_\+d)
+\textbf{ start} (timer\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\item 
-void \textbf{ stop} (double timer\+\_\+index\+\_\+d)
+\textbf{ stop} (timer\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Stop timer. \end{DoxyCompactList}\item 
-void \textbf{ reset} (double timer\+\_\+index\+\_\+d)
+\textbf{ reset} (timer\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Reset delay time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Event timer. 
 
-Definition at line 615 of file jerryscript\+\_\+h.\+h.
+Definition at line 552 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classtimer_aa759149ac5cf6b8b104eed363e74d938}} 
+\mbox{\label{classtimer_a20dcf93d606dd1f6a452bc265555a894}} 
 \index{timer@{timer}!add@{add}}
 \index{add@{add}!timer@{timer}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{string}]{event\+\_\+str,  }\item[{double}]{period\+\_\+d,  }\item[{bool}]{start\+\_\+b,  }\item[{bool}]{one\+\_\+shot\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{event\+\_\+str}]{,  }\item[{period\+\_\+d}]{,  }\item[{start\+\_\+b}]{,  }\item[{one\+\_\+shot\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -64,13 +64,13 @@ Add new timer event.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Timer ID 
+Timer ID 
 \end{DoxyReturn}
-\mbox{\label{classtimer_a0e3978cc0fb1727497219c20a3253173}} 
+\mbox{\label{classtimer_a75fd201a0484dbcb82a63b5f186908dd}} 
 \index{timer@{timer}!reset@{reset}}
 \index{reset@{reset}!timer@{timer}}
 \subsubsection{reset()}
-{\footnotesize\ttfamily void reset (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reset (\begin{DoxyParamCaption}\item[{timer\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -93,13 +93,13 @@ Reset delay time.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classtimer_ad1cb33ee25cf634170a842d412846c12}} 
+\mbox{\label{classtimer_a37c498555337bd601238a201c554138d}} 
 \index{timer@{timer}!set@{set}}
 \index{set@{set}!timer@{timer}}
 \subsubsection{set()}
-{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d,  }\item[{double}]{period\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{timer\+\_\+index\+\_\+d}]{,  }\item[{period\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -124,13 +124,13 @@ Set timer period.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classtimer_aa5098af6c680dea87be85b228a7e8fc7}} 
+\mbox{\label{classtimer_aaf5aeaf4819a76289ce5038be1722739}} 
 \index{timer@{timer}!start@{start}}
 \index{start@{start}!timer@{timer}}
 \subsubsection{start()}
-{\footnotesize\ttfamily void start (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily start (\begin{DoxyParamCaption}\item[{timer\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -153,13 +153,13 @@ Start timer.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
-\mbox{\label{classtimer_aab4afb35da82a8ff268383d7dde876bb}} 
+\mbox{\label{classtimer_a57555d6d2f7c6a655fed83481e1dbaee}} 
 \index{timer@{timer}!stop@{stop}}
 \index{stop@{stop}!timer@{timer}}
 \subsubsection{stop()}
-{\footnotesize\ttfamily void stop (\begin{DoxyParamCaption}\item[{double}]{timer\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily stop (\begin{DoxyParamCaption}\item[{timer\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -182,7 +182,7 @@ Stop timer.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
 
 

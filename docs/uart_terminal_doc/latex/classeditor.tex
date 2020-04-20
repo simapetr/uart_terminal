@@ -1,0 +1,163 @@
+\section{editor Class Reference}
+\label{classeditor}\index{editor@{editor}}
+
+
+{\ttfamily \#include $<$in\+\_\+jerryscript\+\_\+editor\+\_\+h.\+h$>$}
+
+
+
+Inheritance diagram for editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{classeditor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{classeditor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classeditor_adc29c2ff13d900c2f185ee95427fb06c}} 
+enum \{ {\bfseries e\+\_\+start} = 0, 
+{\bfseries e\+\_\+path} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ editor} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+Window\+ID text\+\_\+wxwindowid=wx\+I\+D\+\_\+\+A\+NY, const wx\+Point \&pos\+\_\+wxpoint=wx\+Default\+Position, const wx\+Size \&panel\+\_\+wxsize=wx\+Default\+Size, uint32\+\_\+t style\+\_\+ui32=wx\+V\+S\+C\+R\+O\+LL)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \textbf{ $\sim$editor} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ load} (void)
+\begin{DoxyCompactList}\small\item\em Load file. \end{DoxyCompactList}\item 
+void \textbf{ load} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Load file. \end{DoxyCompactList}\item 
+void \textbf{ save} (void)
+\begin{DoxyCompactList}\small\item\em Save file. \end{DoxyCompactList}\item 
+bool \textbf{ save\+\_\+as} (void)
+\begin{DoxyCompactList}\small\item\em Save file as. \end{DoxyCompactList}\item 
+void \textbf{ find} (void)
+\begin{DoxyCompactList}\small\item\em Find dialog show. \end{DoxyCompactList}\item 
+void \textbf{ find\+\_\+next} (void)
+\begin{DoxyCompactList}\small\item\em Find next word. \end{DoxyCompactList}\item 
+void \textbf{ find\+\_\+prev} (void)
+\begin{DoxyCompactList}\small\item\em Find previous word. \end{DoxyCompactList}\item 
+void \textbf{ replace} (void)
+\begin{DoxyCompactList}\small\item\em Replace dialog show. \end{DoxyCompactList}\item 
+void \textbf{ goto\+\_\+line} (void)
+\begin{DoxyCompactList}\small\item\em Replace dialog show. \end{DoxyCompactList}\item 
+void \textbf{ new\+\_\+file} (void)
+\begin{DoxyCompactList}\small\item\em New file. \end{DoxyCompactList}\item 
+void \textbf{ new\+\_\+template} (void)
+\begin{DoxyCompactList}\small\item\em New template file. \end{DoxyCompactList}\item 
+void \textbf{ set} (uint8\+\_\+t type\+\_\+ui8, void $\ast$p\+\_\+parametr\+\_\+void, \textbf{ editor\+\_\+event\+\_\+fct} data\+\_\+editor\+\_\+event\+\_\+fct)
+\begin{DoxyCompactList}\small\item\em Set event function. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Get cursor position. \end{DoxyCompactList}\item 
+void \textbf{ run} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set run button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{classeditor_acd4c1c633a39875732ca80851af75915}} 
+\textbf{ text\+\_\+edit\+\_\+c} $\ast$ {\bfseries lp\+\_\+main\+\_\+text\+\_\+edit}
+\item 
+\mbox{\label{classeditor_a51d1b21a81f74c345c442debbf2fd315}} 
+wx\+Box\+Sizer $\ast$ {\bfseries lp\+\_\+main\+\_\+wxboxsizer}
+\item 
+\mbox{\label{classeditor_acfd79996d679cb715a8310f643d41b54}} 
+wx\+Box\+Sizer $\ast$ {\bfseries lp\+\_\+tool\+\_\+wxboxsizer}
+\item 
+\mbox{\label{classeditor_aec0c73fb91e86a72dcdddc4f94aa1302}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+new\+\_\+template\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_a29841ac3efc5dea788051191c14bccf7}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+new\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_aff886db8078a566a62d061e87918960d}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+open\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_aaf30e441e24ffb0e13027175aa5a1d75}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+replace\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_a2ae17f4d3eaddfcfd88b6e5753d20133}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+save\+\_\+as\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_aca4f6b89be3b4e9e7877b7b6f06a3cc4}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+save\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_a5f1a915f0eba4657f7969c9e238d6281}} 
+wx\+Button $\ast$ {\bfseries lp\+\_\+search\+\_\+wxbutton}
+\item 
+\mbox{\label{classeditor_a695f0d49aab279eaceef280ef38a034c}} 
+wx\+File\+Dialog $\ast$ {\bfseries lp\+\_\+script\+\_\+wxfiledialog}
+\item 
+\mbox{\label{classeditor_a82a0623923fcf6bc3ead5405b10efe88}} 
+wx\+Find\+Replace\+Data {\bfseries find\+Replace\+Data\+\_\+1}
+\item 
+\mbox{\label{classeditor_a0eec2813b0f58f7e5e6d0142a91d5256}} 
+wx\+Find\+Replace\+Dialog $\ast$ {\bfseries lp\+\_\+text\+\_\+wxfindreplacedialog}
+\item 
+\mbox{\label{classeditor_acd314dc1668c12967a2dabba3d4e1026}} 
+wx\+Static\+Line $\ast$ {\bfseries lp\+\_\+file\+\_\+wxstaticline}
+\item 
+\mbox{\label{classeditor_a11efe0ca3bc1bbc0118b034693a421e5}} 
+wx\+Static\+Line $\ast$ {\bfseries lp\+\_\+search\+\_\+wxstaticline}
+\item 
+\mbox{\label{classeditor_a5eb426bd2b6d00d582f5050ccd7e5a01}} 
+wx\+Timer {\bfseries lp\+\_\+edit\+\_\+event\+\_\+wxtimer}
+\item 
+\mbox{\label{classeditor_a27feadbc0af2ef7bc5e7b7b2e1e0377b}} 
+wx\+Toggle\+Button $\ast$ {\bfseries lp\+\_\+script\+\_\+run\+\_\+wxtogglebutton}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const long \textbf{ l\+\_\+id\+\_\+save\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+save\+\_\+as\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+new\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+new\+\_\+template\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+open\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+file\+\_\+wxstaticline} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+search\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+replace\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+search\+\_\+wxstaticline} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+script\+\_\+run\+\_\+wxtogglebutton} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+main\+\_\+text\+\_\+edit} = wx\+New\+Id()
+\item 
+static const long {\bfseries l\+\_\+id\+\_\+edit\+\_\+event\+\_\+wxtimer} = wx\+New\+Id()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class 
+
+Definition at line 78 of file in\+\_\+jerryscript\+\_\+editor\+\_\+h.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/\textbf{ in\+\_\+jerryscript\+\_\+editor\+\_\+h.\+h}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/\textbf{ in\+\_\+jerryscript\+\_\+editor\+\_\+cpp.\+cpp}\end{DoxyCompactItemize}

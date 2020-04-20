@@ -51,7 +51,7 @@ PROJECT_BRIEF          = "UART terminal with support ECMA5.1"
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = terminal.jpg
+PROJECT_LOGO           = D:/project/uart_terminal/make/doxygen/terminal.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is

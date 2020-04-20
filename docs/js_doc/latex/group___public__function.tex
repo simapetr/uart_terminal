@@ -1,0 +1,243 @@
+\section{Public\+\_\+function}
+\label{group___public__function}\index{Public\_function@{Public\_function}}
+
+
+Global public function.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ delay} (time\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Delay. \end{DoxyCompactList}\item 
+\textbf{ rand} ()
+\begin{DoxyCompactList}\small\item\em Get random value. \end{DoxyCompactList}\item 
+\textbf{ rand} (min\+\_\+d, max\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get random value from range. \end{DoxyCompactList}\item 
+\textbf{ alert} (text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Show alert dialog. \end{DoxyCompactList}\item 
+\textbf{ gui} (show\+\_\+main\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\item 
+\textbf{ gui} (show\+\_\+main\+\_\+b, text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set show main frame and Script frame name. \end{DoxyCompactList}\item 
+\textbf{ gui} (show\+\_\+main\+\_\+b, text\+\_\+str, show\+\_\+script\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show main frame and Script frame name. \end{DoxyCompactList}\item 
+\textbf{ reg\+\_\+exit} (function\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Register exit callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Global public function. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___public__function_ga230c3c1cc5c4ce9a643905e97126c9e3}} 
+\index{Public\_function@{Public\_function}!alert@{alert}}
+\index{alert@{alert}!Public\_function@{Public\_function}}
+\subsubsection{alert()}
+{\footnotesize\ttfamily alert (\begin{DoxyParamCaption}\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
+
+
+
+Show alert dialog. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{alert(\textcolor{stringliteral}{"Hello world!"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Alert text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{group___public__function_ga41aacc7d9f6801c5df26b1362e0385b0}} 
+\index{Public\_function@{Public\_function}!delay@{delay}}
+\index{delay@{delay}!Public\_function@{Public\_function}}
+\subsubsection{delay()}
+{\footnotesize\ttfamily delay (\begin{DoxyParamCaption}\item[{time\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Delay. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Delay 1s}}
+\DoxyCodeLine{delay(1000);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & time\+\_\+d \+: Delay time in ms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{group___public__function_gadabcc326659f50e5a97ed53d77746e73}} 
+\index{Public\_function@{Public\_function}!gui@{gui}}
+\index{gui@{gui}!Public\_function@{Public\_function}}
+\subsubsection{gui()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \textbf{ gui} (\begin{DoxyParamCaption}\item[{show\+\_\+main\+\_\+b}]{ }\end{DoxyParamCaption})}
+
+
+
+Set show main frame. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gui(\textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+main\+\_\+b \+: Show main frame \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{group___public__function_ga7460524f7b40c35964f7d07689aab888}} 
+\index{Public\_function@{Public\_function}!gui@{gui}}
+\index{gui@{gui}!Public\_function@{Public\_function}}
+\subsubsection{gui()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \textbf{ gui} (\begin{DoxyParamCaption}\item[{show\+\_\+main\+\_\+b}]{,  }\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
+
+
+
+Set show main frame and Script frame name. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gui(\textcolor{keyword}{false}, \textcolor{stringliteral}{"Script frame"});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+main\+\_\+b \+: Show main frame \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Script frame name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{group___public__function_gabbb34ac83c7ffbe9c3eee29c9ca186d6}} 
+\index{Public\_function@{Public\_function}!gui@{gui}}
+\index{gui@{gui}!Public\_function@{Public\_function}}
+\subsubsection{gui()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \textbf{ gui} (\begin{DoxyParamCaption}\item[{show\+\_\+main\+\_\+b}]{,  }\item[{text\+\_\+str}]{,  }\item[{show\+\_\+script\+\_\+b}]{ }\end{DoxyParamCaption})}
+
+
+
+Set show main frame and Script frame name. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gui(\textcolor{keyword}{false}, \textcolor{stringliteral}{"Script frame"}, \textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+main\+\_\+b \+: Show main frame \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & text\+\_\+str \+: Script frame name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+script\+\_\+b \+: Show script frame \begin{DoxyItemize}
+\item false \+: Hide \item true \+: Show \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{group___public__function_ga02d3f138418af75a9152e5378a946c40}} 
+\index{Public\_function@{Public\_function}!rand@{rand}}
+\index{rand@{rand}!Public\_function@{Public\_function}}
+\subsubsection{rand()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get random value. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var random\_val = rand();}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group___public__function_ga51426cea4239d2dfab04a96e34284bc5}} 
+\index{Public\_function@{Public\_function}!rand@{rand}}
+\index{rand@{rand}!Public\_function@{Public\_function}}
+\subsubsection{rand()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily rand (\begin{DoxyParamCaption}\item[{min\+\_\+d}]{,  }\item[{max\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Get random value from range. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var random\_val = rand(-10, 10);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & min\+\_\+d \+: Min value \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max\+\_\+d \+: Max value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random value 
+\end{DoxyReturn}
+\mbox{\label{group___public__function_gaeae0d4679222aee0bdd5c8099816b119}} 
+\index{Public\_function@{Public\_function}!reg\_exit@{reg\_exit}}
+\index{reg\_exit@{reg\_exit}!Public\_function@{Public\_function}}
+\subsubsection{reg\_exit()}
+{\footnotesize\ttfamily reg\+\_\+exit (\begin{DoxyParamCaption}\item[{function\+\_\+str}]{ }\end{DoxyParamCaption})}
+
+
+
+Register exit callback. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{reg\_exit(\textcolor{stringliteral}{"exit"});}
+\DoxyCodeLine{\textcolor{keyword}{function} exit()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & function\+\_\+str \+: Callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

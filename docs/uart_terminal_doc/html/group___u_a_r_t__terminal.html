@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -113,6 +113,8 @@ Collaboration diagram for UART_terminal:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structconsole__buffer__t.html">console_buffer_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain__frame.html">main_frame</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -143,36 +145,66 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf3820c86d5633619d8e1baddfcbb5042"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gaf3820c86d5633619d8e1baddfcbb5042">~main_frame</a> ()</td></tr>
 <tr class="memdesc:gaf3820c86d5633619d8e1baddfcbb5042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#gaf3820c86d5633619d8e1baddfcbb5042">More...</a><br /></td></tr>
 <tr class="separator:gaf3820c86d5633619d8e1baddfcbb5042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb195c4fd235aaa4c2da3815ec46eeba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gafb195c4fd235aaa4c2da3815ec46eeba">set</a> (wxString path_str)</td></tr>
+<tr class="memdesc:gafb195c4fd235aaa4c2da3815ec46eeba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set script path.  <a href="#gafb195c4fd235aaa4c2da3815ec46eeba">More...</a><br /></td></tr>
+<tr class="separator:gafb195c4fd235aaa4c2da3815ec46eeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga814ef6f49245db963f3faefc8ac98efb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga814ef6f49245db963f3faefc8ac98efb">run</a> (bool status_b=true)</td></tr>
+<tr class="memdesc:ga814ef6f49245db963f3faefc8ac98efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run Loaded script.  <a href="#ga814ef6f49245db963f3faefc8ac98efb">More...</a><br /></td></tr>
+<tr class="separator:ga814ef6f49245db963f3faefc8ac98efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad833fe8055e535b4696cfc376a286f80"><td class="memItemLeft" align="right" valign="top">wxString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gad833fe8055e535b4696cfc376a286f80">get</a> (void)</td></tr>
+<tr class="memdesc:gad833fe8055e535b4696cfc376a286f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get script path.  <a href="#gad833fe8055e535b4696cfc376a286f80">More...</a><br /></td></tr>
+<tr class="separator:gad833fe8055e535b4696cfc376a286f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1986b0e4e7fba4b4af869473513e1ce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga1986b0e4e7fba4b4af869473513e1ce9">gui</a> (bool status_b)</td></tr>
 <tr class="memdesc:ga1986b0e4e7fba4b4af869473513e1ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set frame show status.  <a href="#ga1986b0e4e7fba4b4af869473513e1ce9">More...</a><br /></td></tr>
 <tr class="separator:ga1986b0e4e7fba4b4af869473513e1ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadb467188cf8181ac20594cef5f000774"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classconfig__ini.html">config_ini</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gadb467188cf8181ac20594cef5f000774">get_project</a> (void)</td></tr>
 <tr class="memdesc:gadb467188cf8181ac20594cef5f000774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get project configuration object.  <a href="#gadb467188cf8181ac20594cef5f000774">More...</a><br /></td></tr>
 <tr class="separator:gadb467188cf8181ac20594cef5f000774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53cd6502b8c3af665a81501c82b98718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga53cd6502b8c3af665a81501c82b98718">js_hide</a> (bool status_b)</td></tr>
+<tr class="memdesc:ga53cd6502b8c3af665a81501c82b98718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hide main frame from JerryScript.  <a href="#ga53cd6502b8c3af665a81501c82b98718">More...</a><br /></td></tr>
+<tr class="separator:ga53cd6502b8c3af665a81501c82b98718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5ae97e580d2959af3a39e0bbc58bd18f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga5ae97e580d2959af3a39e0bbc58bd18f">console_rx_enable</a> (bool status_b)</td></tr>
 <tr class="memdesc:ga5ae97e580d2959af3a39e0bbc58bd18f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set RX data show status.  <a href="#ga5ae97e580d2959af3a39e0bbc58bd18f">More...</a><br /></td></tr>
 <tr class="separator:ga5ae97e580d2959af3a39e0bbc58bd18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7ba59ce4eb6c8eb6bdf549389b59ef43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga7ba59ce4eb6c8eb6bdf549389b59ef43">is_console_rx_enable</a> (void)</td></tr>
 <tr class="memdesc:ga7ba59ce4eb6c8eb6bdf549389b59ef43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get RX console show status.  <a href="#ga7ba59ce4eb6c8eb6bdf549389b59ef43">More...</a><br /></td></tr>
 <tr class="separator:ga7ba59ce4eb6c8eb6bdf549389b59ef43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga567b6dc058e91d1c6521c34673d67b7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga567b6dc058e91d1c6521c34673d67b7f">printf</a> (wxString console_text_str)</td></tr>
-<tr class="memdesc:ga567b6dc058e91d1c6521c34673d67b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print string on console.  <a href="#ga567b6dc058e91d1c6521c34673d67b7f">More...</a><br /></td></tr>
-<tr class="separator:ga567b6dc058e91d1c6521c34673d67b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a83f6bffb6e4e77a0615e7b0f3b96cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga1a83f6bffb6e4e77a0615e7b0f3b96cd">js_printf</a> (wxString console_text_str)</td></tr>
+<tr class="memdesc:ga1a83f6bffb6e4e77a0615e7b0f3b96cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print string on console from JerryScript.  <a href="#ga1a83f6bffb6e4e77a0615e7b0f3b96cd">More...</a><br /></td></tr>
+<tr class="separator:ga1a83f6bffb6e4e77a0615e7b0f3b96cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27bdbad8ec39cf332c440b6bd88158de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga27bdbad8ec39cf332c440b6bd88158de">js_status</a> (wxString status_text_str)</td></tr>
+<tr class="memdesc:ga27bdbad8ec39cf332c440b6bd88158de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print string on status bar from JerryScript.  <a href="#ga27bdbad8ec39cf332c440b6bd88158de">More...</a><br /></td></tr>
+<tr class="separator:ga27bdbad8ec39cf332c440b6bd88158de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac13ab4f21ab16785861da45f063ce763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gac13ab4f21ab16785861da45f063ce763">status</a> (wxString status_text_str)</td></tr>
 <tr class="memdesc:gac13ab4f21ab16785861da45f063ce763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print string on status bar.  <a href="#gac13ab4f21ab16785861da45f063ce763">More...</a><br /></td></tr>
 <tr class="separator:gac13ab4f21ab16785861da45f063ce763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ba591b2947aec3954c417ad07bc8294"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga7ba591b2947aec3954c417ad07bc8294">js_clear</a> (void)</td></tr>
+<tr class="memdesc:ga7ba591b2947aec3954c417ad07bc8294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear console text from JerryScript.  <a href="#ga7ba591b2947aec3954c417ad07bc8294">More...</a><br /></td></tr>
+<tr class="separator:ga7ba591b2947aec3954c417ad07bc8294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae683fe63c33c388e9ba1c6392dd477eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gae683fe63c33c388e9ba1c6392dd477eb">clear</a> (void)</td></tr>
 <tr class="memdesc:gae683fe63c33c388e9ba1c6392dd477eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear console text.  <a href="#gae683fe63c33c388e9ba1c6392dd477eb">More...</a><br /></td></tr>
 <tr class="separator:gae683fe63c33c388e9ba1c6392dd477eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8d7fad0f508420ed9b9642b3152cba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gaf8d7fad0f508420ed9b9642b3152cba9">js_open_port</a> (void)</td></tr>
+<tr class="memdesc:gaf8d7fad0f508420ed9b9642b3152cba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open UART form JerryScript.  <a href="#gaf8d7fad0f508420ed9b9642b3152cba9">More...</a><br /></td></tr>
+<tr class="separator:gaf8d7fad0f508420ed9b9642b3152cba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeb58113a5a9df68000116b815e75ef76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gaeb58113a5a9df68000116b815e75ef76">open_port</a> (void)</td></tr>
 <tr class="memdesc:gaeb58113a5a9df68000116b815e75ef76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open UART with GUI setting.  <a href="#gaeb58113a5a9df68000116b815e75ef76">More...</a><br /></td></tr>
 <tr class="separator:gaeb58113a5a9df68000116b815e75ef76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga34f4e46cbbd8ec24f730805302d9f057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga34f4e46cbbd8ec24f730805302d9f057">js_close_port</a> (void)</td></tr>
+<tr class="memdesc:ga34f4e46cbbd8ec24f730805302d9f057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close port from JerryScript.  <a href="#ga34f4e46cbbd8ec24f730805302d9f057">More...</a><br /></td></tr>
+<tr class="separator:ga34f4e46cbbd8ec24f730805302d9f057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga39ec9a45c5fdf3b61ef3ca88973bc07c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga39ec9a45c5fdf3b61ef3ca88973bc07c">close_port</a> (void)</td></tr>
 <tr class="memdesc:ga39ec9a45c5fdf3b61ef3ca88973bc07c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close port wit GUI setting.  <a href="#ga39ec9a45c5fdf3b61ef3ca88973bc07c">More...</a><br /></td></tr>
 <tr class="separator:ga39ec9a45c5fdf3b61ef3ca88973bc07c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2424f6e22851938a5dfb5a9cc88c5d9b"><td class="memItemLeft" align="right" valign="top">uart_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga2424f6e22851938a5dfb5a9cc88c5d9b">js_get_open_status</a> (void)</td></tr>
+<tr class="memdesc:ga2424f6e22851938a5dfb5a9cc88c5d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port open status from JerryScript.  <a href="#ga2424f6e22851938a5dfb5a9cc88c5d9b">More...</a><br /></td></tr>
+<tr class="separator:ga2424f6e22851938a5dfb5a9cc88c5d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4290ac6ba3f3672d077625fbd079dd9f"><td class="memItemLeft" align="right" valign="top">uart_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga4290ac6ba3f3672d077625fbd079dd9f">get_open_status</a> (void)</td></tr>
 <tr class="memdesc:ga4290ac6ba3f3672d077625fbd079dd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port open status.  <a href="#ga4290ac6ba3f3672d077625fbd079dd9f">More...</a><br /></td></tr>
 <tr class="separator:ga4290ac6ba3f3672d077625fbd079dd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad524224473a31a3b6deec56509559601"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gad524224473a31a3b6deec56509559601">js_set_config</a> (<a class="el" href="structuart__cfg__t.html">uart_cfg_t</a> data_uart_cfg)</td></tr>
+<tr class="memdesc:gad524224473a31a3b6deec56509559601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART port from JerryScript.  <a href="#gad524224473a31a3b6deec56509559601">More...</a><br /></td></tr>
+<tr class="separator:gad524224473a31a3b6deec56509559601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga658464cfaff2e47e321ffa1f5245f350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga658464cfaff2e47e321ffa1f5245f350">set_config</a> (<a class="el" href="structuart__cfg__t.html">uart_cfg_t</a> data_uart_cfg)</td></tr>
 <tr class="memdesc:ga658464cfaff2e47e321ffa1f5245f350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART port settings in GUI.  <a href="#ga658464cfaff2e47e321ffa1f5245f350">More...</a><br /></td></tr>
 <tr class="separator:ga658464cfaff2e47e321ffa1f5245f350"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,9 +223,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga5ad6770a94d4fba50b27ae366ba4580d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga5ad6770a94d4fba50b27ae366ba4580d">run_script</a> (wxString path_str)</td></tr>
 <tr class="memdesc:ga5ad6770a94d4fba50b27ae366ba4580d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run JS script.  <a href="#ga5ad6770a94d4fba50b27ae366ba4580d">More...</a><br /></td></tr>
 <tr class="separator:ga5ad6770a94d4fba50b27ae366ba4580d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafc1cdeea260c14de2dcb9415ebcc15f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#gafc1cdeea260c14de2dcb9415ebcc15f9">stop_script</a> (void)</td></tr>
-<tr class="memdesc:gafc1cdeea260c14de2dcb9415ebcc15f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop JS script.  <a href="#gafc1cdeea260c14de2dcb9415ebcc15f9">More...</a><br /></td></tr>
-<tr class="separator:gafc1cdeea260c14de2dcb9415ebcc15f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ef808eaa046bca8db8019bc788a7f3f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga1ef808eaa046bca8db8019bc788a7f3f">stop_script</a> (void)</td></tr>
+<tr class="memdesc:ga1ef808eaa046bca8db8019bc788a7f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop JS script.  <a href="#ga1ef808eaa046bca8db8019bc788a7f3f">More...</a><br /></td></tr>
+<tr class="separator:ga1ef808eaa046bca8db8019bc788a7f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga61053f5526b385827ac19b86c3df0867"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t__terminal.html#ga61053f5526b385827ac19b86c3df0867">stop_event</a> (void)</td></tr>
 <tr class="memdesc:ga61053f5526b385827ac19b86c3df0867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop JS script event.  <a href="#ga61053f5526b385827ac19b86c3df0867">More...</a><br /></td></tr>
 <tr class="separator:ga61053f5526b385827ac19b86c3df0867"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,7 +246,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Define </p>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00050">50</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00052">52</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -232,7 +264,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Type </p>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__h_8h_source.html#l00062">62</a> of file <a class="el" href="ap__uart__terminal__frame__h_8h_source.html">ap_uart_terminal_frame_h.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__h_8h_source.html#l00063">63</a> of file <a class="el" href="ap__uart__terminal__frame__h_8h_source.html">ap_uart_terminal_frame_h.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +294,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00579">579</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00781">781</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,7 +323,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00683">683</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00919">919</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -329,7 +361,36 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00527">527</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00695">695</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gad833fe8055e535b4696cfc376a286f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad833fe8055e535b4696cfc376a286f80">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wxString get </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get script path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>wxString : Script path </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00640">640</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -358,7 +419,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>data_uart_cfg : UART port configuration structure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00773">773</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01037">1037</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +448,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>wxString : Input text </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00812">812</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01076">1076</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -416,7 +477,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uart_status_t : UART port status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00721">721</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00964">964</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -445,7 +506,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00515">515</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00667">667</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -474,7 +535,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00500">500</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00652">652</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +564,239 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool : Actual console enable status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00540">540</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00708">708</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga7ba591b2947aec3954c417ad07bc8294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7ba591b2947aec3954c417ad07bc8294">&#9670;&nbsp;</a></span>js_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear console text from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00766">766</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga34f4e46cbbd8ec24f730805302d9f057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga34f4e46cbbd8ec24f730805302d9f057">&#9670;&nbsp;</a></span>js_close_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_close_port </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Close port from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00904">904</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga2424f6e22851938a5dfb5a9cc88c5d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2424f6e22851938a5dfb5a9cc88c5d9b">&#9670;&nbsp;</a></span>js_get_open_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uart_status_t js_get_open_status </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get port open status from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uart_status_t : UART port status </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00952">952</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga53cd6502b8c3af665a81501c82b98718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga53cd6502b8c3af665a81501c82b98718">&#9670;&nbsp;</a></span>js_hide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_hide </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>status_b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hide main frame from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>status_b : Show main frame </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00679">679</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gaf8d7fad0f508420ed9b9642b3152cba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8d7fad0f508420ed9b9642b3152cba9">&#9670;&nbsp;</a></span>js_open_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_open_port </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Open UART form JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00794">794</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga1a83f6bffb6e4e77a0615e7b0f3b96cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a83f6bffb6e4e77a0615e7b0f3b96cd">&#9670;&nbsp;</a></span>js_printf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_printf </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>console_text_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print string on console from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>console_text_str : Print text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00720">720</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gad524224473a31a3b6deec56509559601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad524224473a31a3b6deec56509559601">&#9670;&nbsp;</a></span>js_set_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_set_config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structuart__cfg__t.html">uart_cfg_t</a>&#160;</td>
+          <td class="paramname"><em>data_uart_cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set UART port from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>data_uart_cfg : UART port configuration structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00976">976</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga27bdbad8ec39cf332c440b6bd88158de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga27bdbad8ec39cf332c440b6bd88158de">&#9670;&nbsp;</a></span>js_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void js_status </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>status_text_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print string on status bar from JerryScript. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>console_text_str : Print text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00737">737</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -543,7 +836,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00127">127</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00163">163</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -572,7 +865,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00592">592</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00809">809</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -586,32 +879,46 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ga567b6dc058e91d1c6521c34673d67b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga567b6dc058e91d1c6521c34673d67b7f">&#9670;&nbsp;</a></span>printf()</h2>
+<a id="ga814ef6f49245db963f3faefc8ac98efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga814ef6f49245db963f3faefc8ac98efb">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void printf </td>
+          <td class="memname">void run </td>
           <td>(</td>
-          <td class="paramtype">wxString&#160;</td>
-          <td class="paramname"><em>console_text_str</em></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>status_b</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Print string on console. </p>
+<p>Run Loaded script. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">[IN]</td><td>console_text_str : Print text </td></tr>
+    <tr><td class="paramname">[IN]</td><td>status_b : Run state <ul>
+<li>true : Run </li>
+<li>false : Stop </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00552">552</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00616">616</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb_cgraph.png" border="0" usemap="#group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb_cgraph" alt=""/></div>
+<map name="group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb_cgraph" id="group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb_cgraph">
+<area shape="rect"  title="Run Loaded script." alt="" coords="5,5,45,32"/>
+<area shape="rect"  href="group___script__editor.html#ga7f023340b8930afdb091542b289c015b" title="Set editor run button state." alt="" coords="93,5,212,32"/>
+<area shape="rect"  href="group___editor.html#ga7f023340b8930afdb091542b289c015b" title="Set run button state." alt="" coords="260,5,340,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -640,7 +947,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00865">865</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01129">1129</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -651,6 +958,35 @@ Here is the call graph for this function:</div>
 <area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="299,5,413,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="gafb195c4fd235aaa4c2da3815ec46eeba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafb195c4fd235aaa4c2da3815ec46eeba">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>path_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set script path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>path_str : Script path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00598">598</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -679,7 +1015,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00733">733</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00993">993</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -719,7 +1055,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00832">832</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01096">1096</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -759,7 +1095,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00851">851</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01115">1115</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -788,7 +1124,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00566">566</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00753">753</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -825,18 +1161,18 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00939">939</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01210">1210</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="gafc1cdeea260c14de2dcb9415ebcc15f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafc1cdeea260c14de2dcb9415ebcc15f9">&#9670;&nbsp;</a></span>stop_script()</h2>
+<a id="ga1ef808eaa046bca8db8019bc788a7f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ef808eaa046bca8db8019bc788a7f3f">&#9670;&nbsp;</a></span>stop_script()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stop_script </td>
+          <td class="memname">uint32_t stop_script </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -852,9 +1188,20 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : Stop status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00917">917</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l01181">1181</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f_cgraph.png" border="0" usemap="#group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f_cgraph" alt=""/></div>
+<map name="group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f_cgraph" id="group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f_cgraph">
+<area shape="rect"  title="Stop JS script." alt="" coords="5,5,92,32"/>
+<area shape="rect"  href="group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a" title="Stop script." alt="" coords="140,5,267,32"/>
+<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="315,5,420,32"/>
+<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="468,5,583,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -890,21 +1237,20 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00432">432</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html#l00508">508</a> of file <a class="el" href="ap__uart__terminal__frame__cpp_8cpp_source.html">ap_uart_terminal_frame_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___u_a_r_t__terminal_gaf3820c86d5633619d8e1baddfcbb5042_cgraph.png" border="0" usemap="#group___u_a_r_t__terminal_gaf3820c86d5633619d8e1baddfcbb5042_cgraph" alt=""/></div>
 <map name="group___u_a_r_t__terminal_gaf3820c86d5633619d8e1baddfcbb5042_cgraph" id="group___u_a_r_t__terminal_gaf3820c86d5633619d8e1baddfcbb5042_cgraph">
 <area shape="rect"  title="Destructor." alt="" coords="5,81,103,108"/>
-<area shape="rect"  href="group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="327,5,465,32"/>
-<area shape="rect"  href="group___u_a_r_t__terminal.html#ga39ec9a45c5fdf3b61ef3ca88973bc07c" title="Close port wit GUI setting." alt="" coords="173,191,255,217"/>
-<area shape="rect"  href="group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="325,56,467,83"/>
-<area shape="rect"  href="group___port.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop script." alt="" coords="151,107,277,133"/>
-<area shape="rect"  href="group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4" title="Close UART port communication." alt="" coords="340,224,452,251"/>
-<area shape="rect"  href="group___g_u_i.html#ga0a532f834b1cca1b27d9a4d2c515d312" title="Get AUI manager." alt="" coords="332,158,460,199"/>
-<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="343,107,449,133"/>
-<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="515,107,629,133"/>
+<area shape="rect"  href="group__configuration.html#ga0b75d6dee5d53a292d4d26db9ac24882" title="Set value in to INI." alt="" coords="152,5,291,32"/>
+<area shape="rect"  href="group___u_a_r_t__terminal.html#ga39ec9a45c5fdf3b61ef3ca88973bc07c" title="Close port wit GUI setting." alt="" coords="180,56,263,83"/>
+<area shape="rect"  href="group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96" title="Set string value in to INI." alt="" coords="151,107,292,133"/>
+<area shape="rect"  href="group___port.html#ga317e8c9771295ad8aba4e6b3fe79904a" title="Stop script." alt="" coords="158,157,285,184"/>
+<area shape="rect"  href="group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4" title="Close UART port communication." alt="" coords="340,56,452,83"/>
+<area shape="rect"  href="group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="343,157,449,184"/>
+<area shape="rect"  href="group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="500,157,615,184"/>
 </map>
 </div>
 

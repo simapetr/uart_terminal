@@ -1,4 +1,4 @@
-.TH "static_text" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "static_text" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,11 +13,11 @@ static_text \- wxStaticText class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+.RI "\fBadd\fP (sizer_index_d, text_str, proportion_d, expand_b)"
 .br
 .RI "Add new static text\&. "
 .ti -1c
-.RI "bool \fBset\fP (double static_text_index_d, string text_str)"
+.RI "\fBset\fP (static_text_index_d, text_str)"
 .br
 .RI "Set static text string\&. "
 .in -1c
@@ -25,10 +25,10 @@ static_text \- wxStaticText class interface
 .PP 
 wxStaticText class interface 
 .PP
-Definition at line 1215 of file jerryscript_h\&.h\&.
+Definition at line 1255 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b)"
+.SS "add (sizer_index_d, text_str, proportion_d, expand_b)"
 
 .PP
 Add new static text\&. 
@@ -64,11 +64,11 @@ true : Expand
 .PP
 \fBReturns:\fP
 .RS 4
-double : \fBstatic_text\fP buffer index 
+\fBstatic_text\fP index 
 .RE
 .PP
 
-.SS "bool set (double static_text_index_d, string text_str)"
+.SS "set (static_text_index_d, text_str)"
 
 .PP
 Set static text string\&. 
@@ -95,7 +95,7 @@ test_status_bool = gui\&.static_text\&.set(test_static_text, "Hello world!");
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Set status 
+Set status 
 .PD 0
 
 .IP "\(bu" 2

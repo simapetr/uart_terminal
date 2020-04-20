@@ -48,6 +48,15 @@
 
 /**
   ****************************************************************************
+  * Global variable
+  ****************************************************************************
+  */
+
+extern double g_time_d;
+extern double g_time_ms_d;
+
+/**
+  ****************************************************************************
   * Function
   ****************************************************************************
   */
@@ -128,7 +137,7 @@ double time_d = 0.0;
         // Extract function argument
         if(args_cnt_ui32 == 0 && p_bkp_this)
         {
-            time_d = (double)wxGetUTCTime();
+            time_d = g_time_d;
         }
         else
         {
@@ -162,7 +171,7 @@ double time_d = 0.0;
         // Extract function argument
         if(args_cnt_ui32 == 0 && p_bkp_this)
         {
-            time_d = wxGetUTCTimeMillis().ToDouble();
+            time_d = g_time_ms_d;
         }
         else
         {

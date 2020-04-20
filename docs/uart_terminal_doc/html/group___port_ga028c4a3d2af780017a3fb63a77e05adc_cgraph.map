@@ -1,5 +1,6 @@
 <map id="dereg_class" name="dereg_class">
-<area shape="rect" id="node1" title="Deregister JS class." alt="" coords="5,13,97,39"/>
-<area shape="rect" id="node2" href="$group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="145,5,292,47"/>
-<area shape="rect" id="node3" href="$group___u_a_r_t.html#ga5d455e1ba65f4dee563b13f7f744855a" title="Delete associated event function." alt="" coords="340,13,493,39"/>
+<area shape="rect" id="node1" title="Deregister JS class." alt="" coords="5,46,97,73"/>
+<area shape="rect" id="node2" href="$group___timer.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="145,5,300,47"/>
+<area shape="rect" id="node3" href="$group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383" title="Deregistration object in to class." alt="" coords="149,71,296,112"/>
+<area shape="rect" id="node4" href="$group___u_a_r_t.html#ga754f82a7989318270e055e912e8b8f49" title="Delete associated event function." alt="" coords="348,78,457,105"/>
 </map>

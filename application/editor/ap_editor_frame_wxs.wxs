@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="editor_frame">
+		<title>Script Editor</title>
+		<size>815,440</size>
+		<id_arg>0</id_arg>
+		<handler function="on_close_event" entry="EVT_CLOSE" />
+		<object class="wxBoxSizer" variable="lp_main_wxboxsizer" member="yes">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="Custom" name="l_id_main_editor" subclass="editor" variable="lp_main_editor" member="yes">
+					<creating_code>$(THIS) = new $(CLASS)($(PARENT),$(ID),$(POS),$(SIZE));</creating_code>
+					<include_file>in__jerryscript__editor__h.h</include_file>
+					<style></style>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="lp_main_wxmenubar" member="yes">
+			<object class="wxMenu" variable="lp_file_wxmenu" member="yes">
+				<label>&amp;File</label>
+				<object class="wxMenu" name="l_id_file_new_item_wxmenu" variable="l_file_new_item_wxmenu" member="yes">
+					<label>New</label>
+					<help>New file</help>
+					<object class="wxMenuItem" name="l_id_file_new_empty_item_wxmenu" variable="l_file_new_empty_item_wxmenu" member="yes">
+						<label>Empty</label>
+						<accel>Ctrl-Shift-N</accel>
+						<help>New empty file</help>
+						<bitmap code="wxIcon(lp_new_si8)" />
+						<handler function="on_file_new_empty_item_wxmenu_selected" entry="EVT_MENU" />
+					</object>
+					<object class="wxMenuItem" name="l_id_file_new_template_item_wxmenu" variable="l_file_new_template_item_wxmenu" member="yes">
+						<label>Template</label>
+						<accel>Ctrl-Shift-T</accel>
+						<help>New tempate file</help>
+						<bitmap code="wxIcon(lp_new_template_si8)" />
+						<handler function="on_file_new_template_item_wxmenu_selected" entry="EVT_MENU" />
+					</object>
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_file_open_item_wxmenu" variable="l_file_open_item_wxmenu" member="yes">
+					<label>Open</label>
+					<accel>Ctrl-O</accel>
+					<help>Open file</help>
+					<bitmap code="wxIcon(lp_open_si8)" />
+					<handler function="on_file_open_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="l_id_file_save_item_wxmenu" variable="l_file_save_item_wxmenu" member="yes">
+					<label>Save</label>
+					<accel>Ctrl-S</accel>
+					<help>Save open file</help>
+					<bitmap code="wxIcon(lp_save_si8)" />
+					<handler function="on_file_save_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="l_id_file_save_as_item_wxmenu" variable="l_file_save_as_item_wxmenu" member="yes">
+					<label>Save as</label>
+					<help>Save open file as</help>
+					<bitmap code="wxIcon(lp_saveas_si8)" />
+					<handler function="on_file_save_as_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_file_quit_item_wxmenu" variable="l_file_quit_item_wxmenu" member="yes">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Close editor</help>
+					<bitmap code="wxIcon(lp_quit_si8)" />
+					<handler function="on_file_quit_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="lp_search_wxmenu" member="yes">
+				<label>Search</label>
+				<object class="wxMenuItem" name="l_id_search_find_item_wxmenu" variable="l_search_find_item_wxmenu" member="yes">
+					<label>Find</label>
+					<accel>Ctrl-F</accel>
+					<help>Find word from surrent cursor position</help>
+					<bitmap code="wxIcon(lp_find_si8)" />
+					<handler function="on_search_find_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="l_id_search_find_next_item_wxmenu" variable="l_search_find_next_item_wxmenu" member="yes">
+					<label>Find next</label>
+					<accel>F3</accel>
+					<help>Find next word</help>
+					<bitmap code="wxIcon(lp_find_next_si8)" />
+					<handler function="on_search_find_next_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="l_id_search_find_prev_item_wxmenu" variable="l_search_find_prev_item_wxmenu" member="yes">
+					<label>Find previous</label>
+					<accel>Shift-F3</accel>
+					<help>Find previous word</help>
+					<bitmap code="wxIcon(lp_find_prev_si8)" />
+					<handler function="on_search_find_prev_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_search_replace_item_wxmenu" variable="l_search_replace_item_wxmenu" member="yes">
+					<label>Repalce...</label>
+					<accel>Ctrl-R</accel>
+					<help>Replace defined word</help>
+					<bitmap code="wxIcon(lp_replace_si8)" />
+					<handler function="on_search_replace_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_search_goto_line_item_wxmenu" variable="l_search_goto_line_item_wxmenu" member="yes">
+					<label>Goto line...</label>
+					<accel>Ctrl-G</accel>
+					<help>Go to line</help>
+					<bitmap code="wxIcon(lp_goto_si8)" />
+					<handler function="on_search_goto_line_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="lp_help_wxmenu" member="yes">
+				<label>Help</label>
+				<object class="wxMenuItem" name="l_id_help_about_item_wxmenu" variable="lp_help_about_item_wxmenu" member="yes">
+					<label>About</label>
+					<help>Show info about script editor application</help>
+					<bitmap code="wxIcon(lp_info_si8)" />
+					<handler function="on_help_about_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="l_id_help_js_doc_item_wxmenu" variable="l_help_js_doc_item_wxmenu" member="yes">
+					<label>JS doc</label>
+					<accel>F1</accel>
+					<help>Documentation internal JerryScript class</help>
+					<bitmap code="wxIcon(lp_js_si8)" />
+					<handler function="on_help_js_doc_item_wxmenu_selected" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="l_id_editor_wxstatusbar" variable="lp_editor_wxstatusbar" member="yes">
+			<fields>2</fields>
+			<widths>-10,160</widths>
+			<styles>wxSB_NORMAL,wxSB_NORMAL</styles>
+		</object>
+		<object class="wxTimer" name="l_id_pos_wxtimer" variable="lp_pos_wxtimer" member="yes">
+			<interval>100</interval>
+			<handler function="on_pos_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>

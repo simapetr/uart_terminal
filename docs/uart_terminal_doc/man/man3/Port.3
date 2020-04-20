@@ -1,4 +1,4 @@
-.TH "Port" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Port" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,6 +10,9 @@ Port \- JavaScript interpreter port\&.
 .SS "Data Structures"
 
 .in +1c
+.ti -1c
+.RI "struct \fBevent_buffer_t\fP"
+.br
 .ti -1c
 .RI "class \fBjerryscript_c\fP"
 .br
@@ -30,7 +33,7 @@ Port \- JavaScript interpreter port\&.
 .br
 .RI "Run script\&. "
 .ti -1c
-.RI "void \fBstop\fP (void)"
+.RI "uint32_t \fBstop\fP (void)"
 .br
 .RI "Stop script\&. "
 .ti -1c
@@ -45,12 +48,34 @@ Port \- JavaScript interpreter port\&.
 .RI "void \fBdereg_class\fP (void)"
 .br
 .RI "Deregister JS class\&. "
+.ti -1c
+.RI "static uint32_t \fBcall\fP (void)"
+.br
+.RI "Call GUI event (Must be called form JS thread) "
 .in -1c
 .SS "Variables"
 
 .in +1c
 .ti -1c
+.RI "double \fBg_time_d\fP"
+.br
+.ti -1c
+.RI "double \fBg_time_ms_d\fP"
+.br
+.ti -1c
 .RI "bool \fBl_in_js_port_gui_enable_b\fP = false"
+.br
+.ti -1c
+.RI "vector< \fBevent_buffer_t\fP > \fBlv_main_event_buffer\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_exit_event_fct_ui32\fP"
+.br
+.ti -1c
+.RI "bool \fBl_exit_event_fct_reg_b\fP = false"
+.br
+.ti -1c
+.RI "uint32_t \fBl_exit_state_ui32\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -60,6 +85,24 @@ JavaScript interpreter port\&.
 
 .SH "Function Documentation"
 .PP 
+.SS "uint32_t call (void)\fC [static]\fP"
+
+.PP
+Call GUI event (Must be called form JS thread) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : number of item in UART buffer 
+.RE
+.PP
+
+.PP
+Definition at line 300 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "void call_event (wxString event_str, uint32_t component_id_ui32)"
 
 .PP
@@ -79,7 +122,7 @@ void
 .PP
 
 .PP
-Definition at line 187 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 197 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "void dereg_class (void)"
 
 .PP
@@ -97,7 +140,7 @@ void
 .PP
 
 .PP
-Definition at line 269 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 286 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "\fBjerryscript_c\fP (\fBuart_port\fP * p_com_uart_port, void * p_gui_main_frame_void, bool debug_b, bool init_b)"
 
 .PP
@@ -121,7 +164,7 @@ void
 .PP
 
 .PP
-Definition at line 69 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 96 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "void reg_class (void)"
 
 .PP
@@ -139,7 +182,7 @@ void
 .PP
 
 .PP
-Definition at line 216 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 218 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "uint32_t run (wxString script_str)"
 
 .PP
@@ -157,8 +200,8 @@ uint32_t : Run status
 .PP
 
 .PP
-Definition at line 109 of file in_jerryscript_port_cpp\&.cpp\&.
-.SS "void stop (void)"
+Definition at line 143 of file in_jerryscript_port_cpp\&.cpp\&.
+.SS "uint32_t stop (void)"
 
 .PP
 Stop script\&. 
@@ -170,12 +213,12 @@ Stop script\&.
 .PP
 \fBReturns:\fP
 .RS 4
-void 
+uint32_t : Stop state 
 .RE
 .PP
 
 .PP
-Definition at line 138 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 173 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "~\fBjerryscript_c\fP (void)"
 
 .PP
@@ -193,13 +236,17 @@ void
 .PP
 
 .PP
-Definition at line 92 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 126 of file in_jerryscript_port_cpp\&.cpp\&.
 .SH "Variable Documentation"
 .PP 
+.SS "double g_time_d"
+Global variable 
+.PP
+Definition at line 65 of file in_jerryscript_port_cpp\&.cpp\&.
 .SS "bool l_in_js_port_gui_enable_b = false"
 Local variable 
 .PP
-Definition at line 51 of file in_jerryscript_port_cpp\&.cpp\&.
+Definition at line 74 of file in_jerryscript_port_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

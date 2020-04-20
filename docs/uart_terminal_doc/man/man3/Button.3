@@ -1,4 +1,4 @@
-.TH "Button" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Button" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -40,16 +40,6 @@ Button \- Button class definition\&.
 .RI "bool \fBset_button_event\fP (double button_index_d, wxString event_fct_str)"
 .br
 .RI "Set button event\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBbutton_buffer_t\fP > \fBlv_data_button_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_button_ui32\fP = 0"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -105,7 +95,7 @@ uint32_t : New button buffer index
 .PP
 
 .PP
-Definition at line 90 of file in_js_gui_button_cpp\&.cpp\&.
+Definition at line 95 of file in_js_gui_button_cpp\&.cpp\&.
 .SS "uint32_t reg_event (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -129,7 +119,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 161 of file in_js_class_button_js_cpp\&.cpp\&.
+Definition at line 165 of file in_js_class_button_js_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -167,13 +157,7 @@ bool : Button event reg status
 .PP
 
 .PP
-Definition at line 115 of file in_js_gui_button_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBbutton_buffer_t\fP> lv_data_button_buffer"
-Local variable 
-.PP
-Definition at line 71 of file in_js_gui_button_cpp\&.cpp\&.
+Definition at line 121 of file in_js_gui_button_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

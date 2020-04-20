@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for data\+\_\+plot\+:\nopagebreak
+Inheritance diagram for data\+\_\+plot\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for data\+\_\+plot\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for data\+\_\+plot\+:\nopagebreak
+Collaboration diagram for data\+\_\+plot\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,45 +27,89 @@ Collaboration diagram for data\+\_\+plot\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ data\+\_\+plot} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+String graph\+\_\+label\+\_\+str, double draph\+\_\+range\+\_\+d, double buffer\+\_\+length\+\_\+d, double time\+\_\+step\+\_\+d)
+\textbf{ data\+\_\+plot} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+String name\+\_\+str, double min\+\_\+d, double max\+\_\+d, double length\+\_\+d, double step\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \textbf{ $\sim$data\+\_\+plot} (void)
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-void \textbf{ insert\+\_\+signal} (wx\+String signal\+\_\+label\+\_\+str, wx\+Pen signal\+\_\+style\+\_\+pen)
-\begin{DoxyCompactList}\small\item\em Insert signal in to graph. \end{DoxyCompactList}\item 
-uint32\+\_\+t \textbf{ get\+\_\+signal} (void)
-\begin{DoxyCompactList}\small\item\em Get number of signal in graph. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ insert\+\_\+data} (uint32\+\_\+t index\+\_\+ui32, double data\+\_\+d)
-\begin{DoxyCompactList}\small\item\em Insert data in to specific signal buffer. \end{DoxyCompactList}\item 
-void \textbf{ time\+\_\+increment} (void)
-\begin{DoxyCompactList}\small\item\em Increment time X scale (call after insert all single data) \end{DoxyCompactList}\item 
-void {\bfseries redraw\+\_\+event} (void)
-\end{DoxyCompactItemize}
+void \textbf{ add} (wx\+String signal\+\_\+label\+\_\+str, wx\+Pen signal\+\_\+style\+\_\+pen)
+\begin{DoxyCompactList}\small\item\em Add new plot signal. \end{DoxyCompactList}\item 
+void \textbf{ erase} (wx\+String signal\+\_\+label\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Delete signal from math plot. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Return number of signal buffer in graph. \end{DoxyCompactList}\item 
+bool \textbf{ set} (wx\+String signal\+\_\+label\+\_\+str, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set signal data by name. \end{DoxyCompactList}\item 
+bool \textbf{ set} (uint32\+\_\+t signal\+\_\+ui32, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set signal data by index. \end{DoxyCompactList}\item 
+void \textbf{ show} (wx\+String signal\+\_\+label\+\_\+str, bool show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set signal visibility. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+time} (double length\+\_\+d, double step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set logged data length and sample period. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+range} (double max\+\_\+d, double min\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set graph range. \end{DoxyCompactList}\item 
+void \textbf{ redraw} (void)
+\begin{DoxyCompactList}\small\item\em Redraw new data and set time cursor. \end{DoxyCompactList}\item 
+void \textbf{ fit} (bool default\+\_\+b=true)
+\begin{DoxyCompactList}\small\item\em Set graph in to default zoom. \end{DoxyCompactList}\item 
+void \textbf{ pause} (bool pause\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Redraw data pause. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static const long \textbf{ l\+\_\+id\+\_\+graph\+\_\+name\+\_\+wxstatictext} = wx\+New\+Id()
+static const long \textbf{ l\+\_\+id\+\_\+name\+\_\+wxstatictext} = wx\+New\+Id()
 \item 
+\mbox{\label{classdata__plot_a038ad084f5f4347db06e04f4577971a8}} 
+static const long {\bfseries l\+\_\+id\+\_\+pause\+\_\+wxtogglebutton} = wx\+New\+Id()
+\item 
+\mbox{\label{classdata__plot_aec0e75ed41fee6b0de0cca8a16057691}} 
+static const long {\bfseries l\+\_\+id\+\_\+zoom\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{classdata__plot_a7aff436d8d83364e4e815d2f7bfff7c3}} 
+static const long {\bfseries l\+\_\+id\+\_\+zoom\+\_\+plus\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{classdata__plot_aeb24b1c633ae2843b9246be574651c01}} 
+static const long {\bfseries l\+\_\+id\+\_\+zoom\+\_\+minus\+\_\+wxbutton} = wx\+New\+Id()
+\item 
+\mbox{\label{classdata__plot_a10abc0ea5fa305013d1830bf196d38cb}} 
+static const long {\bfseries l\+\_\+id\+\_\+legend\+\_\+wxcheckbox} = wx\+New\+Id()
+\item 
+\mbox{\label{classdata__plot_a64116a5bb4acf43245cede80ba9aeda7}} 
 static const long {\bfseries l\+\_\+id\+\_\+x\+\_\+axis\+\_\+mpscalex} = wx\+New\+Id()
 \item 
+\mbox{\label{classdata__plot_a9287f0398cabdf44fed0917d5b29755a}} 
 static const long {\bfseries l\+\_\+id\+\_\+y\+\_\+axis\+\_\+mpscalex} = wx\+New\+Id()
 \item 
+\mbox{\label{classdata__plot_a42fc81a312aa4155d3b292bbbf67b6e9}} 
 static const long {\bfseries l\+\_\+id\+\_\+graph\+\_\+mpwindow} = wx\+New\+Id()
 \item 
+\mbox{\label{classdata__plot_ac3357130ffef1c84e586d278db565272}} 
 static const long {\bfseries l\+\_\+id\+\_\+graph\+\_\+signal\+\_\+wxgrid} = wx\+New\+Id()
-\item 
-static const long {\bfseries l\+\_\+id\+\_\+redraw\+\_\+wxtimer} = wx\+New\+Id()
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class 
 
-Definition at line 65 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h.
+Definition at line 69 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h.
+
+
+
+\subsection{Field Documentation}
+\mbox{\label{classdata__plot_a21b13634d129254d5323f79dea203b5d}} 
+\index{data\_plot@{data\_plot}!l\_id\_name\_wxstatictext@{l\_id\_name\_wxstatictext}}
+\index{l\_id\_name\_wxstatictext@{l\_id\_name\_wxstatictext}!data\_plot@{data\_plot}}
+\subsubsection{l\_id\_name\_wxstatictext}
+{\footnotesize\ttfamily const long l\+\_\+id\+\_\+name\+\_\+wxstatictext = wx\+New\+Id()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Library
+
+Local variable 
+
+Definition at line 90 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/\textbf{ in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h}\item 
-D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/\textbf{ in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp}\end{DoxyCompactItemize}
+D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+h.\+h\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/data\+\_\+plot/in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp\end{DoxyCompactItemize}

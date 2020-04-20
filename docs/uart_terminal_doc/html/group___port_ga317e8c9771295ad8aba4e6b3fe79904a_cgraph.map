@@ -1,0 +1,5 @@
+<map id="stop" name="stop">
+<area shape="rect" id="node1" title="Stop script." alt="" coords="5,5,52,32"/>
+<area shape="rect" id="node2" href="$group___thread.html#gaacf6bf8e121fea8b0a92d7197b73fe27" title="Stop thread." alt="" coords="100,5,205,32"/>
+<area shape="rect" id="node3" href="$group___thread.html#ga9be40565c676939670f97a1fa1966c28" title="Enable thread event." alt="" coords="253,5,368,32"/>
+</map>

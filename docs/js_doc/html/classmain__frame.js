@@ -1,16 +1,17 @@
 var classmain__frame =
 [
-    [ "clear", "classmain__frame.html#ae683fe63c33c388e9ba1c6392dd477eb", null ],
-    [ "close", "classmain__frame.html#a67b72387b99fb35706b11eeba7070bc4", null ],
-    [ "console_rx_enable", "classmain__frame.html#a42466769794c3edd479bc62db0f796f1", null ],
-    [ "get_data", "classmain__frame.html#aaae434e0d6a898619ff85e42ad3f795d", null ],
-    [ "get_open_status", "classmain__frame.html#aefe5b38f87e41cd0a2cbf8405b6c3cc1", null ],
-    [ "gui", "classmain__frame.html#a61f0cb0eb41e16d4797c2e33c5af8c7d", null ],
-    [ "hide", "classmain__frame.html#a282bf29e2a338ad6ff537b3c98162561", null ],
-    [ "is_console_rx_enable", "classmain__frame.html#a7ba59ce4eb6c8eb6bdf549389b59ef43", null ],
-    [ "open", "classmain__frame.html#a2cab3b1832cb16b04d1df3a6e570825f", null ],
-    [ "printf", "classmain__frame.html#a9e920dc62c65350fc91a14a0aea468ff", null ],
-    [ "reg_event", "classmain__frame.html#a5de0221752900adfbd902ddbe445eee4", null ],
-    [ "status", "classmain__frame.html#acfdcad0ad326ba921b048b0be0b4299e", null ],
-    [ "progress_d", "classmain__frame.html#ad8890da38ee09bca1d0a8e8f5989e6fe", null ]
+    [ "clear", "classmain__frame.html#aa821bec12eaa7e0f649397c9675ff505", null ],
+    [ "close", "classmain__frame.html#aa69c8bf1f1dcf4e72552efff1fe3e87e", null ],
+    [ "console_rx_enable", "classmain__frame.html#ab2f41cb5c107ff572fd4cf2054593e85", null ],
+    [ "get_data", "classmain__frame.html#a1d5fe8687a955a4fc5f803dc47b644df", null ],
+    [ "get_open_status", "classmain__frame.html#a7e4ce3b50be33239672b4a51e974baa0", null ],
+    [ "gui", "classmain__frame.html#aebbde0b9de677f5038f5e61c3748e4c6", null ],
+    [ "hide", "classmain__frame.html#a9daa589d2e74c269cc78bccaca50bf40", null ],
+    [ "is_console_rx_enable", "classmain__frame.html#a52c27dfc34aa450413b632c62a2e1266", null ],
+    [ "open", "classmain__frame.html#a44a2ac59a3b91f8c18905dce700934d6", null ],
+    [ "open", "classmain__frame.html#abe660e412aec60f8c6331dc1ecc5bd06", null ],
+    [ "printf", "classmain__frame.html#a79b426eee04cbf6119282385151c235c", null ],
+    [ "reg_event", "classmain__frame.html#a182485bf94b7e6b5b3f0da6935ef40b1", null ],
+    [ "status", "classmain__frame.html#aa7e74abc2c1d1874144fe30c711112ef", null ],
+    [ "progress_d", "classmain__frame.html#aa3e8365c54a730c0b8806fdd9b158d31", null ]
 ];

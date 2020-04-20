@@ -1,7 +1,7 @@
 var classcheck__box =
 [
-    [ "add", "classcheck__box.html#a304780d135afb477738f1c8487bce123", null ],
-    [ "get", "classcheck__box.html#a07ec246c4be9ad50ee8eab29041805ec", null ],
-    [ "reg_event", "classcheck__box.html#aca4db2446dfef881cb9fbd9dc3326733", null ],
-    [ "set", "classcheck__box.html#aee722d4436a648fa1c666bfb3c085944", null ]
+    [ "add", "classcheck__box.html#afae13d57400c74b794bfb755e2eaca0b", null ],
+    [ "get", "classcheck__box.html#a2645d1691c07212947e2adde143e5739", null ],
+    [ "reg_event", "classcheck__box.html#aaf37880c52fb8441d4772e17fb8f6cbc", null ],
+    [ "set", "classcheck__box.html#a6155253b00e6a4c2250128cde4e4a164", null ]
 ];

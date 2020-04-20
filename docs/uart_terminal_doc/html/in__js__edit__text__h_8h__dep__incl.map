@@ -1,0 +1,18 @@
+<map id="D:/project/uart_terminal/infrastructure/jerryscript/edit/in_js_edit_text_h.h" name="D:/project/uart_terminal/infrastructure/jerryscript/edit/in_js_edit_text_h.h">
+<area shape="rect" id="node1" title="JerryScript text editor base on wxScintilla." alt="" coords="428,5,591,61"/>
+<area shape="rect" id="node2" href="$in__js__edit__text__comp__gen__cpp_8cpp.html" title="JerryScript text editor auto competation generated on wxScintilla." alt="" coords="217,109,391,180"/>
+<area shape="rect" id="node3" href="$in__js__edit__text__cpp_8cpp.html" title="JerryScript text editor base on wxScintilla." alt="" coords="415,117,603,173"/>
+<area shape="rect" id="node4" href="$in__jerryscript__editor__h_8h.html" title="JerryScript file editor panel." alt="" coords="627,117,791,173"/>
+<area shape="rect" id="node5" href="$ap__editor__frame__h_8h.html" title="Text editor window component creator." alt="" coords="531,228,688,284"/>
+<area shape="rect" id="node16" href="$in__jerryscript__editor__cpp_8cpp.html" title="JerryScript file editor panel." alt="" coords="712,228,904,284"/>
+<area shape="rect" id="node6" href="$ap__editor__frame__cpp_8cpp.html" title="Text editor window component creator." alt="" coords="5,443,163,499"/>
+<area shape="rect" id="node7" href="$ap__uart__terminal__frame__h_8h.html" title="Application window component creator." alt="" coords="812,332,999,388"/>
+<area shape="rect" id="node8" href="$ap__uart__terminal__frame__cpp_8cpp.html" title="Application window component creator." alt="" coords="187,443,402,499"/>
+<area shape="rect" id="node9" href="$in__js__class__graph__js__cpp_8cpp.html" title="JerryScript wrapper for graph class." alt="" coords="427,443,661,499"/>
+<area shape="rect" id="node10" href="$in__js__class__main__frame__js__cpp_8cpp.html" title="JerryScript wrapper for main_frame class." alt="" coords="685,436,885,507"/>
+<area shape="rect" id="node11" href="$in__js__class__panel__js__cpp_8cpp.html" title="JerryScript wrapper for AUI panel." alt="" coords="909,443,1144,499"/>
+<area shape="rect" id="node12" href="$in__js__class__sizer__js__cpp_8cpp.html" title="JerryScript wrapper for component sizer." alt="" coords="1169,443,1399,499"/>
+<area shape="rect" id="node13" href="$in__js__gui__frame__cpp_8cpp.html" title="GUI window component creator." alt="" coords="1423,443,1614,499"/>
+<area shape="rect" id="node14" href="$in__jerryscript__port__cpp_8cpp.html" title="JavaScript interpreter port." alt="" coords="1638,443,1821,499"/>
+<area shape="rect" id="node15" href="$in__main__app__cpp_8cpp.html" title="Application window creator." alt="" coords="1845,443,2003,499"/>
+</map>

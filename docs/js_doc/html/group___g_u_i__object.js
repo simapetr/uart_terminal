@@ -1,41 +1,48 @@
 var group___g_u_i__object =
 [
     [ "panel", "classpanel.html", [
-      [ "add", "classpanel.html#a79fc398bf48fc29226a5d64371047def", null ],
-      [ "get_sizer", "classpanel.html#a3d192aeb663e089278a27eec28435d0c", null ]
+      [ "add", "classpanel.html#a5715748aa5935fb3b35c82b422d209e1", null ],
+      [ "get", "classpanel.html#ac8a7922984844f20d35afc355336ceb2", null ],
+      [ "get_sizer", "classpanel.html#a346b6978db558e41405dd5662601acca", null ],
+      [ "set", "classpanel.html#a4dd7a414f2ac1b03e0c849f54d396a0d", null ]
     ] ],
     [ "sizer", "classsizer.html", [
-      [ "add", "classsizer.html#a48f0ed15ee95563920d7e4cd551bebe8", null ]
+      [ "add", "classsizer.html#a8575f2b33c9494f4869106594b5ad1c4", null ]
     ] ],
     [ "button", "classbutton.html", [
-      [ "add", "classbutton.html#aa718efb3db1aa6e994d4ee0f4b31e024", null ],
-      [ "reg_event", "classbutton.html#a101be349b18d1cdc1a1f5bf9cf98d415", null ]
+      [ "add", "classbutton.html#ab82d2b4bd8074db58ceb9165b163cb9c", null ],
+      [ "reg_event", "classbutton.html#a34819d1305faa04681491c6cd62c4daf", null ]
     ] ],
     [ "check_box", "classcheck__box.html", [
-      [ "add", "classcheck__box.html#a304780d135afb477738f1c8487bce123", null ],
-      [ "get", "classcheck__box.html#a07ec246c4be9ad50ee8eab29041805ec", null ],
-      [ "reg_event", "classcheck__box.html#aca4db2446dfef881cb9fbd9dc3326733", null ],
-      [ "set", "classcheck__box.html#aee722d4436a648fa1c666bfb3c085944", null ]
+      [ "add", "classcheck__box.html#afae13d57400c74b794bfb755e2eaca0b", null ],
+      [ "get", "classcheck__box.html#a2645d1691c07212947e2adde143e5739", null ],
+      [ "reg_event", "classcheck__box.html#aaf37880c52fb8441d4772e17fb8f6cbc", null ],
+      [ "set", "classcheck__box.html#a6155253b00e6a4c2250128cde4e4a164", null ]
     ] ],
     [ "textctrl", "classtextctrl.html", [
-      [ "add", "classtextctrl.html#a9be1b2dbe78ed82084d7864782b64e33", null ],
-      [ "append", "classtextctrl.html#a289b64609e56d297085f264ac9ee10f9", null ],
-      [ "get", "classtextctrl.html#ab0cbf2f1d4309c9589b475c2aa27343f", null ],
-      [ "set", "classtextctrl.html#a0a55dab1053335fa9470498a38ebb206", null ]
+      [ "add", "classtextctrl.html#a68fb628585859b9a9869ce32b3307ea0", null ],
+      [ "append", "classtextctrl.html#acecfb68018d431f03e131b4b000fa444", null ],
+      [ "get", "classtextctrl.html#ad86b7120566740f7457c61325441ab69", null ],
+      [ "set", "classtextctrl.html#a75fbd30a9a500e6dc87331a7d5d18074", null ]
     ] ],
     [ "static_text", "classstatic__text.html", [
-      [ "add", "classstatic__text.html#a880a9abe4645483fda0ec47b6745ad46", null ],
-      [ "set", "classstatic__text.html#ab22c3a79da277f21a08e87c347609344", null ]
+      [ "add", "classstatic__text.html#ab82d2b4bd8074db58ceb9165b163cb9c", null ],
+      [ "set", "classstatic__text.html#a07104428db7381571d4006eecd405e2c", null ]
     ] ],
     [ "slider", "classslider.html", [
-      [ "add", "classslider.html#aebc02dc8ce3998d9dc68eadfb58e86e8", null ],
-      [ "get", "classslider.html#ad011f267c429dfe95c8fe0151bffbbdf", null ],
-      [ "reg_event", "classslider.html#a59f385c2f6089ab49598c763f32f0c8d", null ],
-      [ "set", "classslider.html#ac2443195b61f62cc9a960e1313e94322", null ]
+      [ "add", "classslider.html#acb93b8c322d92ee1a45baf0f01a6acb6", null ],
+      [ "get", "classslider.html#a82960d99505f4a0f97e8a3c59fcface9", null ],
+      [ "reg_event", "classslider.html#a5cf578abd8ca7c77bf952990d7942bb1", null ],
+      [ "set", "classslider.html#a537232df47b6c915ab56ad706d35d175", null ]
     ] ],
     [ "gauge", "classgauge.html", [
-      [ "add", "classgauge.html#a7204c33db14bd49c561cd715852bf331", null ],
-      [ "get", "classgauge.html#a6e28e891b585675fe1fc39de4fbd9c72", null ],
-      [ "set", "classgauge.html#a1b342babb211d18a1467f54edb165fdd", null ]
+      [ "add", "classgauge.html#a5da6e659c69938ba73c64802e7ef99c1", null ],
+      [ "get", "classgauge.html#a6e9ff90000b8773ffa528c6a3729146b", null ],
+      [ "set", "classgauge.html#a42206ea1948d154d1aad15827ff5f427", null ]
+    ] ],
+    [ "led", "classled.html", [
+      [ "add", "classled.html#ac4ae7d1ec7f719ab06c2b2b2b66bc979", null ],
+      [ "add", "classled.html#aadc49bfbc3e70ee42746a66b896aa4ce", null ],
+      [ "set", "classled.html#ace68f9a6575a6b2c4c4af0ae511fc2ca", null ]
     ] ]
 ];

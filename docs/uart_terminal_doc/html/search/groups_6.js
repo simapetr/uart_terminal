@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['hardware',['Hardware',['../group___hardware.html',1,'']]]
+  ['gauge',['Gauge',['../group___gauge.html',1,'']]],
+  ['graph',['Graph',['../group___graph.html',1,'']]],
+  ['gui',['GUI',['../group___g_u_i.html',1,'']]]
 ];

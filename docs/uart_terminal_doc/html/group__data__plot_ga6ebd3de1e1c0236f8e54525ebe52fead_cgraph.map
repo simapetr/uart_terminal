@@ -1,0 +1,4 @@
+<map id="show" name="show">
+<area shape="rect" id="node1" title="Set signal visibility." alt="" coords="5,5,57,32"/>
+<area shape="rect" id="node2" href="$group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="105,5,145,32"/>
+</map>

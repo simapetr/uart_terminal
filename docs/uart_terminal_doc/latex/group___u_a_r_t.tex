@@ -5,7 +5,8 @@
 U\+A\+RT class definition.  
 
 
-Collaboration diagram for U\+A\+RT\+:\nopagebreak
+Collaboration diagram for U\+A\+RT\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -73,7 +74,7 @@ enum {\bfseries uart\+\_\+status\+\_\+t} \{ \newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ reg\+\_\+host\+\_\+class} (\textbf{ uart\+\_\+port} $\ast$p\+\_\+com\+\_\+uart\+\_\+port)
+void \textbf{ reg\+\_\+host\+\_\+class} (\textbf{ uart\+\_\+port} $\ast$p\+\_\+com\+\_\+uart\+\_\+port, wx\+Condition $\ast$p\+\_\+data\+\_\+wxcondition)
 \begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
 void \textbf{ dereg\+\_\+host\+\_\+class} (void)
 \begin{DoxyCompactList}\small\item\em Deregistration object in to class. \end{DoxyCompactList}\item 
@@ -89,46 +90,43 @@ static uint32\+\_\+t \textbf{ get\+\_\+ctrl} (const uint32\+\_\+t funct\+\_\+ui3
 \begin{DoxyCompactList}\small\item\em Get U\+A\+RT control line status (JS method \char`\"{}get\+\_\+ctrl\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ set\+\_\+ctrl} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Set U\+A\+RT control line status (JS method \char`\"{}set\+\_\+ctrl\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ call} (void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Call U\+A\+RT data RX event (Must be called form JS thread) \end{DoxyCompactList}\item 
 \textbf{ uart\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \textbf{ $\sim$uart\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-void \textbf{ get\+\_\+port} (void)
-\begin{DoxyCompactList}\small\item\em Get U\+A\+RT port list. \end{DoxyCompactList}\item 
-string $\ast$ \textbf{ get\+\_\+bus\+\_\+array} (void)
+string $\ast$ \textbf{ get\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Get pointer on port array. \end{DoxyCompactList}\item 
 uart\+\_\+status\+\_\+t \textbf{ open} (\textbf{ uart\+\_\+cfg\+\_\+t} $\ast$p\+\_\+data\+\_\+uart\+\_\+cfg)
 \begin{DoxyCompactList}\small\item\em Open and set U\+A\+RT port communication. \end{DoxyCompactList}\item 
 void \textbf{ close} (void)
 \begin{DoxyCompactList}\small\item\em Close U\+A\+RT port communication. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ create\+\_\+event} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct, void $\ast$p\+\_\+parametr\+\_\+void)
+uint8\+\_\+t \textbf{ set} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct, void $\ast$p\+\_\+parametr\+\_\+void)
 \begin{DoxyCompactList}\small\item\em Associate driver event function. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ delete\+\_\+event} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct)
+uint8\+\_\+t \textbf{ clear} (\textbf{ uart\+\_\+event\+\_\+fct} function\+\_\+uart\+\_\+event\+\_\+fct)
 \begin{DoxyCompactList}\small\item\em Delete associated event function. \end{DoxyCompactList}\item 
-void \textbf{ delete\+\_\+event\+\_\+all} (void)
+void \textbf{ clear} (void)
 \begin{DoxyCompactList}\small\item\em Delete all associated event. \end{DoxyCompactList}\item 
 uart\+\_\+status\+\_\+t \textbf{ get\+\_\+state} (void)
 \begin{DoxyCompactList}\small\item\em Get port status (call after construction object for test correct open) \end{DoxyCompactList}\item 
-uint32\+\_\+t \textbf{ get\+\_\+last\+\_\+error} (void)
-\begin{DoxyCompactList}\small\item\em Get port last error. \end{DoxyCompactList}\item 
-uint32\+\_\+t \textbf{ wait\+\_\+rx\+\_\+event} (void)
-\begin{DoxyCompactList}\small\item\em Wait for receive data. \end{DoxyCompactList}\item 
+\textbf{ uart\+\_\+cfg\+\_\+t} \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Get port configuration. \end{DoxyCompactList}\item 
 uint8\+\_\+t \textbf{ flush} (void)
 \begin{DoxyCompactList}\small\item\em Erase communication buffer. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ write\+\_\+data} (uint8\+\_\+t data\+\_\+ui8)
+uint8\+\_\+t \textbf{ send} (uint8\+\_\+t data\+\_\+ui8)
 \begin{DoxyCompactList}\small\item\em Write character. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ write\+\_\+data} (uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t len\+\_\+ui32)
+uint8\+\_\+t \textbf{ send} (uint8\+\_\+t $\ast$p\+\_\+data\+\_\+sui8, uint32\+\_\+t len\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Write data string. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ write\+\_\+data} (vector$<$ uint8\+\_\+t $>$ \&pv\+\_\+data\+\_\+sui8)
-\begin{DoxyCompactList}\small\item\em Write data vector. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ read\+\_\+data} (uint8\+\_\+t $\ast$p\+\_\+data\+\_\+ui8)
-\begin{DoxyCompactList}\small\item\em Read character. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ read\+\_\+data} (string $\ast$p\+\_\+data\+\_\+str)
-\begin{DoxyCompactList}\small\item\em Read data from character buffer. \end{DoxyCompactList}\item 
-uint8\+\_\+t \textbf{ get\+\_\+com\+\_\+ctrl} (\textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t} pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+in)
+uint8\+\_\+t \textbf{ get} (\textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t} pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+in)
 \begin{DoxyCompactList}\small\item\em Get com state. \end{DoxyCompactList}\item 
-void \textbf{ set\+\_\+com\+\_\+ctrl} (uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+out, uint8\+\_\+t state\+\_\+ui8)
+void \textbf{ set} (uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+out, uint8\+\_\+t state\+\_\+ui8)
 \begin{DoxyCompactList}\small\item\em Set com state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \textbf{ packet\+\_\+buffer\+\_\+t} $>$ \textbf{ lv\+\_\+main\+\_\+packet\+\_\+buffer}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -143,7 +141,7 @@ U\+A\+RT communication bus.
 \subsubsection{d\_buffer\_size}
 {\footnotesize\ttfamily \#define d\+\_\+buffer\+\_\+size~4096}
 
-Struct 
+Define 
 
 Definition at line 53 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
@@ -158,7 +156,7 @@ Definition at line 53 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\
 
 Type 
 
-Definition at line 96 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
+Definition at line 98 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
 
 
 
@@ -171,11 +169,79 @@ Definition at line 96 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
 
 Enum 
 
-Definition at line 60 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
+Definition at line 62 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+h.\+h.
 
 
 
 \subsection{Function Documentation}
+\mbox{\label{group___u_a_r_t_ga0f26df9896cdb77a44c97bf86311027e}} 
+\index{UART@{UART}!call@{call}}
+\index{call@{call}!UART@{UART}}
+\subsubsection{call()}
+{\footnotesize\ttfamily uint32\+\_\+t call (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Call U\+A\+RT data RX event (Must be called form JS thread) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parametr\+\_\+void \+: Handle on registered object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: number of item in U\+A\+RT buffer 
+\end{DoxyReturn}
+
+
+Definition at line 542 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t_ga754f82a7989318270e055e912e8b8f49}} 
+\index{UART@{UART}!clear@{clear}}
+\index{clear@{clear}!UART@{UART}}
+\subsubsection{clear()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t clear (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+event\+\_\+fct}}]{function\+\_\+uart\+\_\+event\+\_\+fct }\end{DoxyParamCaption})}
+
+
+
+Delete associated event function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & function\+\_\+uart\+\_\+event\+\_\+fct \+: Pointer on event function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t \+: Status event registration \begin{DoxyItemize}
+\item 0 \+: Event was not associated \item 1 \+: Event deleted \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+Definition at line 321 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t_gae683fe63c33c388e9ba1c6392dd477eb}} 
+\index{UART@{UART}!clear@{clear}}
+\index{clear@{clear}!UART@{UART}}
+\subsubsection{clear()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Delete all associated event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 344 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+
 \mbox{\label{group___u_a_r_t_ga363ba96e4e056bcbd74e568cf8ba2e53}} 
 \index{UART@{UART}!close@{close}}
 \index{close@{close}!UART@{UART}}
@@ -202,7 +268,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 239 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 234 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga67b72387b99fb35706b11eeba7070bc4}} 
 \index{UART@{UART}!close@{close}}
@@ -224,78 +290,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 261 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga5e385f6a6db227e39f492066967e1fc8}} 
-\index{UART@{UART}!create\_event@{create\_event}}
-\index{create\_event@{create\_event}!UART@{UART}}
-\subsubsection{create\_event()}
-{\footnotesize\ttfamily uint8\+\_\+t create\+\_\+event (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+event\+\_\+fct}}]{function\+\_\+uart\+\_\+event\+\_\+fct,  }\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void }\end{DoxyParamCaption})}
-
-
-
-Associate driver event function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & function\+\_\+uart\+\_\+event\+\_\+fct \+: Pointer on event function \\
-\hline
-{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parameter\+\_\+void \+: Input thread parameter \\
-\hline
-{\em p\+\_\+parametr\+\_\+void} & \+: parameter for event function \begin{DoxyItemize}
-\item 0 \+: Event is registered \item 1 \+: Event stored \end{DoxyItemize}
-\\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 294 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga5d455e1ba65f4dee563b13f7f744855a}} 
-\index{UART@{UART}!delete\_event@{delete\_event}}
-\index{delete\_event@{delete\_event}!UART@{UART}}
-\subsubsection{delete\_event()}
-{\footnotesize\ttfamily uint8\+\_\+t delete\+\_\+event (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+event\+\_\+fct}}]{function\+\_\+uart\+\_\+event\+\_\+fct }\end{DoxyParamCaption})}
-
-
-
-Delete associated event function. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & function\+\_\+uart\+\_\+event\+\_\+fct \+: Pointer on event function \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: Status event registration \begin{DoxyItemize}
-\item 0 \+: Event was not associated \item 1 \+: Event deleted \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 328 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga9459cdf9380eef6dc1b22277f769d7b8}} 
-\index{UART@{UART}!delete\_event\_all@{delete\_event\_all}}
-\index{delete\_event\_all@{delete\_event\_all}!UART@{UART}}
-\subsubsection{delete\_event\_all()}
-{\footnotesize\ttfamily void delete\+\_\+event\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Delete all associated event. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em void} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-void 
-\end{DoxyReturn}
-
-
-Definition at line 351 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 253 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383}} 
 \index{UART@{UART}!dereg\_host\_class@{dereg\_host\_class}}
@@ -317,13 +312,14 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 171 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 162 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=324pt]{group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph}
+\includegraphics[width=291pt]{group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph}
 \end{center}
 \end{figure}
 \mbox{\label{group___u_a_r_t_gaa794a3286d40611ae62fc24176b751d1}} 
@@ -348,17 +344,17 @@ uint8\+\_\+t \+: status \begin{DoxyItemize}
 \end{DoxyReturn}
 
 
-Definition at line 510 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 383 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t_ga8b5def1ddf2d0145b4cb954e846703b8}} 
-\index{UART@{UART}!get\_bus\_array@{get\_bus\_array}}
-\index{get\_bus\_array@{get\_bus\_array}!UART@{UART}}
-\subsubsection{get\_bus\_array()}
-{\footnotesize\ttfamily string $\ast$ get\+\_\+bus\+\_\+array (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\mbox{\label{group___u_a_r_t_gad11f0e7fd04d6e4c6ad5437f7dd5bfad}} 
+\index{UART@{UART}!get@{get}}
+\index{get@{get}!UART@{UART}}
+\subsubsection{get()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ uart\+\_\+cfg\+\_\+t} get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Get pointer on port array. 
+Get port configuration. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -366,17 +362,17 @@ Get pointer on port array.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Pointer on available port array 
+\doxyref{uart\+\_\+cfg\+\_\+t}{p.}{structuart__cfg__t} \+: Port configuration structure 
 \end{DoxyReturn}
 
 
-Definition at line 136 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 369 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t_gaf070b0aac7f9ea22546b9e26c8a44ac4}} 
-\index{UART@{UART}!get\_com\_ctrl@{get\_com\_ctrl}}
-\index{get\_com\_ctrl@{get\_com\_ctrl}!UART@{UART}}
-\subsubsection{get\_com\_ctrl()}
-{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+com\+\_\+ctrl (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t}}]{pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+in }\end{DoxyParamCaption})}
+\mbox{\label{group___u_a_r_t_ga089c2fb9ba704c18814ccea4abfd6e13}} 
+\index{UART@{UART}!get@{get}}
+\index{get@{get}!UART@{UART}}
+\subsubsection{get()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t get (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+com\+\_\+ctrl\+\_\+in\+\_\+t}}]{pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+in }\end{DoxyParamCaption})}
 
 
 
@@ -392,7 +388,7 @@ uint8\+\_\+t \+: Pin state
 \end{DoxyReturn}
 
 
-Definition at line 685 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 484 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga1ce6c12b73f1236771ba9854d8fa400e}} 
 \index{UART@{UART}!get\_ctrl@{get\_ctrl}}
@@ -420,39 +416,17 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 420 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 408 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t_ga24df103a47da7ff360dd63bfd95979aa}} 
-\index{UART@{UART}!get\_last\_error@{get\_last\_error}}
-\index{get\_last\_error@{get\_last\_error}!UART@{UART}}
-\subsubsection{get\_last\_error()}
-{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+last\+\_\+error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Get port last error. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em void} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint32\+\_\+t \+: Port last error 
-\end{DoxyReturn}
-
-
-Definition at line 376 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_gac798621238150b1c78832fca4506500c}} 
+\mbox{\label{group___u_a_r_t_gae6b6ba665dcaaeb446acbbe9fb93f1f8}} 
 \index{UART@{UART}!get\_port@{get\_port}}
 \index{get\_port@{get\_port}!UART@{UART}}
 \subsubsection{get\_port()}
-{\footnotesize\ttfamily void get\+\_\+port (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily string $\ast$ get\+\_\+port (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Get U\+A\+RT port list. 
+Get pointer on port array. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -460,11 +434,11 @@ Get U\+A\+RT port list.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+string \+: Pointer on available port array 
 \end{DoxyReturn}
 
 
-Definition at line 88 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 90 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga8669f54faf6db2b728afc356b565bce7}} 
 \index{UART@{UART}!get\_state@{get\_state}}
@@ -486,7 +460,7 @@ uint8\+\_\+t \+: uart\+\_\+status\+\_\+t
 \end{DoxyReturn}
 
 
-Definition at line 364 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 357 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga13d19359523c4a5fb930a4a07141abbb}} 
 \index{UART@{UART}!open@{open}}
@@ -514,7 +488,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 187 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 178 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga264ec062ec69232b56998504a1542d3e}} 
 \index{UART@{UART}!open@{open}}
@@ -536,55 +510,7 @@ Status
 \end{DoxyReturn}
 
 
-Definition at line 148 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga670b388a868ac5ed4027e127092ba525}} 
-\index{UART@{UART}!read\_data@{read\_data}}
-\index{read\_data@{read\_data}!UART@{UART}}
-\subsubsection{read\_data()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+\_\+data\+\_\+ui8 }\end{DoxyParamCaption})}
-
-
-
-Read character. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+O\+U\+T\mbox{]}} & p\+\_\+data\+\_\+ui8 \+: Pointer on character buffer \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: status \begin{DoxyItemize}
-\item 0 \+: Data buffer is empty \item 1 \+: Data buffer not empty \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 642 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga6a5475b92fcee2a6fc035c94310f064b}} 
-\index{UART@{UART}!read\_data@{read\_data}}
-\index{read\_data@{read\_data}!UART@{UART}}
-\subsubsection{read\_data()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+data (\begin{DoxyParamCaption}\item[{string $\ast$}]{p\+\_\+data\+\_\+str }\end{DoxyParamCaption})}
-
-
-
-Read data from character buffer. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+O\+U\+T\mbox{]}} & p\+\_\+data\+\_\+str \+: Pointer on character string buffer \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: status \begin{DoxyItemize}
-\item 0 \+: Data buffer is empty \item 1 \+: Data buffer not empty \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 664 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 138 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_gaec005a4f579a1a6d57a16392e5cdd07e}} 
 \index{UART@{UART}!reg\_event@{reg\_event}}
@@ -612,13 +538,13 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 273 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 272 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t_ga4d3e5b08bdd2eef31fa81984aa8bb69c}} 
+\mbox{\label{group___u_a_r_t_gaa2783e85c05c3b546af091beb46be5b0}} 
 \index{UART@{UART}!reg\_host\_class@{reg\_host\_class}}
 \index{reg\_host\_class@{reg\_host\_class}!UART@{UART}}
 \subsubsection{reg\_host\_class()}
-{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+port} $\ast$}]{p\+\_\+com\+\_\+uart\+\_\+port }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void reg\+\_\+host\+\_\+class (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+port} $\ast$}]{p\+\_\+com\+\_\+uart\+\_\+port,  }\item[{wx\+Condition $\ast$}]{p\+\_\+data\+\_\+wxcondition }\end{DoxyParamCaption})}
 
 
 
@@ -628,19 +554,96 @@ Function
 \begin{DoxyParams}{Parameters}
 {\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+com\+\_\+uart\+\_\+port \+: Pointer on registered class \\
 \hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+data\+\_\+wxcondition \+: Rx data call event \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
 
 
-Definition at line 94 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 90 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t_ga1ed6cd4425396c2c3f4577057db3acb9}} 
-\index{UART@{UART}!set\_com\_ctrl@{set\_com\_ctrl}}
-\index{set\_com\_ctrl@{set\_com\_ctrl}!UART@{UART}}
-\subsubsection{set\_com\_ctrl()}
-{\footnotesize\ttfamily void set\+\_\+com\+\_\+ctrl (\begin{DoxyParamCaption}\item[{uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t}]{pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+out,  }\item[{uint8\+\_\+t}]{state\+\_\+ui8 }\end{DoxyParamCaption})}
+\mbox{\label{group___u_a_r_t_ga063b66236e7816050f412c5707a67f66}} 
+\index{UART@{UART}!send@{send}}
+\index{send@{send}!UART@{UART}}
+\subsubsection{send()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data\+\_\+ui8 }\end{DoxyParamCaption})}
+
+
+
+Write character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+ui8 \+: Data character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t \+: status \begin{DoxyItemize}
+\item 0 \+: Data not send \item 1 \+: Data send correctly \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+Definition at line 397 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t_ga22d400e8094ebe650c1125419473d058}} 
+\index{UART@{UART}!send@{send}}
+\index{send@{send}!UART@{UART}}
+\subsubsection{send()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+\_\+data\+\_\+sui8,  }\item[{uint32\+\_\+t}]{len\+\_\+ui32 }\end{DoxyParamCaption})}
+
+
+
+Write data string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+data\+\_\+sui8 \+: Pointer on data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & len\+\_\+ui32 \+: Buffer length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t \+: status \begin{DoxyItemize}
+\item 0 \+: Data not send \item 1 \+: Data send correctly \end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+Definition at line 442 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t_ga21e7d2a80c82a5f9a76647ffc9ad8266}} 
+\index{UART@{UART}!set@{set}}
+\index{set@{set}!UART@{UART}}
+\subsubsection{set()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t set (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+event\+\_\+fct}}]{function\+\_\+uart\+\_\+event\+\_\+fct,  }\item[{void $\ast$}]{p\+\_\+parametr\+\_\+void }\end{DoxyParamCaption})}
+
+
+
+Associate driver event function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & function\+\_\+uart\+\_\+event\+\_\+fct \+: Pointer on event function \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parameter\+\_\+void \+: Input thread parameter \\
+\hline
+{\em p\+\_\+parametr\+\_\+void} & \+: parameter for event function \begin{DoxyItemize}
+\item 0 \+: Event is registered \item 1 \+: Event stored \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 287 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t_ga8e68fc507e7a376c9915937b13071c2d}} 
+\index{UART@{UART}!set@{set}}
+\index{set@{set}!UART@{UART}}
+\subsubsection{set()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{uart\+\_\+com\+\_\+ctrl\+\_\+out\+\_\+t}]{pin\+\_\+uart\+\_\+com\+\_\+ctrl\+\_\+out,  }\item[{uint8\+\_\+t}]{state\+\_\+ui8 }\end{DoxyParamCaption})}
 
 
 
@@ -658,7 +661,7 @@ uint8\+\_\+t \+: Pin state
 \end{DoxyReturn}
 
 
-Definition at line 733 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 532 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga212f0e8c05652caad919b232392fa451}} 
 \index{UART@{UART}!set\_ctrl@{set\_ctrl}}
@@ -686,7 +689,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 485 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+Definition at line 477 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d}} 
 \index{UART@{UART}!uart\_port@{uart\_port}}
@@ -710,35 +713,14 @@ void
 
 Definition at line 57 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=223pt]{group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d_cgraph}
 \end{center}
 \end{figure}
-\mbox{\label{group___u_a_r_t_ga793d670821e11fb2d4c66ce6fa477bd9}} 
-\index{UART@{UART}!wait\_rx\_event@{wait\_rx\_event}}
-\index{wait\_rx\_event@{wait\_rx\_event}!UART@{UART}}
-\subsubsection{wait\_rx\_event()}
-{\footnotesize\ttfamily uint32\+\_\+t wait\+\_\+rx\+\_\+event (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Wait for receive data. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em void} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint32\+\_\+t \+: Com status mask 
-\end{DoxyReturn}
-
-
-Definition at line 388 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
 \mbox{\label{group___u_a_r_t_ga2166ee27df8886f25c8d3ce7d41706ca}} 
 \index{UART@{UART}!write@{write}}
 \index{write@{write}!UART@{UART}}
@@ -765,81 +747,7 @@ uint32\+\_\+t \+: returned data
 \end{DoxyReturn}
 
 
-Definition at line 317 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_gab8445a3d538e13b197f85947402017b7}} 
-\index{UART@{UART}!write\_data@{write\_data}}
-\index{write\_data@{write\_data}!UART@{UART}}
-\subsubsection{write\_data()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data\+\_\+ui8 }\end{DoxyParamCaption})}
-
-
-
-Write character. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+ui8 \+: Data character \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: status \begin{DoxyItemize}
-\item 0 \+: Data not send \item 1 \+: Data send correctly \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 525 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga8762971ac744aeeac19b05e0b034134c}} 
-\index{UART@{UART}!write\_data@{write\_data}}
-\index{write\_data@{write\_data}!UART@{UART}}
-\subsubsection{write\_data()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+\_\+data\+\_\+sui8,  }\item[{uint32\+\_\+t}]{len\+\_\+ui32 }\end{DoxyParamCaption})}
-
-
-
-Write data string. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+data\+\_\+sui8 \+: Pointer on data buffer \\
-\hline
-{\em \mbox{[}\+I\+N\mbox{]}} & len\+\_\+ui32 \+: Buffer length \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: status \begin{DoxyItemize}
-\item 0 \+: Data not send \item 1 \+: Data send correctly \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 556 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
-
-\mbox{\label{group___u_a_r_t_ga22e5e9630a59690dec95bfc1203485db}} 
-\index{UART@{UART}!write\_data@{write\_data}}
-\index{write\_data@{write\_data}!UART@{UART}}
-\subsubsection{write\_data()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily uint8\+\_\+t write\+\_\+data (\begin{DoxyParamCaption}\item[{vector$<$ uint8\+\_\+t $>$ \&}]{pv\+\_\+data\+\_\+sui8 }\end{DoxyParamCaption})}
-
-
-
-Write data vector. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & pv\+\_\+data\+\_\+sui8 \+: Vector with data \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint8\+\_\+t \+: status \begin{DoxyItemize}
-\item 0 \+: Data not send \item 1 \+: Data send correctly \end{DoxyItemize}
-
-\end{DoxyReturn}
-
-
-Definition at line 599 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 320 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t_gae7fba3439edc5cb87b5280887027fa65}} 
 \index{UART@{UART}!````~uart\_port@{$\sim$uart\_port}}
@@ -861,12 +769,26 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 76 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
+Definition at line 78 of file hw\+\_\+dr\+\_\+uart\+\_\+driver\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=217pt]{group___u_a_r_t_gae7fba3439edc5cb87b5280887027fa65_cgraph}
 \end{center}
 \end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___u_a_r_t_gab42ede9e408c111d6680b521a5f6b6f0}} 
+\index{UART@{UART}!lv\_main\_packet\_buffer@{lv\_main\_packet\_buffer}}
+\index{lv\_main\_packet\_buffer@{lv\_main\_packet\_buffer}!UART@{UART}}
+\subsubsection{lv\_main\_packet\_buffer}
+{\footnotesize\ttfamily vector$<$\textbf{ packet\+\_\+buffer\+\_\+t}$>$ lv\+\_\+main\+\_\+packet\+\_\+buffer}
+
+Local variable 
+
+Definition at line 74 of file in\+\_\+js\+\_\+class\+\_\+uart\+\_\+js\+\_\+cpp.\+cpp.
+

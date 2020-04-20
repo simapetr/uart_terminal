@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['textctrl',['textctrl',['../classtextctrl.html',1,'']]],
-  ['time',['time',['../classtime.html',1,'']]],
-  ['timer',['timer',['../classtimer.html',1,'']]]
+  ['sizer',['sizer',['../classsizer.html',1,'']]],
+  ['slider',['slider',['../classslider.html',1,'']]],
+  ['static_5ftext',['static_text',['../classstatic__text.html',1,'']]]
 ];

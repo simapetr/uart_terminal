@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for main\+\_\+frame\+:\nopagebreak
+Inheritance diagram for main\+\_\+frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for main\+\_\+frame\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for main\+\_\+frame\+:\nopagebreak
+Collaboration diagram for main\+\_\+frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,26 +31,46 @@ Collaboration diagram for main\+\_\+frame\+:\nopagebreak
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 virtual \textbf{ $\sim$main\+\_\+frame} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ set} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set script path. \end{DoxyCompactList}\item 
+void \textbf{ run} (bool status\+\_\+b=true)
+\begin{DoxyCompactList}\small\item\em Run Loaded script. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Get script path. \end{DoxyCompactList}\item 
 void \textbf{ gui} (bool status\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set frame show status. \end{DoxyCompactList}\item 
 \textbf{ config\+\_\+ini} $\ast$ \textbf{ get\+\_\+project} (void)
 \begin{DoxyCompactList}\small\item\em Get project configuration object. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+hide} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Hide main frame from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ console\+\_\+rx\+\_\+enable} (bool status\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set RX data show status. \end{DoxyCompactList}\item 
 bool \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (void)
 \begin{DoxyCompactList}\small\item\em Get RX console show status. \end{DoxyCompactList}\item 
-void \textbf{ printf} (wx\+String console\+\_\+text\+\_\+str)
-\begin{DoxyCompactList}\small\item\em Print string on console. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+printf} (wx\+String console\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on console from Jerry\+Script. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+status} (wx\+String status\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on status bar from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ status} (wx\+String status\+\_\+text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Print string on status bar. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+clear} (void)
+\begin{DoxyCompactList}\small\item\em Clear console text from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ clear} (void)
 \begin{DoxyCompactList}\small\item\em Clear console text. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+open\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Open U\+A\+RT form Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ open\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Open U\+A\+RT with G\+UI setting. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+close\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Close port from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ close\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Close port wit G\+UI setting. \end{DoxyCompactList}\item 
+uart\+\_\+status\+\_\+t \textbf{ js\+\_\+get\+\_\+open\+\_\+status} (void)
+\begin{DoxyCompactList}\small\item\em Get port open status from Jerry\+Script. \end{DoxyCompactList}\item 
 uart\+\_\+status\+\_\+t \textbf{ get\+\_\+open\+\_\+status} (void)
 \begin{DoxyCompactList}\small\item\em Get port open status. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+set\+\_\+config} (\textbf{ uart\+\_\+cfg\+\_\+t} data\+\_\+uart\+\_\+cfg)
+\begin{DoxyCompactList}\small\item\em Set U\+A\+RT port from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ set\+\_\+config} (\textbf{ uart\+\_\+cfg\+\_\+t} data\+\_\+uart\+\_\+cfg)
 \begin{DoxyCompactList}\small\item\em Set U\+A\+RT port settings in G\+UI. \end{DoxyCompactList}\item 
 \textbf{ uart\+\_\+cfg\+\_\+t} \textbf{ get\+\_\+config} (void)
@@ -61,7 +83,7 @@ void \textbf{ set\+\_\+send\+\_\+event} (\textbf{ send\+\_\+event\+\_\+fct} data
 \begin{DoxyCompactList}\small\item\em Set external event after send button click. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ run\+\_\+script} (wx\+String path\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Run JS script. \end{DoxyCompactList}\item 
-void \textbf{ stop\+\_\+script} (void)
+uint32\+\_\+t \textbf{ stop\+\_\+script} (void)
 \begin{DoxyCompactList}\small\item\em Stop JS script. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -73,7 +95,7 @@ static void \textbf{ stop\+\_\+event} (void)
 \subsection{Detailed Description}
 Class 
 
-Definition at line 70 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h.
+Definition at line 71 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h.
 
 
 

@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -118,53 +118,110 @@ Collaboration diagram for data_plot:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga2ef6cac71bb8bfc3813b645905bb612f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#ga2ef6cac71bb8bfc3813b645905bb612f">data_plot</a> (wxWindow *p_parent_wxwindow, wxString graph_label_str, double draph_range_d, double buffer_length_d, double time_step_d)</td></tr>
-<tr class="memdesc:ga2ef6cac71bb8bfc3813b645905bb612f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="group___data__plot.html#ga2ef6cac71bb8bfc3813b645905bb612f">More...</a><br /></td></tr>
-<tr class="separator:ga2ef6cac71bb8bfc3813b645905bb612f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafd321bd40ed347458e213f5c9201ce46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#gafd321bd40ed347458e213f5c9201ce46">~data_plot</a> (void)</td></tr>
-<tr class="memdesc:gafd321bd40ed347458e213f5c9201ce46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="group___data__plot.html#gafd321bd40ed347458e213f5c9201ce46">More...</a><br /></td></tr>
+<tr class="memitem:ga761d7640db88badbdaa3d43e589964fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga761d7640db88badbdaa3d43e589964fb">data_plot</a> (wxWindow *p_parent_wxwindow, wxString name_str, double min_d, double max_d, double length_d, double step_d)</td></tr>
+<tr class="memdesc:ga761d7640db88badbdaa3d43e589964fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="group__data__plot.html#ga761d7640db88badbdaa3d43e589964fb">More...</a><br /></td></tr>
+<tr class="separator:ga761d7640db88badbdaa3d43e589964fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd321bd40ed347458e213f5c9201ce46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gafd321bd40ed347458e213f5c9201ce46">~data_plot</a> (void)</td></tr>
+<tr class="memdesc:gafd321bd40ed347458e213f5c9201ce46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="group__data__plot.html#gafd321bd40ed347458e213f5c9201ce46">More...</a><br /></td></tr>
 <tr class="separator:gafd321bd40ed347458e213f5c9201ce46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd716863a5493205aa1a5131c1c530f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#gacd716863a5493205aa1a5131c1c530f7">insert_signal</a> (wxString signal_label_str, wxPen signal_style_pen)</td></tr>
-<tr class="memdesc:gacd716863a5493205aa1a5131c1c530f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert signal in to graph.  <a href="group___data__plot.html#gacd716863a5493205aa1a5131c1c530f7">More...</a><br /></td></tr>
-<tr class="separator:gacd716863a5493205aa1a5131c1c530f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2df726b024c161fe8327ef00d7c32b24"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#ga2df726b024c161fe8327ef00d7c32b24">get_signal</a> (void)</td></tr>
-<tr class="memdesc:ga2df726b024c161fe8327ef00d7c32b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of signal in graph.  <a href="group___data__plot.html#ga2df726b024c161fe8327ef00d7c32b24">More...</a><br /></td></tr>
-<tr class="separator:ga2df726b024c161fe8327ef00d7c32b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc088aa22c4b98ef9f45acfece582faf"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#gadc088aa22c4b98ef9f45acfece582faf">insert_data</a> (uint32_t index_ui32, double data_d)</td></tr>
-<tr class="memdesc:gadc088aa22c4b98ef9f45acfece582faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert data in to specific signal buffer.  <a href="group___data__plot.html#gadc088aa22c4b98ef9f45acfece582faf">More...</a><br /></td></tr>
-<tr class="separator:gadc088aa22c4b98ef9f45acfece582faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae1e547a75737db464df122ed3dc528a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#gae1e547a75737db464df122ed3dc528a9">time_increment</a> (void)</td></tr>
-<tr class="memdesc:gae1e547a75737db464df122ed3dc528a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment time X scale (call after insert all single data)  <a href="group___data__plot.html#gae1e547a75737db464df122ed3dc528a9">More...</a><br /></td></tr>
-<tr class="separator:gae1e547a75737db464df122ed3dc528a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7bcc2222a3a6c1766b42c11949e573e4"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>redraw_event</b> (void)</td></tr>
-<tr class="separator:ga7bcc2222a3a6c1766b42c11949e573e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga3f49e53d9701a6e2701b9ab0a30db44a">add</a> (wxString signal_label_str, wxPen signal_style_pen)</td></tr>
+<tr class="memdesc:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new plot signal.  <a href="group__data__plot.html#ga3f49e53d9701a6e2701b9ab0a30db44a">More...</a><br /></td></tr>
+<tr class="separator:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7197f46e16d05c9055786f69bbd50201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga7197f46e16d05c9055786f69bbd50201">erase</a> (wxString signal_label_str)</td></tr>
+<tr class="memdesc:ga7197f46e16d05c9055786f69bbd50201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete signal from math plot.  <a href="group__data__plot.html#ga7197f46e16d05c9055786f69bbd50201">More...</a><br /></td></tr>
+<tr class="separator:ga7197f46e16d05c9055786f69bbd50201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f">get</a> (void)</td></tr>
+<tr class="memdesc:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of signal buffer in graph.  <a href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f">More...</a><br /></td></tr>
+<tr class="separator:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3139465bf61f3665b4852eaf506464c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gaf3139465bf61f3665b4852eaf506464c">set</a> (wxString signal_label_str, double data_d)</td></tr>
+<tr class="memdesc:gaf3139465bf61f3665b4852eaf506464c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal data by name.  <a href="group__data__plot.html#gaf3139465bf61f3665b4852eaf506464c">More...</a><br /></td></tr>
+<tr class="separator:gaf3139465bf61f3665b4852eaf506464c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga3e91f94c70d6bd1bc3b1aa640a92063a">set</a> (uint32_t signal_ui32, double data_d)</td></tr>
+<tr class="memdesc:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal data by index.  <a href="group__data__plot.html#ga3e91f94c70d6bd1bc3b1aa640a92063a">More...</a><br /></td></tr>
+<tr class="separator:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga6ebd3de1e1c0236f8e54525ebe52fead">show</a> (wxString signal_label_str, bool show_b)</td></tr>
+<tr class="memdesc:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal visibility.  <a href="group__data__plot.html#ga6ebd3de1e1c0236f8e54525ebe52fead">More...</a><br /></td></tr>
+<tr class="separator:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gab0d8878374cdaa8e8430df9a6aa313e8">set_time</a> (double length_d, double step_d)</td></tr>
+<tr class="memdesc:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set logged data length and sample period.  <a href="group__data__plot.html#gab0d8878374cdaa8e8430df9a6aa313e8">More...</a><br /></td></tr>
+<tr class="separator:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga5cd933820f813c0a8ca2785c221f2c6a">set_range</a> (double max_d, double min_d)</td></tr>
+<tr class="memdesc:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set graph range.  <a href="group__data__plot.html#ga5cd933820f813c0a8ca2785c221f2c6a">More...</a><br /></td></tr>
+<tr class="separator:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7680454aa76f10d7883fa41668f2fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gac7680454aa76f10d7883fa41668f2fd7">redraw</a> (void)</td></tr>
+<tr class="memdesc:gac7680454aa76f10d7883fa41668f2fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw new data and set time cursor.  <a href="group__data__plot.html#gac7680454aa76f10d7883fa41668f2fd7">More...</a><br /></td></tr>
+<tr class="separator:gac7680454aa76f10d7883fa41668f2fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c">fit</a> (bool default_b=true)</td></tr>
+<tr class="memdesc:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set graph in to default zoom.  <a href="group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c">More...</a><br /></td></tr>
+<tr class="separator:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac60ddfa1938a225b740a4073d61e4ace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace">pause</a> (bool pause_b)</td></tr>
+<tr class="memdesc:gac60ddfa1938a225b740a4073d61e4ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw data pause.  <a href="group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace">More...</a><br /></td></tr>
+<tr class="separator:gac60ddfa1938a225b740a4073d61e4ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:gaa0c0b5c3fc3fe79d6300b2bc140c5283"><td class="memItemLeft" align="right" valign="top">static const long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html#gaa0c0b5c3fc3fe79d6300b2bc140c5283">l_id_graph_name_wxstatictext</a> = wxNewId()</td></tr>
-<tr class="separator:gaa0c0b5c3fc3fe79d6300b2bc140c5283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64116a5bb4acf43245cede80ba9aeda7"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:a21b13634d129254d5323f79dea203b5d"><td class="memItemLeft" align="right" valign="top">static const long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__plot.html#a21b13634d129254d5323f79dea203b5d">l_id_name_wxstatictext</a> = wxNewId()</td></tr>
+<tr class="separator:a21b13634d129254d5323f79dea203b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038ad084f5f4347db06e04f4577971a8"><td class="memItemLeft" align="right" valign="top"><a id="a038ad084f5f4347db06e04f4577971a8"></a>
+static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_pause_wxtogglebutton</b> = wxNewId()</td></tr>
+<tr class="separator:a038ad084f5f4347db06e04f4577971a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0e75ed41fee6b0de0cca8a16057691"><td class="memItemLeft" align="right" valign="top"><a id="aec0e75ed41fee6b0de0cca8a16057691"></a>
+static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_zoom_wxbutton</b> = wxNewId()</td></tr>
+<tr class="separator:aec0e75ed41fee6b0de0cca8a16057691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aff436d8d83364e4e815d2f7bfff7c3"><td class="memItemLeft" align="right" valign="top"><a id="a7aff436d8d83364e4e815d2f7bfff7c3"></a>
+static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_zoom_plus_wxbutton</b> = wxNewId()</td></tr>
+<tr class="separator:a7aff436d8d83364e4e815d2f7bfff7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb24b1c633ae2843b9246be574651c01"><td class="memItemLeft" align="right" valign="top"><a id="aeb24b1c633ae2843b9246be574651c01"></a>
+static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_zoom_minus_wxbutton</b> = wxNewId()</td></tr>
+<tr class="separator:aeb24b1c633ae2843b9246be574651c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10abc0ea5fa305013d1830bf196d38cb"><td class="memItemLeft" align="right" valign="top"><a id="a10abc0ea5fa305013d1830bf196d38cb"></a>
+static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_legend_wxcheckbox</b> = wxNewId()</td></tr>
+<tr class="separator:a10abc0ea5fa305013d1830bf196d38cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64116a5bb4acf43245cede80ba9aeda7"><td class="memItemLeft" align="right" valign="top"><a id="a64116a5bb4acf43245cede80ba9aeda7"></a>
 static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_x_axis_mpscalex</b> = wxNewId()</td></tr>
-<tr class="separator:ga64116a5bb4acf43245cede80ba9aeda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9287f0398cabdf44fed0917d5b29755a"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:a64116a5bb4acf43245cede80ba9aeda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9287f0398cabdf44fed0917d5b29755a"><td class="memItemLeft" align="right" valign="top"><a id="a9287f0398cabdf44fed0917d5b29755a"></a>
 static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_y_axis_mpscalex</b> = wxNewId()</td></tr>
-<tr class="separator:ga9287f0398cabdf44fed0917d5b29755a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga42fc81a312aa4155d3b292bbbf67b6e9"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:a9287f0398cabdf44fed0917d5b29755a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42fc81a312aa4155d3b292bbbf67b6e9"><td class="memItemLeft" align="right" valign="top"><a id="a42fc81a312aa4155d3b292bbbf67b6e9"></a>
 static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_graph_mpwindow</b> = wxNewId()</td></tr>
-<tr class="separator:ga42fc81a312aa4155d3b292bbbf67b6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac3357130ffef1c84e586d278db565272"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:a42fc81a312aa4155d3b292bbbf67b6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3357130ffef1c84e586d278db565272"><td class="memItemLeft" align="right" valign="top"><a id="ac3357130ffef1c84e586d278db565272"></a>
 static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_graph_signal_wxgrid</b> = wxNewId()</td></tr>
-<tr class="separator:gac3357130ffef1c84e586d278db565272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac8c0e823a4f037f722fce17e43279999"><td class="memItemLeft" align="right" valign="top">
-static const long&#160;</td><td class="memItemRight" valign="bottom"><b>l_id_redraw_wxtimer</b> = wxNewId()</td></tr>
-<tr class="separator:gac8c0e823a4f037f722fce17e43279999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac3357130ffef1c84e586d278db565272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class </p>
 
-<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__h_8h_source.html#l00065">65</a> of file <a class="el" href="in__data__plot__graph__h_8h_source.html">in_data_plot_graph_h.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__h_8h_source.html#l00069">69</a> of file <a class="el" href="in__data__plot__graph__h_8h_source.html">in_data_plot_graph_h.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a21b13634d129254d5323f79dea203b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b13634d129254d5323f79dea203b5d">&#9670;&nbsp;</a></span>l_id_name_wxstatictext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const long l_id_name_wxstatictext = wxNewId()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Library</p>
+<p>Local variable </p>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__h_8h_source.html#l00090">90</a> of file <a class="el" href="in__data__plot__graph__h_8h_source.html">in_data_plot_graph_h.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>D:/project/uart_terminal/infrastructure/data_plot/<a class="el" href="in__data__plot__graph__h_8h_source.html">in_data_plot_graph_h.h</a></li>
 <li>D:/project/uart_terminal/infrastructure/data_plot/<a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a></li>
 </ul>

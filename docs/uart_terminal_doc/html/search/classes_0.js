@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['button_5fbuffer_5ft',['button_buffer_t',['../structbutton__buffer__t.html',1,'']]],
-  ['button_5fjs_5fc',['button_js_c',['../classbutton__js__c.html',1,'']]]
+  ['auto_5fcomp_5fc',['auto_comp_c',['../classauto__comp__c.html',1,'']]],
+  ['autocomp_5fbuffer_5ft',['autocomp_buffer_t',['../structautocomp__buffer__t.html',1,'']]]
 ];

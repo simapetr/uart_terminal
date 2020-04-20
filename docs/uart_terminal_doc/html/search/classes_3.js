@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['file_5fjs_5fc',['file_js_c',['../classfile__js__c.html',1,'']]]
+  ['data_5fplot',['data_plot',['../classdata__plot.html',1,'']]],
+  ['data_5fplot_5fbuffer',['data_plot_buffer',['../structdata__plot__buffer.html',1,'']]]
 ];

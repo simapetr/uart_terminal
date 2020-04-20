@@ -1,4 +1,4 @@
-.TH "timer" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "timer" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,23 +13,23 @@ timer \- Event timer\&.
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (string event_str, double period_d, bool start_b, bool one_shot_b)"
+.RI "\fBadd\fP (event_str, period_d, start_b, one_shot_b)"
 .br
 .RI "Add new timer event\&. "
 .ti -1c
-.RI "void \fBset\fP (double timer_index_d, double period_d)"
+.RI "\fBset\fP (timer_index_d, period_d)"
 .br
 .RI "Set timer period\&. "
 .ti -1c
-.RI "void \fBstart\fP (double timer_index_d)"
+.RI "\fBstart\fP (timer_index_d)"
 .br
 .RI "Start timer\&. "
 .ti -1c
-.RI "void \fBstop\fP (double timer_index_d)"
+.RI "\fBstop\fP (timer_index_d)"
 .br
 .RI "Stop timer\&. "
 .ti -1c
-.RI "void \fBreset\fP (double timer_index_d)"
+.RI "\fBreset\fP (timer_index_d)"
 .br
 .RI "Reset delay time\&. "
 .in -1c
@@ -37,10 +37,10 @@ timer \- Event timer\&.
 .PP 
 Event timer\&. 
 .PP
-Definition at line 615 of file jerryscript_h\&.h\&.
+Definition at line 552 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (string event_str, double period_d, bool start_b, bool one_shot_b)"
+.SS "add (event_str, period_d, start_b, one_shot_b)"
 
 .PP
 Add new timer event\&. 
@@ -68,11 +68,11 @@ function timer_event()
 .PP
 \fBReturns:\fP
 .RS 4
-double : Timer ID 
+Timer ID 
 .RE
 .PP
 
-.SS "void reset (double timer_index_d)"
+.SS "reset (timer_index_d)"
 
 .PP
 Reset delay time\&. 
@@ -95,11 +95,10 @@ function timer_event()
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "void set (double timer_index_d, double period_d)"
+.SS "set (timer_index_d, period_d)"
 
 .PP
 Set timer period\&. 
@@ -124,11 +123,10 @@ function timer_event()
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "void start (double timer_index_d)"
+.SS "start (timer_index_d)"
 
 .PP
 Start timer\&. 
@@ -151,11 +149,10 @@ function timer_event()
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "void stop (double timer_index_d)"
+.SS "stop (timer_index_d)"
 
 .PP
 Stop timer\&. 
@@ -178,7 +175,6 @@ function timer_event()
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 

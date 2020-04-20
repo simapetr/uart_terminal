@@ -1,4 +1,4 @@
-.TH "panel_js_c" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "panel_js_c" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -22,11 +22,19 @@ panel_js_c
 .ti -1c
 .RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
-.RI "Get actual epoch time in s (JS function 'now') "
+.RI "Add new AUI panel (JS function 'now') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set panel show (JS function 'set') "
+.ti -1c
+.RI "static uint32_t \fBget\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get panel show state (JS function 'get') "
 .ti -1c
 .RI "static uint32_t \fBget_sizer\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
-.RI "Get panel sizer indef (JS function 'get_sizer') "
+.RI "Get panel main sizer (JS function 'get_sizer') "
 .in -1c
 .SH "Detailed Description"
 .PP 

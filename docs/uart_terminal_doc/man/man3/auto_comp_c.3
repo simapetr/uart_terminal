@@ -1,0 +1,58 @@
+.TH "auto_comp_c" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+auto_comp_c
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_js_edit_text_autocomp_h\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBe_fct\fP = 3, \fBe_var\fP = 1 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBauto_comp_c\fP (void)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~auto_comp_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBload_h\fP (wxString file_str)"
+.br
+.RI "Load object from c++ header file\&. "
+.ti -1c
+.RI "void \fBload_js\fP (wxString file_str)"
+.br
+.RI "Load object from JavaScript header file\&. "
+.ti -1c
+.RI "void \fBload_lex\fP (uint32_t type_ui32, wxString &data_str)"
+.br
+.RI "Get global lexer word\&. "
+.ti -1c
+.RI "wxString \fBget\fP (wxArrayString command_arraystring)"
+.br
+.RI "Get autocomp info\&. "
+.ti -1c
+.RI "wxArrayString \fBget_info\fP (wxArrayString command_arraystring)"
+.br
+.RI "Get autocomp info\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 76 of file in_js_edit_text_autocomp_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

@@ -12,25 +12,25 @@ wx\+Static\+Text class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, text\+\_\+str, proportion\+\_\+d, expand\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new static text. \end{DoxyCompactList}\item 
-bool \textbf{ set} (double static\+\_\+text\+\_\+index\+\_\+d, string text\+\_\+str)
+\textbf{ set} (static\+\_\+text\+\_\+index\+\_\+d, text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Set static text string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Static\+Text class interface 
 
-Definition at line 1215 of file jerryscript\+\_\+h.\+h.
+Definition at line 1255 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classstatic__text_a880a9abe4645483fda0ec47b6745ad46}} 
+\mbox{\label{classstatic__text_ab82d2b4bd8074db58ceb9165b163cb9c}} 
 \index{static\_text@{static\_text}!add@{add}}
 \index{add@{add}!static\_text@{static\_text}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{,  }\item[{proportion\+\_\+d}]{,  }\item[{expand\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -61,13 +61,13 @@ Add new static text.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: \doxyref{static\+\_\+text}{p.}{classstatic__text} buffer index 
+\doxyref{static\+\_\+text}{p.}{classstatic__text} index 
 \end{DoxyReturn}
-\mbox{\label{classstatic__text_ab22c3a79da277f21a08e87c347609344}} 
+\mbox{\label{classstatic__text_a07104428db7381571d4006eecd405e2c}} 
 \index{static\_text@{static\_text}!set@{set}}
 \index{set@{set}!static\_text@{static\_text}}
 \subsubsection{set()}
-{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{static\+\_\+text\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{static\+\_\+text\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -94,7 +94,7 @@ Set static text string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Set status \begin{DoxyItemize}
+Set status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Changed \end{DoxyItemize}
 
 \end{DoxyReturn}

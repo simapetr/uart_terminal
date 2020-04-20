@@ -44,7 +44,13 @@ const long data_plot::l_id_graph_signal_wxgrid = wxNewId();
 //*)
 
 /**
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
   * @defgroup data_plot
+  * @brief Plot real-time data
   * @{
   */
 
@@ -256,7 +262,7 @@ wxWindow* parent = p_parent_wxwindow;
     lp_mathplot_setting_wxboxsizer->Add(lp_legend_wxcheckbox, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_frame_wxboxsizer->Add(lp_mathplot_setting_wxboxsizer, 0, wxEXPAND, 5);
     lp_mathplot_graph_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
-    lp_graph_mpwindow = new mpWindow(this, l_id_graph_mpwindow, wxDefaultPosition, wxDefaultSize, wxRAISED_BORDER|wxTAB_TRAVERSAL);
+    lp_graph_mpwindow = new mpWindow(this, l_id_graph_mpwindow, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL);
     lp_x_axis_mpscalex = new mpScaleX(_("Time"), 1, true);
     lp_graph_mpwindow->AddLayer(lp_x_axis_mpscalex);
     lp_y_axis_mpscalex = new mpScaleY(_("Value"), 4, true);
@@ -779,6 +785,10 @@ void data_plot::on_legend_wxcheckbox_click(wxCommandEvent& event)
     this->lp_graph_mpwindow->SetPosX(this->lv_time_d[0]);
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

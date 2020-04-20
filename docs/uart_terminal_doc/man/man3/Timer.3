@@ -1,0 +1,255 @@
+.TH "Timer" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Timer \- Timer class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtimer_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "void \fBdereg_host_class\fP (void)"
+.br
+.RI "Deregistration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new timer event (JS function 'add') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set timer period (JS function 'set') "
+.ti -1c
+.RI "static uint32_t \fBstart\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Start timer count (JS function 'start') "
+.ti -1c
+.RI "static uint32_t \fBstop\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Stop timer count (JS function 'stop') "
+.ti -1c
+.RI "static uint32_t \fBreset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Reset timer counter (JS function 'reset') "
+.ti -1c
+.RI "static void \fBcall\fP (void *p_parametr_void)"
+.br
+.RI "Timer thread\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBl_run_timer_ui8\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBl_global_ui32\fP"
+.br
+.ti -1c
+.RI "vector< \fBtimer_buffer_t\fP > \fBlv_main_timer_buffer\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Timer class definition\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add new timer event (JS function 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "void call (void * p_parametr_void)\fC [static]\fP"
+
+.PP
+Timer thread\&. Private function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxThread::ExitCode : thread end status 
+.RE
+.PP
+
+.PP
+Definition at line 466 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "void dereg_host_class (void)"
+
+.PP
+Deregistration object in to class\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 150 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "void reg_host_class (void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "uint32_t reset (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Reset timer counter (JS function 'reset') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 418 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "uint32_t set (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set timer period (JS function 'set') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 277 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "uint32_t start (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Start timer count (JS function 'start') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 326 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SS "uint32_t stop (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Stop timer count (JS function 'stop') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 373 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint8_t l_run_timer_ui8"
+Local variable 
+.PP
+Definition at line 70 of file in_js_class_timer_js_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

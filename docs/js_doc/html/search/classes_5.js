@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['panel',['panel',['../classpanel.html',1,'']]]
+  ['main_5fframe',['main_frame',['../classmain__frame.html',1,'']]]
 ];

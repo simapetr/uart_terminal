@@ -1,4 +1,4 @@
-.TH "slider" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "slider" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,19 +13,19 @@ slider \- wxSlider class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, double min_d, double max_d, double proportion_d, bool expand_b)"
+.RI "\fBadd\fP (sizer_index_d, min_d, max_d, proportion_d, expand_b)"
 .br
 .RI "Add new slider\&. "
 .ti -1c
-.RI "bool \fBreg_event\fP (double slider_index_d, string event_fct_str)"
+.RI "\fBreg_event\fP (slider_index_d, event_fct_str)"
 .br
 .RI "Register slider event\&. "
 .ti -1c
-.RI "double \fBget\fP (double slider_index_d)"
+.RI "\fBget\fP (slider_index_d)"
 .br
 .RI "Get slider value\&. "
 .ti -1c
-.RI "void \fBset\fP (double slider_index_d, double value_b)"
+.RI "\fBset\fP (slider_index_d, value_b)"
 .br
 .RI "Set slider value\&. "
 .in -1c
@@ -33,10 +33,10 @@ slider \- wxSlider class interface
 .PP 
 wxSlider class interface 
 .PP
-Definition at line 1274 of file jerryscript_h\&.h\&.
+Definition at line 1314 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, double min_d, double max_d, double proportion_d, bool expand_b)"
+.SS "add (sizer_index_d, min_d, max_d, proportion_d, expand_b)"
 
 .PP
 Add new slider\&. 
@@ -74,11 +74,11 @@ true : Expand
 .PP
 \fBReturns:\fP
 .RS 4
-double : slider buffer index 
+slider index 
 .RE
 .PP
 
-.SS "double get (double slider_index_d)"
+.SS "get (slider_index_d)"
 
 .PP
 Get slider value\&. 
@@ -103,11 +103,11 @@ test_slider_value = gui\&.slider\&.get(test_slider);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Set value 
+Set value 
 .RE
 .PP
 
-.SS "bool reg_event (double slider_index_d, string event_fct_str)"
+.SS "reg_event (slider_index_d, event_fct_str)"
 
 .PP
 Register slider event\&. 
@@ -137,7 +137,7 @@ function on_slider_update (component_id)
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Event register status 
+Event register status 
 .PD 0
 
 .IP "\(bu" 2
@@ -148,7 +148,7 @@ true : Event registered
 .RE
 .PP
 
-.SS "void set (double slider_index_d, double value_b)"
+.SS "set (slider_index_d, value_b)"
 
 .PP
 Set slider value\&. 
@@ -174,7 +174,6 @@ gui\&.slider\&.set(test_slider, 80);
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 

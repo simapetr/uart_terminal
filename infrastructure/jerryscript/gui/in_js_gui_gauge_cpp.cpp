@@ -22,7 +22,12 @@
 #include <wx/gauge.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -227,6 +232,10 @@ void gui_frame::on_clear_gauge(void)
     l_cnt_gauge_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

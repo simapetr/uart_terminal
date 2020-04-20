@@ -1,4 +1,4 @@
-.TH "sizer" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "sizer" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,7 @@ sizer \- wxSizer class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, double proportion_d, bool horizontal_b)"
+.RI "\fBadd\fP (sizer_index_d, proportion_d, horizontal_b)"
 .br
 .RI "Add new AUI panel\&. "
 .in -1c
@@ -21,10 +21,10 @@ sizer \- wxSizer class interface
 .PP 
 wxSizer class interface 
 .PP
-Definition at line 900 of file jerryscript_h\&.h\&.
+Definition at line 940 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, double proportion_d, bool horizontal_b)"
+.SS "add (sizer_index_d, proportion_d, horizontal_b)"
 
 .PP
 Add new AUI panel\&. 
@@ -58,7 +58,7 @@ true : Horizontal
 .PP
 \fBReturns:\fP
 .RS 4
-double : Sizer buffer index 
+Sizer index 
 .RE
 .PP
 

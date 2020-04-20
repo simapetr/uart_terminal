@@ -1,0 +1,150 @@
+\section{led Class Reference}
+\label{classled}\index{led@{led}}
+
+
+wx\+Led class interface  
+
+
+
+
+{\ttfamily \#include $<$jerryscript\+\_\+h.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ add} (sizer\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add new L\+ED. \end{DoxyCompactList}\item 
+\textbf{ add} (sizer\+\_\+index\+\_\+d, on\+\_\+color\+\_\+d, off\+\_\+color\+\_\+d) get(led\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add new L\+ED with custom state color. \end{DoxyCompactList}\item 
+\textbf{ set} (led\+\_\+index\+\_\+d, value\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set led value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+wx\+Led class interface 
+
+Definition at line 1494 of file jerryscript\+\_\+h.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classled_ac4ae7d1ec7f719ab06c2b2b2b66bc979}} 
+\index{led@{led}!add@{add}}
+\index{add@{add}!led@{led}}
+\subsubsection{add()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Add new L\+ED. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_led;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_led = gui.led.add(test\_sizer);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Parent sizer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+ED index 
+\end{DoxyReturn}
+\mbox{\label{classled_aadc49bfbc3e70ee42746a66b896aa4ce}} 
+\index{led@{led}!add@{add}}
+\index{add@{add}!led@{led}}
+\subsubsection{add()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{on\+\_\+color\+\_\+d}]{,  }\item[{off\+\_\+color\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Add new L\+ED with custom state color. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_led;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_led = gui.led.add(test\_sizer, 0x0000FFFF, 0x00808080);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & sizer\+\_\+index\+\_\+d \+: Parent sizer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & on\+\_\+color\+\_\+d \+: On state L\+ED color \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & off\+\_\+color\+\_\+d \+: On state L\+ED color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\+ED buffer index\+Get L\+ED value
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_led;}
+\DoxyCodeLine{var state\_led\_b;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_led = gui.led.add(test\_sizer);}
+\DoxyCodeLine{state\_led\_b = gui.led.get(test\_led);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & led\+\_\+index\+\_\+d \+: L\+ED index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Set value 
+\end{DoxyReturn}
+\mbox{\label{classled_ace68f9a6575a6b2c4c4af0ae511fc2ca}} 
+\index{led@{led}!set@{set}}
+\index{set@{set}!led@{led}}
+\subsubsection{set()}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{led\+\_\+index\+\_\+d}]{,  }\item[{value\+\_\+b}]{ }\end{DoxyParamCaption})}
+
+
+
+Set led value. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var test\_sizer;}
+\DoxyCodeLine{var test\_led;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{test\_sizer = gui.panel.get\_sizer(test\_panel);}
+\DoxyCodeLine{test\_led = gui.led.add(test\_sizer);}
+\DoxyCodeLine{gui.led.set(test\_led, \textcolor{keyword}{true});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & led\+\_\+index\+\_\+d \+: L\+ED index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & value\+\_\+b \+: New L\+ED state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Set value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ jerryscript\+\_\+h.\+h}\end{DoxyCompactItemize}

@@ -1,9 +1,8 @@
 <map id="Infrastructure" name="Infrastructure">
-<area shape="rect" id="node1" href="$group__data__plot.html" title=" " alt="" coords="161,5,238,31"/>
-<area shape="rect" id="node2" title="Infrastructure layer." alt="" coords="5,129,103,155"/>
-<area shape="rect" id="node3" href="$group___data__plot.html" title="Data plot graph." alt="" coords="161,55,238,80"/>
-<area shape="rect" id="node4" href="$group___thread.html" title="Thread wrapper." alt="" coords="169,104,230,129"/>
-<area shape="rect" id="node5" href="$group__configuration.html" title="Configuration INI wrapper." alt="" coords="151,153,248,179"/>
-<area shape="rect" id="node6" href="$group___jerry_script.html" title="JavaScript interpret." alt="" coords="157,203,241,228"/>
-<area shape="rect" id="node7" href="$group___main.html" title="Application entry point." alt="" coords="174,252,225,277"/>
+<area shape="rect" id="node1" href="$group__data__plot.html" title="Plot real&#45;time data." alt="" coords="161,5,238,31"/>
+<area shape="rect" id="node2" title="Infrastructure layer." alt="" coords="5,104,103,129"/>
+<area shape="rect" id="node3" href="$group___thread.html" title="Thread wrapper." alt="" coords="169,55,230,80"/>
+<area shape="rect" id="node4" href="$group__configuration.html" title="Configuration INI wrapper." alt="" coords="151,104,248,129"/>
+<area shape="rect" id="node5" href="$group___jerry_script.html" title="JavaScript interpret." alt="" coords="157,153,241,179"/>
+<area shape="rect" id="node6" href="$group___main.html" title="Application entry point." alt="" coords="174,203,225,228"/>
 </map>

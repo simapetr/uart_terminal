@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgraph__js__c.html" title=" " alt="" coords="5,5,91,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,80,83"/>
+<area shape="rect" id="node2" href="$classeditor__frame.html" title=" " alt="" coords="128,5,221,32"/>
+<area shape="rect" id="node3" href="$classgui__frame.html" title=" " alt="" coords="135,56,214,83"/>
+<area shape="rect" id="node4" href="$classmain__frame.html" title=" " alt="" coords="130,107,219,133"/>
 </map>

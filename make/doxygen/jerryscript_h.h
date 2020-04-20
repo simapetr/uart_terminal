@@ -70,11 +70,11 @@ class main_frame
          * @param [IN] show_b : Show frame status
          *   @arg false : Hide
          *   @arg true : Show
-         * @return void
+         * @return
          *
          */
 
-        void gui(bool show_b);
+        gui(show_b);
 
         /** @brief Set show Rx data in main frame console
          *
@@ -85,11 +85,11 @@ class main_frame
          * @param [IN] enable_b : Show Rx data in console
          *   @arg false : Hide
          *   @arg true : Show
-         * @return void
+         * @return
          *
          */
 
-        void console_rx_enable(bool enable_b);
+        console_rx_enable(enable_b);
 
         /** @brief Get console enable state
          *
@@ -98,14 +98,14 @@ class main_frame
          * state_var = main_frame.is_console_rx_enable();
          * @endcode
          *
-         * @param void
-         * @return bool : Console enable state
+         * @param
+         * @return Console enable state
          *   @arg false : Disable
          *   @arg true : Enable
          *
          */
 
-        bool is_console_rx_enable(void);
+        is_console_rx_enable();
 
         /** @brief Print text sting in to console
          *
@@ -114,11 +114,11 @@ class main_frame
          * @endcode
          *
          * @param [IN] text_str : Print text
-         * @return void
+         * @return
          *
          */
 
-        void printf(string text_str);
+        printf(text_str);
 
         /** @brief Print status text sting in to main frame status
          *
@@ -127,11 +127,11 @@ class main_frame
          * @endcode
          *
          * @param [IN] text_str : Print text
-         * @return void
+         * @return
          *
          */
 
-        void status(string text_str);
+        status(text_str);
 
         /** @brief Clear main frame console text
          *
@@ -139,17 +139,30 @@ class main_frame
          * main_frame.clear();
          * @endcode
          *
-         * @param void
-         * @return void
+         * @param
+         * @return
          *
          */
 
-        void clear(void);
+        clear();
+
+        /** @brief Open communication and GUI component in main frame
+         *
+         * @code
+         * main_frame.open();
+         * @endcode
+         *
+         * @param
+         * @return
+         *
+         */
+
+        open();
 
         /** @brief Open and set port communication and GUI component in main frame
          *
          * @code
-         * uart.open(1,57600,0,0,8,4);
+         * main_frame.open(1,57600,0,0,8,4);
          * @endcode
          *
          * @param [IN] bite_timeout_d : Packet timeout
@@ -166,11 +179,12 @@ class main_frame
          *   @arg 4 : Space
          * @param [IN] bit_length_d : Character bit length
          * @param [IN] port_num_d : Port number
-         * @return void
+         *   @arg 0 : Get number from main frame port setting
+         * @return
          *
          */
 
-        void open(double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d);
+        open(bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d);
 
         /** @brief Close communication in main frame
          *
@@ -178,12 +192,12 @@ class main_frame
          * main_frame.close();
          * @endcode
          *
-         * @param void
-         * @return void
+         * @param
+         * @return
          *
          */
 
-        void close(void);
+        close();
 
         /** @brief Get communication open status
          *
@@ -192,8 +206,8 @@ class main_frame
          * state_var = main_frame.get_open_status();
          * @endcode
          *
-         * @param void
-         * @return double : communication status
+         * @param
+         * @return communication status
          *   @arg 0 : Open error
          *   @arg 1 : Open
          *   @arg 2 : Handle error
@@ -205,7 +219,7 @@ class main_frame
          *
          */
 
-        double get_open_status(void);
+        get_open_status();
 
         /** @brief Show input dialog with user info text and return user input data
          *
@@ -215,11 +229,11 @@ class main_frame
          * @endcode
          *
          * @param [IN] info_str : User text
-         * @return string : User input text
+         * @return User input text string
          *
          */
 
-        string get_data(string info_str)
+        get_data(info_str)
 
         /** @brief Set status progress in progress dialog
          *
@@ -234,11 +248,11 @@ class main_frame
          * @param [IN] progress_d : actual progress
          *   @arg 0 - 100 : Show progress value
          *   @arg >100 : Close progress dialog
-         * @return void
+         * @return
          *
          */
 
-        void set_progress(string text_str, double progress_d);
+        set_progress(text_str, progress_d);
 
         /** @brief Register event on send button click (in event function is parameter array with console input data)
          *
@@ -250,13 +264,13 @@ class main_frame
          * @endcode
          *
          * @param [IN] event_fct_str : Print text
-         * @return double : registration status
+         * @return registration status
          *   @arg 0 : Registration error
          *   @arg 1 : Registered
          *
          */
 
-        double reg_event(string event_fct_str);
+        reg_event(event_fct_str);
 
         /** @brief Set show main frame
          *
@@ -267,133 +281,13 @@ class main_frame
          * @param [IN] enable_b : Show main frame
          *   @arg false : Show
          *   @arg true : Hide
-         * @return void
+         * @return
          *
          */
 
-        void hide(bool enable_b);
+        hide(enable_b);
 
 };
-
-/** @brief Delay
- *
- * @code
- * // Delay 1s
- * delay(1000);
- * @endcode
- *
- * @param [IN] time_d : Delay time in ms
- * @return void
- *
- */
-
-void delay(double time_d);
-
-/** @brief Get random value
- *
- * @code
- * var random_val = rand();
- * @endcode
- *
- * @param void
- * @return double : Random value
- *
- */
-
-double rand(void);
-
-/** @brief Get random value from range
- *
- * @code
- * var random_val = rand(-10, 10);
- * @endcode
- *
- * @param [IN] min_d : Min value
- * @param [IN] max_d : Max value
- * @return double : Random value
- *
- */
-
-double rand(double min_d, double max_d);
-
-/** @brief Show alert dialog
- *
- * @code
- * alert("Hello world!");
- * @endcode
- *
- * @param [IN] text_str : Alert text
- * @return void
- *
- */
-
-void alert(string text_str);
-
-/** @brief Set show main frame
- *
- * @code
- * gui(false);
- * @endcode
- *
- * @param [IN] enable_b : Show main frame
- *   @arg false : Hide
- *   @arg true : Show
- * @return void
- *
- */
-
-void gui(bool enable_b);
-
-/** @brief Set show main frame and Script frame name
- *
- * @code
- * gui(false, "Script frame");
- * @endcode
- *
- * @param [IN] enable_b : Show main frame
- *   @arg false : Hide
- *   @arg true : Show
- * @param [IN] text_str : Script frame name
- * @return void
- *
- */
-
-void gui(bool enable_b, string text_str);
-
-/** @brief Set show main frame and Script frame name
- *
- * @code
- * gui(false, "Script frame", true);
- * @endcode
- *
- * @param [IN] enable_b : Show main frame
- *   @arg false : Hide
- *   @arg true : Show
- * @param [IN] text_str : Script frame name
- * @param [IN] enable_b : Show script frame
- *   @arg false : Hide
- *   @arg true : Show
- * @return void
- *
- */
-
-void gui(bool enable_b, string text_str, bool enable_b);
-
-/** @brief Register exit callback
- *
- * @code
- * reg_exit("exit");
- * function exit()
- * {
- * }
- * @endcode
- *
- * @param [IN] function_str : Callback function
- * @return void
- *
- */
-
-void reg_exit(string function_str);
 
 /**
   * @class uart
@@ -426,11 +320,11 @@ class uart
          *   @arg 4 : Space
          * @param [IN] bit_length_d : Character bit length
          * @param [IN] port_num_d : Port number
-         * @return double : Open status (See uart_status_t)
+         * @return Open status (See uart_status_t)
          *
          */
 
-        double open(double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d);
+        open(bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d);
 
         /** @brief Close port communication
          *
@@ -438,12 +332,12 @@ class uart
          * uart.close();
          * @endcode
          *
-         * @param void
-         * @return void
+         * @param
+         * @return
          *
          */
 
-        void close(void);
+        close();
 
         /** @brief Register receive event
          *
@@ -464,11 +358,11 @@ class uart
          * @endcode
          *
          * @param [IN] event_name_str : Event function name
-         * @return double : Register status
+         * @return Register status
          *
          */
 
-        double reg_event(string event_name_str);
+        reg_event(event_name_str);
 
         /** @brief Write character
          *
@@ -478,11 +372,11 @@ class uart
          * @endcode
          *
          * @param [IN] char_d : Character
-         * @return double : Send status
+         * @return Send status
          *
          */
 
-        double write(double char_d);
+        write(char_d);
 
         /** @brief Write data array
          *
@@ -496,11 +390,11 @@ class uart
          * @endcode
          *
          * @param [IN] v_data_d : Data array
-         * @return double : Send status
+         * @return Send status
          *
          */
 
-        double write(vector<double>& v_data_d);
+        write(v_data_d);
 
         /** @brief Write ASCI string
          *
@@ -512,11 +406,11 @@ class uart
          * @endcode
          *
          * @param [IN] char_str : Text string
-         * @return double : Send status
+         * @return Send status
          *
          */
 
-        double write(string char_str);
+        write(char_str);
 
         /** @brief Write data array user size
          *
@@ -532,11 +426,11 @@ class uart
          *
          * @param [IN] v_data_d : Data array
          * @param [IN] length_d : Number of send data
-         * @return double : Send status
+         * @return Send status
          *
          */
 
-        double write(vector<double>& v_data_d, double length_d);
+        write(v_data_d, length_d);
 
         /** @brief Get port control line state
          *
@@ -552,11 +446,11 @@ class uart
          *   @arg DSR : Data set ready
          *   @arg RING : Ring indication
          *   @arg RLSD : Receive line signal detect
-         * @return bool : Control line logic state
+         * @return Control line logic state
          *
          */
 
-        bool get_ctrl(string name_str);
+        get_ctrl(name_str);
 
         /** @brief Set port control line state
          *
@@ -572,11 +466,11 @@ class uart
          *   @arg XOFF : Transmit OFF
          *   @arg XON : Transmit ON
          * @param [IN] state_b : New logic state
-         * @return void
+         * @return
          *
          */
 
-        void set_ctrl(string name_str, bool state_b);
+        set_ctrl(name_str, state_b);
 
 };
 
@@ -598,12 +492,12 @@ class time
          * time_var = time.now();
          * @endcode
          *
-         * @param void
-         * @return double : Number of s from (ISO 8601: 1970-01-01T00:00:00Z)
+         * @param
+         * @return Number of s from (ISO 8601: 1970-01-01T00:00:00Z)
          *
          */
 
-        double now(void);
+        now();
 
         /** @brief Get actual time in ms
          *
@@ -612,40 +506,40 @@ class time
          * time_var = time.now_ms();
          * @endcode
          *
-         * @param void
-         * @return double : Number of ms from (ISO 8601: 1970-01-01T00:00:00Z)
+         * @param
+         * @return Number of ms from (ISO 8601: 1970-01-01T00:00:00Z)
          *
          */
 
-        double now_ms(void);
+        now_ms();
 
         /** @brief Get actual UTC time string
          *
          * @code
          * var time_str;
-         * time_str = time.str();
+         * time_str = time.str(time.now());
          * @endcode
          *
-         * @param void
-         * @return string : Time and date (YYYY-MM-DD HH:MM:SS)
+         * @param [IN] time_d : time ISO 8601
+         * @return String time and date (YYYY-MM-DD HH:MM:SS)
          *
          */
 
-        string str(void);
+        str(time_d);
 
-        /** @brief Get actual local time string
+        /** @brief Get actual system time string
          *
          * @code
          * var time_str;
-         * time_str = time.local_str();
+         * time_str = time.local_str(time.now());
          * @endcode
          *
-         * @param void
-         * @return string : Time and date (YYYY-MM-DD HH:MM:SS)
+         * @param [IN] time_d : time ISO 8601
+         * @return String time and date (YYYY-MM-DD HH:MM:SS)
          *
          */
 
-        string local_str(void);
+        local_str(time_d);
 
 };
 
@@ -674,11 +568,11 @@ class timer
          * @param [IN] period_d : Time period
          * @param [IN] start_b :Start timer after add
          * @param [IN] one_shot_b : Call event only one after overflow
-         * @return double : Timer ID
+         * @return Timer ID
          *
          */
 
-        double add(string event_str, double period_d, bool start_b, bool one_shot_b);
+        add(event_str, period_d, start_b, one_shot_b);
 
         /** @brief Set timer period
          *
@@ -693,11 +587,11 @@ class timer
          *
          * @param [IN] timer_index_d : Timer index
          * @param [IN] period_d : Time period
-         * @return void
+         * @return
          *
          */
 
-        void set(double timer_index_d, double period_d);
+        set(timer_index_d, period_d);
 
         /** @brief Start timer
          *
@@ -711,11 +605,11 @@ class timer
          * @endcode
          *
          * @param [IN] timer_index_d : Timer index
-         * @return void
+         * @return
          *
          */
 
-        void start(double timer_index_d);
+        start(timer_index_d);
 
         /** @brief Stop timer
          *
@@ -729,11 +623,11 @@ class timer
          * @endcode
          *
          * @param [IN] timer_index_d : Timer index
-         * @return void
+         * @return
          *
          */
 
-        void stop(double timer_index_d);
+        stop(timer_index_d);
 
         /** @brief Reset delay time
          *
@@ -747,11 +641,11 @@ class timer
          * @endcode
          *
          * @param [IN] timer_index_d : Timer index
-         * @return void
+         * @return
          *
          */
 
-        void reset(double timer_index_d);
+        reset(timer_index_d);
 
 };
 
@@ -774,11 +668,11 @@ class file
          * @endcode
          *
          * @param [IN] path_str : File path
-         * @return string : Read string
+         * @return Read string
          *
          */
 
-        string read(string path_str);
+        read(path_str);
 
         /** @brief Read array from binary file
          *
@@ -788,11 +682,11 @@ class file
          * @endcode
          *
          * @param [IN] path_str : File path
-         * @return string : Read string
+         * @return Read data array
          *
          */
 
-        vector<double>& read_b(string path_str);
+        read_b(path_str);
 
         /** @brief Write binary array
          *
@@ -807,13 +701,13 @@ class file
          *
          * @param [IN] path_str : File path
          * @param [IN] v_data_d : Write data buffer
-         * @return bool : Write status
+         * @return Write status
          *   @arg 0 : Write failed
          *   @arg 1 : Write success
          *
          */
 
-        bool write(string path_str, vector<double>& v_data_d);
+        write(path_str, v_data_d);
 
         /** @brief Write text string
          *
@@ -824,13 +718,13 @@ class file
          *
          * @param [IN] path_str : File path
          * @param [IN] data_str : Write data text string
-         * @return bool : Write status
+         * @return Write status
          *   @arg 0 : Write failed
          *   @arg 1 : Write success
          *
          */
 
-        bool write(string path_str, string data_str);
+        write(path_str, data_str);
 
         /** @brief Append binary array
          *
@@ -845,13 +739,13 @@ class file
          *
          * @param [IN] path_str : File path
          * @param [IN] v_data_d : Write data buffer
-         * @return bool : Write status
+         * @return Write status
          *   @arg 0 : Write failed
          *   @arg 1 : Write success
          *
          */
 
-        bool append(string path_str, vector<double>& v_data_d);
+        append(path_str, v_data_d);
 
         /** @brief Append text string
          *
@@ -862,13 +756,13 @@ class file
          *
          * @param [IN] path_str : File path
          * @param [IN] data_str : Write data text string
-         * @return bool : Write status
+         * @return Write status
          *   @arg 0 : Write failed
          *   @arg 1 : Write success
          *
          */
 
-        bool append(string path_str, string data_str);
+        append(path_str, data_str);
 
 };
 
@@ -892,11 +786,11 @@ class project
          *
          * @param [IN] path_str : Variable path
          * @param [IN] default_str : Default data
-         * @return string : Read string
+         * @return Read string
          *
          */
 
-        string read(string path_str, string default_str);
+        read(path_str, default_str);
 
         /** @brief Read value from project file
          *
@@ -907,11 +801,11 @@ class project
          *
          * @param [IN] path_str : Variable path
          * @param [IN] default_d : Default data
-         * @return double : Read string
+         * @return Read string
          *
          */
 
-        double read(string path_str, double default_d);
+        read(path_str, default_d);
 
         /** @brief Write string to project file
          *
@@ -921,11 +815,11 @@ class project
          *
          * @param [IN] path_str : Variable path
          * @param [IN] data_str : Data string
-         * @return void
+         * @return
          *
          */
 
-        void write(string path_str, string data_str);
+        write(path_str, data_str);
 
         /** @brief Write value to project file
          *
@@ -939,7 +833,7 @@ class project
          *
          */
 
-        void write(string path_str, double data_d);
+        write(path_str, data_d);
 
 };
 
@@ -981,11 +875,11 @@ class panel
          * @param [IN] horizontal_b : Basic sizer orientation
          *   @arg false : Vertical
          *   @arg true : Horizontal
-         * @return double : Panel buffer index
+         * @return Panel index
          *
          */
 
-        double add(string name_str, bool horizontal_b);
+        add(name_str, horizontal_b);
 
         /** @brief Get panel show status
          *
@@ -997,11 +891,11 @@ class panel
          *
          * @param [IN] panel_d : Panel buffer index
          * @param [IN] show_b : Panel show status
-         * @return void
+         * @return
          *
          */
 
-        void set(double panel_d, bool show_b);
+        set(panel_d, show_b);
 
         /** @brief Get panel show status
          *
@@ -1013,11 +907,11 @@ class panel
          * @endcode
          *
          * @param [IN] panel_d : Panel buffer index
-         * @return bool : Show status
+         * @return Show status
          *
          */
 
-        bool get(double panel_d);
+        get(panel_d);
 
         /** @brief Get panel main sizer
          *
@@ -1029,11 +923,11 @@ class panel
          * @endcode
          *
          * @param [IN] panel_d : Panel buffer index
-         * @return double : Sizer buffer index
+         * @return Sizer index
          *
          */
 
-        double get_sizer(double panel_d);
+        get_sizer(panel_d);
 
 };
 
@@ -1064,11 +958,11 @@ class sizer
          * @param [IN] horizontal_b : Sizer orientation
          *   @arg false : Vertical
          *   @arg true : Horizontal
-         * @return double : Sizer buffer index
+         * @return Sizer index
          *
          */
 
-        double add(double sizer_index_d, double proportion_d, bool horizontal_b);
+        add(sizer_index_d, proportion_d, horizontal_b);
 
 };
 
@@ -1100,11 +994,11 @@ class button
          * @param [IN] expand_b : Expand in sizer flag
          *   @arg false : Default size
          *   @arg true : Expand
-         * @return double : Button buffer index
+         * @return Button index
          *
          */
 
-        double add(double sizer_index_d, string text_str, double proportion_d, bool expand_b);
+        add(sizer_index_d, text_str, proportion_d, expand_b);
 
         /** @brief Register button event
          *
@@ -1124,13 +1018,13 @@ class button
          *
          * @param [IN] button_index_d : Button index
          * @param [IN] event_fct_str : Function name
-         * @return bool : Event register status
+         * @return Event register status
          *   @arg false : Fail
          *   @arg true : Event registered
          *
          */
 
-        bool reg_event(double button_index_d, string event_fct_str);
+        reg_event(button_index_d, event_fct_str);
 
 };
 
@@ -1165,11 +1059,11 @@ class check_box
          * @param [IN] state_b : Initial state
          *   @arg false : Un-checked
          *   @arg true : Checked
-         * @return double : Check box buffer index
+         * @return Check box index
          *
          */
 
-        double add(double sizer_index_d, string text_str, double proportion_d, bool expand_b, bool state_b);
+        add(sizer_index_d, text_str, proportion_d, expand_b, state_b);
 
         /** @brief Register check box event
          *
@@ -1189,13 +1083,13 @@ class check_box
          *
          * @param [IN] check_box_index_d : Check box index
          * @param [IN] event_fct_str : Function name
-         * @return bool : Event register status
+         * @return Event register status
          *   @arg false : Fail
          *   @arg true : Event registered
          *
          */
 
-        bool reg_event(double check_box_index_d, string event_fct_str);
+        reg_event(check_box_index_d, event_fct_str);
 
         /** @brief Get check box state
          *
@@ -1211,13 +1105,13 @@ class check_box
          * @endcode
          *
          * @param [IN] check_box_index_d : Check box index
-         * @return bool : Check box state
+         * @return Check box state
          *   @arg false : Un-checked
          *   @arg true : Checked
          *
          */
 
-        bool get(double check_box_index_d);
+        get(check_box_index_d);
 
         /** @brief Set check box state
          *
@@ -1236,13 +1130,13 @@ class check_box
          * @param [IN] state_b : New check box state
          *   @arg false : Un-checked
          *   @arg true : Checked
-         * @return bool : Change status
+         * @return Change status
          *   @arg false : Fail
          *   @arg true : Changed
          *
          */
 
-        bool set(double check_box_index_d, bool state_b);
+        set(check_box_index_d, state_b);
 
 };
 
@@ -1277,11 +1171,11 @@ class textctrl
          * @param [IN] multiline_b : Multiline enable
          *   @arg false : One line
          *   @arg true : Multiline
-         * @return double : textctrl buffer index
+         * @return textctrl index
          *
          */
 
-        double add(double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b);
+        add(sizer_index_d, text_str, proportion_d, expand_b, multiline_b);
 
         /** @brief Get text control string
          *
@@ -1298,11 +1192,11 @@ class textctrl
          *
          * @param [IN] textctrl_index_d : Text control index
          * @param [IN] line_d : Read line number
-         * @return string : Read data
+         * @return Read data
          *
          */
 
-        string get(double textctrl_index_d, double line_d);
+        get(textctrl_index_d, line_d);
 
         /** @brief Set text control string
          *
@@ -1319,13 +1213,13 @@ class textctrl
          *
          * @param [IN] textctrl_index_d : Text control index
          * @param [IN] text_str : New text (Erase textctrl before set)
-         * @return bool : Change status
+         * @return Change status
          *   @arg false : Fail
          *   @arg true : Changed
          *
          */
 
-        bool set(double textctrl_index_d, string text_str);
+        set(textctrl_index_d, text_str);
 
         /** @brief Append text control string
          *
@@ -1342,13 +1236,13 @@ class textctrl
          *
          * @param [IN] textctrl_index_d : Text control index
          * @param [IN] text_str : New text (Append text at the end)
-         * @return bool : Append status
+         * @return Append status
          *   @arg false : Fail
          *   @arg true : Changed
          *
          */
 
-        bool append(double textctrl_index_d, string text_str);
+        append(textctrl_index_d, text_str);
 
 };
 
@@ -1380,11 +1274,11 @@ class static_text
          * @param [IN] expand_b : Expand in sizer flag
          *   @arg false : Default size
          *   @arg true : Expand
-         * @return double : static_text buffer index
+         * @return static_text index
          *
          */
 
-        double add(double sizer_index_d, wxString text_str, double proportion_d, bool expand_b);
+        add(sizer_index_d, text_str, proportion_d, expand_b);
 
         /** @brief Set static text string
          *
@@ -1401,13 +1295,13 @@ class static_text
          *
          * @param [IN] static_text_index_d : static_text index
          * @param [IN] text_str : New text (Erase static_text before set)
-         * @return bool : Set status
+         * @return Set status
          *   @arg false : Fail
          *   @arg true : Changed
          *
          */
 
-        bool set(double static_text_index_d, string text_str);
+        set(static_text_index_d, text_str);
 
 };
 
@@ -1440,11 +1334,11 @@ class slider
          * @param [IN] expand_b : Expand in sizer flag
          *   @arg false : Default size
          *   @arg true : Expand
-         * @return double : slider buffer index
+         * @return slider index
          *
          */
 
-        double add(double sizer_index_d, double min_d, double max_d, double proportion_d, bool expand_b);
+        add(sizer_index_d, min_d, max_d, proportion_d, expand_b);
 
         /** @brief Register slider event
          *
@@ -1464,13 +1358,13 @@ class slider
          *
          * @param [IN] slider_index_d : slider index
          * @param [IN] event_fct_str : Function name
-         * @return bool : Event register status
+         * @return Event register status
          *   @arg false : Fail
          *   @arg true : Event registered
          *
          */
 
-        bool reg_event(double slider_index_d, string event_fct_str);
+        reg_event(slider_index_d, event_fct_str);
 
         /** @brief Get slider value
          *
@@ -1486,11 +1380,11 @@ class slider
          * @endcode
          *
          * @param [IN] slider_index_d : slider index
-         * @return double : Set value
+         * @return Set value
          *
          */
 
-        double get(double slider_index_d);
+        get(slider_index_d);
 
         /** @brief Set slider value
          *
@@ -1506,11 +1400,11 @@ class slider
          *
          * @param [IN] slider_index_d : slider index
          * @param [IN] value_b : New slider value
-         * @return void
+         * @return
          *
          */
 
-        void set(double slider_index_d, double value_b);
+        set(slider_index_d, value_b);
 
 };
 
@@ -1542,11 +1436,11 @@ class gauge
          *   @arg false : Default size
          *   @arg true : Expand
          * @param [IN] size_d : Gauge size
-         * @return double : gauge buffer index
+         * @return Gauge index
          *
          */
 
-        double add(double sizer_index_d, double proportion_d, bool expand_b, double size_d);
+        add(sizer_index_d, proportion_d, expand_b, size_d);
 
         /** @brief Get gauge value
          *
@@ -1562,11 +1456,11 @@ class gauge
          * @endcode
          *
          * @param [IN] gauge_index_d : gauge index
-         * @return double : Set value
+         * @return Set value
          *
          */
 
-        double get(double gauge_index_d);
+        get(gauge_index_d);
 
         /** @brief Set gauge value
          *
@@ -1583,16 +1477,16 @@ class gauge
          *
          * @param [IN] gauge_index_d : gauge index
          * @param [IN] value_b : New gauge value
-         * @return void
+         * @return
          *
          */
 
-        void set(double gauge_index_d, double value_b);
+        set(gauge_index_d, value_b);
 
 };
 
 /**
-  * @class LED
+  * @class led
   * @brief wxLed class interface
   *
   */
@@ -1614,11 +1508,11 @@ class led
          * @endcode
          *
          * @param [IN] sizer_index_d : Parent sizer index
-         * @return double : LED buffer index
+         * @return LED index
          *
          */
 
-        double add(double sizer_index_d);
+        add(sizer_index_d);
 
         /** @brief Add new LED with custom state color
          *
@@ -1634,13 +1528,13 @@ class led
          * @param [IN] sizer_index_d : Parent sizer index
          * @param [IN] on_color_d : On state LED color
          * @param [IN] off_color_d : On state LED color
-         * @return double : LED buffer index
+         * @return LED buffer index
          *
          */
 
-        double add(double sizer_index_d, double on_color_d, double off_color_d)
+        add(sizer_index_d, on_color_d, off_color_d)
 
-        /** @brief Get gauge value
+        /** @brief Get LED value
          *
          * @code
          * var test_panel;
@@ -1654,13 +1548,13 @@ class led
          * @endcode
          *
          * @param [IN] led_index_d : LED index
-         * @return bool : Set value
+         * @return Set value
          *
          */
 
-        bool get(double led_index_d);
+        get(led_index_d);
 
-        /** @brief Get gauge value
+        /** @brief Set led value
          *
          * @code
          * var test_panel;
@@ -1674,11 +1568,11 @@ class led
          *
          * @param [IN] led_index_d : LED index
          * @param [IN] value_b : New LED state
-         * @return bool : Set value
+         * @return Set value
          *
          */
 
-        void set(double gauge_index_d, bool value_b);
+        set(led_index_d, value_b);
 
 };
 
@@ -1719,11 +1613,11 @@ class graph
          * @param [IN] graph_range_d : Range symetrical around 0
          * @param [IN] buffer_length_d : Sample memory size
          * @param [IN] time_step_d : Sample time.
-         * @return double : graph buffer index
+         * @return graph index
          *
          */
 
-        double add(double sizer_index_d, string name_str, double graph_range_d, double buffer_length_d, double time_step_d);
+        add(sizer_index_d, name_str, graph_range_d, buffer_length_d, time_step_d);
 
         /** @brief Insert graph signal
          *
@@ -1750,11 +1644,11 @@ class graph
          *   @arg 2 : Long dash
          *   @arg 3 : Short dash
          *   @arg 4 : Dot dash
-         * @return double : Signal insert status
+         * @return Signal insert status
          *
          */
 
-        double insert_signal(double graph_index_d, string name_str, double color_d, double width_d, double style_d);
+        insert_signal(graph_index_d, name_str, color_d, width_d, style_d);
 
         /** @brief Set graph value
          *
@@ -1779,13 +1673,13 @@ class graph
          *
          * @param [IN] graph_index_d : graph index
          * @param [IN] v_data_d : Signal data array with one sample per signal
-         * @return bool : Set status
+         * @return Set status
          *   @arg false : Fail
          *   @arg true : Update
          *
          */
 
-        bool set(double graph_index_d, vector<double>& v_data_d);
+        set(graph_index_d, v_data_d);
 
 };
 
@@ -1804,18 +1698,166 @@ class gui
 
     public:
 
-    panel panel;
-    sizer sizer;
-    button button;
-    check_box check_box;
-    textctrl textctrl;
-    static_text static_text;
-    slider slider;
-    gauge gauge;
-    led led;
-    graph graph;
+        panel panel;
+        sizer sizer;
+        button button;
+        check_box check_box;
+        textctrl textctrl;
+        static_text static_text;
+        slider slider;
+        gauge gauge;
+        led led;
+        graph graph;
 
 };
+
+/**
+* @}
+*/
+
+/**
+  * @defgroup Public_function
+  * @brief Global public function
+  * @{
+  */
+
+/** @brief Delay
+ *
+ * @code
+ * // Delay 1s
+ * delay(1000);
+ * @endcode
+ *
+ * @param [IN] time_d : Delay time in ms
+ * @return
+ *
+ */
+
+delay(time_d);
+
+/** @brief Get random value
+ *
+ * @code
+ * var random_val = rand();
+ * @endcode
+ *
+ * @param
+ * @return Random value
+ *
+ */
+
+rand();
+
+/** @brief Get random value from range
+ *
+ * @code
+ * var random_val = rand(-10, 10);
+ * @endcode
+ *
+ * @param [IN] min_d : Min value
+ * @param [IN] max_d : Max value
+ * @return Random value
+ *
+ */
+
+rand(min_d, max_d);
+
+/** @brief Show alert dialog
+ *
+ * @code
+ * alert("Hello world!");
+ * @endcode
+ *
+ * @param [IN] text_str : Alert text
+ * @return
+ *
+ */
+
+alert(text_str);
+
+/** @brief Set show main frame
+ *
+ * @code
+ * gui(false);
+ * @endcode
+ *
+ * @param [IN] show_main_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @return
+ *
+ */
+
+gui(show_main_b);
+
+/** @brief Set show main frame and Script frame name
+ *
+ * @code
+ * gui(false, "Script frame");
+ * @endcode
+ *
+ * @param [IN] show_main_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @param [IN] text_str : Script frame name
+ * @return
+ *
+ */
+
+gui(show_main_b, text_str);
+
+/** @brief Set show main frame and Script frame name
+ *
+ * @code
+ * gui(false, "Script frame", true);
+ * @endcode
+ *
+ * @param [IN] show_main_b : Show main frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @param [IN] text_str : Script frame name
+ * @param [IN] show_script_b : Show script frame
+ *   @arg false : Hide
+ *   @arg true : Show
+ * @return
+ *
+ */
+
+gui(show_main_b, text_str, show_script_b);
+
+/** @brief Register exit callback
+ *
+ * @code
+ * reg_exit("exit");
+ * function exit()
+ * {
+ * }
+ * @endcode
+ *
+ * @param [IN] function_str : Callback function
+ * @return
+ *
+ */
+
+reg_exit(function_str);
+
+/**
+* @}
+*/
+
+/**
+  * @defgroup Public_variable
+  * @brief Global public variable
+  * @{
+  */
+
+main_frame main_frame;
+uart uart;
+time time;
+timer timer;
+file file;
+project project;
+gui gui;
 
 /**
 * @}

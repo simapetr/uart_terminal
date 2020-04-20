@@ -1,4 +1,4 @@
-.TH "time" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "time" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,53 +13,53 @@ time \- System time interface\&.
 
 .in +1c
 .ti -1c
-.RI "double \fBnow\fP (void)"
+.RI "\fBnow\fP ()"
 .br
 .RI "Get actual time in s\&. "
 .ti -1c
-.RI "double \fBnow_ms\fP (void)"
+.RI "\fBnow_ms\fP ()"
 .br
 .RI "Get actual time in ms\&. "
 .ti -1c
-.RI "string \fBstr\fP (void)"
+.RI "\fBstr\fP (time_d)"
 .br
 .RI "Get actual UTC time string\&. "
 .ti -1c
-.RI "string \fBlocal_str\fP (void)"
+.RI "\fBlocal_str\fP (time_d)"
 .br
-.RI "Get actual local time string\&. "
+.RI "Get actual system time string\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 System time interface\&. 
 .PP
-Definition at line 546 of file jerryscript_h\&.h\&.
+Definition at line 483 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "string local_str (void)"
+.SS "local_str (time_d)"
 
 .PP
-Get actual local time string\&. 
+Get actual system time string\&. 
 .PP
 .nf
 var time_str;
-time_str = time\&.local_str();
+time_str = time\&.local_str(time\&.now());
 
 .fi
 .PP
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
+\fI[IN]\fP time_d : time ISO 8601 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
-string : Time and date (YYYY-MM-DD HH:MM:SS) 
+String time and date (YYYY-MM-DD HH:MM:SS) 
 .RE
 .PP
 
-.SS "double now (void)"
+.SS "now ()"
 
 .PP
 Get actual time in s\&. 
@@ -73,16 +73,10 @@ time_var = time\&.now();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-double : Number of s from (ISO 8601: 1970-01-01T00:00:00Z) 
-.RE
+\fI\fP .RE
 .PP
 
-.SS "double now_ms (void)"
+.SS "now_ms ()"
 
 .PP
 Get actual time in ms\&. 
@@ -96,35 +90,29 @@ time_var = time\&.now_ms();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-double : Number of ms from (ISO 8601: 1970-01-01T00:00:00Z) 
-.RE
+\fI\fP .RE
 .PP
 
-.SS "string str (void)"
+.SS "str (time_d)"
 
 .PP
 Get actual UTC time string\&. 
 .PP
 .nf
 var time_str;
-time_str = time\&.str();
+time_str = time\&.str(time\&.now());
 
 .fi
 .PP
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
+\fI[IN]\fP time_d : time ISO 8601 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
-string : Time and date (YYYY-MM-DD HH:MM:SS) 
+String time and date (YYYY-MM-DD HH:MM:SS) 
 .RE
 .PP
 

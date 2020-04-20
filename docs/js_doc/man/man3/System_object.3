@@ -1,4 +1,4 @@
-.TH "System_object" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "System_object" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -30,182 +30,15 @@ System_object \- Basic system object\&.
 .RI "class \fBfile\fP"
 .br
 .RI "System file read/write\&. "
-.in -1c
-.SS "Functions"
-
-.in +1c
 .ti -1c
-.RI "void \fBdelay\fP (double time_d)"
+.RI "class \fBproject\fP"
 .br
-.RI "Delay\&. "
-.ti -1c
-.RI "void \fBalert\fP (string text_str)"
-.br
-.RI "Show alert dialog\&. "
-.ti -1c
-.RI "void \fBgui\fP (bool enable_b)"
-.br
-.RI "Set show main frame\&. "
-.ti -1c
-.RI "void \fBgui\fP (bool enable_b, string text_str)"
-.br
-.RI "Set show main frame and Script frame name\&. "
-.ti -1c
-.RI "void \fBgui\fP (bool enable_b, string text_str, bool enable_b)"
-.br
-.RI "Set show main frame and Script frame name\&. "
+.RI "Script project file\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Basic system object\&. 
 
-
-.SH "Function Documentation"
-.PP 
-.SS "void alert (string text_str)"
-
-.PP
-Show alert dialog\&. 
-.PP
-.nf
-alert("Hello world!");
-
-.fi
-.PP
-.PP
-\fBParameters:\fP
-.RS 4
-\fI[IN]\fP text_str : Alert text 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
-.PP
-
-.SS "void delay (double time_d)"
-
-.PP
-Delay\&. 
-.PP
-.nf
-// Delay 1s
-delay(1000);
-
-.fi
-.PP
-.PP
-\fBParameters:\fP
-.RS 4
-\fI[IN]\fP time_d : Delay time in ms 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
-.PP
-
-.SS "void \fBgui\fP (bool enable_b)"
-
-.PP
-Set show main frame\&. 
-.PP
-.nf
-gui(false);
-
-.fi
-.PP
-.PP
-\fBParameters:\fP
-.RS 4
-\fI[IN]\fP enable_b : Show main frame 
-.PD 0
-
-.IP "\(bu" 2
-false : Hide 
-.IP "\(bu" 2
-true : Show 
-.PP
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
-.PP
-
-.SS "void \fBgui\fP (bool enable_b, string text_str)"
-
-.PP
-Set show main frame and Script frame name\&. 
-.PP
-.nf
-gui(false, "Script frame");
-
-.fi
-.PP
-.PP
-\fBParameters:\fP
-.RS 4
-\fI[IN]\fP enable_b : Show main frame 
-.PD 0
-
-.IP "\(bu" 2
-false : Hide 
-.IP "\(bu" 2
-true : Show 
-.PP
-.br
-\fI[IN]\fP text_str : Script frame name 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
-.PP
-
-.SS "void \fBgui\fP (bool enable_b, string text_str, bool enable_b)"
-
-.PP
-Set show main frame and Script frame name\&. 
-.PP
-.nf
-gui(false, "Script frame", true);
-
-.fi
-.PP
-.PP
-\fBParameters:\fP
-.RS 4
-\fI[IN]\fP enable_b : Show main frame 
-.PD 0
-
-.IP "\(bu" 2
-false : Hide 
-.IP "\(bu" 2
-true : Show 
-.PP
-.br
-\fI[IN]\fP text_str : Script frame name 
-.br
-\fI[IN]\fP enable_b : Show script frame 
-.PD 0
-
-.IP "\(bu" 2
-false : Hide 
-.IP "\(bu" 2
-true : Show 
-.PP
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
-.PP
 
 .SH "Author"
 .PP 

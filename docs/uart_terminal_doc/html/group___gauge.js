@@ -19,6 +19,5 @@ var group___gauge =
     [ "get_gauge", "group___gauge.html#gad0c44c16c06f70f43f13566c9746c33d", null ],
     [ "reg_host_class", "group___gauge.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
     [ "set", "group___gauge.html#gaddd13ecddc86a2824924f6fd5a27cb74", null ],
-    [ "set_gauge", "group___gauge.html#ga34109c01880fe7fe2c117e56de4d8f39", null ],
-    [ "lv_data_gauge_buffer", "group___gauge.html#ga186e7071ff2351292b9b12a7fb0241d1", null ]
+    [ "set_gauge", "group___gauge.html#ga34109c01880fe7fe2c117e56de4d8f39", null ]
 ];

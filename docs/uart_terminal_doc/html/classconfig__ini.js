@@ -2,6 +2,7 @@ var classconfig__ini =
 [
     [ "config_ini", "group__configuration.html#gae9a9021586a9be51eb71a360fa34cd27", null ],
     [ "~config_ini", "group__configuration.html#ga5e5c813dadc6ca0243b9f61ff2a228a2", null ],
+    [ "get_path", "classconfig__ini.html#ab4b25af8f5e58adf9d0ec95f476d3050", null ],
     [ "get_string", "group__configuration.html#ga86c5d4545e94818033b9ea210c239c76", null ],
     [ "get_value", "group__configuration.html#ga580850f1f2491b81525d7e80fac03d89", null ],
     [ "set_string", "group__configuration.html#gab350eb4d8010ec0f4a153c826fa1bd96", null ],

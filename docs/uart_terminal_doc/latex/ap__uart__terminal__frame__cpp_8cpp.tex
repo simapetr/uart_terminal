@@ -8,21 +8,37 @@ Application window component creator.
 {\ttfamily \#include \char`\"{}ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$wx/msgdlg.\+h$>$}\newline
 {\ttfamily \#include $<$wx/file.\+h$>$}\newline
+{\ttfamily \#include $<$wx/bitmap.\+h$>$}\newline
 {\ttfamily \#include $<$wx/font.\+h$>$}\newline
+{\ttfamily \#include $<$wx/image.\+h$>$}\newline
 {\ttfamily \#include $<$wx/intl.\+h$>$}\newline
 {\ttfamily \#include $<$wx/string.\+h$>$}\newline
 {\ttfamily \#include $<$wx/imaglist.\+h$>$}\newline
 {\ttfamily \#include $<$wx/filename.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}icon/ap\+\_\+ut\+\_\+icon\+\_\+app\+\_\+xpm.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}icon/lp\+\_\+play\+\_\+ico\+\_\+xpm.\+xpm\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}icon/lp\+\_\+stop\+\_\+ico\+\_\+xpm.\+xpm\char`\"{}}\newline
-Include dependency graph for ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp\+:\nopagebreak
+{\ttfamily \#include \char`\"{}lp\+\_\+uart\+\_\+terminal\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+editor\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+open\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+quit\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+info\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+js\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+bin\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+play\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+stop\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+connect\+\_\+xpm.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lp\+\_\+disconnect\+\_\+xpm.\+xpm\char`\"{}}\newline
+Include dependency graph for ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{ap__uart__terminal__frame__cpp_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ console\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 

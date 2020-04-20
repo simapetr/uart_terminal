@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['gauge_5fbuffer_5ft',['gauge_buffer_t',['../structgauge__buffer__t.html',1,'']]],
-  ['gauge_5fjs_5fc',['gauge_js_c',['../classgauge__js__c.html',1,'']]],
-  ['graph_5fbuffer_5ft',['graph_buffer_t',['../structgraph__buffer__t.html',1,'']]],
-  ['graph_5fjs_5fc',['graph_js_c',['../classgraph__js__c.html',1,'']]],
-  ['gui_5fframe',['gui_frame',['../classgui__frame.html',1,'']]]
+  ['editor',['editor',['../classeditor.html',1,'']]],
+  ['editor_5fevent_5fbuffer_5ft',['editor_event_buffer_t',['../structeditor__event__buffer__t.html',1,'']]],
+  ['editor_5fframe',['editor_frame',['../classeditor__frame.html',1,'']]],
+  ['event_5fbuffer_5ft',['event_buffer_t',['../structevent__buffer__t.html',1,'']]]
 ];

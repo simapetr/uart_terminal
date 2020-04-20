@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -90,7 +90,9 @@ $(document).ready(function(){initNavTree('group__main__frame.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Main_frame<div class="ingroups"><a class="el" href="group___infrastructure.html">Infrastructure</a> &raquo; <a class="el" href="group___jerry_script.html">JerryScript</a> &raquo; <a class="el" href="group___class.html">Class</a></div></div>  </div>
 </div><!--header-->
@@ -111,14 +113,21 @@ Collaboration diagram for Main_frame:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsend__buffer__t.html">send_buffer_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmain__frame__js__c.html">main_frame_js_c</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga8c96cc9b53c76c39830354bb412ff059"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga8c96cc9b53c76c39830354bb412ff059">d_buffer_size</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="separator:ga8c96cc9b53c76c39830354bb412ff059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9e569b67117ef902f5a4afe4a825b678"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga9e569b67117ef902f5a4afe4a825b678">reg_host_class</a> (void *p_gui_main_frame_void)</td></tr>
-<tr class="memdesc:ga9e569b67117ef902f5a4afe4a825b678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#ga9e569b67117ef902f5a4afe4a825b678">More...</a><br /></td></tr>
-<tr class="separator:ga9e569b67117ef902f5a4afe4a825b678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25e598d5efc99b6c91485f27d104802b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga25e598d5efc99b6c91485f27d104802b">reg_host_class</a> (void *p_gui_main_frame_void, wxCondition *p_data_wxcondition)</td></tr>
+<tr class="memdesc:ga25e598d5efc99b6c91485f27d104802b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#ga25e598d5efc99b6c91485f27d104802b">More...</a><br /></td></tr>
+<tr class="separator:ga25e598d5efc99b6c91485f27d104802b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8a85079d2dbeac9879aeea2f154989f8"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga8a85079d2dbeac9879aeea2f154989f8">gui</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:ga8a85079d2dbeac9879aeea2f154989f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI base function (JS function "gui")  <a href="#ga8a85079d2dbeac9879aeea2f154989f8">More...</a><br /></td></tr>
 <tr class="separator:ga8a85079d2dbeac9879aeea2f154989f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,9 +137,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga018e04117e3911c2dc101ee624cccff1"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga018e04117e3911c2dc101ee624cccff1">is_console_rx_enable</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:ga018e04117e3911c2dc101ee624cccff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI enable console rx data (JS method "is_console_rx_enable")  <a href="#ga018e04117e3911c2dc101ee624cccff1">More...</a><br /></td></tr>
 <tr class="separator:ga018e04117e3911c2dc101ee624cccff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga87083671bd23bba4407fcf2723d3dc0e"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga87083671bd23bba4407fcf2723d3dc0e">printf</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
-<tr class="memdesc:ga87083671bd23bba4407fcf2723d3dc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI textctrl console printf data (JS method "printf")  <a href="#ga87083671bd23bba4407fcf2723d3dc0e">More...</a><br /></td></tr>
-<tr class="separator:ga87083671bd23bba4407fcf2723d3dc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13dc402113c369f24bebf6bea0e0e006"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga13dc402113c369f24bebf6bea0e0e006">js_printf</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
+<tr class="memdesc:ga13dc402113c369f24bebf6bea0e0e006"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI textctrl console printf data (JS method "printf")  <a href="#ga13dc402113c369f24bebf6bea0e0e006">More...</a><br /></td></tr>
+<tr class="separator:ga13dc402113c369f24bebf6bea0e0e006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa4e3cb0080b1debb17c00ba69afb8983"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#gaa4e3cb0080b1debb17c00ba69afb8983">status</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:gaa4e3cb0080b1debb17c00ba69afb8983"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI StatusText status bar (JS method "status")  <a href="#gaa4e3cb0080b1debb17c00ba69afb8983">More...</a><br /></td></tr>
 <tr class="separator:gaa4e3cb0080b1debb17c00ba69afb8983"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,10 +167,73 @@ Functions</h2></td></tr>
 <tr class="memitem:ga4fe0692f613dc3449133b4ddcbc5a933"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga4fe0692f613dc3449133b4ddcbc5a933">hide</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:ga4fe0692f613dc3449133b4ddcbc5a933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hide main frame (JS method "hide")  <a href="#ga4fe0692f613dc3449133b4ddcbc5a933">More...</a><br /></td></tr>
 <tr class="separator:ga4fe0692f613dc3449133b4ddcbc5a933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f26df9896cdb77a44c97bf86311027e"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga0f26df9896cdb77a44c97bf86311027e">call</a> (void *p_parametr_void)</td></tr>
+<tr class="memdesc:ga0f26df9896cdb77a44c97bf86311027e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call Tx data send event (Must be called form JS thread)  <a href="#ga0f26df9896cdb77a44c97bf86311027e">More...</a><br /></td></tr>
+<tr class="separator:ga0f26df9896cdb77a44c97bf86311027e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga67b9772d1d4ab27f02761c51ff6bca8f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structsend__buffer__t.html">send_buffer_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__main__frame.html#ga67b9772d1d4ab27f02761c51ff6bca8f">lv_main_send_buffer</a></td></tr>
+<tr class="separator:ga67b9772d1d4ab27f02761c51ff6bca8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Main frame interface. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga8c96cc9b53c76c39830354bb412ff059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8c96cc9b53c76c39830354bb412ff059">&#9670;&nbsp;</a></span>d_buffer_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define d_buffer_size&#160;&#160;&#160;4096</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Define </p>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00054">54</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga0f26df9896cdb77a44c97bf86311027e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f26df9896cdb77a44c97bf86311027e">&#9670;&nbsp;</a></span>call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t call </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_parametr_void</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Call Tx data send event (Must be called form JS thread) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>p_parametr_void : Handle on registered object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : number of item in UART buffer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00786">786</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ga8c521537b2065ae6bcc3a419e786d024"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga8c521537b2065ae6bcc3a419e786d024">&#9670;&nbsp;</a></span>clear()</h2>
 
@@ -220,7 +292,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00374">374</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00424">424</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,7 +354,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00474">474</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00525">525</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +416,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00208">208</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00242">242</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +478,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00553">553</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00598">598</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +540,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00513">513</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00561">561</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -530,7 +602,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00172">172</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00202">202</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -592,7 +664,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00693">693</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00752">752</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +726,69 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00244">244</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00282">282</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga13dc402113c369f24bebf6bea0e0e006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13dc402113c369f24bebf6bea0e0e006">&#9670;&nbsp;</a></span>js_printf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t js_printf </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>funct_ui32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>this_ui32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t *&#160;</td>
+          <td class="paramname"><em>p_args_ui32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>args_cnt_ui32</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUI textctrl console printf data (JS method "printf") </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>funct_ui32 : Unused </td></tr>
+    <tr><td class="paramname">[IN]</td><td>this_ui32 : Pointer on construct class </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_args_ui32 : Pointer on argument field </td></tr>
+    <tr><td class="paramname">[IN]</td><td>args_cnt_ui32 : Argument field size </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00320">320</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -716,69 +850,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00407">407</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga87083671bd23bba4407fcf2723d3dc0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga87083671bd23bba4407fcf2723d3dc0e">&#9670;&nbsp;</a></span>printf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t printf </td>
-          <td>(</td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>funct_ui32</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>this_ui32</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t *&#160;</td>
-          <td class="paramname"><em>p_args_ui32</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>args_cnt_ui32</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>GUI textctrl console printf data (JS method "printf") </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>funct_ui32 : Unused </td></tr>
-    <tr><td class="paramname">[IN]</td><td>this_ui32 : Pointer on construct class </td></tr>
-    <tr><td class="paramname">[IN]</td><td>p_args_ui32 : Pointer on argument field </td></tr>
-    <tr><td class="paramname">[IN]</td><td>args_cnt_ui32 : Argument field size </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00278">278</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00461">461</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -840,12 +912,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00655">655</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00704">704</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ga9e569b67117ef902f5a4afe4a825b678"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9e569b67117ef902f5a4afe4a825b678">&#9670;&nbsp;</a></span>reg_host_class()</h2>
+<a id="ga25e598d5efc99b6c91485f27d104802b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga25e598d5efc99b6c91485f27d104802b">&#9670;&nbsp;</a></span>reg_host_class()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -854,8 +926,18 @@ Functions</h2></td></tr>
           <td class="memname">void reg_host_class </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>p_gui_main_frame_void</em></td><td>)</td>
+          <td class="paramname"><em>p_gui_main_frame_void</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">wxCondition *&#160;</td>
+          <td class="paramname"><em>p_data_wxcondition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -864,12 +946,13 @@ Functions</h2></td></tr>
 <p>Function</p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[IN]</td><td>p_gui_main_frame_void : Pointer on registered class </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_data_wxcondition : Rx data call event </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00061">61</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00090">90</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -931,7 +1014,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00599">599</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00648">648</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1076,25 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00326">326</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00372">372</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga67b9772d1d4ab27f02761c51ff6bca8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67b9772d1d4ab27f02761c51ff6bca8f">&#9670;&nbsp;</a></span>lv_main_send_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="structsend__buffer__t.html">send_buffer_t</a>&gt; lv_main_send_buffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Local variable </p>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html#l00074">74</a> of file <a class="el" href="in__js__class__main__frame__js__cpp_8cpp_source.html">in_js_class_main_frame_js_cpp.cpp</a>.</p>
 
 </div>
 </div>

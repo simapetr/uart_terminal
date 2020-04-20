@@ -1,4 +1,4 @@
-.TH "main_frame" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "main_frame" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -22,6 +22,18 @@ Inherits wxFrame\&.
 .br
 .RI "Destructor\&. "
 .ti -1c
+.RI "void \fBset\fP (wxString path_str)"
+.br
+.RI "Set script path\&. "
+.ti -1c
+.RI "void \fBrun\fP (bool status_b=true)"
+.br
+.RI "Run Loaded script\&. "
+.ti -1c
+.RI "wxString \fBget\fP (void)"
+.br
+.RI "Get script path\&. "
+.ti -1c
 .RI "void \fBgui\fP (bool status_b)"
 .br
 .RI "Set frame show status\&. "
@@ -29,6 +41,10 @@ Inherits wxFrame\&.
 .RI "\fBconfig_ini\fP * \fBget_project\fP (void)"
 .br
 .RI "Get project configuration object\&. "
+.ti -1c
+.RI "void \fBjs_hide\fP (bool status_b)"
+.br
+.RI "Hide main frame from JerryScript\&. "
 .ti -1c
 .RI "void \fBconsole_rx_enable\fP (bool status_b)"
 .br
@@ -38,29 +54,53 @@ Inherits wxFrame\&.
 .br
 .RI "Get RX console show status\&. "
 .ti -1c
-.RI "void \fBprintf\fP (wxString console_text_str)"
+.RI "void \fBjs_printf\fP (wxString console_text_str)"
 .br
-.RI "Print string on console\&. "
+.RI "Print string on console from JerryScript\&. "
+.ti -1c
+.RI "void \fBjs_status\fP (wxString status_text_str)"
+.br
+.RI "Print string on status bar from JerryScript\&. "
 .ti -1c
 .RI "void \fBstatus\fP (wxString status_text_str)"
 .br
 .RI "Print string on status bar\&. "
 .ti -1c
+.RI "void \fBjs_clear\fP (void)"
+.br
+.RI "Clear console text from JerryScript\&. "
+.ti -1c
 .RI "void \fBclear\fP (void)"
 .br
 .RI "Clear console text\&. "
+.ti -1c
+.RI "void \fBjs_open_port\fP (void)"
+.br
+.RI "Open UART form JerryScript\&. "
 .ti -1c
 .RI "void \fBopen_port\fP (void)"
 .br
 .RI "Open UART with GUI setting\&. "
 .ti -1c
+.RI "void \fBjs_close_port\fP (void)"
+.br
+.RI "Close port from JerryScript\&. "
+.ti -1c
 .RI "void \fBclose_port\fP (void)"
 .br
 .RI "Close port wit GUI setting\&. "
 .ti -1c
+.RI "uart_status_t \fBjs_get_open_status\fP (void)"
+.br
+.RI "Get port open status from JerryScript\&. "
+.ti -1c
 .RI "uart_status_t \fBget_open_status\fP (void)"
 .br
 .RI "Get port open status\&. "
+.ti -1c
+.RI "void \fBjs_set_config\fP (\fBuart_cfg_t\fP data_uart_cfg)"
+.br
+.RI "Set UART port from JerryScript\&. "
 .ti -1c
 .RI "void \fBset_config\fP (\fBuart_cfg_t\fP data_uart_cfg)"
 .br
@@ -86,7 +126,7 @@ Inherits wxFrame\&.
 .br
 .RI "Run JS script\&. "
 .ti -1c
-.RI "void \fBstop_script\fP (void)"
+.RI "uint32_t \fBstop_script\fP (void)"
 .br
 .RI "Stop JS script\&. "
 .in -1c
@@ -102,7 +142,7 @@ Inherits wxFrame\&.
 .PP 
 Class 
 .PP
-Definition at line 70 of file ap_uart_terminal_frame_h\&.h\&.
+Definition at line 71 of file ap_uart_terminal_frame_h\&.h\&.
 
 .SH "Author"
 .PP 

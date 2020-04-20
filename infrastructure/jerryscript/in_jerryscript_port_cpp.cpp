@@ -58,6 +58,15 @@ typedef struct
 
 /**
   ****************************************************************************
+  * Global variable
+  ****************************************************************************
+  */
+
+double g_time_d;
+double g_time_ms_d;
+
+/**
+  ****************************************************************************
   * Local variable
   ****************************************************************************
   */
@@ -98,7 +107,6 @@ jerryscript_c::jerryscript_c( uart_port* p_com_uart_port, void* p_gui_main_frame
     l_exit_state_ui32 = 0;
     // Initialize GUI window
     this->lp_data_gui_frame = new gui_frame((wxWindow*)this->lp_gui_main_frame_void, this);
-    this->lp_data_gui_frame->Show();
     // Create wait event
     this->lp_data_wxmutex = new wxMutex();
     if(this->lp_data_wxmutex)
@@ -162,7 +170,7 @@ uint32_t status_ui32 = 1;
  *
  */
 
-uint32_t jerryscript_c::stop (void)
+uint32_t jerryscript_c::stop(void)
 {
     if(this->l_run_script_ui8)
     {
@@ -186,7 +194,7 @@ uint32_t jerryscript_c::stop (void)
  *
  */
 
-void jerryscript_c::call_event (wxString event_str, uint32_t component_id_ui32)
+void jerryscript_c::call_event(wxString event_str, uint32_t component_id_ui32)
 {
 event_buffer_t data_event_buffer;
 
@@ -207,7 +215,7 @@ event_buffer_t data_event_buffer;
  *
  */
 
-void jerryscript_c::reg_class (void)
+void jerryscript_c::reg_class(void)
 {
 jerry_value_t global_jerry_value;
 jerry_value_t funct_jerry_value;
@@ -252,7 +260,7 @@ jerry_value_t name_jerry_value;
     this->l_data_timer_js.reg_host_class();
     this->l_data_time_js.reg_host_class();
     this->l_data_file_js.reg_host_class();
-    this->l_data_project_js.reg_host_class(this->l_project_str);
+    this->l_data_project_js.reg_host_class(((main_frame*)(this->lp_gui_main_frame_void))->get_project()->get_path());
     this->l_port_uart_js.reg_host_class(this->lp_com_uart_port, this->lp_data_wxcondition);
     this->l_gui_main_frame_js.reg_host_class(this->lp_gui_main_frame_void, this->lp_data_wxcondition);
     this->l_gui_panel_js.reg_host_class(this->lp_data_gui_frame);
@@ -275,7 +283,7 @@ jerry_value_t name_jerry_value;
  *
  */
 
-void jerryscript_c::dereg_class (void)
+void jerryscript_c::dereg_class(void)
 {
     this->l_data_timer_js.dereg_host_class();
     this->l_port_uart_js.dereg_host_class();
@@ -352,31 +360,7 @@ int siz_h_int = 0;
 
     // Run thread
     p_bkp_this->l_run_script_ui8 = 1;
-    // Interpreter initialization
-    if(!p_bkp_this->l_init_flag_b)
-    {
-        p_bkp_this->l_init_flag_b = true;
-        jerry_init (JERRY_INIT_EMPTY);
-        // Set Debug
-        if (p_bkp_this->l_debug_b)
-        {
-            // Initialization debug server
-            jerryx_debugger_after_connect (jerryx_debugger_tcp_create (5001) && jerryx_debugger_ws_create ());
-        }
-    }
-    if(((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
-    {
-        p_bkp_this->l_project_str = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project()->get_path();
-    }
-    // Reg all class
-    p_bkp_this->reg_class();
-    // Run script
-    if(p_bkp_this->l_jerryscript_code_str != wxEmptyString)
-    {
-        eval_ret_jerry_value = jerry_eval((const jerry_char_t*) p_bkp_this->l_jerryscript_code_str.To8BitData().data(), p_bkp_this->l_jerryscript_code_str.Length(), false);
-        jerry_release_value (eval_ret_jerry_value);
-    }
-    // Reload window and AUI position
+    // Set GUI window position
     if(p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
     {
         p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
@@ -393,6 +377,31 @@ int siz_h_int = 0;
             siz_h_int = p_position_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"));
             p_bkp_this->lp_data_gui_frame->SetClientSize(wxSize(siz_w_int, siz_h_int));
         }
+    }
+    // Interpreter initialization
+    if(!p_bkp_this->l_init_flag_b)
+    {
+        p_bkp_this->l_init_flag_b = true;
+        jerry_init (JERRY_INIT_EMPTY);
+        // Set Debug
+        if (p_bkp_this->l_debug_b)
+        {
+            // Initialization debug server
+            jerryx_debugger_after_connect (jerryx_debugger_tcp_create (5001) && jerryx_debugger_ws_create ());
+        }
+    }
+    // Reg all class
+    p_bkp_this->reg_class();
+    // Run script
+    if(p_bkp_this->l_jerryscript_code_str != wxEmptyString)
+    {
+        eval_ret_jerry_value = jerry_eval((const jerry_char_t*) p_bkp_this->l_jerryscript_code_str.To8BitData().data(), p_bkp_this->l_jerryscript_code_str.Length(), false);
+        jerry_release_value (eval_ret_jerry_value);
+    }
+    // Reload window and AUI position
+    if(p_bkp_this->lp_data_gui_frame != NULL && ((main_frame*)(p_bkp_this->lp_gui_main_frame_void)) != NULL)
+    {
+        p_position_config_ini = ((main_frame*)(p_bkp_this->lp_gui_main_frame_void))->get_project();
         // Load perspective
         perspective_str = p_position_config_ini->get_string(wxT("POSITION/perspective"),wxT(""));
         if(perspective_str != wxEmptyString)
@@ -433,6 +442,9 @@ int siz_h_int = 0;
                 }
                 break;
             }
+            // Set time
+            g_time_d = (double)wxGetUTCTime();
+            g_time_ms_d = wxGetUTCTimeMillis().ToDouble();
         }
     }
     // Call exit callback

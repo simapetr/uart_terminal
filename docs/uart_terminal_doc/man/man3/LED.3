@@ -1,0 +1,211 @@
+.TH "LED" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LED \- LED class definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "class \fBled_js_c\fP"
+.br
+.ti -1c
+.RI "struct \fBled_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBreg_host_class\fP (void *p_gui_interface_void)"
+.br
+.RI "Registration object in to class\&. "
+.ti -1c
+.RI "static uint32_t \fBadd\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Add new LED (JS function 'add') "
+.ti -1c
+.RI "static uint32_t \fBset\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Set led state (JS method 'set') "
+.ti -1c
+.RI "static uint32_t \fBget\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
+.br
+.RI "Get led state (JS method 'get') "
+.ti -1c
+.RI "uint32_t \fBadd_led\fP (double sizer_index_d, double on_color_d, double off_color_d)"
+.br
+.RI "Add LED\&. "
+.ti -1c
+.RI "void \fBset_led\fP (double led_index_d, bool state_b)"
+.br
+.RI "Set Led state\&. "
+.ti -1c
+.RI "bool \fBget_led\fP (double led_index_d)"
+.br
+.RI "Get Led state\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+LED class definition\&. 
+
+GUI LED component\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t add (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Add new LED (JS function 'add') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file in_js_class_led_js_cpp\&.cpp\&.
+.SS "uint32_t add_led (double sizer_index_d, double on_color_d, double off_color_d)"
+
+.PP
+Add LED\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsizer_index_d\fP : Parent sizer index 
+.br
+\fIon_color_d\fP : On LED color 
+.br
+\fIoff_color_d\fP : Off LED color 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : New LED buffer index 
+.RE
+.PP
+
+.PP
+Definition at line 93 of file in_js_gui_led_cpp\&.cpp\&.
+.SS "uint32_t get (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Get led state (JS method 'get') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file in_js_class_led_js_cpp\&.cpp\&.
+.SS "bool get_led (double led_index_d)"
+
+.PP
+Get Led state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIled_index_d\fP : LED index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool : LED state 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file in_js_gui_led_cpp\&.cpp\&.
+.SS "void reg_host_class (void * p_gui_interface_void)"
+
+.PP
+Registration object in to class\&. Function
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP p_gui_interface_void : Pointer on registered class 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file in_js_class_led_js_cpp\&.cpp\&.
+.SS "uint32_t set (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
+
+.PP
+Set led state (JS method 'set') 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP funct_ui32 : Unused 
+.br
+\fI[IN]\fP this_ui32 : Pointer on construct class 
+.br
+\fI[IN]\fP p_args_ui32 : Pointer on argument field 
+.br
+\fI[IN]\fP args_cnt_ui32 : Argument field size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uint32_t : returned data 
+.RE
+.PP
+
+.PP
+Definition at line 171 of file in_js_class_led_js_cpp\&.cpp\&.
+.SS "void set_led (double led_index_d, bool state_b)"
+
+.PP
+Set Led state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIled_index_d\fP : LED index 
+.br
+\fIstate_b\fP : LED state 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file in_js_gui_led_cpp\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

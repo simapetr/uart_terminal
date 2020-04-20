@@ -22,7 +22,12 @@
 #include "in_data_plot_graph_h.h"
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -254,6 +259,10 @@ void gui_frame::on_clear_graph(void)
     l_cnt_graph_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

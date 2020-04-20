@@ -22,7 +22,12 @@
 #include <wx/textctrl.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -306,6 +311,10 @@ void gui_frame::on_clear_textctrl(void)
     l_cnt_textctrl_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

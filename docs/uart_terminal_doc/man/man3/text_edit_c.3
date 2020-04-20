@@ -1,0 +1,61 @@
+.TH "text_edit_c" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+text_edit_c
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits wxStyledTextCtrl\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBe_barce_bad\fP = 0, \fBe_barce\fP = 1, \fBe_select\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBe_class\fP = 0, \fBe_method\fP = 1, \fBe_var\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtext_edit_c\fP (wxWindow *p_parent_wxwindow, wxWindowID text_wxwindowid=wxID_ANY, const wxPoint &pos_wxpoint=wxDefaultPosition, const wxSize &panel_wxsize=wxDefaultSize, uint32_t style_ui32=wxVSCROLL)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "\fB~text_edit_c\fP (void)"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBload\fP (wxString path_str)"
+.br
+.RI "Load text file\&. "
+.ti -1c
+.RI "void \fBsave\fP (wxString path_str)"
+.br
+.RI "Save text file\&. "
+.ti -1c
+.RI "void \fBtext_highlight\fP (void)"
+.br
+.RI "Highlight all selected text duplicate\&. "
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBEditProperties\fP"
+.br
+.ti -1c
+.RI "class \fBEditPrint\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 67 of file in_js_edit_text_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

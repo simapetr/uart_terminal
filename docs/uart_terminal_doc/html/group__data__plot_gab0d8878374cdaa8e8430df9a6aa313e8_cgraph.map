@@ -1,0 +1,7 @@
+<map id="set_time" name="set_time">
+<area shape="rect" id="node1" title="Set logged data length and sample period." alt="" coords="5,81,77,108"/>
+<area shape="rect" id="node2" href="$group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace" title="Redraw data pause." alt="" coords="127,5,184,32"/>
+<area shape="rect" id="node3" href="$group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="233,81,273,108"/>
+<area shape="rect" id="node4" href="$group__data__plot.html#gac7680454aa76f10d7883fa41668f2fd7" title="Redraw new data and set time cursor." alt="" coords="125,107,185,133"/>
+<area shape="rect" id="node5" href="$group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c" title="Set graph in to default zoom." alt="" coords="136,157,175,184"/>
+</map>

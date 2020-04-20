@@ -12,29 +12,29 @@ wx\+Text\+Ctrl class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, wx\+String text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool multiline\+\_\+b)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, text\+\_\+str, proportion\+\_\+d, expand\+\_\+b, multiline\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new text control. \end{DoxyCompactList}\item 
-string \textbf{ get} (double textctrl\+\_\+index\+\_\+d, double line\+\_\+d)
+\textbf{ get} (textctrl\+\_\+index\+\_\+d, line\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get text control string. \end{DoxyCompactList}\item 
-bool \textbf{ set} (double textctrl\+\_\+index\+\_\+d, string text\+\_\+str)
+\textbf{ set} (textctrl\+\_\+index\+\_\+d, text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Set text control string. \end{DoxyCompactList}\item 
-bool \textbf{ append} (double textctrl\+\_\+index\+\_\+d, string text\+\_\+str)
+\textbf{ append} (textctrl\+\_\+index\+\_\+d, text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Append text control string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Text\+Ctrl class interface 
 
-Definition at line 1109 of file jerryscript\+\_\+h.\+h.
+Definition at line 1149 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classtextctrl_a9be1b2dbe78ed82084d7864782b64e33}} 
+\mbox{\label{classtextctrl_a68fb628585859b9a9869ce32b3307ea0}} 
 \index{textctrl@{textctrl}!add@{add}}
 \index{add@{add}!textctrl@{textctrl}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{wx\+String}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{bool}]{multiline\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{,  }\item[{proportion\+\_\+d}]{,  }\item[{expand\+\_\+b}]{,  }\item[{multiline\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -69,13 +69,13 @@ Add new text control.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: textctrl buffer index 
+textctrl index 
 \end{DoxyReturn}
-\mbox{\label{classtextctrl_a289b64609e56d297085f264ac9ee10f9}} 
+\mbox{\label{classtextctrl_acecfb68018d431f03e131b4b000fa444}} 
 \index{textctrl@{textctrl}!append@{append}}
 \index{append@{append}!textctrl@{textctrl}}
 \subsubsection{append()}
-{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily append (\begin{DoxyParamCaption}\item[{textctrl\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -102,15 +102,15 @@ Append text control string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Append status \begin{DoxyItemize}
+Append status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Changed \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classtextctrl_ab0cbf2f1d4309c9589b475c2aa27343f}} 
+\mbox{\label{classtextctrl_ad86b7120566740f7457c61325441ab69}} 
 \index{textctrl@{textctrl}!get@{get}}
 \index{get@{get}!textctrl@{textctrl}}
 \subsubsection{get()}
-{\footnotesize\ttfamily string get (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{double}]{line\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{textctrl\+\_\+index\+\_\+d}]{,  }\item[{line\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -137,13 +137,13 @@ Get text control string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Read data 
+Read data 
 \end{DoxyReturn}
-\mbox{\label{classtextctrl_a0a55dab1053335fa9470498a38ebb206}} 
+\mbox{\label{classtextctrl_a75fbd30a9a500e6dc87331a7d5d18074}} 
 \index{textctrl@{textctrl}!set@{set}}
 \index{set@{set}!textctrl@{textctrl}}
 \subsubsection{set()}
-{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{textctrl\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{textctrl\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -170,7 +170,7 @@ Set text control string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Change status \begin{DoxyItemize}
+Change status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Changed \end{DoxyItemize}
 
 \end{DoxyReturn}

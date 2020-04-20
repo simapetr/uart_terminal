@@ -33,7 +33,12 @@
 using namespace std;
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -154,6 +159,10 @@ class gui_frame: public wxFrame
 
         DECLARE_EVENT_TABLE()
 };
+
+/**
+* @}
+*/
 
 /**
 * @}

@@ -105,28 +105,12 @@
 							<border>5</border>
 						</object>
 						<object class="sizeritem">
-							<object class="wxButton" name="l_id_clear_wxbutton" variable="lp_clear_wxbutton" member="yes">
-								<label>Clc</label>
-								<handler function="main_panel_clear_button_click" entry="EVT_BUTTON" />
+							<object class="wxToggleButton" name="l_id_connect_wxtogglebutton" variable="lp_connect_wxtogglebutton" member="yes">
+								<size>23,23</size>
+								<style>wxBORDER_NONE</style>
+								<handler function="on_connect_wxtogglebutton_toggle" entry="EVT_TOGGLEBUTTON" />
 							</object>
 							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-							<border>5</border>
-						</object>
-						<object class="sizeritem">
-							<object class="wxButton" name="l_id_close_wxbutton" variable="lp_close_wxbutton" member="yes">
-								<label>Close</label>
-								<enabled>0</enabled>
-								<handler function="main_panel_close_button_click" entry="EVT_BUTTON" />
-							</object>
-							<flag>wxALL|wxALIGN_TOP</flag>
-							<border>5</border>
-						</object>
-						<object class="sizeritem">
-							<object class="wxButton" name="l_id_open_wxbutton" variable="lp_open_wxbutton" member="yes">
-								<label>Open</label>
-								<handler function="main_panel_open_button_click" entry="EVT_BUTTON" />
-							</object>
-							<flag>wxALL</flag>
 							<border>5</border>
 						</object>
 					</object>
@@ -150,6 +134,15 @@
 									<object class="wxCheckBox" name="l_id_text_lf_wxcheckbox" variable="lp_text_lf_wxcheckbox" member="yes">
 										<label>LF</label>
 										<tooltip>Add LF (0x0A) on the end of string</tooltip>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="l_id_clear_wxbutton" variable="lp_clear_wxbutton" member="yes">
+										<size>23,23</size>
+										<style>wxBORDER_NONE</style>
+										<handler function="main_panel_clear_button_click" entry="EVT_BUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
@@ -273,15 +266,18 @@
 							<object class="wxStaticBoxSizer" variable="lp_script_wxstaticboxsizer" member="yes">
 								<label>Script</label>
 								<object class="sizeritem">
-									<object class="wxTextCtrl" name="l_id_script_path_wxtextctrl" variable="lp_script_path_wxtextctrl" member="yes" />
+									<object class="wxTextCtrl" name="l_id_script_path_wxtextctrl" variable="lp_script_path_wxtextctrl" member="yes">
+										<style>wxTE_READONLY</style>
+									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
 									<option>1</option>
 								</object>
 								<object class="sizeritem">
-									<object class="wxButton" name="l_id_script_load_wxbutton" variable="lp_script_load_wxbutton" member="yes">
-										<label>Load</label>
-										<handler function="on_script_load_wxbutton_click" entry="EVT_BUTTON" />
+									<object class="wxButton" name="l_id_editor_wxbutton" variable="lp_editor_wxbutton" member="yes">
+										<size>23,23</size>
+										<style>wxBORDER_NONE</style>
+										<handler function="on_editor_wxbutton_click" entry="EVT_BUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
@@ -289,6 +285,7 @@
 								<object class="sizeritem">
 									<object class="wxToggleButton" name="l_id_script_run_wxtogglebutton" variable="lp_script_run_wxtogglebutton" member="yes">
 										<size>23,23</size>
+										<style>wxBORDER_NONE</style>
 										<handler function="on_script_run_wxtogglebutton_toggle" entry="EVT_TOGGLEBUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -317,7 +314,7 @@
 									<face>Lucida Console</face>
 								</font>
 							</object>
-							<flag>wxALL|wxALIGN_TOP</flag>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 							<border>5</border>
 							<option>1</option>
 						</object>
@@ -335,7 +332,7 @@
 								<enabled>0</enabled>
 								<handler function="main_panel_send_button_click" entry="EVT_BUTTON" />
 							</object>
-							<flag>wxALL|wxALIGN_TOP</flag>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 							<border>5</border>
 						</object>
 					</object>
@@ -363,10 +360,26 @@
 		<object class="wxMenuBar" variable="lp_top_wxmenubar" member="yes">
 			<object class="wxMenu" variable="lp_file_wxmenu" member="yes">
 				<label>&amp;File</label>
+				<object class="wxMenuItem" name="l_id_file_open_item_wxmenu" variable="l_file_open_item_wxmenu" member="yes">
+					<label>Open</label>
+					<accel>Ctrl-O</accel>
+					<help>Open script</help>
+					<bitmap code="wxIcon(lp_open_si8)" />
+					<handler function="on_script_load_wxbutton_click" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="l_id_file_edit_item_wxmenu" variable="l_file_edit_item_wxmenu" member="yes">
+					<label>Editor</label>
+					<accel>Ctrl-E</accel>
+					<help>Run script editor</help>
+					<bitmap code="wxIcon(lp_editor_si8)" />
+					<handler function="on_editor_wxbutton_click" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
 				<object class="wxMenuItem" name="l_id_file_quit_item_wxmenu" variable="lp_file_quit_item_wxmenu" member="yes">
 					<label>Quit</label>
 					<accel>Alt-F4</accel>
 					<help>Quit the application</help>
+					<bitmap code="wxIcon(lp_quit_si8)" />
 					<handler function="menu_bar_file_quit_item_selected" entry="EVT_MENU" />
 				</object>
 			</object>
@@ -375,13 +388,15 @@
 				<object class="wxMenuItem" name="l_id_help_about_item_wxmenu" variable="lp_help_about_item_wxmenu" member="yes">
 					<label>About</label>
 					<accel>F1</accel>
-					<help>Show info about this application</help>
+					<help>Show info about uart terminal application</help>
+					<bitmap code="wxIcon(lp_info_si8)" />
 					<handler function="menu_bar_help_about_item_selected" entry="EVT_MENU" />
 				</object>
 				<object class="separator" />
 				<object class="wxMenuItem" name="l_id_help_js_doc_item_wxmenu" variable="lp_js_doc_item_wxmenu" member="yes">
 					<label>JS doc</label>
 					<help>Documentation internal JerryScript class</help>
+					<bitmap code="wxIcon(lp_js_si8)" />
 					<handler function="on_js_doc_item_wxmenu_selected" entry="EVT_MENU" />
 				</object>
 			</object>

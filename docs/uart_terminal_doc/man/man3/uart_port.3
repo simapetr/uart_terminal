@@ -1,4 +1,4 @@
-.TH "uart_port" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "uart_port" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -20,11 +20,7 @@ uart_port
 .br
 .RI "Destructor\&. "
 .ti -1c
-.RI "void \fBget_port\fP (void)"
-.br
-.RI "Get UART port list\&. "
-.ti -1c
-.RI "string * \fBget_bus_array\fP (void)"
+.RI "string * \fBget_port\fP (void)"
 .br
 .RI "Get pointer on port array\&. "
 .ti -1c
@@ -36,15 +32,15 @@ uart_port
 .br
 .RI "Close UART port communication\&. "
 .ti -1c
-.RI "uint8_t \fBcreate_event\fP (\fBuart_event_fct\fP function_uart_event_fct, void *p_parametr_void)"
+.RI "uint8_t \fBset\fP (\fBuart_event_fct\fP function_uart_event_fct, void *p_parametr_void)"
 .br
 .RI "Associate driver event function\&. "
 .ti -1c
-.RI "uint8_t \fBdelete_event\fP (\fBuart_event_fct\fP function_uart_event_fct)"
+.RI "uint8_t \fBclear\fP (\fBuart_event_fct\fP function_uart_event_fct)"
 .br
 .RI "Delete associated event function\&. "
 .ti -1c
-.RI "void \fBdelete_event_all\fP (void)"
+.RI "void \fBclear\fP (void)"
 .br
 .RI "Delete all associated event\&. "
 .ti -1c
@@ -52,43 +48,27 @@ uart_port
 .br
 .RI "Get port status (call after construction object for test correct open) "
 .ti -1c
-.RI "uint32_t \fBget_last_error\fP (void)"
+.RI "\fBuart_cfg_t\fP \fBget\fP (void)"
 .br
-.RI "Get port last error\&. "
-.ti -1c
-.RI "uint32_t \fBwait_rx_event\fP (void)"
-.br
-.RI "Wait for receive data\&. "
+.RI "Get port configuration\&. "
 .ti -1c
 .RI "uint8_t \fBflush\fP (void)"
 .br
 .RI "Erase communication buffer\&. "
 .ti -1c
-.RI "uint8_t \fBwrite_data\fP (uint8_t data_ui8)"
+.RI "uint8_t \fBsend\fP (uint8_t data_ui8)"
 .br
 .RI "Write character\&. "
 .ti -1c
-.RI "uint8_t \fBwrite_data\fP (uint8_t *p_data_sui8, uint32_t len_ui32)"
+.RI "uint8_t \fBsend\fP (uint8_t *p_data_sui8, uint32_t len_ui32)"
 .br
 .RI "Write data string\&. "
 .ti -1c
-.RI "uint8_t \fBwrite_data\fP (vector< uint8_t > &pv_data_sui8)"
-.br
-.RI "Write data vector\&. "
-.ti -1c
-.RI "uint8_t \fBread_data\fP (uint8_t *p_data_ui8)"
-.br
-.RI "Read character\&. "
-.ti -1c
-.RI "uint8_t \fBread_data\fP (string *p_data_str)"
-.br
-.RI "Read data from character buffer\&. "
-.ti -1c
-.RI "uint8_t \fBget_com_ctrl\fP (\fBuart_com_ctrl_in_t\fP pin_uart_com_ctrl_in)"
+.RI "uint8_t \fBget\fP (\fBuart_com_ctrl_in_t\fP pin_uart_com_ctrl_in)"
 .br
 .RI "Get com state\&. "
 .ti -1c
-.RI "void \fBset_com_ctrl\fP (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)"
+.RI "void \fBset\fP (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)"
 .br
 .RI "Set com state\&. "
 .in -1c
@@ -96,7 +76,7 @@ uart_port
 .PP 
 Class 
 .PP
-Definition at line 126 of file hw_dr_uart_driver_h\&.h\&.
+Definition at line 128 of file hw_dr_uart_driver_h\&.h\&.
 
 .SH "Author"
 .PP 

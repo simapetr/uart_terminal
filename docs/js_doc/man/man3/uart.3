@@ -1,4 +1,4 @@
-.TH "uart" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "uart" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,39 +13,39 @@ uart \- System UART port driver\&.
 
 .in +1c
 .ti -1c
-.RI "double \fBopen\fP (double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d)"
+.RI "\fBopen\fP (bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d)"
 .br
 .RI "Open and set port communication\&. "
 .ti -1c
-.RI "void \fBclose\fP (void)"
+.RI "\fBclose\fP ()"
 .br
 .RI "Close port communication\&. "
 .ti -1c
-.RI "double \fBreg_event\fP (string event_name_str)"
+.RI "\fBreg_event\fP (event_name_str)"
 .br
 .RI "Register receive event\&. "
 .ti -1c
-.RI "double \fBwrite\fP (double char_d)"
+.RI "\fBwrite\fP (char_d)"
 .br
 .RI "Write character\&. "
 .ti -1c
-.RI "double \fBwrite\fP (vector< double > &v_data_d)"
+.RI "\fBwrite\fP (v_data_d)"
 .br
 .RI "Write data array\&. "
 .ti -1c
-.RI "double \fBwrite\fP (string char_str)"
+.RI "\fBwrite\fP (char_str)"
 .br
 .RI "Write ASCI string\&. "
 .ti -1c
-.RI "double \fBwrite\fP (vector< double > &v_data_d, double length_d)"
+.RI "\fBwrite\fP (v_data_d, length_d)"
 .br
 .RI "Write data array user size\&. "
 .ti -1c
-.RI "bool \fBget_ctrl\fP (string name_str)"
+.RI "\fBget_ctrl\fP (name_str)"
 .br
 .RI "Get port control line state\&. "
 .ti -1c
-.RI "void \fBset_ctrl\fP (string name_str, bool state_b)"
+.RI "\fBset_ctrl\fP (name_str, state_b)"
 .br
 .RI "Set port control line state\&. "
 .in -1c
@@ -53,10 +53,10 @@ uart \- System UART port driver\&.
 .PP 
 System UART port driver\&. 
 .PP
-Definition at line 361 of file jerryscript_h\&.h\&.
+Definition at line 298 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "void close (void)"
+.SS "close ()"
 
 .PP
 Close port communication\&. 
@@ -69,16 +69,10 @@ uart\&.close();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
+\fI\fP .RE
 .PP
 
-.SS "bool get_ctrl (string name_str)"
+.SS "get_ctrl (name_str)"
 
 .PP
 Get port control line state\&. 
@@ -111,11 +105,11 @@ RLSD : Receive line signal detect
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Control line logic state 
+Control line logic state 
 .RE
 .PP
 
-.SS "double open (double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d)"
+.SS "open (bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d)"
 
 .PP
 Open and set port communication\&. 
@@ -165,11 +159,11 @@ uart\&.open(1,57600,0,0,8,4);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Open status (See uart_status_t) 
+Open status (See uart_status_t) 
 .RE
 .PP
 
-.SS "double reg_event (string event_name_str)"
+.SS "reg_event (event_name_str)"
 
 .PP
 Register receive event\&. 
@@ -199,11 +193,11 @@ function rx_data ( event_var, data_var )
 .PP
 \fBReturns:\fP
 .RS 4
-double : Register status 
+Register status 
 .RE
 .PP
 
-.SS "void set_ctrl (string name_str, bool state_b)"
+.SS "set_ctrl (name_str, state_b)"
 
 .PP
 Set port control line state\&. 
@@ -237,11 +231,10 @@ XON : Transmit ON
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "double write (double char_d)"
+.SS "write (char_d)"
 
 .PP
 Write character\&. 
@@ -260,11 +253,11 @@ uart\&.write(0x20);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Send status 
+Send status 
 .RE
 .PP
 
-.SS "double write (vector< double > & v_data_d)"
+.SS "write (v_data_d)"
 
 .PP
 Write data array\&. 
@@ -287,11 +280,11 @@ uart\&.write(data_array);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Send status 
+Send status 
 .RE
 .PP
 
-.SS "double write (string char_str)"
+.SS "write (char_str)"
 
 .PP
 Write ASCI string\&. 
@@ -312,11 +305,11 @@ uart\&.write(data_str);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Send status 
+Send status 
 .RE
 .PP
 
-.SS "double write (vector< double > & v_data_d, double length_d)"
+.SS "write (v_data_d, length_d)"
 
 .PP
 Write data array user size\&. 
@@ -342,7 +335,7 @@ uart\&.write(data_array, 2);
 .PP
 \fBReturns:\fP
 .RS 4
-double : Send status 
+Send status 
 .RE
 .PP
 

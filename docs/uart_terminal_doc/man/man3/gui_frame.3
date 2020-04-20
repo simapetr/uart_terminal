@@ -1,4 +1,4 @@
-.TH "gui_frame" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "gui_frame" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -41,6 +41,18 @@ Inherits wxFrame\&.
 .RI "wxPanel * \fBget_panel\fP (double index_d)"
 .br
 .RI "Get sizer\&. "
+.ti -1c
+.RI "bool \fBget_panel_show\fP (double index_d)"
+.br
+.RI "Get panel show\&. "
+.ti -1c
+.RI "void \fBset_panel_show\fP (double index_d, bool show_b)"
+.br
+.RI "Set panel show\&. "
+.ti -1c
+.RI "void \fBset_panel_view\fP (void)"
+.br
+.RI "Set view status for all panel\&. "
 .ti -1c
 .RI "uint32_t \fBadd_sizer\fP (double sizer_index_d, double proportion_d, bool horizontal_b)"
 .br
@@ -145,6 +157,18 @@ Inherits wxFrame\&.
 .RI "double \fBget_gauge\fP (double check_box_index_d)"
 .br
 .RI "Get gauge value\&. "
+.ti -1c
+.RI "uint32_t \fBadd_led\fP (double sizer_index_d, double on_color_d, double off_color_d)"
+.br
+.RI "Add LED\&. "
+.ti -1c
+.RI "void \fBset_led\fP (double led_index_d, bool state_b)"
+.br
+.RI "Set Led state\&. "
+.ti -1c
+.RI "bool \fBget_led\fP (double led_index_d)"
+.br
+.RI "Get Led state\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -152,7 +176,7 @@ Struct
 .PP
 Class 
 .PP
-Definition at line 58 of file in_js_gui_frame_h\&.h\&.
+Definition at line 64 of file in_js_gui_frame_h\&.h\&.
 
 .SH "Author"
 .PP 

@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for gui\+\_\+frame\+:\nopagebreak
+Inheritance diagram for gui\+\_\+frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for gui\+\_\+frame\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for gui\+\_\+frame\+:\nopagebreak
+Collaboration diagram for gui\+\_\+frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,6 +41,12 @@ uint32\+\_\+t \textbf{ get\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+
 \begin{DoxyCompactList}\small\item\em Get panel main sizer. \end{DoxyCompactList}\item 
 wx\+Panel $\ast$ \textbf{ get\+\_\+panel} (double index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get sizer. \end{DoxyCompactList}\item 
+bool \textbf{ get\+\_\+panel\+\_\+show} (double index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get panel show. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+panel\+\_\+show} (double index\+\_\+d, bool show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set panel show. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+panel\+\_\+view} (void)
+\begin{DoxyCompactList}\small\item\em Set view status for all panel. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ add\+\_\+sizer} (double sizer\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add sizer. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ add\+\_\+panel\+\_\+sizer} (double panel\+\_\+index\+\_\+d, double proportion\+\_\+d, bool horizontal\+\_\+b)
@@ -90,7 +98,13 @@ uint32\+\_\+t \textbf{ add\+\_\+gauge} (double sizer\+\_\+index\+\_\+d, double p
 bool \textbf{ set\+\_\+gauge} (double check\+\_\+box\+\_\+index\+\_\+d, double value\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Set gauge state. \end{DoxyCompactList}\item 
 double \textbf{ get\+\_\+gauge} (double check\+\_\+box\+\_\+index\+\_\+d)
-\begin{DoxyCompactList}\small\item\em Get gauge value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get gauge value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ add\+\_\+led} (double sizer\+\_\+index\+\_\+d, double on\+\_\+color\+\_\+d, double off\+\_\+color\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Add L\+ED. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+led} (double led\+\_\+index\+\_\+d, bool state\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set Led state. \end{DoxyCompactList}\item 
+bool \textbf{ get\+\_\+led} (double led\+\_\+index\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get Led state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -98,7 +112,7 @@ Struct
 
 Class 
 
-Definition at line 58 of file in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+h.\+h.
+Definition at line 64 of file in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+h.\+h.
 
 
 
@@ -110,6 +124,7 @@ D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+frame\+\_\+cpp.\+cpp}\item 
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+gauge\+\_\+cpp.\+cpp}\item 
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+graph\+\_\+cpp.\+cpp}\item 
+D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+led\+\_\+cpp.\+cpp}\item 
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+panel\+\_\+cpp.\+cpp}\item 
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+sizer\+\_\+cpp.\+cpp}\item 
 D\+:/project/uart\+\_\+terminal/infrastructure/jerryscript/gui/\textbf{ in\+\_\+js\+\_\+gui\+\_\+slider\+\_\+cpp.\+cpp}\item 

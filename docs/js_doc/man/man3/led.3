@@ -1,0 +1,149 @@
+.TH "led" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+led \- wxLed class interface  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <jerryscript_h\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBadd\fP (sizer_index_d)"
+.br
+.RI "Add new LED\&. "
+.ti -1c
+.RI "\fBadd\fP (sizer_index_d, on_color_d, off_color_d) get(led_index_d)"
+.br
+.RI "Add new LED with custom state color\&. "
+.ti -1c
+.RI "\fBset\fP (led_index_d, value_b)"
+.br
+.RI "Set led value\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+wxLed class interface 
+.PP
+Definition at line 1494 of file jerryscript_h\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "add (sizer_index_d)"
+
+.PP
+Add new LED\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_led;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_led = gui\&.led\&.add(test_sizer);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LED index 
+.RE
+.PP
+
+.SS "add (sizer_index_d, on_color_d, off_color_d)"
+
+.PP
+Add new LED with custom state color\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_led;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_led = gui\&.led\&.add(test_sizer, 0x0000FFFF, 0x00808080);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP sizer_index_d : Parent sizer index 
+.br
+\fI[IN]\fP on_color_d : On state LED color 
+.br
+\fI[IN]\fP off_color_d : On state LED color 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LED buffer indexGet LED value
+.RE
+.PP
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_led;
+var state_led_b;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_led = gui\&.led\&.add(test_sizer);
+state_led_b = gui\&.led\&.get(test_led);
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP led_index_d : LED index 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Set value 
+.RE
+.PP
+
+.SS "set (led_index_d, value_b)"
+
+.PP
+Set led value\&. 
+.PP
+.nf
+var test_panel;
+var test_sizer;
+var test_led;
+test_panel = gui\&.panel\&.add("test_panel", true);
+test_sizer = gui\&.panel\&.get_sizer(test_panel);
+test_led = gui\&.led\&.add(test_sizer);
+gui\&.led\&.set(test_led, true);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP led_index_d : LED index 
+.br
+\fI[IN]\fP value_b : New LED state 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Set value 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

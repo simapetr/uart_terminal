@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -100,9 +100,9 @@ $(document).ready(function(){initNavTree('classuart__js__c.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga4d3e5b08bdd2eef31fa81984aa8bb69c">reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port)</td></tr>
-<tr class="memdesc:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="group___u_a_r_t.html#ga4d3e5b08bdd2eef31fa81984aa8bb69c">More...</a><br /></td></tr>
-<tr class="separator:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2783e85c05c3b546af091beb46be5b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaa2783e85c05c3b546af091beb46be5b0">reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port, wxCondition *p_data_wxcondition)</td></tr>
+<tr class="memdesc:gaa2783e85c05c3b546af091beb46be5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="group___u_a_r_t.html#gaa2783e85c05c3b546af091beb46be5b0">More...</a><br /></td></tr>
+<tr class="separator:gaa2783e85c05c3b546af091beb46be5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8effd7f56034a13e7aa545821d729383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383">dereg_host_class</a> (void)</td></tr>
 <tr class="memdesc:ga8effd7f56034a13e7aa545821d729383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregistration object in to class.  <a href="group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383">More...</a><br /></td></tr>
 <tr class="separator:ga8effd7f56034a13e7aa545821d729383"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +127,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ga212f0e8c05652caad919b232392fa451"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga212f0e8c05652caad919b232392fa451">set_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:ga212f0e8c05652caad919b232392fa451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "set_ctrl")  <a href="group___u_a_r_t.html#ga212f0e8c05652caad919b232392fa451">More...</a><br /></td></tr>
 <tr class="separator:ga212f0e8c05652caad919b232392fa451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f26df9896cdb77a44c97bf86311027e"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga0f26df9896cdb77a44c97bf86311027e">call</a> (void *p_parametr_void)</td></tr>
+<tr class="memdesc:ga0f26df9896cdb77a44c97bf86311027e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call UART data RX event (Must be called form JS thread)  <a href="group___u_a_r_t.html#ga0f26df9896cdb77a44c97bf86311027e">More...</a><br /></td></tr>
+<tr class="separator:ga0f26df9896cdb77a44c97bf86311027e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class </p>

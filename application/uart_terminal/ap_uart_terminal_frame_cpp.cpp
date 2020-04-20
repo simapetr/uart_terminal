@@ -22,7 +22,9 @@
 #include <wx/file.h>
 
 //(*InternalHeaders(main_frame)
+#include <wx/bitmap.h>
 #include <wx/font.h>
+#include <wx/image.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -73,7 +75,7 @@ typedef struct
 static bool l_frame_hide_b = false;
 static bool l_frame_enable_b = false;
 static bool l_frame_show_status_b = false;
-static bool l_grame_gui_close_b = false;
+static bool l_frame_gui_close_b = false;
 static bool l_frame_status_b = false;
 static bool l_frame_clear_b = false;
 static bool l_frame_open_b = false;
@@ -87,9 +89,17 @@ static uart_cfg_t l_frame_data_uart_cfg;
 static vector<console_buffer_t> lv_frame_main_console_buffer;
 static uart_status_t l_frame_uart_status;
 // application icon
-#include "icon/ap_ut_icon_app_xpm.xpm"
-#include "icon/lp_play_ico_xpm.xpm"
-#include "icon/lp_stop_ico_xpm.xpm"
+#include "lp_uart_terminal_xpm.xpm"
+#include "lp_editor_xpm.xpm"
+#include "lp_open_xpm.xpm"
+#include "lp_quit_xpm.xpm"
+#include "lp_info_xpm.xpm"
+#include "lp_js_xpm.xpm"
+#include "lp_bin_xpm.xpm"
+#include "lp_play_xpm.xpm"
+#include "lp_stop_xpm.xpm"
+#include "lp_connect_xpm.xpm"
+#include "lp_disconnect_xpm.xpm"
 //(*IdInit(main_frame)
 const long main_frame::l_id_port_wxstatictext = wxNewId();
 const long main_frame::l_id_port_wxchoice = wxNewId();
@@ -98,11 +108,10 @@ const long main_frame::l_id_speed_wxtextctrl = wxNewId();
 const long main_frame::l_id_length_wxchoice = wxNewId();
 const long main_frame::l_id_parity_wxchoice = wxNewId();
 const long main_frame::l_id_stop_bit_wxchoice = wxNewId();
-const long main_frame::l_id_clear_wxbutton = wxNewId();
-const long main_frame::l_id_close_wxbutton = wxNewId();
-const long main_frame::l_id_open_wxbutton = wxNewId();
+const long main_frame::l_id_connect_wxtogglebutton = wxNewId();
 const long main_frame::l_id_text_cr_wxcheckbox = wxNewId();
 const long main_frame::l_id_text_lf_wxcheckbox = wxNewId();
+const long main_frame::l_id_clear_wxbutton = wxNewId();
 const long main_frame::l_id_port_control_dtr_wxcheckbox = wxNewId();
 const long main_frame::l_id_port_control_rts_wxcheckbox = wxNewId();
 const long main_frame::l_id_port_control_tx_wxcheckbox = wxNewId();
@@ -115,13 +124,15 @@ const long main_frame::l_id_port_state_ring_wxstatictext = wxNewId();
 const long main_frame::l_id_port_state_rlsd_wxled = wxNewId();
 const long main_frame::l_id_port_state_rlsd_wxstatictext = wxNewId();
 const long main_frame::l_id_script_path_wxtextctrl = wxNewId();
-const long main_frame::l_id_script_load_wxbutton = wxNewId();
+const long main_frame::l_id_editor_wxbutton = wxNewId();
 const long main_frame::l_id_script_run_wxtogglebutton = wxNewId();
 const long main_frame::l_id_command_wxtextctrl = wxNewId();
 const long main_frame::l_id_hex_wxcheckbox = wxNewId();
 const long main_frame::l_id_send_wxbutton = wxNewId();
 const long main_frame::l_id_console_wxtextctrl = wxNewId();
 const long main_frame::l_id_main_wxpanel = wxNewId();
+const long main_frame::l_id_file_open_item_wxmenu = wxNewId();
+const long main_frame::l_id_file_edit_item_wxmenu = wxNewId();
 const long main_frame::l_id_file_quit_item_wxmenu = wxNewId();
 const long main_frame::l_id_help_about_item_wxmenu = wxNewId();
 const long main_frame::l_id_help_js_doc_item_wxmenu = wxNewId();
@@ -151,7 +162,6 @@ END_EVENT_TABLE()
 
 main_frame::main_frame(wxWindow* parent, wxArrayString* p_cmd_arg_arraystring)
 {
-wxImageList *icon_wximagelist = new wxImageList(16, 16, true, 1);
 wxString cfg_path_str = wxEmptyString;
 uint32_t data_bkp_ui32;
 wxString text_str;
@@ -159,6 +169,19 @@ int32_t select_i32;
 
     // Save CMD parameter
     this->lp_cmd_arg_arraystring = p_cmd_arg_arraystring;
+    // Set debug flag
+    if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
+    {
+        //this->l_script_debug_b = true;
+        AllocConsole();
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+        printf("UART Terminal DBG :\n");
+    }
+    else
+    {
+        this->l_script_debug_b = false;
+    }
     //(*Initialize(main_frame)
     Create(parent, wxID_ANY, _("uart terminal"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(815,440));
@@ -212,13 +235,8 @@ int32_t select_i32;
     lp_stop_bit_wxchoice->Append(_("2"));
     lp_stop_bit_wxchoice->SetToolTip(_("Stop bits 0 - 1, 1 - 1.5, 2 - 2"));
     lp_main_setting_wxboxsizer->Add(lp_stop_bit_wxchoice, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    lp_clear_wxbutton = new wxButton(lp_main_wxpanel, l_id_clear_wxbutton, _("Clc"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_clear_wxbutton"));
-    lp_main_setting_wxboxsizer->Add(lp_clear_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    lp_close_wxbutton = new wxButton(lp_main_wxpanel, l_id_close_wxbutton, _("Close"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_close_wxbutton"));
-    lp_close_wxbutton->Disable();
-    lp_main_setting_wxboxsizer->Add(lp_close_wxbutton, 0, wxALL|wxALIGN_TOP, 5);
-    lp_open_wxbutton = new wxButton(lp_main_wxpanel, l_id_open_wxbutton, _("Open"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_open_wxbutton"));
-    lp_main_setting_wxboxsizer->Add(lp_open_wxbutton, 0, wxALL, 5);
+    lp_connect_wxtogglebutton = new wxToggleButton(lp_main_wxpanel, l_id_connect_wxtogglebutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), wxBORDER_NONE, wxDefaultValidator, _T("l_id_connect_wxtogglebutton"));
+    lp_main_setting_wxboxsizer->Add(lp_connect_wxtogglebutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_wxboxsizer->Add(lp_main_setting_wxboxsizer, 0, wxEXPAND, 5);
     lp_main_control_wxboxsizer = new wxBoxSizer(wxHORIZONTAL);
     lp_text_control_wxstaticboxsizer = new wxStaticBoxSizer(wxHORIZONTAL, lp_main_wxpanel, _("Text mode"));
@@ -230,6 +248,8 @@ int32_t select_i32;
     lp_text_lf_wxcheckbox->SetValue(false);
     lp_text_lf_wxcheckbox->SetToolTip(_("Add LF (0x0A) on the end of string"));
     lp_text_control_wxstaticboxsizer->Add(lp_text_lf_wxcheckbox, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    lp_clear_wxbutton = new wxButton(lp_main_wxpanel, l_id_clear_wxbutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), wxBORDER_NONE, wxDefaultValidator, _T("l_id_clear_wxbutton"));
+    lp_text_control_wxstaticboxsizer->Add(lp_clear_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_control_wxboxsizer->Add(lp_text_control_wxstaticboxsizer, 0, wxALL|wxEXPAND, 5);
     lp_port_control_wxstaticboxsizer = new wxStaticBoxSizer(wxHORIZONTAL, lp_main_wxpanel, _("Port control"));
     lp_port_control_dtr_wxcheckbox = new wxCheckBox(lp_main_wxpanel, l_id_port_control_dtr_wxcheckbox, _("DTR"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_port_control_dtr_wxcheckbox"));
@@ -272,11 +292,11 @@ int32_t select_i32;
     lp_port_state_wxstaticboxsizer->Add(lp_port_state_rlsd_wxstatictext, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_control_wxboxsizer->Add(lp_port_state_wxstaticboxsizer, 0, wxALL|wxEXPAND, 5);
     lp_script_wxstaticboxsizer = new wxStaticBoxSizer(wxHORIZONTAL, lp_main_wxpanel, _("Script"));
-    lp_script_path_wxtextctrl = new wxTextCtrl(lp_main_wxpanel, l_id_script_path_wxtextctrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_script_path_wxtextctrl"));
+    lp_script_path_wxtextctrl = new wxTextCtrl(lp_main_wxpanel, l_id_script_path_wxtextctrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_READONLY, wxDefaultValidator, _T("l_id_script_path_wxtextctrl"));
     lp_script_wxstaticboxsizer->Add(lp_script_path_wxtextctrl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    lp_script_load_wxbutton = new wxButton(lp_main_wxpanel, l_id_script_load_wxbutton, _("Load"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_script_load_wxbutton"));
-    lp_script_wxstaticboxsizer->Add(lp_script_load_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    lp_script_run_wxtogglebutton = new wxToggleButton(lp_main_wxpanel, l_id_script_run_wxtogglebutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), 0, wxDefaultValidator, _T("l_id_script_run_wxtogglebutton"));
+    lp_editor_wxbutton = new wxButton(lp_main_wxpanel, l_id_editor_wxbutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), wxBORDER_NONE, wxDefaultValidator, _T("l_id_editor_wxbutton"));
+    lp_script_wxstaticboxsizer->Add(lp_editor_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    lp_script_run_wxtogglebutton = new wxToggleButton(lp_main_wxpanel, l_id_script_run_wxtogglebutton, wxEmptyString, wxDefaultPosition, wxSize(23,23), wxBORDER_NONE, wxDefaultValidator, _T("l_id_script_run_wxtogglebutton"));
     lp_script_wxstaticboxsizer->Add(lp_script_run_wxtogglebutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_control_wxboxsizer->Add(lp_script_wxstaticboxsizer, 1, wxALL|wxEXPAND, 5);
     lp_main_wxboxsizer->Add(lp_main_control_wxboxsizer, 0, wxEXPAND, 5);
@@ -285,14 +305,14 @@ int32_t select_i32;
     lp_command_wxtextctrl->SetMaxLength(2048);
     wxFont lp_command_wxtextctrlFont(10,wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Lucida Console"),wxFONTENCODING_DEFAULT);
     lp_command_wxtextctrl->SetFont(lp_command_wxtextctrlFont);
-    lp_main_command_wxboxsizer->Add(lp_command_wxtextctrl, 1, wxALL|wxALIGN_TOP, 5);
+    lp_main_command_wxboxsizer->Add(lp_command_wxtextctrl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_hex_wxcheckbox = new wxCheckBox(lp_main_wxpanel, l_id_hex_wxcheckbox, _("HEX"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_hex_wxcheckbox"));
     lp_hex_wxcheckbox->SetValue(false);
     lp_hex_wxcheckbox->SetToolTip(_("Hex imput type (0x24 0x35 -> 2435 send 2 byte)"));
     lp_main_command_wxboxsizer->Add(lp_hex_wxcheckbox, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_send_wxbutton = new wxButton(lp_main_wxpanel, l_id_send_wxbutton, _("Send"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("l_id_send_wxbutton"));
     lp_send_wxbutton->Disable();
-    lp_main_command_wxboxsizer->Add(lp_send_wxbutton, 0, wxALL|wxALIGN_TOP, 5);
+    lp_main_command_wxboxsizer->Add(lp_send_wxbutton, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lp_main_wxboxsizer->Add(lp_main_command_wxboxsizer, 0, wxEXPAND, 5);
     lp_console_wxtextctrl = new wxTextCtrl(lp_main_wxpanel, l_id_console_wxtextctrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE, wxDefaultValidator, _T("l_id_console_wxtextctrl"));
     wxFont lp_console_wxtextctrlFont(10,wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Lucida Console"),wxFONTENCODING_DEFAULT);
@@ -303,14 +323,24 @@ int32_t select_i32;
     lp_main_wxboxsizer->SetSizeHints(lp_main_wxpanel);
     lp_top_wxmenubar = new wxMenuBar();
     lp_file_wxmenu = new wxMenu();
+    l_file_open_item_wxmenu = new wxMenuItem(lp_file_wxmenu, l_id_file_open_item_wxmenu, _("Open\tCtrl-O"), _("Open script"), wxITEM_NORMAL);
+    l_file_open_item_wxmenu->SetBitmap(wxIcon(lp_open_si8));
+    lp_file_wxmenu->Append(l_file_open_item_wxmenu);
+    l_file_edit_item_wxmenu = new wxMenuItem(lp_file_wxmenu, l_id_file_edit_item_wxmenu, _("Editor\tCtrl-E"), _("Run script editor"), wxITEM_NORMAL);
+    l_file_edit_item_wxmenu->SetBitmap(wxIcon(lp_editor_si8));
+    lp_file_wxmenu->Append(l_file_edit_item_wxmenu);
+    lp_file_wxmenu->AppendSeparator();
     lp_file_quit_item_wxmenu = new wxMenuItem(lp_file_wxmenu, l_id_file_quit_item_wxmenu, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
+    lp_file_quit_item_wxmenu->SetBitmap(wxIcon(lp_quit_si8));
     lp_file_wxmenu->Append(lp_file_quit_item_wxmenu);
     lp_top_wxmenubar->Append(lp_file_wxmenu, _("&File"));
     lp_help_wxmenu = new wxMenu();
-    lp_help_about_item_wxmenu = new wxMenuItem(lp_help_wxmenu, l_id_help_about_item_wxmenu, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
+    lp_help_about_item_wxmenu = new wxMenuItem(lp_help_wxmenu, l_id_help_about_item_wxmenu, _("About\tF1"), _("Show info about uart terminal application"), wxITEM_NORMAL);
+    lp_help_about_item_wxmenu->SetBitmap(wxIcon(lp_info_si8));
     lp_help_wxmenu->Append(lp_help_about_item_wxmenu);
     lp_help_wxmenu->AppendSeparator();
     lp_js_doc_item_wxmenu = new wxMenuItem(lp_help_wxmenu, l_id_help_js_doc_item_wxmenu, _("JS doc"), _("Documentation internal JerryScript class"), wxITEM_NORMAL);
+    lp_js_doc_item_wxmenu->SetBitmap(wxIcon(lp_js_si8));
     lp_help_wxmenu->Append(lp_js_doc_item_wxmenu);
     lp_top_wxmenubar->Append(lp_help_wxmenu, _("Help"));
     SetMenuBar(lp_top_wxmenubar);
@@ -326,15 +356,16 @@ int32_t select_i32;
     lp_wx_gui_sync_wxtimer.SetOwner(this, l_id_wx_gui_sync_wxtimer);
 
     Connect(l_id_speed_wxchoice,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&main_frame::on_speed_wxchoice_select);
+    Connect(l_id_connect_wxtogglebutton,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_connect_wxtogglebutton_toggle);
     Connect(l_id_clear_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_clear_button_click);
-    Connect(l_id_close_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_close_button_click);
-    Connect(l_id_open_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_open_button_click);
     Connect(l_id_port_control_dtr_wxcheckbox,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&main_frame::on_port_control_dtr_wxcheckbox_click);
     Connect(l_id_port_control_rts_wxcheckbox,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&main_frame::on_port_control_rts_wxcheckbox_click);
     Connect(l_id_port_control_tx_wxcheckbox,wxEVT_COMMAND_CHECKBOX_CLICKED,(wxObjectEventFunction)&main_frame::on_port_control_tx_wxcheckbox_click);
-    Connect(l_id_script_load_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_script_load_wxbutton_click);
+    Connect(l_id_editor_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_editor_wxbutton_click);
     Connect(l_id_script_run_wxtogglebutton,wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,(wxObjectEventFunction)&main_frame::on_script_run_wxtogglebutton_toggle);
     Connect(l_id_send_wxbutton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&main_frame::main_panel_send_button_click);
+    Connect(l_id_file_open_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::on_script_load_wxbutton_click);
+    Connect(l_id_file_edit_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::on_editor_wxbutton_click);
     Connect(l_id_file_quit_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_file_quit_item_selected);
     Connect(l_id_help_about_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::menu_bar_help_about_item_selected);
     Connect(l_id_help_js_doc_item_wxmenu,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&main_frame::on_js_doc_item_wxmenu_selected);
@@ -342,22 +373,11 @@ int32_t select_i32;
     Connect(l_id_wx_gui_sync_wxtimer,wxEVT_TIMER,(wxObjectEventFunction)&main_frame::on_wx_gui_sync_wxtimer_trigger);
     //*)
 
-
-    // Add panel
-    icon_wximagelist->Add(wxIcon( plc_ap_ut_icon_uart_terminal_xpm_char ), wxColor(0xff, 0xff, 0xff));
-    icon_wximagelist->Add(wxIcon( lp_play_ico_si8 ), wxColor(0xff, 0xff, 0xff));
-    icon_wximagelist->Add(wxIcon( lp_stop_ico_si8 ), wxColor(0xff, 0xff, 0xff));
-    SetIcon(icon_wximagelist->GetIcon(0));
-    // Set button ico
-    this->lp_script_run_wxtogglebutton->SetBitmap(icon_wximagelist->GetIcon(1));
-    this->lp_script_run_wxtogglebutton->SetBitmapPressed(icon_wximagelist->GetIcon(2));
-    delete icon_wximagelist;
-    this->p_communication_uart_port = NULL;
-    this->p_communication_uart_port = new uart_port();
+    // Create port
+    this->lp_communication_uart_port = NULL;
+    this->lp_communication_uart_port = new uart_port();
     this->main_panel_set_port_choice();
-    this->uart_thread_run_ui32 = 1;
-    // Restore configuration
-    this->p_data_config_ini = NULL;
+    this->lp_bot_wxstatusbar->SetStatusText(wxT("Disconnect"), d_ap_uart_terminal_status_port);
     // Create absolute path for configuration file
     if (this->lp_cmd_arg_arraystring->Item(0).GetChar(this->lp_cmd_arg_arraystring->Item(0).Length()) == wxFileName::GetPathSeparator())
     {
@@ -369,17 +389,54 @@ int32_t select_i32;
     }
     cfg_path_str += "\\config.ini";
     // Open configuration file
-    this->p_data_config_ini = new config_ini(cfg_path_str);
-    this->lp_port_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/port"),wxT("0")));
-    this->lp_length_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/bit_length"),wxT("3")));
-    this->lp_parity_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/parity"),wxT("0")));
-    this->lp_stop_bit_wxchoice->SetSelection(this->p_data_config_ini->get_value(wxT("CONFIGURATION/stop_bit"),wxT("0")));
-    this->lp_hex_wxcheckbox->SetValue(this->p_data_config_ini->get_value(wxT("CONFIGURATION/hex_data"),wxT("0")));
-    this->lp_text_cr_wxcheckbox->SetValue(this->p_data_config_ini->get_value(wxT("CONFIGURATION/add_cr"),wxT("0")));
-    this->lp_text_lf_wxcheckbox->SetValue(this->p_data_config_ini->get_value(wxT("CONFIGURATION/add_lf"),wxT("0")));
-    this->lp_command_wxtextctrl->WriteText(this->p_data_config_ini->get_string(wxT("CONFIGURATION/data"),wxT("")));
-    this->lp_script_path_wxtextctrl->WriteText(this->p_data_config_ini->get_string(wxT("CONFIGURATION/script_path"),wxT("")));
-    select_i32 = this->lp_speed_wxchoice->FindString(this->p_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")));
+    this->lp_data_config_ini = NULL;
+    this->lp_data_config_ini = new config_ini(cfg_path_str);
+    // Check for script path set
+    if ((this->lp_cmd_arg_arraystring->GetCount() == 2) && (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Item(1).Find(wxT(".js"))))
+    {
+        // Run drag&drop script
+        this->set(this->lp_cmd_arg_arraystring->Item(1));
+    }
+    else
+    {
+        // Read last script path
+        this->set(this->lp_data_config_ini->get_string(wxT("CONFIGURATION/script_path"),wxT("")));
+    }
+    // Create text editor
+    this->lp_data_editor_frame = new editor_frame(this);
+    // Restore editor window position
+    this->lp_data_editor_frame->Move(wxPoint(this->lp_data_config_ini->get_value(wxT("EDITOR/pos_x"), wxT("10")),this->lp_data_config_ini->get_value(wxT("EDITOR/pos_y"), wxT("10"))));
+    if (this->lp_data_config_ini->get_value(wxT("EDITOR/siz_exp"), wxT("0")))
+    {
+        this->lp_data_editor_frame->Maximize();
+    }
+    else
+    {
+        this->lp_data_editor_frame->SetClientSize(wxSize(this->lp_data_config_ini->get_value(wxT("EDITOR/siz_w"), wxT("800")), this->lp_data_config_ini->get_value(wxT("EDITOR/siz_h"), wxT("500"))));
+    }
+    if(this->lp_data_config_ini->get_value(wxT("EDITOR/show"), wxT("0")))
+    {
+        this->lp_data_editor_frame->Show();
+    }
+    // Set frame icon
+    SetIcon(wxIcon(lp_uart_terminal_si8));
+    // Set button icon
+    this->lp_editor_wxbutton->SetBitmap(wxIcon(lp_editor_si8));
+    this->lp_clear_wxbutton->SetBitmap(wxIcon(lp_bin_si8));
+    this->lp_script_run_wxtogglebutton->SetBitmap(wxIcon(lp_play_si8));
+    this->lp_script_run_wxtogglebutton->SetBitmapPressed(wxIcon(lp_stop_si8));
+    this->lp_connect_wxtogglebutton->SetBitmap(wxIcon(lp_disconnect_si8));
+    this->lp_connect_wxtogglebutton->SetBitmapPressed(wxIcon(lp_connect_si8));
+    // Load port configuration
+    this->lp_port_wxchoice->SetSelection(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/port"),wxT("0")));
+    this->lp_length_wxchoice->SetSelection(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/bit_length"),wxT("3")));
+    this->lp_parity_wxchoice->SetSelection(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/parity"),wxT("0")));
+    this->lp_stop_bit_wxchoice->SetSelection(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/stop_bit"),wxT("0")));
+    this->lp_hex_wxcheckbox->SetValue(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/hex_data"),wxT("0")));
+    this->lp_text_cr_wxcheckbox->SetValue(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/add_cr"),wxT("0")));
+    this->lp_text_lf_wxcheckbox->SetValue(this->lp_data_config_ini->get_value(wxT("CONFIGURATION/add_lf"),wxT("0")));
+    this->lp_command_wxtextctrl->WriteText(this->lp_data_config_ini->get_string(wxT("CONFIGURATION/data"),wxT("")));
+    select_i32 = this->lp_speed_wxchoice->FindString(this->lp_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")));
     if(wxNOT_FOUND != select_i32)
     {
         this->lp_speed_wxchoice->SetSelection(select_i32);
@@ -388,7 +445,7 @@ int32_t select_i32;
     else
     {
         this->lp_speed_wxchoice->SetSelection(0);
-        wxSscanf(this->p_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")),wxT("%u"),&data_bkp_ui32);
+        wxSscanf(this->lp_data_config_ini->get_string(wxT("CONFIGURATION/speed"),wxT("19200")),wxT("%u"),&data_bkp_ui32);
         text_str.Printf("%u",data_bkp_ui32);
         this->lp_speed_wxtextctrl->WriteText(text_str);
         this->lp_speed_wxtextctrl->Show(true);
@@ -412,34 +469,21 @@ int32_t select_i32;
     // Initialization close state
     this->l_run_b = false;
     // Initialize stop request
-    l_grame_gui_close_b = false;
+    l_frame_gui_close_b = false;
     // Initialize event
     this->lp_event_parameter_void = NULL;
     this->l_data_send_event_fct = NULL;
     // Initialize script project
     this->lp_script_config_ini = NULL;
-    // Set debug flag
-    if (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Index(wxT("-g")))
-    {
-        //this->l_script_debug_b = true;
-        AllocConsole();
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
-        printf("UART Terminal DBG :\n");
-    }
-    else
-    {
-        this->l_script_debug_b = false;
-    }
     // Restore window position
-    Move(wxPoint(this->p_data_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),this->p_data_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
-    if (this->p_data_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
+    Move(wxPoint(this->lp_data_config_ini->get_value(wxT("POSITION/pos_x"), wxT("10")),this->lp_data_config_ini->get_value(wxT("POSITION/pos_y"), wxT("10"))));
+    if (this->lp_data_config_ini->get_value(wxT("POSITION/siz_exp"), wxT("0")))
     {
         Maximize();
     }
     else
     {
-        SetClientSize(wxSize(this->p_data_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), this->p_data_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
+        SetClientSize(wxSize(this->lp_data_config_ini->get_value(wxT("POSITION/siz_w"), wxT("800")), this->lp_data_config_ini->get_value(wxT("POSITION/siz_h"), wxT("500"))));
     }
     this->Show();
     // Init state flag
@@ -449,8 +493,7 @@ int32_t select_i32;
     if ((this->lp_cmd_arg_arraystring->GetCount() == 2) && (wxNOT_FOUND != this->lp_cmd_arg_arraystring->Item(1).Find(wxT(".js"))))
     {
         // Run drag&drop script
-        this->lp_script_path_wxtextctrl->WriteText(this->lp_cmd_arg_arraystring->Item(1));
-        this->l_script_start_b = false;
+        this->run();
     }
     return;
 }
@@ -475,42 +518,64 @@ wxString text_str;
     //*)
     // Save window position
     this->GetPosition(&pos_x_int, &pos_y_int);
-    this->p_data_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
-    this->p_data_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
+    this->lp_data_config_ini->set_value(wxT("POSITION/pos_x"), pos_x_int);
+    this->lp_data_config_ini->set_value(wxT("POSITION/pos_y"), pos_y_int);
     if (IsMaximized())
     {
-        this->p_data_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
+        this->lp_data_config_ini->set_value(wxT("POSITION/siz_exp"), 1);
     }
     else
     {
         GetClientSize(&siz_w_int, &siz_h_int);
-        this->p_data_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
-        this->p_data_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
-        this->p_data_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
+        this->lp_data_config_ini->set_value(wxT("POSITION/siz_w"), siz_w_int);
+        this->lp_data_config_ini->set_value(wxT("POSITION/siz_h"), siz_h_int);
+        this->lp_data_config_ini->set_value(wxT("POSITION/siz_exp"), 0);
+    }
+    // Save editor position
+    this->lp_data_editor_frame->GetPosition(&pos_x_int, &pos_y_int);
+    this->lp_data_config_ini->set_value(wxT("EDITOR/pos_x"), pos_x_int);
+    this->lp_data_config_ini->set_value(wxT("EDITOR/pos_y"), pos_y_int);
+    if (this->lp_data_editor_frame->IsMaximized())
+    {
+        this->lp_data_config_ini->set_value(wxT("EDITOR/siz_exp"), 1);
+    }
+    else
+    {
+        this->lp_data_editor_frame->GetClientSize(&siz_w_int, &siz_h_int);
+        this->lp_data_config_ini->set_value(wxT("EDITOR/siz_w"), siz_w_int);
+        this->lp_data_config_ini->set_value(wxT("EDITOR/siz_h"), siz_h_int);
+        this->lp_data_config_ini->set_value(wxT("EDITOR/siz_exp"), 0);
+    }
+    if(this->lp_data_editor_frame->IsShown())
+    {
+        this->lp_data_config_ini->set_value(wxT("EDITOR/show"), 1);
+    }
+    else
+    {
+        this->lp_data_config_ini->set_value(wxT("EDITOR/show"), 0);
     }
     // Close port
     this->close_port();
-    this->uart_thread_run_ui32 = 0;
     // Save configuration
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/port"),this->lp_port_wxchoice->GetSelection());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/port"),this->lp_port_wxchoice->GetSelection());
     if(this->lp_speed_wxchoice->GetSelection())
     {
-        this->p_data_config_ini->set_string(wxT("CONFIGURATION/speed"),this->lp_speed_wxchoice->GetString(this->lp_speed_wxchoice->GetSelection()));
+        this->lp_data_config_ini->set_string(wxT("CONFIGURATION/speed"),this->lp_speed_wxchoice->GetString(this->lp_speed_wxchoice->GetSelection()));
     }
     else
     {
         wxSscanf(this->lp_speed_wxtextctrl->GetLineText(0),wxT("%u"),&data_bkp_ui32);
         text_str.Printf("%u",data_bkp_ui32);
-        this->p_data_config_ini->set_string(wxT("CONFIGURATION/speed"),text_str);
+        this->lp_data_config_ini->set_string(wxT("CONFIGURATION/speed"),text_str);
     }
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/bit_length"),this->lp_length_wxchoice->GetSelection());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/parity"),this->lp_parity_wxchoice->GetSelection());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/stop_bit"),this->lp_stop_bit_wxchoice->GetSelection());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/hex_data"),this->lp_hex_wxcheckbox->GetValue());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/add_cr"),this->lp_text_cr_wxcheckbox->GetValue());
-    this->p_data_config_ini->set_value(wxT("CONFIGURATION/add_lf"),this->lp_text_lf_wxcheckbox->GetValue());
-    this->p_data_config_ini->set_string(wxT("CONFIGURATION/data"),this->lp_command_wxtextctrl->GetLineText(0));
-    this->p_data_config_ini->set_string(wxT("CONFIGURATION/script_path"),this->lp_script_path_wxtextctrl->GetLineText(0));
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/bit_length"),this->lp_length_wxchoice->GetSelection());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/parity"),this->lp_parity_wxchoice->GetSelection());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/stop_bit"),this->lp_stop_bit_wxchoice->GetSelection());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/hex_data"),this->lp_hex_wxcheckbox->GetValue());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/add_cr"),this->lp_text_cr_wxcheckbox->GetValue());
+    this->lp_data_config_ini->set_value(wxT("CONFIGURATION/add_lf"),this->lp_text_lf_wxcheckbox->GetValue());
+    this->lp_data_config_ini->set_string(wxT("CONFIGURATION/data"),this->lp_command_wxtextctrl->GetLineText(0));
+    this->lp_data_config_ini->set_string(wxT("CONFIGURATION/script_path"),this->lp_script_path_wxtextctrl->GetLineText(0));
     // Stop timer
     this->lp_wx_gui_sync_wxtimer.Stop();
     this->lp_dialog_caller_wxtimer.Stop();
@@ -521,6 +586,60 @@ wxString text_str;
         this->lp_interpret_jerryscript->stop();
     }
     return;
+}
+
+/** @brief Set script path
+ *
+ * @param [IN] path_str : Script path
+ * @return void
+ *
+ */
+
+void main_frame::set(wxString path_str)
+{
+    // Clear old path
+    this->lp_script_path_wxtextctrl->Clear();
+    // Set path
+    this->lp_script_path_wxtextctrl->WriteText(path_str);
+    return;
+}
+
+/** @brief Run Loaded script
+ *
+ * @param [IN] status_b : Run state
+ *   @arg true : Run
+ *   @arg false : Stop
+ * @return void
+ *
+ */
+
+void main_frame::run(bool status_b)
+{
+    if (status_b)
+    {
+        this->l_script_start_b = true;
+        this->lp_script_run_wxtogglebutton->SetValue(true);
+        this->lp_data_editor_frame->run(true);
+    }
+    else
+    {
+        this->l_script_stop_b = true;
+        this->lp_script_run_wxtogglebutton->SetValue(false);
+        this->lp_data_editor_frame->run(false);
+    }
+    return;
+}
+
+/** @brief Get script path
+ *
+ * @param void
+ * @return wxString : Script path
+ *
+ */
+
+wxString main_frame::get(void)
+{
+    return this->lp_script_path_wxtextctrl->GetLineText(0);
 }
 
 /** @brief Set frame show status
@@ -692,81 +811,84 @@ void main_frame::open_port(void)
 static wxString text_bfr_str;
 uart_cfg_t data_uart_cfg;
 
-    if (this->p_communication_uart_port != NULL && this->lp_open_wxbutton->IsEnabled())
+    if((this->lp_communication_uart_port != NULL) && (!this->l_open_b))
     {
         // Get port configuration
         data_uart_cfg = this->get_config();
         // Open port
-        this->l_data_uart_status = this->p_communication_uart_port->open(&data_uart_cfg);
+        this->l_data_uart_status = this->lp_communication_uart_port->open(&data_uart_cfg);
         l_frame_uart_status = this->l_data_uart_status;
-        if (this->l_data_uart_status == e_01_open)
+        if(this->l_data_uart_status == e_07_opened)
         {
-            // Create read event
-            this->p_communication_uart_port->set((uart_event_fct)&this->uart_rx_event, this);
-            text_bfr_str.Printf(wxT("uart open"));
-            this->lp_bot_wxstatusbar->SetStatusText(text_bfr_str, d_ap_uart_terminal_status_port);
-            // Disable settings component
-            this->lp_port_wxchoice->Disable();
-            this->lp_speed_wxchoice->Disable();
-            this->lp_speed_wxtextctrl->Disable();
-            this->lp_length_wxchoice->Disable();
-            this->lp_parity_wxchoice->Disable();
-            this->lp_stop_bit_wxchoice->Disable();
-            this->lp_open_wxbutton->Disable();
-            // Enable component
-            this->lp_send_wxbutton->Enable();
-            this->lp_close_wxbutton->Enable();
-            this->lp_port_control_dtr_wxcheckbox->Enable();
-            this->lp_port_control_rts_wxcheckbox->Enable();
-            this->lp_port_control_tx_wxcheckbox->Enable();
-            // Set state LED
-            if (this->p_communication_uart_port->get(e_cts))
-            {
-                this->l_cts_b = true;
-            }
-            else
-            {
-                this->l_cts_b = false;
-            }
-            if (this->p_communication_uart_port->get(e_dsr))
-            {
-                this->l_dsr_b = true;this->lp_port_state_cts_wxled->Enable();
-            this->lp_port_state_dsr_wxled->Enable();
-            this->lp_port_state_ring_wxled->Enable();
-            this->lp_port_state_rlsd_wxled->Enable();
-            }
-            else
-            {
-                this->l_dsr_b = false;
-            }
-            if (this->p_communication_uart_port->get(e_ring))
-            {
-                this->l_ring_b = true;
-            }
-            else
-            {
-                this->l_ring_b = false;
-            }
-            if (this->p_communication_uart_port->get(e_rlsd))
-            {
-                this->l_rlsd_b = true;
-            }
-            else
-            {
-                this->l_rlsd_b = false;
-            }
-            this->l_open_b = true;
         }
         else
         {
-            text_bfr_str.Printf(wxT("uart error %d"),this->p_communication_uart_port->get_state());
-            this->p_communication_uart_port->close();
-            if(this->l_data_uart_status == e_00_open_error)
+            if(this->l_data_uart_status == e_01_open)
             {
-                // Check for new COM
-                this->main_panel_set_port_choice();
+                // Create read event
+                this->lp_communication_uart_port->set((uart_event_fct)&this->uart_rx_event, this);
+                text_bfr_str.Printf(wxT("Connect"));
+                this->lp_bot_wxstatusbar->SetStatusText(text_bfr_str, d_ap_uart_terminal_status_port);
+                // Disable settings component
+                this->lp_port_wxchoice->Disable();
+                this->lp_speed_wxchoice->Disable();
+                this->lp_speed_wxtextctrl->Disable();
+                this->lp_length_wxchoice->Disable();
+                this->lp_parity_wxchoice->Disable();
+                this->lp_stop_bit_wxchoice->Disable();
+                // Enable component
+                this->lp_send_wxbutton->Enable();
+                this->lp_port_control_dtr_wxcheckbox->Enable();
+                this->lp_port_control_rts_wxcheckbox->Enable();
+                this->lp_port_control_tx_wxcheckbox->Enable();
+                // Set connection button
+                this->lp_connect_wxtogglebutton->SetValue(true);
+                // Set state LED
+                if (this->lp_communication_uart_port->get(e_cts))
+                {
+                    this->l_cts_b = true;
+                }
+                else
+                {
+                    this->l_cts_b = false;
+                }
+                if (this->lp_communication_uart_port->get(e_dsr))
+                {
+                    this->l_dsr_b = true;
+                }
+                else
+                {
+                    this->l_dsr_b = false;
+                }
+                if (this->lp_communication_uart_port->get(e_ring))
+                {
+                    this->l_ring_b = true;
+                }
+                else
+                {
+                    this->l_ring_b = false;
+                }
+                if (this->lp_communication_uart_port->get(e_rlsd))
+                {
+                    this->l_rlsd_b = true;
+                }
+                else
+                {
+                    this->l_rlsd_b = false;
+                }
+                this->l_open_b = true;
             }
-            this->lp_bot_wxstatusbar->SetStatusText(text_bfr_str, d_ap_uart_terminal_status_port);
+            else
+            {
+                text_bfr_str.Printf(wxT("uart error %d"),this->lp_communication_uart_port->get_state());
+                this->lp_communication_uart_port->close();
+                if(this->l_data_uart_status == e_00_open_error)
+                {
+                    // Check for new COM
+                    this->main_panel_set_port_choice();
+                }
+                this->lp_bot_wxstatusbar->SetStatusText(text_bfr_str, d_ap_uart_terminal_status_port);
+            }
         }
     }
     return;
@@ -796,10 +918,10 @@ void main_frame::js_close_port(void)
 
 void main_frame::close_port(void)
 {
-    if (this->p_communication_uart_port != NULL && this->lp_close_wxbutton->IsEnabled())
+    if((this->lp_communication_uart_port != NULL) && (this->l_open_b))
     {
         // Close port
-        this->p_communication_uart_port->close();
+        this->lp_communication_uart_port->close();
         // Enable settings component
         this->lp_port_wxchoice->Enable();
         this->lp_speed_wxchoice->Enable();
@@ -807,17 +929,14 @@ void main_frame::close_port(void)
         this->lp_length_wxchoice->Enable();
         this->lp_parity_wxchoice->Enable();
         this->lp_stop_bit_wxchoice->Enable();
-        this->lp_open_wxbutton->Enable();
         // Disable send
         this->lp_send_wxbutton->Disable();
-        this->lp_close_wxbutton->Disable();
         this->lp_port_control_dtr_wxcheckbox->Disable();
         this->lp_port_control_rts_wxcheckbox->Disable();
         this->lp_port_control_tx_wxcheckbox->Disable();
-        // Check for new COM
-        this->main_panel_set_port_choice();
-        this->uart_thread_run_ui32 = 0;
-        this->lp_bot_wxstatusbar->SetStatusText(wxT("uart close"), d_ap_uart_terminal_status_port);
+        // Set connection button
+        this->lp_connect_wxtogglebutton->SetValue(false);
+        this->lp_bot_wxstatusbar->SetStatusText(wxT("Disconnect"), d_ap_uart_terminal_status_port);
         this->l_open_b = false;
     }
     return;
@@ -854,7 +973,7 @@ uart_status_t main_frame::get_open_status(void)
  *
  */
 
-void main_frame::js_set_config (uart_cfg_t data_uart_cfg)
+void main_frame::js_set_config(uart_cfg_t data_uart_cfg)
 {
     // Set new configuration
     l_frame_data_uart_cfg = data_uart_cfg;
@@ -871,7 +990,7 @@ void main_frame::js_set_config (uart_cfg_t data_uart_cfg)
  *
  */
 
-void main_frame::set_config (uart_cfg_t data_uart_cfg)
+void main_frame::set_config(uart_cfg_t data_uart_cfg)
 {
 wxString text_str;
 int32_t select_i32;
@@ -887,10 +1006,13 @@ int32_t select_i32;
     if(wxNOT_FOUND != select_i32)
     {
         this->lp_speed_wxchoice->SetSelection(select_i32);
+        this->lp_speed_wxtextctrl->Show(false);
     }
     else
     {
         this->lp_speed_wxchoice->SetSelection(0);
+        this->lp_speed_wxtextctrl->Show(true);
+        this->lp_speed_wxtextctrl->Clear();
         this->lp_speed_wxtextctrl->WriteText(text_str);
     }
     text_str.Printf("%u",data_uart_cfg.bit_length_ui8);
@@ -901,6 +1023,7 @@ int32_t select_i32;
     }
     this->lp_parity_wxchoice->SetSelection(data_uart_cfg.parity_ui8);
     this->lp_stop_bit_wxchoice->SetSelection(data_uart_cfg.stop_bits_ui8);
+    this->lp_main_setting_wxboxsizer->Layout();
     return;
 }
 
@@ -911,7 +1034,7 @@ int32_t select_i32;
  *
  */
 
-uart_cfg_t main_frame::get_config (void)
+uart_cfg_t main_frame::get_config(void)
 {
 uart_cfg_t data_uart_cfg;
 uint32_t data_bkp_ui32;
@@ -950,7 +1073,7 @@ uint32_t data_bkp_ui32;
  *
  */
 
-wxString main_frame::get_data (wxString text_str)
+wxString main_frame::get_data(wxString text_str)
 {
     this->l_dialog_text_str = wxEmptyString;
     this->l_dialog_info_str = text_str;
@@ -970,7 +1093,7 @@ wxString main_frame::get_data (wxString text_str)
  *
  */
 
-void main_frame::set_progress (wxString text_str, uint32_t progress_ui32)
+void main_frame::set_progress(wxString text_str, uint32_t progress_ui32)
 {
     if (text_str != wxEmptyString)
     {
@@ -989,7 +1112,7 @@ void main_frame::set_progress (wxString text_str, uint32_t progress_ui32)
  *
  */
 
-void main_frame::set_send_event (send_event_fct data_send_event_fct, void* p_parametr_void)
+void main_frame::set_send_event(send_event_fct data_send_event_fct, void* p_parametr_void)
 {
     this->lp_event_parameter_void = p_parametr_void;
     this->l_data_send_event_fct = data_send_event_fct;
@@ -1016,7 +1139,7 @@ wxString config_path_str;
         if(this->lp_interpret_jerryscript == NULL)
         {
             // Load JavaScript interpreter
-            this->lp_interpret_jerryscript = new jerryscript_c(this->p_communication_uart_port, (void*)this, this->l_script_debug_b, f_init_b);
+            this->lp_interpret_jerryscript = new jerryscript_c(this->lp_communication_uart_port, (void*)this, this->l_script_debug_b, f_init_b);
             f_init_b = true;
         }
         if(this->lp_interpret_jerryscript)
@@ -1086,7 +1209,7 @@ uint32_t status_ui32 = 0;
 
 void main_frame::stop_event(void)
 {
-    l_grame_gui_close_b = true;
+    l_frame_gui_close_b = true;
     return;
 }
 
@@ -1112,7 +1235,7 @@ void main_frame::menu_bar_file_quit_item_selected(wxCommandEvent& event)
 
 void main_frame::menu_bar_help_about_item_selected(wxCommandEvent& event)
 {
-    wxMessageBox( _("UART terminal V2.0 RC2\nBUILD : " __DATE__ "\nPORTTRONIC(c)\nwxWidget 3.0.4\nJerryScript 2.2.0\nMinGW 5.1.0. x64"), _("About"));
+    wxMessageBox( _("UART terminal V2.0 RC4\nBUILD : " __DATE__ "\nPORTTRONIC(c)\nwxWidget 3.0.4\nJerryScript 2.2.0\nMinGW 5.1.0. x64"), _("About"));
     return;
 }
 
@@ -1156,10 +1279,8 @@ wxString port_text_str = wxEmptyString;
 string *available_port_str = NULL;
 static uint8_t selected_port_ui8 = 0;
 
-    // Read available port
-    this->p_communication_uart_port->get_port();
     // Read pointer on com array
-    available_port_str = this->p_communication_uart_port->get_port();
+    available_port_str = this->lp_communication_uart_port->get_port();
     // Read selected port
     if (selected_port_ui8 != 0)
     {
@@ -1189,29 +1310,24 @@ static uint8_t selected_port_ui8 = 0;
     return;
 }
 
-/** @brief Open UART communication
+/** @brief Connect/Disconnect UART port
  *
  * @param [IN] event : standard event input data
  * @return void
  *
  */
 
-void main_frame::main_panel_open_button_click(wxCommandEvent& event)
+void main_frame::on_connect_wxtogglebutton_toggle(wxCommandEvent& event)
 {
-    this->open_port();
-    return;
-}
-
-/** @brief Close UART communication
- *
- * @param [IN] event : standard event input data
- * @return void
- *
- */
-
-void main_frame::main_panel_close_button_click(wxCommandEvent& event)
-{
-    this->close_port();
+    if (this->lp_connect_wxtogglebutton->GetValue())
+    {
+        l_frame_open_b = true;
+        l_frame_rx_b = true;
+    }
+    else
+    {
+        l_frame_close_b = true;
+    }
     return;
 }
 
@@ -1230,7 +1346,7 @@ unsigned int data_tx_bkp_ui32 = 0;
 wxString data_str;
 wxString data_text_str;
 
-    if (this->p_communication_uart_port != NULL)
+    if (this->lp_communication_uart_port != NULL)
     {
         data_str = this->lp_command_wxtextctrl->GetLineText(0);
         data_length_ui16 = data_str.Length();
@@ -1273,7 +1389,7 @@ wxString data_text_str;
         }
         if (l_frame_rx_b)
         {
-            if (this->p_communication_uart_port->send(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
+            if (this->lp_communication_uart_port->send(&data_tx_buffer_sui8[0], data_length_ui16) != 1)
             {
                 this->lp_bot_wxstatusbar->SetStatusText(wxT("data do not transmit"), d_ap_uart_terminal_status_port);
             }
@@ -1310,9 +1426,8 @@ void main_frame::on_script_load_wxbutton_click(wxCommandEvent& event)
     {
         if (this->lp_script_wxfiledialog->GetPath() != wxEmptyString)
         {
-            this->lp_script_path_wxtextctrl->Clear();
-            // Set path
-            this->lp_script_path_wxtextctrl->WriteText(this->lp_script_wxfiledialog->GetPath());
+            this->set(this->lp_script_wxfiledialog->GetPath());
+            this->lp_data_editor_frame->load(this->lp_script_wxfiledialog->GetPath());
         }
     }
     return;
@@ -1327,14 +1442,7 @@ void main_frame::on_script_load_wxbutton_click(wxCommandEvent& event)
 
 void main_frame::on_script_run_wxtogglebutton_toggle(wxCommandEvent& event)
 {
-    if (lp_script_run_wxtogglebutton->GetValue())
-    {
-        this->l_script_start_b = true;
-    }
-    else
-    {
-        this->l_script_stop_b = true;
-    }
+    this->run(this->lp_script_run_wxtogglebutton->GetValue());
     return;
 }
 
@@ -1347,7 +1455,7 @@ void main_frame::on_script_run_wxtogglebutton_toggle(wxCommandEvent& event)
 
 void main_frame::on_port_control_dtr_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set(e_dtr , (uint8_t)this->lp_port_control_dtr_wxcheckbox->GetValue());
+    this->lp_communication_uart_port->set(e_dtr , (uint8_t)this->lp_port_control_dtr_wxcheckbox->GetValue());
     return;
 }
 
@@ -1360,7 +1468,7 @@ void main_frame::on_port_control_dtr_wxcheckbox_click(wxCommandEvent& event)
 
 void main_frame::on_port_control_rts_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set(e_rts, (uint8_t)this->lp_port_control_rts_wxcheckbox->GetValue());
+    this->lp_communication_uart_port->set(e_rts, (uint8_t)this->lp_port_control_rts_wxcheckbox->GetValue());
     return;
 }
 
@@ -1373,7 +1481,7 @@ void main_frame::on_port_control_rts_wxcheckbox_click(wxCommandEvent& event)
 
 void main_frame::on_port_control_tx_wxcheckbox_click(wxCommandEvent& event)
 {
-    this->p_communication_uart_port->set(e_break, (uint8_t)this->lp_port_control_tx_wxcheckbox->GetValue());
+    this->lp_communication_uart_port->set(e_break, (uint8_t)this->lp_port_control_tx_wxcheckbox->GetValue());
     return;
 }
 
@@ -1437,7 +1545,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_CTS)
     {
-        if (p_bkp_this->p_communication_uart_port->get(e_cts))
+        if (p_bkp_this->lp_communication_uart_port->get(e_cts))
         {
             p_bkp_this->l_cts_b = true;
         }
@@ -1448,7 +1556,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_DSR)
     {
-        if (p_bkp_this->p_communication_uart_port->get(e_dsr))
+        if (p_bkp_this->lp_communication_uart_port->get(e_dsr))
         {
             p_bkp_this->l_dsr_b = true;
         }
@@ -1459,7 +1567,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_RING)
     {
-        if (p_bkp_this->p_communication_uart_port->get(e_ring))
+        if (p_bkp_this->lp_communication_uart_port->get(e_ring))
         {
             p_bkp_this->l_ring_b = true;
         }
@@ -1470,7 +1578,7 @@ void main_frame::uart_rx_event(void* p_parametr_void, uint32_t event_type_ui32, 
     }
     if (event_type_ui32 & EV_RLSD)
     {
-        if (p_bkp_this->p_communication_uart_port->get(e_rlsd))
+        if (p_bkp_this->lp_communication_uart_port->get(e_rlsd))
         {
             p_bkp_this->l_rlsd_b = true;
         }
@@ -1550,134 +1658,14 @@ static bool f_cts_old_b = false;
 static bool f_dsr_old_b = false;
 static bool f_ring_old_b = false;
 static bool f_rlsd_old_b = false;
-static bool f_port_open_b = true;
 wxCommandEvent data_wxcommandevent;
 
-    if(this->l_script_start_b)
-    {
-        this->l_script_start_b = false;
-        // Disable script path component
-        this->lp_script_load_wxbutton->Disable();
-        this->lp_script_path_wxtextctrl->Disable();
-        if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
-        {
-            // Start Java Script
-            switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
-            {
-                case 0:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                case 1:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                case 2:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
-                }
-                break;
-                default:
-                {
-                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
-                }
-                break;
-            }
-        }
-    }
-    if(this->l_script_stop_b)
-    {
-        // Stop JavaScript
-        if(this->stop_script())
-        {
-            this->l_script_stop_b = false;
-            // Enable script path component
-            this->lp_script_load_wxbutton->Enable();
-            this->lp_script_path_wxtextctrl->Enable();
-        }
-    }
-    // Stop script request
-    if (l_grame_gui_close_b)
+    // Call exit event
+    if (l_frame_gui_close_b)
     {
         this->lp_script_run_wxtogglebutton->SetValue(false);
         this->on_script_run_wxtogglebutton_toggle(data_wxcommandevent);
-        l_grame_gui_close_b = false;
-    }
-    // Set led activation
-    if (f_port_open_b != this->l_open_b)
-    {
-        if(this->l_open_b)
-        {
-            this->lp_port_state_cts_wxled->Enable();
-            this->lp_port_state_dsr_wxled->Enable();
-            this->lp_port_state_ring_wxled->Enable();
-            this->lp_port_state_rlsd_wxled->Enable();
-        }
-        else
-        {
-            this->lp_port_state_cts_wxled->Disable();
-            this->lp_port_state_dsr_wxled->Disable();
-            this->lp_port_state_ring_wxled->Disable();
-            this->lp_port_state_rlsd_wxled->Disable();
-        }
-        f_port_open_b = this->l_open_b;
-    }
-    if(this->l_open_b)
-    {
-        // Set CTS state
-        if (f_cts_old_b != l_cts_b)
-        {
-            if (l_cts_b)
-            {
-               this->lp_port_state_cts_wxled->SwitchOn();
-            }
-            else
-            {
-                this->lp_port_state_cts_wxled->SwitchOff();
-            }
-        }
-        f_cts_old_b = l_cts_b;
-        // Set DSR state
-        if (f_dsr_old_b != l_dsr_b)
-        {
-            if (l_dsr_b)
-            {
-                this->lp_port_state_dsr_wxled->SwitchOn();
-            }
-            else
-            {
-                this->lp_port_state_dsr_wxled->SwitchOff();
-            }
-        }
-        f_dsr_old_b = l_dsr_b;
-        // Set RING state
-        if (f_ring_old_b != l_ring_b)
-        {
-            if (l_ring_b)
-            {
-                this->lp_port_state_ring_wxled->SwitchOn();
-            }
-            else
-            {
-                this->lp_port_state_ring_wxled->SwitchOff();
-            }
-        }
-        f_ring_old_b = l_ring_b;
-        // Set RLSD state
-        if (f_rlsd_old_b != l_rlsd_b)
-        {
-            if (l_rlsd_b)
-            {
-                this->lp_port_state_rlsd_wxled->SwitchOn();
-            }
-            else
-            {
-                this->lp_port_state_rlsd_wxled->SwitchOff();
-            }
-        }
-        f_rlsd_old_b = l_rlsd_b;
+        l_frame_gui_close_b = false;
     }
     // Add console text
     if(lv_frame_main_console_buffer.size())
@@ -1716,6 +1704,10 @@ wxCommandEvent data_wxcommandevent;
     // Set port
     if(l_frame_set_b)
     {
+        if(!l_frame_data_uart_cfg.port_num_ui8)
+        {
+            l_frame_data_uart_cfg.port_num_ui8 = this->get_config().port_num_ui8;
+        }
         this->set_config(l_frame_data_uart_cfg);
         l_frame_set_b = false;
     }
@@ -1724,6 +1716,104 @@ wxCommandEvent data_wxcommandevent;
     {
         this->Show(l_frame_hide_state_b);
         l_frame_hide_b = false;
+    }
+    // Start script
+    if(this->l_script_start_b)
+    {
+        this->l_script_start_b = false;
+        if (this->lp_script_path_wxtextctrl->GetLineText(0) != wxEmptyString)
+        {
+            // Start Java Script
+            switch(this->run_script(this->lp_script_path_wxtextctrl->GetLineText(0)))
+            {
+                case 0:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script thread RUN ERROR"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                case 1:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                case 2:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Script already RUN"), d_ap_uart_terminal_status_script);
+                }
+                break;
+                default:
+                {
+                    this->lp_bot_wxstatusbar->SetStatusText(wxT("Unknown ERROR"), d_ap_uart_terminal_status_script);
+                }
+                break;
+            }
+        }
+
+    }
+    // Stop script request
+    if(this->l_script_stop_b)
+    {
+        // Stop JavaScript
+        if(this->stop_script())
+        {
+            this->l_script_stop_b = false;
+        }
+    }
+    // Set com control line status
+    if(this->l_open_b)
+    {
+        // Set CTS state
+        if (f_cts_old_b != this->l_cts_b)
+        {
+            if (this->l_cts_b)
+            {
+               this->lp_port_state_cts_wxled->SwitchOn();
+            }
+            else
+            {
+                this->lp_port_state_cts_wxled->SwitchOff();
+            }
+        }
+        f_cts_old_b = this->l_cts_b;
+        // Set DSR state
+        if (f_dsr_old_b != this->l_dsr_b)
+        {
+            if (this->l_dsr_b)
+            {
+                this->lp_port_state_dsr_wxled->SwitchOn();
+            }
+            else
+            {
+                this->lp_port_state_dsr_wxled->SwitchOff();
+            }
+        }
+        f_dsr_old_b = this->l_dsr_b;
+        // Set RING state
+        if (f_ring_old_b != this->l_ring_b)
+        {
+            if (this->l_ring_b)
+            {
+                this->lp_port_state_ring_wxled->SwitchOn();
+            }
+            else
+            {
+                this->lp_port_state_ring_wxled->SwitchOff();
+            }
+        }
+        f_ring_old_b = this->l_ring_b;
+        // Set RLSD state
+        if (f_rlsd_old_b != this->l_rlsd_b)
+        {
+            if (this->l_rlsd_b)
+            {
+                this->lp_port_state_rlsd_wxled->SwitchOn();
+            }
+            else
+            {
+                this->lp_port_state_rlsd_wxled->SwitchOff();
+            }
+        }
+        f_rlsd_old_b = this->l_rlsd_b;
     }
     return;
 }
@@ -1746,6 +1836,33 @@ void main_frame::on_speed_wxchoice_select(wxCommandEvent& event)
         this->lp_speed_wxtextctrl->Show(false);
     }
     this->lp_main_setting_wxboxsizer->Layout();
+    return;
+}
+
+/** @brief Open/Close script editor
+ *
+ * @param [IN] event : standard event input data
+ * @return void
+ *
+ */
+
+void main_frame::on_editor_wxbutton_click(wxCommandEvent& event)
+{
+    if(event.GetId() == l_id_file_edit_item_wxmenu)
+    {
+        this->lp_data_editor_frame->Show();
+    }
+    else
+    {
+        if(this->lp_data_editor_frame->IsShown())
+        {
+            this->lp_data_editor_frame->Show(false);
+        }
+        else
+        {
+            this->lp_data_editor_frame->Show();
+        }
+    }
     return;
 }
 

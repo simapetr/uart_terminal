@@ -21,7 +21,12 @@
 #include "in_jerryscript_port_h.h"
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -221,7 +226,7 @@ uint32_t panel_cnt_ui32;
     while(l_cnt_panel_ui32 < lv_data_panel_buffer.size())
     {
         // Create new panel
-        p_buffer_wxpanel = new wxPanel(this, wxNewId(), wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, lv_data_panel_buffer[l_cnt_panel_ui32].name_str);
+        p_buffer_wxpanel = new wxPanel(this, wxNewId(), wxDefaultPosition, wxSize(640,480), wxTAB_TRAVERSAL, lv_data_panel_buffer[l_cnt_panel_ui32].name_str);
         if(p_buffer_wxpanel)
         {
             p_buffer_wxpanel->SetFocus();
@@ -311,6 +316,10 @@ uint32_t panel_cnt_ui32;
     }
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

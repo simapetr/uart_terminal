@@ -12,25 +12,29 @@ wx\+Aui panel class
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (string name\+\_\+str, bool horizontal\+\_\+b)
+\textbf{ add} (name\+\_\+str, horizontal\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new A\+UI panel. \end{DoxyCompactList}\item 
-double \textbf{ get\+\_\+sizer} (double panel\+\_\+d)
+\textbf{ set} (panel\+\_\+d, show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Get panel show status. \end{DoxyCompactList}\item 
+\textbf{ get} (panel\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get panel show status. \end{DoxyCompactList}\item 
+\textbf{ get\+\_\+sizer} (panel\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get panel main sizer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Aui panel class 
 
-Definition at line 854 of file jerryscript\+\_\+h.\+h.
+Definition at line 862 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classpanel_a79fc398bf48fc29226a5d64371047def}} 
+\mbox{\label{classpanel_a5715748aa5935fb3b35c82b422d209e1}} 
 \index{panel@{panel}!add@{add}}
 \index{add@{add}!panel@{panel}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{string}]{name\+\_\+str,  }\item[{bool}]{horizontal\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{name\+\_\+str}]{,  }\item[{horizontal\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -53,13 +57,40 @@ Add new A\+UI panel.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Panel buffer index 
+Panel index 
 \end{DoxyReturn}
-\mbox{\label{classpanel_a3d192aeb663e089278a27eec28435d0c}} 
+\mbox{\label{classpanel_ac8a7922984844f20d35afc355336ceb2}} 
+\index{panel@{panel}!get@{get}}
+\index{get@{get}!panel@{panel}}
+\subsubsection{get()}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{panel\+\_\+d}]{ }\end{DoxyParamCaption})}
+
+
+
+Get panel show status. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{var show\_status;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{show\_status = gui.panel.get(test\_panel);}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+d \+: Panel buffer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Show status 
+\end{DoxyReturn}
+\mbox{\label{classpanel_a346b6978db558e41405dd5662601acca}} 
 \index{panel@{panel}!get\_sizer@{get\_sizer}}
 \index{get\_sizer@{get\_sizer}!panel@{panel}}
 \subsubsection{get\_sizer()}
-{\footnotesize\ttfamily double get\+\_\+sizer (\begin{DoxyParamCaption}\item[{double}]{panel\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get\+\_\+sizer (\begin{DoxyParamCaption}\item[{panel\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -80,7 +111,35 @@ Get panel main sizer.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Sizer buffer index 
+Sizer index 
+\end{DoxyReturn}
+\mbox{\label{classpanel_a4dd7a414f2ac1b03e0c849f54d396a0d}} 
+\index{panel@{panel}!set@{set}}
+\index{set@{set}!panel@{panel}}
+\subsubsection{set()}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{panel\+\_\+d}]{,  }\item[{show\+\_\+b}]{ }\end{DoxyParamCaption})}
+
+
+
+Get panel show status. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var test\_panel;}
+\DoxyCodeLine{test\_panel = gui.panel.add(\textcolor{stringliteral}{"test\_panel"}, \textcolor{keyword}{true});}
+\DoxyCodeLine{gui.panel.set(test\_panel, \textcolor{keyword}{false});}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & panel\+\_\+d \+: Panel buffer index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+b \+: Panel show status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 
 

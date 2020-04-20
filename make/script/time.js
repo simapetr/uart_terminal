@@ -1,13 +1,13 @@
 /**
   ****************************************************************************
-  * @file    time.js
-  * @author  Ing. Petr Simek
+  * @file time.js
+  * @author simek
   * @version V1.0
-  * @date    16.04.2018
-  * @brief   Time example
+  * @date 19.04.2020
+  * @brief system time example
   ****************************************************************************
   * @attention
-  * <h2><center>&copy; COPYRIGHT PORTTRONIC</center></h2>
+  * <h2><center>&copy; PORTTRONIC </center></h2>
   ****************************************************************************
   */
 
@@ -17,39 +17,79 @@
   ****************************************************************************
   */
 
-var time_data;
-var text_str;
- 
+var main_panel = 0;
+var main_panel_sizer = 0;
+var test_static_text = 0;
+var main_timer = 0; 
+
 /**
   ****************************************************************************
-  * script
+  * Initialize
   ****************************************************************************
   */
 
-main_frame.clear();
-main_frame.printf("Now is :\n");
-// Time in milisecond
-time_data = time.now_ms();
-text_str = "Timestamp in (ms) : ";
-text_str += time_data;
-text_str += "\n";
-main_frame.printf(text_str);
-// Time in second
-time_data = time.now();
-text_str = "Timestamp in (s)  : ";
-text_str += time_data;
-text_str += "\n";
-main_frame.printf(text_str);
-// Date time UTC
-text_str = "Date & time UTC   : ";
-text_str += time.str(time_data);
-text_str += "\n";
-main_frame.printf(text_str);
-// Date time UTC
-text_str = "Date & time local : ";
-text_str += time.local_str(time_data);
-text_str += "\n";
-main_frame.printf(text_str);
+// Register exit function
+reg_exit("exit");
+setup();
 
+/**
+  ****************************************************************************
+  * Function
+  ****************************************************************************
+  */
+
+/** @brief Setup
+ *
+ * @param
+ * @return
+ *
+ */
+
+function setup()
+{
+	// Show gui frame
+	gui(true);
+	// Create new AUI panel
+	main_panel = gui.panel.add("test_panel", true);
+	// Add basic sizer in to panel
+	main_panel_sizer = gui.panel.get_sizer(main_panel);
+	// Create test led
+	test_static_text = gui.static_text.add(main_panel_sizer, "", 0, false);
+	// Set timer
+	main_timer = timer.add("on_timer_event", 100, true, false);
+}
+
+/** @brief Timer event
+ *
+ * @param
+ * @return
+ *
+ */
+
+function on_timer_event(component)
+{
+var time_str = "";
+	
+	time_str += "Local : ";
+	time_str += time.local_str(time.now());
+	time_str += "\nUTC   : ";
+	time_str += time.str(time.now());
+	time_str += "\nSEC   : ";
+	time_str += time.now();
+	time_str += "\nmSEC  : ";
+	time_str += time.now_ms();
+	gui.static_text.set(test_static_text, time_str);
+}
+
+/** @brief Exit event
+ *
+ * @param
+ * @return
+ *
+ */
+
+function exit()
+{
+}
 
 /*****************************************************END OF FILE************/

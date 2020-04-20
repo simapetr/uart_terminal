@@ -7,7 +7,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ reg\+\_\+host\+\_\+class} (\textbf{ uart\+\_\+port} $\ast$p\+\_\+com\+\_\+uart\+\_\+port)
+void \textbf{ reg\+\_\+host\+\_\+class} (\textbf{ uart\+\_\+port} $\ast$p\+\_\+com\+\_\+uart\+\_\+port, wx\+Condition $\ast$p\+\_\+data\+\_\+wxcondition)
 \begin{DoxyCompactList}\small\item\em Registration object in to class. \end{DoxyCompactList}\item 
 void \textbf{ dereg\+\_\+host\+\_\+class} (void)
 \begin{DoxyCompactList}\small\item\em Deregistration object in to class. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -25,7 +25,9 @@ static uint32\+\_\+t \textbf{ write} (const uint32\+\_\+t funct\+\_\+ui32, const
 static uint32\+\_\+t \textbf{ get\+\_\+ctrl} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
 \begin{DoxyCompactList}\small\item\em Get U\+A\+RT control line status (JS method \char`\"{}get\+\_\+ctrl\char`\"{}) \end{DoxyCompactList}\item 
 static uint32\+\_\+t \textbf{ set\+\_\+ctrl} (const uint32\+\_\+t funct\+\_\+ui32, const uint32\+\_\+t this\+\_\+ui32, const uint32\+\_\+t $\ast$p\+\_\+args\+\_\+ui32, const uint32\+\_\+t args\+\_\+cnt\+\_\+ui32)
-\begin{DoxyCompactList}\small\item\em Set U\+A\+RT control line status (JS method \char`\"{}set\+\_\+ctrl\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set U\+A\+RT control line status (JS method \char`\"{}set\+\_\+ctrl\char`\"{}) \end{DoxyCompactList}\item 
+static uint32\+\_\+t \textbf{ call} (void $\ast$p\+\_\+parametr\+\_\+void)
+\begin{DoxyCompactList}\small\item\em Call U\+A\+RT data RX event (Must be called form JS thread) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

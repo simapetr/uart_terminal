@@ -1,0 +1,39 @@
+/* XPM */
+static const char *lp_saveas_si8[] = {
+/* width height num_colors chars_per_pixel */
+"    16    16       16            1",
+/* colors */
+"` c None",
+". c #20c040",
+"# c #000000",
+"a c #4040c0",
+"b c #ffff00",
+"c c #808080",
+"d c #c0c0c0",
+"e c #e02040",
+"f c #c0dcc0",
+"g c #402000",
+"h c #602000",
+"i c #802000",
+"j c #008080",
+"k c #a6caf0",
+"l c #a02000",
+"m c #e02000",
+/* pixels */
+"````````````````",
+"````````````````",
+"```#########````",
+"``#a#ccccc#a#```",
+"``#a#ccccc#a#```",
+"``#aa#####aa#```",
+"``#aaaaaaaaa#```",
+"``#aaaaaaa...```",
+"``#aaaaa...b...`",
+"``#adddd.b.b.b.`",
+"``#adee...bbb...",
+"``#adee.bbbbbbb.",
+"``#addd...bbb...",
+"```#####.b.b.b.`",
+"````````...b...`",
+"``````````...```"
+};

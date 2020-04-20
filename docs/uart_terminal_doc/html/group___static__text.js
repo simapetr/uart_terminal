@@ -34,7 +34,5 @@ var group___static__text =
     [ "reg_host_class", "group___static__text.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
     [ "set", "group___static__text.html#gaddd13ecddc86a2824924f6fd5a27cb74", null ],
     [ "set_static_text", "group___static__text.html#gaeb645371bf2c428258dc6e3c08b6f523", null ],
-    [ "set_textctrl", "group___static__text.html#gac548fb78081658e2d6ac4e0480210e59", null ],
-    [ "lv_data_static_text_buffer", "group___static__text.html#ga3182f133a872d9df1f836e8210e1f9d2", null ],
-    [ "lv_data_textctrl_buffer", "group___static__text.html#gaedebfc4d8564330649b912c46ee244a3", null ]
+    [ "set_textctrl", "group___static__text.html#gac548fb78081658e2d6ac4e0480210e59", null ]
 ];

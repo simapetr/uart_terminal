@@ -1,0 +1,259 @@
+.TH "Public_function" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Public_function \- Global public function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdelay\fP (time_d)"
+.br
+.RI "Delay\&. "
+.ti -1c
+.RI "\fBrand\fP ()"
+.br
+.RI "Get random value\&. "
+.ti -1c
+.RI "\fBrand\fP (min_d, max_d)"
+.br
+.RI "Get random value from range\&. "
+.ti -1c
+.RI "\fBalert\fP (text_str)"
+.br
+.RI "Show alert dialog\&. "
+.ti -1c
+.RI "\fBgui\fP (show_main_b)"
+.br
+.RI "Set show main frame\&. "
+.ti -1c
+.RI "\fBgui\fP (show_main_b, text_str)"
+.br
+.RI "Set show main frame and Script frame name\&. "
+.ti -1c
+.RI "\fBgui\fP (show_main_b, text_str, show_script_b)"
+.br
+.RI "Set show main frame and Script frame name\&. "
+.ti -1c
+.RI "\fBreg_exit\fP (function_str)"
+.br
+.RI "Register exit callback\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Global public function\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "alert (text_str)"
+
+.PP
+Show alert dialog\&. 
+.PP
+.nf
+alert("Hello world!");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP text_str : Alert text 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "delay (time_d)"
+
+.PP
+Delay\&. 
+.PP
+.nf
+// Delay 1s
+delay(1000);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP time_d : Delay time in ms 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBgui\fP (show_main_b)"
+
+.PP
+Set show main frame\&. 
+.PP
+.nf
+gui(false);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP show_main_b : Show main frame 
+.PD 0
+
+.IP "\(bu" 2
+false : Hide 
+.IP "\(bu" 2
+true : Show 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBgui\fP (show_main_b, text_str)"
+
+.PP
+Set show main frame and Script frame name\&. 
+.PP
+.nf
+gui(false, "Script frame");
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP show_main_b : Show main frame 
+.PD 0
+
+.IP "\(bu" 2
+false : Hide 
+.IP "\(bu" 2
+true : Show 
+.PP
+.br
+\fI[IN]\fP text_str : Script frame name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBgui\fP (show_main_b, text_str, show_script_b)"
+
+.PP
+Set show main frame and Script frame name\&. 
+.PP
+.nf
+gui(false, "Script frame", true);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP show_main_b : Show main frame 
+.PD 0
+
+.IP "\(bu" 2
+false : Hide 
+.IP "\(bu" 2
+true : Show 
+.PP
+.br
+\fI[IN]\fP text_str : Script frame name 
+.br
+\fI[IN]\fP show_script_b : Show script frame 
+.PD 0
+
+.IP "\(bu" 2
+false : Hide 
+.IP "\(bu" 2
+true : Show 
+.PP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "rand ()"
+
+.PP
+Get random value\&. 
+.PP
+.nf
+var random_val = rand();
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP .RE
+.PP
+
+.SS "rand (min_d, max_d)"
+
+.PP
+Get random value from range\&. 
+.PP
+.nf
+var random_val = rand(-10, 10);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP min_d : Min value 
+.br
+\fI[IN]\fP max_d : Max value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Random value 
+.RE
+.PP
+
+.SS "reg_exit (function_str)"
+
+.PP
+Register exit callback\&. 
+.PP
+.nf
+reg_exit("exit");
+function exit()
+{
+}
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP function_str : Callback function 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for JerryScript interface documentation from the source code\&.

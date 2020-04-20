@@ -12,29 +12,29 @@ wx\+Check\+Box class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, string text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b, bool state\+\_\+b)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, text\+\_\+str, proportion\+\_\+d, expand\+\_\+b, state\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new check box. \end{DoxyCompactList}\item 
-bool \textbf{ reg\+\_\+event} (double check\+\_\+box\+\_\+index\+\_\+d, string event\+\_\+fct\+\_\+str)
+\textbf{ reg\+\_\+event} (check\+\_\+box\+\_\+index\+\_\+d, event\+\_\+fct\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Register check box event. \end{DoxyCompactList}\item 
-bool \textbf{ get} (double check\+\_\+box\+\_\+index\+\_\+d)
+\textbf{ get} (check\+\_\+box\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get check box state. \end{DoxyCompactList}\item 
-bool \textbf{ set} (double check\+\_\+box\+\_\+index\+\_\+d, bool state\+\_\+b)
+\textbf{ set} (check\+\_\+box\+\_\+index\+\_\+d, state\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set check box state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Check\+Box class interface 
 
-Definition at line 997 of file jerryscript\+\_\+h.\+h.
+Definition at line 1037 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classcheck__box_a304780d135afb477738f1c8487bce123}} 
+\mbox{\label{classcheck__box_afae13d57400c74b794bfb755e2eaca0b}} 
 \index{check\_box@{check\_box}!add@{add}}
 \index{add@{add}!check\_box@{check\_box}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{,  }\item[{proportion\+\_\+d}]{,  }\item[{expand\+\_\+b}]{,  }\item[{state\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -69,13 +69,13 @@ Add new check box.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Check box buffer index 
+Check box index 
 \end{DoxyReturn}
-\mbox{\label{classcheck__box_a07ec246c4be9ad50ee8eab29041805ec}} 
+\mbox{\label{classcheck__box_a2645d1691c07212947e2adde143e5739}} 
 \index{check\_box@{check\_box}!get@{get}}
 \index{get@{get}!check\_box@{check\_box}}
 \subsubsection{get()}
-{\footnotesize\ttfamily bool get (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{check\+\_\+box\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -100,15 +100,15 @@ Get check box state.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Check box state \begin{DoxyItemize}
+Check box state \begin{DoxyItemize}
 \item false \+: Un-\/checked \item true \+: Checked \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classcheck__box_aca4db2446dfef881cb9fbd9dc3326733}} 
+\mbox{\label{classcheck__box_aaf37880c52fb8441d4772e17fb8f6cbc}} 
 \index{check\_box@{check\_box}!reg\_event@{reg\_event}}
 \index{reg\_event@{reg\_event}!check\_box@{check\_box}}
 \subsubsection{reg\_event()}
-{\footnotesize\ttfamily bool reg\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d,  }\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reg\+\_\+event (\begin{DoxyParamCaption}\item[{check\+\_\+box\+\_\+index\+\_\+d}]{,  }\item[{event\+\_\+fct\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -138,15 +138,15 @@ Register check box event.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Event register status \begin{DoxyItemize}
+Event register status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Event registered \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classcheck__box_aee722d4436a648fa1c666bfb3c085944}} 
+\mbox{\label{classcheck__box_a6155253b00e6a4c2250128cde4e4a164}} 
 \index{check\_box@{check\_box}!set@{set}}
 \index{set@{set}!check\_box@{check\_box}}
 \subsubsection{set()}
-{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{check\+\_\+box\+\_\+index\+\_\+d,  }\item[{bool}]{state\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{check\+\_\+box\+\_\+index\+\_\+d}]{,  }\item[{state\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -175,7 +175,7 @@ Set check box state.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Change status \begin{DoxyItemize}
+Change status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Changed \end{DoxyItemize}
 
 \end{DoxyReturn}

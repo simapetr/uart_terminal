@@ -1,0 +1,5 @@
+<map id="run" name="run">
+<area shape="rect" id="node1" title="Run Loaded script." alt="" coords="5,5,45,32"/>
+<area shape="rect" id="node2" href="$group___script__editor.html#ga7f023340b8930afdb091542b289c015b" title="Set editor run button state." alt="" coords="93,5,212,32"/>
+<area shape="rect" id="node3" href="$group___editor.html#ga7f023340b8930afdb091542b289c015b" title="Set run button state." alt="" coords="260,5,340,32"/>
+</map>

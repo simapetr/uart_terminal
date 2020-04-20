@@ -21,7 +21,12 @@
 #include "in_jerryscript_port_h.h"
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -225,6 +230,10 @@ void gui_frame::on_clear_sizer(void)
     l_cnt_sizer_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

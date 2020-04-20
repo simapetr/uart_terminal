@@ -1,0 +1,31 @@
+/* XPM */
+static const char *lp_editor_si8[] = {
+/* width height num_colors chars_per_pixel */
+"    16    16        8            1",
+/* colors */
+"` c #050304",
+". c #04a2ec",
+"# c #979697",
+"a c #ec1e24",
+"b c None",
+"c c #6c696a",
+"d c #e27d3a",
+"e c #4c2617",
+/* pixels */
+"bbbbbbbbbbbbbbbb",
+"bbbbbbbbbbbbbbbb",
+"bb````````````bb",
+"b`b.b.........`b",
+"b`.b.b........`b",
+"b`bbbbbbb#aebb`b",
+"b`bbbbbb#cccbb`b",
+"b`bbbbb#e`#bbb`b",
+"b`bbbb#ed#bbbb`b",
+"b`bbb#ed#bbbbb`b",
+"b`bbbed#bbbbbb`b",
+"b`bb#`cbbbbbbb`b",
+"b``````````````b",
+"bbbbbbbbbbbbbbbb",
+"bbbbbbbbbbbbbbbb",
+"bbbbbbbbbbbbbbbb"
+};

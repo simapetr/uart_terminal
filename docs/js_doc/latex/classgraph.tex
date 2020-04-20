@@ -12,27 +12,27 @@ data\+\_\+plot class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, string name\+\_\+str, double graph\+\_\+range\+\_\+d, double buffer\+\_\+length\+\_\+d, double time\+\_\+step\+\_\+d)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, name\+\_\+str, graph\+\_\+range\+\_\+d, buffer\+\_\+length\+\_\+d, time\+\_\+step\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Add new graph. \end{DoxyCompactList}\item 
-double \textbf{ insert\+\_\+signal} (double graph\+\_\+index\+\_\+d, string name\+\_\+str, double color\+\_\+d, double width\+\_\+d, double style\+\_\+d)
+\textbf{ insert\+\_\+signal} (graph\+\_\+index\+\_\+d, name\+\_\+str, color\+\_\+d, width\+\_\+d, style\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Insert graph signal. \end{DoxyCompactList}\item 
-bool \textbf{ set} (double graph\+\_\+index\+\_\+d, vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\textbf{ set} (graph\+\_\+index\+\_\+d, v\+\_\+data\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Set graph value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 data\+\_\+plot class interface 
 
-Definition at line 1464 of file jerryscript\+\_\+h.\+h.
+Definition at line 1595 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classgraph_a50d78ce95b49dcfbfe3543a1d66480a5}} 
+\mbox{\label{classgraph_ab9fdeb32fa1db2047ea22c0325eed411}} 
 \index{graph@{graph}!add@{add}}
 \index{add@{add}!graph@{graph}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{string}]{name\+\_\+str,  }\item[{double}]{graph\+\_\+range\+\_\+d,  }\item[{double}]{buffer\+\_\+length\+\_\+d,  }\item[{double}]{time\+\_\+step\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{name\+\_\+str}]{,  }\item[{graph\+\_\+range\+\_\+d}]{,  }\item[{buffer\+\_\+length\+\_\+d}]{,  }\item[{time\+\_\+step\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -63,13 +63,13 @@ Add new graph.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: graph buffer index 
+graph index 
 \end{DoxyReturn}
-\mbox{\label{classgraph_aaac3130f008bc142f8ad095d6a0ee2d7}} 
+\mbox{\label{classgraph_aac3115d9385b4c786eb307f4830ba721}} 
 \index{graph@{graph}!insert\_signal@{insert\_signal}}
 \index{insert\_signal@{insert\_signal}!graph@{graph}}
 \subsubsection{insert\_signal()}
-{\footnotesize\ttfamily double insert\+\_\+signal (\begin{DoxyParamCaption}\item[{double}]{graph\+\_\+index\+\_\+d,  }\item[{string}]{name\+\_\+str,  }\item[{double}]{color\+\_\+d,  }\item[{double}]{width\+\_\+d,  }\item[{double}]{style\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily insert\+\_\+signal (\begin{DoxyParamCaption}\item[{graph\+\_\+index\+\_\+d}]{,  }\item[{name\+\_\+str}]{,  }\item[{color\+\_\+d}]{,  }\item[{width\+\_\+d}]{,  }\item[{style\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -106,13 +106,13 @@ Insert graph signal.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Signal insert status 
+Signal insert status 
 \end{DoxyReturn}
-\mbox{\label{classgraph_a184f6c9e2f0c5a5b2e921fe3fda828db}} 
+\mbox{\label{classgraph_aa049387cb5e465b1674cc591f0ea3fd6}} 
 \index{graph@{graph}!set@{set}}
 \index{set@{set}!graph@{graph}}
 \subsubsection{set()}
-{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{double}]{graph\+\_\+index\+\_\+d,  }\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{graph\+\_\+index\+\_\+d}]{,  }\item[{v\+\_\+data\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -147,7 +147,7 @@ Set graph value.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Set status \begin{DoxyItemize}
+Set status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Update \end{DoxyItemize}
 
 \end{DoxyReturn}

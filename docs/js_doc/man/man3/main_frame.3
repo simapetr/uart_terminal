@@ -1,4 +1,4 @@
-.TH "main_frame" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "main_frame" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,51 +13,55 @@ main_frame \- System Main frame GUI control\&.
 
 .in +1c
 .ti -1c
-.RI "void \fBgui\fP (bool show_b)"
+.RI "\fBgui\fP (show_b)"
 .br
 .RI "Set show main frame\&. "
 .ti -1c
-.RI "void \fBconsole_rx_enable\fP (bool enable_b)"
+.RI "\fBconsole_rx_enable\fP (enable_b)"
 .br
 .RI "Set show Rx data in main frame console\&. "
 .ti -1c
-.RI "bool \fBis_console_rx_enable\fP (void)"
+.RI "\fBis_console_rx_enable\fP ()"
 .br
 .RI "Get console enable state\&. "
 .ti -1c
-.RI "void \fBprintf\fP (string text_str)"
+.RI "\fBprintf\fP (text_str)"
 .br
 .RI "Print text sting in to console\&. "
 .ti -1c
-.RI "void \fBstatus\fP (string text_str)"
+.RI "\fBstatus\fP (text_str)"
 .br
 .RI "Print status text sting in to main frame status\&. "
 .ti -1c
-.RI "void \fBclear\fP (void)"
+.RI "\fBclear\fP ()"
 .br
 .RI "Clear main frame console text\&. "
 .ti -1c
-.RI "void \fBopen\fP (double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d)"
+.RI "\fBopen\fP ()"
+.br
+.RI "Open communication and GUI component in main frame\&. "
+.ti -1c
+.RI "\fBopen\fP (bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d)"
 .br
 .RI "Open and set port communication and GUI component in main frame\&. "
 .ti -1c
-.RI "void \fBclose\fP (void)"
+.RI "\fBclose\fP ()"
 .br
 .RI "Close communication in main frame\&. "
 .ti -1c
-.RI "double \fBget_open_status\fP (void)"
+.RI "\fBget_open_status\fP ()"
 .br
 .RI "Get communication open status\&. "
 .ti -1c
-.RI "string \fBget_data\fP (string info_str) void set_progress(string text_str"
+.RI "\fBget_data\fP (info_str) set_progress(text_str"
 .br
 .RI "Show input dialog with user info text and return user input data\&. "
 .ti -1c
-.RI "double \fBreg_event\fP (string event_fct_str)"
+.RI "\fBreg_event\fP (event_fct_str)"
 .br
 .RI "Register event on send button click (in event function is parameter array with console input data) "
 .ti -1c
-.RI "void \fBhide\fP (bool enable_b)"
+.RI "\fBhide\fP (enable_b)"
 .br
 .RI "Set show main frame\&. "
 .in -1c
@@ -65,7 +69,7 @@ main_frame \- System Main frame GUI control\&.
 
 .in +1c
 .ti -1c
-.RI "string double \fBprogress_d\fP"
+.RI "\fBprogress_d\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -75,7 +79,7 @@ System Main frame GUI control\&.
 Definition at line 59 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "void clear (void)"
+.SS "clear ()"
 
 .PP
 Clear main frame console text\&. 
@@ -88,16 +92,10 @@ main_frame\&.clear();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
+\fI\fP .RE
 .PP
 
-.SS "void close (void)"
+.SS "close ()"
 
 .PP
 Close communication in main frame\&. 
@@ -110,16 +108,10 @@ main_frame\&.close();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-void 
-.RE
+\fI\fP .RE
 .PP
 
-.SS "void console_rx_enable (bool enable_b)"
+.SS "console_rx_enable (enable_b)"
 
 .PP
 Set show Rx data in main frame console\&. 
@@ -144,11 +136,10 @@ true : Show
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "string get_data (string info_str)"
+.SS "get_data (info_str)"
 
 .PP
 Show input dialog with user info text and return user input data\&. 
@@ -167,7 +158,7 @@ text_str = main_frame\&.get_data("Get input text:");
 .PP
 \fBReturns:\fP
 .RS 4
-string : User input textSet status progress in progress dialog
+User input text stringSet status progress in progress dialog
 .RE
 .PP
 .PP
@@ -195,11 +186,10 @@ main_frame\&.set_progress("User process progress:", 101);
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "double get_open_status (void)"
+.SS "get_open_status ()"
 
 .PP
 Get communication open status\&. 
@@ -213,35 +203,10 @@ state_var = main_frame\&.get_open_status();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
-.PP
-\fBReturns:\fP
-.RS 4
-double : communication status 
-.PD 0
-
-.IP "\(bu" 2
-0 : Open error 
-.IP "\(bu" 2
-1 : Open 
-.IP "\(bu" 2
-2 : Handle error 
-.IP "\(bu" 2
-3 : Write configuration error 
-.IP "\(bu" 2
-4 : Write timeout error 
-.IP "\(bu" 2
-5 : Close error 
-.IP "\(bu" 2
-6 : Close 
-.IP "\(bu" 2
-7 : Opened 
-.PP
-.RE
+\fI\fP .RE
 .PP
 
-.SS "void \fBgui\fP (bool show_b)"
+.SS "\fBgui\fP (show_b)"
 
 .PP
 Set show main frame\&. 
@@ -266,11 +231,10 @@ true : Show
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "void hide (bool enable_b)"
+.SS "hide (enable_b)"
 
 .PP
 Set show main frame\&. 
@@ -295,11 +259,10 @@ true : Hide
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "bool is_console_rx_enable (void)"
+.SS "is_console_rx_enable ()"
 
 .PP
 Get console enable state\&. 
@@ -313,29 +276,32 @@ state_var = main_frame\&.is_console_rx_enable();
 .PP
 \fBParameters:\fP
 .RS 4
-\fIvoid\fP 
-.RE
+\fI\fP .RE
 .PP
-\fBReturns:\fP
+
+.SS "open ()"
+
+.PP
+Open communication and GUI component in main frame\&. 
+.PP
+.nf
+main_frame\&.open();
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
 .RS 4
-bool : Console enable state 
-.PD 0
-
-.IP "\(bu" 2
-false : Disable 
-.IP "\(bu" 2
-true : Enable 
-.PP
-.RE
+\fI\fP .RE
 .PP
 
-.SS "void open (double bite_timeout_d, double baudrate_d double stop_bits_d double parity_d double bit_length_d double port_num_d)"
+.SS "open (bite_timeout_d, baudrate_d, stop_bits_d, parity_d, bit_length_d, port_num_d)"
 
 .PP
 Open and set port communication and GUI component in main frame\&. 
 .PP
 .nf
-uart\&.open(1,57600,0,0,8,4);
+main_frame\&.open(1,57600,0,0,8,4);
 
 .fi
 .PP
@@ -375,15 +341,19 @@ uart\&.open(1,57600,0,0,8,4);
 \fI[IN]\fP bit_length_d : Character bit length 
 .br
 \fI[IN]\fP port_num_d : Port number 
+.PD 0
+
+.IP "\(bu" 2
+0 : Get number from main frame port setting 
+.PP
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "void printf (string text_str)"
+.SS "printf (text_str)"
 
 .PP
 Print text sting in to console\&. 
@@ -401,11 +371,10 @@ main_frame\&.printf("Hello world!");
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 
-.SS "double reg_event (string event_fct_str)"
+.SS "reg_event (event_fct_str)"
 
 .PP
 Register event on send button click (in event function is parameter array with console input data) 
@@ -426,7 +395,7 @@ function on_send_click(data_array)
 .PP
 \fBReturns:\fP
 .RS 4
-double : registration status 
+registration status 
 .PD 0
 
 .IP "\(bu" 2
@@ -437,7 +406,7 @@ double : registration status
 .RE
 .PP
 
-.SS "void status (string text_str)"
+.SS "status (text_str)"
 
 .PP
 Print status text sting in to main frame status\&. 
@@ -455,7 +424,6 @@ main_frame\&.status("Hello world!");
 .PP
 \fBReturns:\fP
 .RS 4
-void 
 .RE
 .PP
 

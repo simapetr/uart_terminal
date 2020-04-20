@@ -1,0 +1,191 @@
+.TH "editor" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+editor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <in_jerryscript_editor_h\&.h>\fP
+.PP
+Inherits wxPanel\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBe_start\fP = 0, \fBe_path\fP = 1 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBeditor\fP (wxWindow *p_parent_wxwindow, wxWindowID text_wxwindowid=wxID_ANY, const wxPoint &pos_wxpoint=wxDefaultPosition, const wxSize &panel_wxsize=wxDefaultSize, uint32_t style_ui32=wxVSCROLL)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "virtual \fB~editor\fP ()"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "void \fBload\fP (void)"
+.br
+.RI "Load file\&. "
+.ti -1c
+.RI "void \fBload\fP (wxString path_str)"
+.br
+.RI "Load file\&. "
+.ti -1c
+.RI "void \fBsave\fP (void)"
+.br
+.RI "Save file\&. "
+.ti -1c
+.RI "bool \fBsave_as\fP (void)"
+.br
+.RI "Save file as\&. "
+.ti -1c
+.RI "void \fBfind\fP (void)"
+.br
+.RI "Find dialog show\&. "
+.ti -1c
+.RI "void \fBfind_next\fP (void)"
+.br
+.RI "Find next word\&. "
+.ti -1c
+.RI "void \fBfind_prev\fP (void)"
+.br
+.RI "Find previous word\&. "
+.ti -1c
+.RI "void \fBreplace\fP (void)"
+.br
+.RI "Replace dialog show\&. "
+.ti -1c
+.RI "void \fBgoto_line\fP (void)"
+.br
+.RI "Replace dialog show\&. "
+.ti -1c
+.RI "void \fBnew_file\fP (void)"
+.br
+.RI "New file\&. "
+.ti -1c
+.RI "void \fBnew_template\fP (void)"
+.br
+.RI "New template file\&. "
+.ti -1c
+.RI "void \fBset\fP (uint8_t type_ui8, void *p_parametr_void, \fBeditor_event_fct\fP data_editor_event_fct)"
+.br
+.RI "Set event function\&. "
+.ti -1c
+.RI "wxString \fBget\fP (void)"
+.br
+.RI "Get cursor position\&. "
+.ti -1c
+.RI "void \fBrun\fP (bool status_b)"
+.br
+.RI "Set run button state\&. "
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBtext_edit_c\fP * \fBlp_main_text_edit\fP"
+.br
+.ti -1c
+.RI "wxBoxSizer * \fBlp_main_wxboxsizer\fP"
+.br
+.ti -1c
+.RI "wxBoxSizer * \fBlp_tool_wxboxsizer\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_new_template_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_new_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_open_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_replace_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_save_as_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_save_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxButton * \fBlp_search_wxbutton\fP"
+.br
+.ti -1c
+.RI "wxFileDialog * \fBlp_script_wxfiledialog\fP"
+.br
+.ti -1c
+.RI "wxFindReplaceData \fBfindReplaceData_1\fP"
+.br
+.ti -1c
+.RI "wxFindReplaceDialog * \fBlp_text_wxfindreplacedialog\fP"
+.br
+.ti -1c
+.RI "wxStaticLine * \fBlp_file_wxstaticline\fP"
+.br
+.ti -1c
+.RI "wxStaticLine * \fBlp_search_wxstaticline\fP"
+.br
+.ti -1c
+.RI "wxTimer \fBlp_edit_event_wxtimer\fP"
+.br
+.ti -1c
+.RI "wxToggleButton * \fBlp_script_run_wxtogglebutton\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const long \fBl_id_save_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_save_as_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_new_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_new_template_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_open_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_file_wxstaticline\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_search_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_replace_wxbutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_search_wxstaticline\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_script_run_wxtogglebutton\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_main_text_edit\fP = wxNewId()"
+.br
+.ti -1c
+.RI "static const long \fBl_id_edit_event_wxtimer\fP = wxNewId()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class 
+.PP
+Definition at line 78 of file in_jerryscript_editor_h\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for UART Terminal from the source code\&.

@@ -18,6 +18,8 @@ class \textbf{ timer}
 \begin{DoxyCompactList}\small\item\em Event timer. \end{DoxyCompactList}\item 
 class \textbf{ file}
 \begin{DoxyCompactList}\small\item\em System file read/write. \end{DoxyCompactList}\item 
+class \textbf{ project}
+\begin{DoxyCompactList}\small\item\em Script project file. \end{DoxyCompactList}\item 
 class \textbf{ panel}
 \begin{DoxyCompactList}\small\item\em wx\+Aui panel class \end{DoxyCompactList}\item 
 class \textbf{ sizer}
@@ -34,6 +36,8 @@ class \textbf{ slider}
 \begin{DoxyCompactList}\small\item\em wx\+Slider class interface \end{DoxyCompactList}\item 
 class \textbf{ gauge}
 \begin{DoxyCompactList}\small\item\em wx\+Gauge class interface \end{DoxyCompactList}\item 
+class \textbf{ led}
+\begin{DoxyCompactList}\small\item\em wx\+Led class interface \end{DoxyCompactList}\item 
 class \textbf{ graph}
 \begin{DoxyCompactList}\small\item\em data\+\_\+plot class interface \end{DoxyCompactList}\item 
 class \textbf{ gui}
@@ -41,16 +45,39 @@ class \textbf{ gui}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \textbf{ delay} (double time\+\_\+d)
+\textbf{ delay} (time\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Delay. \end{DoxyCompactList}\item 
-void \textbf{ alert} (string text\+\_\+str)
+\textbf{ rand} ()
+\begin{DoxyCompactList}\small\item\em Get random value. \end{DoxyCompactList}\item 
+\textbf{ rand} (min\+\_\+d, max\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Get random value from range. \end{DoxyCompactList}\item 
+\textbf{ alert} (text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Show alert dialog. \end{DoxyCompactList}\item 
-void \textbf{ gui} (bool enable\+\_\+b)
+\textbf{ gui} (show\+\_\+main\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set show main frame. \end{DoxyCompactList}\item 
-void \textbf{ gui} (bool enable\+\_\+b, string text\+\_\+str)
+\textbf{ gui} (show\+\_\+main\+\_\+b, text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Set show main frame and Script frame name. \end{DoxyCompactList}\item 
-void \textbf{ gui} (bool enable\+\_\+b, string text\+\_\+str, bool enable\+\_\+b)
-\begin{DoxyCompactList}\small\item\em Set show main frame and Script frame name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ gui} (show\+\_\+main\+\_\+b, text\+\_\+str, show\+\_\+script\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set show main frame and Script frame name. \end{DoxyCompactList}\item 
+\textbf{ reg\+\_\+exit} (function\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Register exit callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ main\+\_\+frame} {\bfseries main\+\_\+frame}
+\item 
+\textbf{ uart} {\bfseries uart}
+\item 
+\textbf{ time} {\bfseries time}
+\item 
+\textbf{ timer} {\bfseries timer}
+\item 
+\textbf{ file} {\bfseries file}
+\item 
+\textbf{ project} {\bfseries project}
+\item 
+\textbf{ gui} {\bfseries gui}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

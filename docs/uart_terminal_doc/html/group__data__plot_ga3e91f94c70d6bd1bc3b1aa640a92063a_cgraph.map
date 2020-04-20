@@ -1,0 +1,4 @@
+<map id="set" name="set">
+<area shape="rect" id="node1" title="Set signal data by index." alt="" coords="5,5,45,32"/>
+<area shape="rect" id="node2" href="$group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="93,5,133,32"/>
+</map>

@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -89,17 +89,21 @@ $(document).ready(function(){initNavTree('group__data__plot.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Data_plot<div class="ingroups"><a class="el" href="group___infrastructure.html">Infrastructure</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Plot real-time data.  
+<a href="#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Data_plot:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="group__data__plot.png" border="0" alt="" usemap="#group____data____plot"/>
 <map name="group____data____plot" id="group____data____plot">
-<area shape="rect"  title=" " alt="" coords="151,5,228,31"/>
+<area shape="rect"  title="Plot real&#45;time data." alt="" coords="151,5,228,31"/>
 <area shape="rect"  href="group___infrastructure.html" title="Infrastructure layer." alt="" coords="5,5,103,31"/>
 </map>
 </td></tr></table></center>
@@ -111,8 +115,610 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata__plot.html">data_plot</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga761d7640db88badbdaa3d43e589964fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga761d7640db88badbdaa3d43e589964fb">data_plot</a> (wxWindow *p_parent_wxwindow, wxString name_str, double min_d, double max_d, double length_d, double step_d)</td></tr>
+<tr class="memdesc:ga761d7640db88badbdaa3d43e589964fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ga761d7640db88badbdaa3d43e589964fb">More...</a><br /></td></tr>
+<tr class="separator:ga761d7640db88badbdaa3d43e589964fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd321bd40ed347458e213f5c9201ce46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gafd321bd40ed347458e213f5c9201ce46">~data_plot</a> (void)</td></tr>
+<tr class="memdesc:gafd321bd40ed347458e213f5c9201ce46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#gafd321bd40ed347458e213f5c9201ce46">More...</a><br /></td></tr>
+<tr class="separator:gafd321bd40ed347458e213f5c9201ce46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga3f49e53d9701a6e2701b9ab0a30db44a">add</a> (wxString signal_label_str, wxPen signal_style_pen)</td></tr>
+<tr class="memdesc:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new plot signal.  <a href="#ga3f49e53d9701a6e2701b9ab0a30db44a">More...</a><br /></td></tr>
+<tr class="separator:ga3f49e53d9701a6e2701b9ab0a30db44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7197f46e16d05c9055786f69bbd50201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga7197f46e16d05c9055786f69bbd50201">erase</a> (wxString signal_label_str)</td></tr>
+<tr class="memdesc:ga7197f46e16d05c9055786f69bbd50201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete signal from math plot.  <a href="#ga7197f46e16d05c9055786f69bbd50201">More...</a><br /></td></tr>
+<tr class="separator:ga7197f46e16d05c9055786f69bbd50201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f">get</a> (void)</td></tr>
+<tr class="memdesc:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of signal buffer in graph.  <a href="#gae5dcab1d0aea67a38b798ef5a58de49f">More...</a><br /></td></tr>
+<tr class="separator:gae5dcab1d0aea67a38b798ef5a58de49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3139465bf61f3665b4852eaf506464c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gaf3139465bf61f3665b4852eaf506464c">set</a> (wxString signal_label_str, double data_d)</td></tr>
+<tr class="memdesc:gaf3139465bf61f3665b4852eaf506464c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal data by name.  <a href="#gaf3139465bf61f3665b4852eaf506464c">More...</a><br /></td></tr>
+<tr class="separator:gaf3139465bf61f3665b4852eaf506464c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga3e91f94c70d6bd1bc3b1aa640a92063a">set</a> (uint32_t signal_ui32, double data_d)</td></tr>
+<tr class="memdesc:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal data by index.  <a href="#ga3e91f94c70d6bd1bc3b1aa640a92063a">More...</a><br /></td></tr>
+<tr class="separator:ga3e91f94c70d6bd1bc3b1aa640a92063a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga6ebd3de1e1c0236f8e54525ebe52fead">show</a> (wxString signal_label_str, bool show_b)</td></tr>
+<tr class="memdesc:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set signal visibility.  <a href="#ga6ebd3de1e1c0236f8e54525ebe52fead">More...</a><br /></td></tr>
+<tr class="separator:ga6ebd3de1e1c0236f8e54525ebe52fead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gab0d8878374cdaa8e8430df9a6aa313e8">set_time</a> (double length_d, double step_d)</td></tr>
+<tr class="memdesc:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set logged data length and sample period.  <a href="#gab0d8878374cdaa8e8430df9a6aa313e8">More...</a><br /></td></tr>
+<tr class="separator:gab0d8878374cdaa8e8430df9a6aa313e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#ga5cd933820f813c0a8ca2785c221f2c6a">set_range</a> (double max_d, double min_d)</td></tr>
+<tr class="memdesc:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set graph range.  <a href="#ga5cd933820f813c0a8ca2785c221f2c6a">More...</a><br /></td></tr>
+<tr class="separator:ga5cd933820f813c0a8ca2785c221f2c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7680454aa76f10d7883fa41668f2fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gac7680454aa76f10d7883fa41668f2fd7">redraw</a> (void)</td></tr>
+<tr class="memdesc:gac7680454aa76f10d7883fa41668f2fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw new data and set time cursor.  <a href="#gac7680454aa76f10d7883fa41668f2fd7">More...</a><br /></td></tr>
+<tr class="separator:gac7680454aa76f10d7883fa41668f2fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c">fit</a> (bool default_b=true)</td></tr>
+<tr class="memdesc:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set graph in to default zoom.  <a href="#gaf4809e08728fcad5e35d8c3c6d2a114c">More...</a><br /></td></tr>
+<tr class="separator:gaf4809e08728fcad5e35d8c3c6d2a114c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac60ddfa1938a225b740a4073d61e4ace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace">pause</a> (bool pause_b)</td></tr>
+<tr class="memdesc:gac60ddfa1938a225b740a4073d61e4ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw data pause.  <a href="#gac60ddfa1938a225b740a4073d61e4ace">More...</a><br /></td></tr>
+<tr class="separator:gac60ddfa1938a225b740a4073d61e4ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Plot real-time data. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3f49e53d9701a6e2701b9ab0a30db44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f49e53d9701a6e2701b9ab0a30db44a">&#9670;&nbsp;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>signal_label_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxPen&#160;</td>
+          <td class="paramname"><em>signal_style_pen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add new plot signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>signal_label_str : signal name </td></tr>
+    <tr><td class="paramname">[IN]</td><td>signal_style_pen : signal style </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00347">347</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga761d7640db88badbdaa3d43e589964fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga761d7640db88badbdaa3d43e589964fb">&#9670;&nbsp;</a></span>data_plot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata__plot.html">data_plot</a> </td>
+          <td>(</td>
+          <td class="paramtype">wxWindow *&#160;</td>
+          <td class="paramname"><em>p_parent_wxwindow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>name_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>min_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>length_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>step_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Function</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>p_parent_wxwindow : Parent window </td></tr>
+    <tr><td class="paramname">[IN]</td><td>name_str : Graph name </td></tr>
+    <tr><td class="paramname">[IN]</td><td>min_d : Graph minimum </td></tr>
+    <tr><td class="paramname">[IN]</td><td>max_d : Graph maximum </td></tr>
+    <tr><td class="paramname">[IN]</td><td>length_d : buffer length </td></tr>
+    <tr><td class="paramname">[IN]</td><td>step_d : Sample period step </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00232">232</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga7197f46e16d05c9055786f69bbd50201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7197f46e16d05c9055786f69bbd50201">&#9670;&nbsp;</a></span>erase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void erase </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>signal_label_str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete signal from math plot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>signal_label_str : signal name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00376">376</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_ga7197f46e16d05c9055786f69bbd50201_cgraph.png" border="0" usemap="#group__data__plot_ga7197f46e16d05c9055786f69bbd50201_cgraph" alt=""/></div>
+<map name="group__data__plot_ga7197f46e16d05c9055786f69bbd50201_cgraph" id="group__data__plot_ga7197f46e16d05c9055786f69bbd50201_cgraph">
+<area shape="rect"  title="Delete signal from math plot." alt="" coords="5,21,60,47"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="213,21,253,47"/>
+<area shape="rect"  href="group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace" title="Redraw data pause." alt="" coords="108,21,165,47"/>
+<area shape="rect"  href="group__data__plot.html#ga6ebd3de1e1c0236f8e54525ebe52fead" title="Set signal visibility." alt="" coords="111,71,163,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaf4809e08728fcad5e35d8c3c6d2a114c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf4809e08728fcad5e35d8c3c6d2a114c">&#9670;&nbsp;</a></span>fit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fit </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>default_b</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set graph in to default zoom. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>default_b : Fit type <ul>
+<li>true : Default fit </li>
+<li>false : Automatic fit </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00607">607</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gae5dcab1d0aea67a38b798ef5a58de49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5dcab1d0aea67a38b798ef5a58de49f">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return number of signal buffer in graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : Number of signal buffer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00406">406</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gac60ddfa1938a225b740a4073d61e4ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac60ddfa1938a225b740a4073d61e4ace">&#9670;&nbsp;</a></span>pause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pause </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>pause_b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Redraw data pause. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>pause_b : Pause status <ul>
+<li>true : Show data is stopped </li>
+<li>false : Show data is refreshed </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00665">665</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gac7680454aa76f10d7883fa41668f2fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac7680454aa76f10d7883fa41668f2fd7">&#9670;&nbsp;</a></span>redraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void redraw </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Redraw new data and set time cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00553">553</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_gac7680454aa76f10d7883fa41668f2fd7_cgraph.png" border="0" usemap="#group__data__plot_gac7680454aa76f10d7883fa41668f2fd7_cgraph" alt=""/></div>
+<map name="group__data__plot_gac7680454aa76f10d7883fa41668f2fd7_cgraph" id="group__data__plot_gac7680454aa76f10d7883fa41668f2fd7_cgraph">
+<area shape="rect"  title="Redraw new data and set time cursor." alt="" coords="5,5,65,32"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="113,5,153,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gaf3139465bf61f3665b4852eaf506464c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf3139465bf61f3665b4852eaf506464c">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool set </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>signal_label_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set signal data by name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>signal_label_str : signal name </td></tr>
+    <tr><td class="paramname">[IN]</td><td>data_d : data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool : Set data status </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00419">419</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_gaf3139465bf61f3665b4852eaf506464c_cgraph.png" border="0" usemap="#group__data__plot_gaf3139465bf61f3665b4852eaf506464c_cgraph" alt=""/></div>
+<map name="group__data__plot_gaf3139465bf61f3665b4852eaf506464c_cgraph" id="group__data__plot_gaf3139465bf61f3665b4852eaf506464c_cgraph">
+<area shape="rect"  title="Set signal data by name." alt="" coords="5,5,45,32"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="93,5,133,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga3e91f94c70d6bd1bc3b1aa640a92063a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e91f94c70d6bd1bc3b1aa640a92063a">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool set </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>signal_ui32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>data_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set signal data by index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>signal_ui32 : signal index </td></tr>
+    <tr><td class="paramname">[IN]</td><td>data_d : data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool : Set data status </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00451">451</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a_cgraph.png" border="0" usemap="#group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a_cgraph" alt=""/></div>
+<map name="group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a_cgraph" id="group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a_cgraph">
+<area shape="rect"  title="Set signal data by index." alt="" coords="5,5,45,32"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="93,5,133,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga5cd933820f813c0a8ca2785c221f2c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cd933820f813c0a8ca2785c221f2c6a">&#9670;&nbsp;</a></span>set_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_range </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>min_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set graph range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>max_d : Maximum fit value for Y axis </td></tr>
+    <tr><td class="paramname">[IN]</td><td>min_d : Minimum fit value for Y axis </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00538">538</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a_cgraph.png" border="0" usemap="#group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a_cgraph" alt=""/></div>
+<map name="group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a_cgraph" id="group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a_cgraph">
+<area shape="rect"  title="Set graph range." alt="" coords="5,5,84,32"/>
+<area shape="rect"  href="group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c" title="Set graph in to default zoom." alt="" coords="132,5,171,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gab0d8878374cdaa8e8430df9a6aa313e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0d8878374cdaa8e8430df9a6aa313e8">&#9670;&nbsp;</a></span>set_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool set_time </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>length_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>step_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set logged data length and sample period. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>length_d : Buffer length in [S] </td></tr>
+    <tr><td class="paramname">[IN]</td><td>step_d : Sample period in [S] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool : Set parameter status </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00501">501</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8_cgraph.png" border="0" usemap="#group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8_cgraph" alt=""/></div>
+<map name="group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8_cgraph" id="group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8_cgraph">
+<area shape="rect"  title="Set logged data length and sample period." alt="" coords="5,81,77,108"/>
+<area shape="rect"  href="group__data__plot.html#gac60ddfa1938a225b740a4073d61e4ace" title="Redraw data pause." alt="" coords="127,5,184,32"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="233,81,273,108"/>
+<area shape="rect"  href="group__data__plot.html#gac7680454aa76f10d7883fa41668f2fd7" title="Redraw new data and set time cursor." alt="" coords="125,107,185,133"/>
+<area shape="rect"  href="group__data__plot.html#gaf4809e08728fcad5e35d8c3c6d2a114c" title="Set graph in to default zoom." alt="" coords="136,157,175,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ga6ebd3de1e1c0236f8e54525ebe52fead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ebd3de1e1c0236f8e54525ebe52fead">&#9670;&nbsp;</a></span>show()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void show </td>
+          <td>(</td>
+          <td class="paramtype">wxString&#160;</td>
+          <td class="paramname"><em>signal_label_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>show_b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set signal visibility. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>signal_label_str : signal name </td></tr>
+    <tr><td class="paramname">[IN]</td><td>show_b : Visibility state </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00479">479</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead_cgraph.png" border="0" usemap="#group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead_cgraph" alt=""/></div>
+<map name="group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead_cgraph" id="group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead_cgraph">
+<area shape="rect"  title="Set signal visibility." alt="" coords="5,5,57,32"/>
+<area shape="rect"  href="group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="105,5,145,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gafd321bd40ed347458e213f5c9201ce46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd321bd40ed347458e213f5c9201ce46">&#9670;&nbsp;</a></span>~data_plot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">~<a class="el" href="classdata__plot.html">data_plot</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html#l00331">331</a> of file <a class="el" href="in__data__plot__graph__cpp_8cpp_source.html">in_data_plot_graph_cpp.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

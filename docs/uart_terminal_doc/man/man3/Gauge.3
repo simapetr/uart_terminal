@@ -1,4 +1,4 @@
-.TH "Gauge" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Gauge" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -48,16 +48,6 @@ Gauge \- Gauge class definition\&.
 .RI "double \fBget_gauge\fP (double check_box_index_d)"
 .br
 .RI "Get gauge value\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBgauge_buffer_t\fP > \fBlv_data_gauge_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_gauge_ui32\fP = 0"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -113,7 +103,7 @@ uint32_t : New gauge buffer index
 .PP
 
 .PP
-Definition at line 91 of file in_js_gui_gauge_cpp\&.cpp\&.
+Definition at line 96 of file in_js_gui_gauge_cpp\&.cpp\&.
 .SS "uint32_t get (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -137,7 +127,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 192 of file in_js_class_gauge_js_cpp\&.cpp\&.
+Definition at line 200 of file in_js_class_gauge_js_cpp\&.cpp\&.
 .SS "double get_gauge (double gauge_index_d)"
 
 .PP
@@ -155,7 +145,7 @@ double : Value
 .PP
 
 .PP
-Definition at line 137 of file in_js_gui_gauge_cpp\&.cpp\&.
+Definition at line 143 of file in_js_gui_gauge_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -197,7 +187,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 155 of file in_js_class_gauge_js_cpp\&.cpp\&.
+Definition at line 159 of file in_js_class_gauge_js_cpp\&.cpp\&.
 .SS "bool set_gauge (double gauge_index_d, double value_d)"
 
 .PP
@@ -217,13 +207,7 @@ bool : Status
 .PP
 
 .PP
-Definition at line 117 of file in_js_gui_gauge_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBgauge_buffer_t\fP> lv_data_gauge_buffer"
-Local variable 
-.PP
-Definition at line 72 of file in_js_gui_gauge_cpp\&.cpp\&.
+Definition at line 123 of file in_js_gui_gauge_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

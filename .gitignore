@@ -1,5 +1,9 @@
 /make/output
-/make/usart_terminal.cscope_file_list
-/make/usart_terminal.depend
-/make/usart_terminal.layout
+/make/terminal.cscope_file_list
+/make/terminal.depend
+/make/terminal.layout
+/make/file2str/output
+/make/file2str/file2str.cscope_file_list
+/make/file2str/file2str.layout
+/make/file2str/file2str.depend
 /make/script/*.ini

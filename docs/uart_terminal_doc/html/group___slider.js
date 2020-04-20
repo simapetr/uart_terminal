@@ -24,6 +24,5 @@ var group___slider =
     [ "reg_host_class", "group___slider.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
     [ "set", "group___slider.html#gaddd13ecddc86a2824924f6fd5a27cb74", null ],
     [ "set_slider_data", "group___slider.html#gaf4b68edc0ae381dc71c56bd010359092", null ],
-    [ "set_slider_event", "group___slider.html#ga3c385e213172348fca1d6fba5d635c9b", null ],
-    [ "lv_data_slider_buffer", "group___slider.html#ga64813f8fbd229c0f5955687ef17c349e", null ]
+    [ "set_slider_event", "group___slider.html#ga3c385e213172348fca1d6fba5d635c9b", null ]
 ];

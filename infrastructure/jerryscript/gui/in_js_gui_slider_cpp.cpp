@@ -22,7 +22,12 @@
 #include <wx/slider.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -297,6 +302,10 @@ void gui_frame::on_clear_slider(void)
     l_cnt_slider_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

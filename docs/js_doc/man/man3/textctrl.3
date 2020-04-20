@@ -1,4 +1,4 @@
-.TH "textctrl" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "textctrl" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,19 +13,19 @@ textctrl \- wxTextCtrl class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b)"
+.RI "\fBadd\fP (sizer_index_d, text_str, proportion_d, expand_b, multiline_b)"
 .br
 .RI "Add new text control\&. "
 .ti -1c
-.RI "string \fBget\fP (double textctrl_index_d, double line_d)"
+.RI "\fBget\fP (textctrl_index_d, line_d)"
 .br
 .RI "Get text control string\&. "
 .ti -1c
-.RI "bool \fBset\fP (double textctrl_index_d, string text_str)"
+.RI "\fBset\fP (textctrl_index_d, text_str)"
 .br
 .RI "Set text control string\&. "
 .ti -1c
-.RI "bool \fBappend\fP (double textctrl_index_d, string text_str)"
+.RI "\fBappend\fP (textctrl_index_d, text_str)"
 .br
 .RI "Append text control string\&. "
 .in -1c
@@ -33,10 +33,10 @@ textctrl \- wxTextCtrl class interface
 .PP 
 wxTextCtrl class interface 
 .PP
-Definition at line 1109 of file jerryscript_h\&.h\&.
+Definition at line 1149 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b)"
+.SS "add (sizer_index_d, text_str, proportion_d, expand_b, multiline_b)"
 
 .PP
 Add new text control\&. 
@@ -81,11 +81,11 @@ true : Multiline
 .PP
 \fBReturns:\fP
 .RS 4
-double : textctrl buffer index 
+textctrl index 
 .RE
 .PP
 
-.SS "bool append (double textctrl_index_d, string text_str)"
+.SS "append (textctrl_index_d, text_str)"
 
 .PP
 Append text control string\&. 
@@ -112,7 +112,7 @@ test_status_bool = gui\&.textctrl\&.append(test_textctrl, "Hello world!");
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Append status 
+Append status 
 .PD 0
 
 .IP "\(bu" 2
@@ -123,7 +123,7 @@ true : Changed
 .RE
 .PP
 
-.SS "string get (double textctrl_index_d, double line_d)"
+.SS "get (textctrl_index_d, line_d)"
 
 .PP
 Get text control string\&. 
@@ -150,11 +150,11 @@ text_str = gui\&.textctrl\&.get(test_textctrl, 0);
 .PP
 \fBReturns:\fP
 .RS 4
-string : Read data 
+Read data 
 .RE
 .PP
 
-.SS "bool set (double textctrl_index_d, string text_str)"
+.SS "set (textctrl_index_d, text_str)"
 
 .PP
 Set text control string\&. 
@@ -181,7 +181,7 @@ test_status_bool = gui\&.textctrl\&.set(test_textctrl, "Hello world!");
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Change status 
+Change status 
 .PD 0
 
 .IP "\(bu" 2

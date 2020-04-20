@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxPanel" name="editor">
+		<size>490,192</size>
+		<id_arg>0</id_arg>
+		<style>wxBORDER_NONE|wxTAB_TRAVERSAL</style>
+		<object class="wxBoxSizer" variable="lp_main_wxboxsizer" member="yes">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxBoxSizer" variable="lp_tool_wxboxsizer" member="yes">
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_save_wxbutton" variable="lp_save_wxbutton" member="yes">
+							<size>23,23</size>
+							<enabled>0</enabled>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_save_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_save_as_wxbutton" variable="lp_save_as_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_save_as_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_new_wxbutton" variable="lp_new_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_new_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_new_template_wxbutton" variable="lp_new_template_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_new_template_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_open_wxbutton" variable="lp_open_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_open_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticLine" name="l_id_file_wxstaticline" variable="lp_file_wxstaticline" member="yes">
+							<size>1,23</size>
+						</object>
+						<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_search_wxbutton" variable="lp_search_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_search_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxButton" name="l_id_replace_wxbutton" variable="lp_replace_wxbutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_replace_wxbutton_click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticLine" name="l_id_search_wxstaticline" variable="lp_search_wxstaticline" member="yes">
+							<size>1,23</size>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+					<object class="sizeritem">
+						<object class="wxToggleButton" name="l_id_script_run_wxtogglebutton" variable="lp_script_run_wxtogglebutton" member="yes">
+							<size>23,23</size>
+							<style>wxBORDER_NONE</style>
+							<handler function="on_script_run_wxtogglebutton_toggle" entry="EVT_TOGGLEBUTTON" />
+						</object>
+						<flag>wxTOP|wxBOTTOM|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+					</object>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="Custom" name="l_id_main_text_edit" subclass="text_edit_c" variable="lp_main_text_edit" member="yes">
+					<creating_code>$(THIS) = new $(CLASS)($(PARENT),$(ID),$(POS),$(SIZE));</creating_code>
+					<include_file>in__js__edit__text__h.h</include_file>
+					<style></style>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+		<object class="wxFileDialog" variable="lp_script_wxfiledialog" member="yes">
+			<message>Select file</message>
+			<style>wxFD_DEFAULT_STYLE|wxFD_OPEN</style>
+		</object>
+		<object class="wxTimer" name="l_id_edit_event_wxtimer" variable="lp_edit_event_wxtimer" member="yes">
+			<interval>50</interval>
+			<handler function="on_edit_event_wxtimer_trigger" entry="EVT_TIMER" />
+		</object>
+		<object class="wxFindReplaceDialog" name="wxID_ANY" variable="lp_text_wxfindreplacedialog" member="yes">
+			<caption>Search</caption>
+			<handler function="on_text_wxfindreplacedialog_find" entry="EVT_FIND" />
+			<handler function="on_text_wxfindreplacedialog_findnext" entry="EVT_FIND_NEXT" />
+			<handler function="on_text_wxfindreplacedialog_replace" entry="EVT_FIND_REPLACE" />
+			<handler function="on_text_wxfindreplacedialog_replaceall" entry="EVT_FIND_REPLACE_ALL" />
+			<handler function="on_text_wxfindreplacedialog_close" entry="EVT_FIND_CLOSE" />
+		</object>
+	</object>
+</wxsmith>

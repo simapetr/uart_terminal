@@ -1,4 +1,4 @@
-.TH "Static_text" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Static_text" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -60,22 +60,6 @@ Static_text \- Static text class definition\&.
 .br
 .RI "Get textctrl text\&. "
 .in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBstatic_text_buffer_t\fP > \fBlv_data_static_text_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_static_text_ui32\fP = 0"
-.br
-.ti -1c
-.RI "vector< \fBtextctrl_buffer_t\fP > \fBlv_data_textctrl_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_textctrl_ui32\fP = 0"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
 Static text class definition\&. 
@@ -130,7 +114,7 @@ uint32_t : New static_text buffer index
 .PP
 
 .PP
-Definition at line 90 of file in_js_gui_static_text_cpp\&.cpp\&.
+Definition at line 95 of file in_js_gui_static_text_cpp\&.cpp\&.
 .SS "uint32_t add_textctrl (double sizer_index_d, wxString text_str, double proportion_d, bool expand_b, bool multiline_b)"
 
 .PP
@@ -156,7 +140,7 @@ uint32_t : New textctrl buffer index
 .PP
 
 .PP
-Definition at line 96 of file in_js_gui_textctrl_cpp\&.cpp\&.
+Definition at line 101 of file in_js_gui_textctrl_cpp\&.cpp\&.
 .SS "bool append_textctrl (double static_text_index_d, wxString text_str)"
 
 .PP
@@ -176,7 +160,7 @@ bool : textctrl change status
 .PP
 
 .PP
-Definition at line 151 of file in_js_gui_textctrl_cpp\&.cpp\&.
+Definition at line 157 of file in_js_gui_textctrl_cpp\&.cpp\&.
 .SS "wxString get_textctrl (double static_text_index_d, uint32_t line_ui32)"
 
 .PP
@@ -196,7 +180,7 @@ wxString : textctrl text string
 .PP
 
 .PP
-Definition at line 176 of file in_js_gui_textctrl_cpp\&.cpp\&.
+Definition at line 182 of file in_js_gui_textctrl_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -258,7 +242,7 @@ bool : static_text change status
 .PP
 
 .PP
-Definition at line 115 of file in_js_gui_static_text_cpp\&.cpp\&.
+Definition at line 121 of file in_js_gui_static_text_cpp\&.cpp\&.
 .SS "bool set_textctrl (double static_text_index_d, wxString text_str)"
 
 .PP
@@ -278,17 +262,7 @@ bool : textctrl change status
 .PP
 
 .PP
-Definition at line 126 of file in_js_gui_textctrl_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBstatic_text_buffer_t\fP> lv_data_static_text_buffer"
-Local variable 
-.PP
-Definition at line 71 of file in_js_gui_static_text_cpp\&.cpp\&.
-.SS "vector<\fBtextctrl_buffer_t\fP> lv_data_textctrl_buffer"
-Local variable 
-.PP
-Definition at line 76 of file in_js_gui_textctrl_cpp\&.cpp\&.
+Definition at line 132 of file in_js_gui_textctrl_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

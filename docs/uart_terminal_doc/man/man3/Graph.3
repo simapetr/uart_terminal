@@ -1,4 +1,4 @@
-.TH "Graph" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Graph" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,6 +15,9 @@ Graph \- Graph interface\&.
 .br
 .ti -1c
 .RI "struct \fBgraph_buffer_t\fP"
+.br
+.ti -1c
+.RI "struct \fBsignal_buffer_t\fP"
 .br
 .in -1c
 .SS "Functions"
@@ -48,16 +51,6 @@ Graph \- Graph interface\&.
 .RI "bool \fBset_graph_data\fP (uint32_t graph_ui32, vector< double > &pv_data_d)"
 .br
 .RI "Insert One sample for all signal in to graph window\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBgraph_buffer_t\fP > \fBlv_data_graph_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_graph_ui32\fP = 0"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -115,7 +108,7 @@ uint32_t : Graph window number
 .PP
 
 .PP
-Definition at line 90 of file in_js_gui_graph_cpp\&.cpp\&.
+Definition at line 105 of file in_js_gui_graph_cpp\&.cpp\&.
 .SS "uint32_t insert_signal (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -139,7 +132,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 168 of file in_js_class_graph_js_cpp\&.cpp\&.
+Definition at line 172 of file in_js_class_graph_js_cpp\&.cpp\&.
 .SS "uint32_t insert_signal (uint32_t graph_ui32, wxString signal_label_str, uint32_t color_ui32 = \fC0\fP, uint32_t width_ui32 = \fC1\fP, uint32_t style_ui32 = \fC0\fP)"
 
 .PP
@@ -178,7 +171,7 @@ uint32_t : Insert status
 .PP
 
 .PP
-Definition at line 122 of file in_js_gui_graph_cpp\&.cpp\&.
+Definition at line 138 of file in_js_gui_graph_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_main_frame_void)"
 
 .PP
@@ -220,7 +213,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 224 of file in_js_class_graph_js_cpp\&.cpp\&.
+Definition at line 232 of file in_js_class_graph_js_cpp\&.cpp\&.
 .SS "bool set_graph_data (uint32_t graph_ui32, vector< double > & pv_data_d)"
 
 .PP
@@ -240,13 +233,7 @@ bool : Insert data status
 .PP
 
 .PP
-Definition at line 149 of file in_js_gui_graph_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBgraph_buffer_t\fP> lv_data_graph_buffer"
-Local variable 
-.PP
-Definition at line 70 of file in_js_gui_graph_cpp\&.cpp\&.
+Definition at line 166 of file in_js_gui_graph_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

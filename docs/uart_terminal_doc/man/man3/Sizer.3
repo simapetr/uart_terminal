@@ -1,4 +1,4 @@
-.TH "Sizer" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Sizer" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -44,16 +44,6 @@ Sizer \- Sizer class definition\&.
 .RI "wxPanel * \fBget_sizer_panel\fP (double index_d)"
 .br
 .RI "Get sizer panel\&. "
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "vector< \fBsizer_buffer_t\fP > \fBlv_data_sizer_buffer\fP"
-.br
-.ti -1c
-.RI "uint32_t \fBl_cnt_sizer_ui32\fP = 0"
-.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -107,7 +97,7 @@ uint32_t : New sizer buffer index
 .PP
 
 .PP
-Definition at line 112 of file in_js_gui_sizer_cpp\&.cpp\&.
+Definition at line 118 of file in_js_gui_sizer_cpp\&.cpp\&.
 .SS "uint32_t add_sizer (double sizer_index_d, double proportion_d, bool horizontal_b)"
 
 .PP
@@ -129,7 +119,7 @@ uint32_t : New sizer buffer index
 .PP
 
 .PP
-Definition at line 87 of file in_js_gui_sizer_cpp\&.cpp\&.
+Definition at line 92 of file in_js_gui_sizer_cpp\&.cpp\&.
 .SS "wxBoxSizer * get_sizer (double index_d)"
 
 .PP
@@ -147,7 +137,7 @@ wxBoxSizer* : Box sizer object pointer
 .PP
 
 .PP
-Definition at line 135 of file in_js_gui_sizer_cpp\&.cpp\&.
+Definition at line 142 of file in_js_gui_sizer_cpp\&.cpp\&.
 .SS "wxPanel * get_sizer_panel (double index_d)"
 
 .PP
@@ -165,7 +155,7 @@ wxBoxSizer* : Box sizer object pointer
 .PP
 
 .PP
-Definition at line 152 of file in_js_gui_sizer_cpp\&.cpp\&.
+Definition at line 159 of file in_js_gui_sizer_cpp\&.cpp\&.
 .SS "void reg_host_class (void * p_gui_interface_void)"
 
 .PP
@@ -184,12 +174,6 @@ void
 
 .PP
 Definition at line 61 of file in_js_class_sizer_js_cpp\&.cpp\&.
-.SH "Variable Documentation"
-.PP 
-.SS "vector<\fBsizer_buffer_t\fP> lv_data_sizer_buffer"
-Local variable 
-.PP
-Definition at line 69 of file in_js_gui_sizer_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

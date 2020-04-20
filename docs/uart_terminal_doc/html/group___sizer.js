@@ -16,6 +16,5 @@ var group___sizer =
     [ "add_sizer", "group___sizer.html#ga5732ddefab22da78c6aacfc892c932ac", null ],
     [ "get_sizer", "group___sizer.html#gac4b3f4eed65111c6e2aafb97733264cf", null ],
     [ "get_sizer_panel", "group___sizer.html#ga505e8cc5282fc14f547b1da967ebc44a", null ],
-    [ "reg_host_class", "group___sizer.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
-    [ "lv_data_sizer_buffer", "group___sizer.html#ga8a33453947d24f7c6aa48f7b41c6a4bc", null ]
+    [ "reg_host_class", "group___sizer.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ]
 ];

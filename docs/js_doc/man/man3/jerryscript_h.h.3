@@ -1,4 +1,4 @@
-.TH "jerryscript_h.h" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "jerryscript_h.h" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -30,6 +30,10 @@ jerryscript_h.h \- JerryScript class documentation\&.
 .RI "class \fBfile\fP"
 .br
 .RI "System file read/write\&. "
+.ti -1c
+.RI "class \fBproject\fP"
+.br
+.RI "Script project file\&. "
 .ti -1c
 .RI "class \fBpanel\fP"
 .br
@@ -63,6 +67,10 @@ jerryscript_h.h \- JerryScript class documentation\&.
 .br
 .RI "wxGauge class interface "
 .ti -1c
+.RI "class \fBled\fP"
+.br
+.RI "wxLed class interface "
+.ti -1c
 .RI "class \fBgraph\fP"
 .br
 .RI "data_plot class interface "
@@ -75,25 +83,62 @@ jerryscript_h.h \- JerryScript class documentation\&.
 
 .in +1c
 .ti -1c
-.RI "void \fBdelay\fP (double time_d)"
+.RI "\fBdelay\fP (time_d)"
 .br
 .RI "Delay\&. "
 .ti -1c
-.RI "void \fBalert\fP (string text_str)"
+.RI "\fBrand\fP ()"
+.br
+.RI "Get random value\&. "
+.ti -1c
+.RI "\fBrand\fP (min_d, max_d)"
+.br
+.RI "Get random value from range\&. "
+.ti -1c
+.RI "\fBalert\fP (text_str)"
 .br
 .RI "Show alert dialog\&. "
 .ti -1c
-.RI "void \fBgui\fP (bool enable_b)"
+.RI "\fBgui\fP (show_main_b)"
 .br
 .RI "Set show main frame\&. "
 .ti -1c
-.RI "void \fBgui\fP (bool enable_b, string text_str)"
+.RI "\fBgui\fP (show_main_b, text_str)"
 .br
 .RI "Set show main frame and Script frame name\&. "
 .ti -1c
-.RI "void \fBgui\fP (bool enable_b, string text_str, bool enable_b)"
+.RI "\fBgui\fP (show_main_b, text_str, show_script_b)"
 .br
 .RI "Set show main frame and Script frame name\&. "
+.ti -1c
+.RI "\fBreg_exit\fP (function_str)"
+.br
+.RI "Register exit callback\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmain_frame\fP \fBmain_frame\fP"
+.br
+.ti -1c
+.RI "\fBuart\fP \fBuart\fP"
+.br
+.ti -1c
+.RI "\fBtime\fP \fBtime\fP"
+.br
+.ti -1c
+.RI "\fBtimer\fP \fBtimer\fP"
+.br
+.ti -1c
+.RI "\fBfile\fP \fBfile\fP"
+.br
+.ti -1c
+.RI "\fBproject\fP \fBproject\fP"
+.br
+.ti -1c
+.RI "\fBgui\fP \fBgui\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 

@@ -1,4 +1,4 @@
-.TH "button" 3 "Wed Feb 26 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
+.TH "button" 3 "Mon Apr 20 2020" "Version V2.0" "JerryScript interface documentation" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,11 +13,11 @@ button \- wxButton class interface
 
 .in +1c
 .ti -1c
-.RI "double \fBadd\fP (double sizer_index_d, string text_str, double proportion_d, bool expand_b)"
+.RI "\fBadd\fP (sizer_index_d, text_str, proportion_d, expand_b)"
 .br
 .RI "Add new button\&. "
 .ti -1c
-.RI "bool \fBreg_event\fP (double button_index_d, string event_fct_str)"
+.RI "\fBreg_event\fP (button_index_d, event_fct_str)"
 .br
 .RI "Register button event\&. "
 .in -1c
@@ -25,10 +25,10 @@ button \- wxButton class interface
 .PP 
 wxButton class interface 
 .PP
-Definition at line 935 of file jerryscript_h\&.h\&.
+Definition at line 975 of file jerryscript_h\&.h\&.
 .SH "Member Function Documentation"
 .PP 
-.SS "double add (double sizer_index_d, string text_str, double proportion_d, bool expand_b)"
+.SS "add (sizer_index_d, text_str, proportion_d, expand_b)"
 
 .PP
 Add new button\&. 
@@ -64,11 +64,11 @@ true : Expand
 .PP
 \fBReturns:\fP
 .RS 4
-double : Button buffer index 
+Button index 
 .RE
 .PP
 
-.SS "bool reg_event (double button_index_d, string event_fct_str)"
+.SS "reg_event (button_index_d, event_fct_str)"
 
 .PP
 Register button event\&. 
@@ -98,7 +98,7 @@ function on_button_click (component_id)
 .PP
 \fBReturns:\fP
 .RS 4
-bool : Event register status 
+Event register status 
 .PD 0
 
 .IP "\(bu" 2

@@ -36,6 +36,11 @@
 using namespace std;
 
 /**
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
   * @addtogroup data_plot
   * @{
   */
@@ -142,6 +147,10 @@ class data_plot: public wxPanel
         DECLARE_EVENT_TABLE()
 
 };
+
+/**
+* @}
+*/
 
 /**
 * @}

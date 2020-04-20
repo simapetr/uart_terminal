@@ -1,6 +1,12 @@
 \section{Data\+\_\+plot}
 \label{group__data__plot}\index{Data\_plot@{Data\_plot}}
-Collaboration diagram for Data\+\_\+plot\+:\nopagebreak
+
+
+Plot real-\/time data.  
+
+
+Collaboration diagram for Data\+\_\+plot\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,6 +20,408 @@ struct \textbf{ data\+\_\+plot\+\_\+buffer}
 \item 
 class \textbf{ data\+\_\+plot}
 \end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ data\+\_\+plot} (wx\+Window $\ast$p\+\_\+parent\+\_\+wxwindow, wx\+String name\+\_\+str, double min\+\_\+d, double max\+\_\+d, double length\+\_\+d, double step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$data\+\_\+plot} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ add} (wx\+String signal\+\_\+label\+\_\+str, wx\+Pen signal\+\_\+style\+\_\+pen)
+\begin{DoxyCompactList}\small\item\em Add new plot signal. \end{DoxyCompactList}\item 
+void \textbf{ erase} (wx\+String signal\+\_\+label\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Delete signal from math plot. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Return number of signal buffer in graph. \end{DoxyCompactList}\item 
+bool \textbf{ set} (wx\+String signal\+\_\+label\+\_\+str, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set signal data by name. \end{DoxyCompactList}\item 
+bool \textbf{ set} (uint32\+\_\+t signal\+\_\+ui32, double data\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set signal data by index. \end{DoxyCompactList}\item 
+void \textbf{ show} (wx\+String signal\+\_\+label\+\_\+str, bool show\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Set signal visibility. \end{DoxyCompactList}\item 
+bool \textbf{ set\+\_\+time} (double length\+\_\+d, double step\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set logged data length and sample period. \end{DoxyCompactList}\item 
+void \textbf{ set\+\_\+range} (double max\+\_\+d, double min\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Set graph range. \end{DoxyCompactList}\item 
+void \textbf{ redraw} (void)
+\begin{DoxyCompactList}\small\item\em Redraw new data and set time cursor. \end{DoxyCompactList}\item 
+void \textbf{ fit} (bool default\+\_\+b=true)
+\begin{DoxyCompactList}\small\item\em Set graph in to default zoom. \end{DoxyCompactList}\item 
+void \textbf{ pause} (bool pause\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Redraw data pause. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Plot real-\/time data. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__data__plot_ga3f49e53d9701a6e2701b9ab0a30db44a}} 
+\index{Data\_plot@{Data\_plot}!add@{add}}
+\index{add@{add}!Data\_plot@{Data\_plot}}
+\subsubsection{add()}
+{\footnotesize\ttfamily void add (\begin{DoxyParamCaption}\item[{wx\+String}]{signal\+\_\+label\+\_\+str,  }\item[{wx\+Pen}]{signal\+\_\+style\+\_\+pen }\end{DoxyParamCaption})}
+
+
+
+Add new plot signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+label\+\_\+str \+: signal name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+style\+\_\+pen \+: signal style \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 347 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__data__plot_ga761d7640db88badbdaa3d43e589964fb}} 
+\index{Data\_plot@{Data\_plot}!data\_plot@{data\_plot}}
+\index{data\_plot@{data\_plot}!Data\_plot@{Data\_plot}}
+\subsubsection{data\_plot()}
+{\footnotesize\ttfamily \textbf{ data\+\_\+plot} (\begin{DoxyParamCaption}\item[{wx\+Window $\ast$}]{p\+\_\+parent\+\_\+wxwindow,  }\item[{wx\+String}]{name\+\_\+str,  }\item[{double}]{min\+\_\+d,  }\item[{double}]{max\+\_\+d,  }\item[{double}]{length\+\_\+d,  }\item[{double}]{step\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Function
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & p\+\_\+parent\+\_\+wxwindow \+: Parent window \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & name\+\_\+str \+: Graph name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & min\+\_\+d \+: Graph minimum \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max\+\_\+d \+: Graph maximum \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & length\+\_\+d \+: buffer length \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & step\+\_\+d \+: Sample period step \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__data__plot_ga7197f46e16d05c9055786f69bbd50201}} 
+\index{Data\_plot@{Data\_plot}!erase@{erase}}
+\index{erase@{erase}!Data\_plot@{Data\_plot}}
+\subsubsection{erase()}
+{\footnotesize\ttfamily void erase (\begin{DoxyParamCaption}\item[{wx\+String}]{signal\+\_\+label\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Delete signal from math plot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+label\+\_\+str \+: signal name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 376 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{group__data__plot_ga7197f46e16d05c9055786f69bbd50201_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_gaf4809e08728fcad5e35d8c3c6d2a114c}} 
+\index{Data\_plot@{Data\_plot}!fit@{fit}}
+\index{fit@{fit}!Data\_plot@{Data\_plot}}
+\subsubsection{fit()}
+{\footnotesize\ttfamily void fit (\begin{DoxyParamCaption}\item[{bool}]{default\+\_\+b = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Set graph in to default zoom. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & default\+\_\+b \+: Fit type \begin{DoxyItemize}
+\item true \+: Default fit \item false \+: Automatic fit \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 607 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__data__plot_gae5dcab1d0aea67a38b798ef5a58de49f}} 
+\index{Data\_plot@{Data\_plot}!get@{get}}
+\index{get@{get}!Data\_plot@{Data\_plot}}
+\subsubsection{get()}
+{\footnotesize\ttfamily uint32\+\_\+t get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return number of signal buffer in graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t \+: Number of signal buffer 
+\end{DoxyReturn}
+
+
+Definition at line 406 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__data__plot_gac60ddfa1938a225b740a4073d61e4ace}} 
+\index{Data\_plot@{Data\_plot}!pause@{pause}}
+\index{pause@{pause}!Data\_plot@{Data\_plot}}
+\subsubsection{pause()}
+{\footnotesize\ttfamily void pause (\begin{DoxyParamCaption}\item[{bool}]{pause\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Redraw data pause. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & pause\+\_\+b \+: Pause status \begin{DoxyItemize}
+\item true \+: Show data is stopped \item false \+: Show data is refreshed \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 665 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+\mbox{\label{group__data__plot_gac7680454aa76f10d7883fa41668f2fd7}} 
+\index{Data\_plot@{Data\_plot}!redraw@{redraw}}
+\index{redraw@{redraw}!Data\_plot@{Data\_plot}}
+\subsubsection{redraw()}
+{\footnotesize\ttfamily void redraw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Redraw new data and set time cursor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 553 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{group__data__plot_gac7680454aa76f10d7883fa41668f2fd7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_gaf3139465bf61f3665b4852eaf506464c}} 
+\index{Data\_plot@{Data\_plot}!set@{set}}
+\index{set@{set}!Data\_plot@{Data\_plot}}
+\subsubsection{set()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{wx\+String}]{signal\+\_\+label\+\_\+str,  }\item[{double}]{data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set signal data by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+label\+\_\+str \+: signal name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+d \+: data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Set data status 
+\end{DoxyReturn}
+
+
+Definition at line 419 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{group__data__plot_gaf3139465bf61f3665b4852eaf506464c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a}} 
+\index{Data\_plot@{Data\_plot}!set@{set}}
+\index{set@{set}!Data\_plot@{Data\_plot}}
+\subsubsection{set()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{signal\+\_\+ui32,  }\item[{double}]{data\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set signal data by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+ui32 \+: signal index \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+d \+: data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Set data status 
+\end{DoxyReturn}
+
+
+Definition at line 451 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{group__data__plot_ga3e91f94c70d6bd1bc3b1aa640a92063a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a}} 
+\index{Data\_plot@{Data\_plot}!set\_range@{set\_range}}
+\index{set\_range@{set\_range}!Data\_plot@{Data\_plot}}
+\subsubsection{set\_range()}
+{\footnotesize\ttfamily void set\+\_\+range (\begin{DoxyParamCaption}\item[{double}]{max\+\_\+d,  }\item[{double}]{min\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set graph range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & max\+\_\+d \+: Maximum fit value for Y axis \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & min\+\_\+d \+: Minimum fit value for Y axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 538 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{group__data__plot_ga5cd933820f813c0a8ca2785c221f2c6a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8}} 
+\index{Data\_plot@{Data\_plot}!set\_time@{set\_time}}
+\index{set\_time@{set\_time}!Data\_plot@{Data\_plot}}
+\subsubsection{set\_time()}
+{\footnotesize\ttfamily bool set\+\_\+time (\begin{DoxyParamCaption}\item[{double}]{length\+\_\+d,  }\item[{double}]{step\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Set logged data length and sample period. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & length\+\_\+d \+: Buffer length in [S] \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & step\+\_\+d \+: Sample period in [S] \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool \+: Set parameter status 
+\end{DoxyReturn}
+
+
+Definition at line 501 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{group__data__plot_gab0d8878374cdaa8e8430df9a6aa313e8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead}} 
+\index{Data\_plot@{Data\_plot}!show@{show}}
+\index{show@{show}!Data\_plot@{Data\_plot}}
+\subsubsection{show()}
+{\footnotesize\ttfamily void show (\begin{DoxyParamCaption}\item[{wx\+String}]{signal\+\_\+label\+\_\+str,  }\item[{bool}]{show\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Set signal visibility. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & signal\+\_\+label\+\_\+str \+: signal name \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & show\+\_\+b \+: Visibility state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 479 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{group__data__plot_ga6ebd3de1e1c0236f8e54525ebe52fead_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{group__data__plot_gafd321bd40ed347458e213f5c9201ce46}} 
+\index{Data\_plot@{Data\_plot}!````~data\_plot@{$\sim$data\_plot}}
+\index{````~data\_plot@{$\sim$data\_plot}!Data\_plot@{Data\_plot}}
+\subsubsection{$\sim$data\_plot()}
+{\footnotesize\ttfamily $\sim$\textbf{ data\+\_\+plot} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 331 of file in\+\_\+data\+\_\+plot\+\_\+graph\+\_\+cpp.\+cpp.
+

@@ -12,33 +12,33 @@ System file read/write.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-string \textbf{ read} (string path\+\_\+str)
+\textbf{ read} (path\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Read string from text file. \end{DoxyCompactList}\item 
-vector$<$ double $>$ \& \textbf{ read\+\_\+b} (string path\+\_\+str)
+\textbf{ read\+\_\+b} (path\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Read array from binary file. \end{DoxyCompactList}\item 
-bool \textbf{ write} (string path\+\_\+str, vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\textbf{ write} (path\+\_\+str, v\+\_\+data\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Write binary array. \end{DoxyCompactList}\item 
-bool \textbf{ write} (string path\+\_\+str, string data\+\_\+str)
+\textbf{ write} (path\+\_\+str, data\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Write text string. \end{DoxyCompactList}\item 
-bool \textbf{ append} (string path\+\_\+str, vector$<$ double $>$ \&v\+\_\+data\+\_\+d)
+\textbf{ append} (path\+\_\+str, v\+\_\+data\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Append binary array. \end{DoxyCompactList}\item 
-bool \textbf{ append} (string path\+\_\+str, string data\+\_\+str)
+\textbf{ append} (path\+\_\+str, data\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Append text string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 System file read/write. 
 
-Definition at line 721 of file jerryscript\+\_\+h.\+h.
+Definition at line 658 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classfile_a50fc19c821482a9181022aa5b506db46}} 
+\mbox{\label{classfile_a4da87c8186e3a0272184a8c45a781fb4}} 
 \index{file@{file}!append@{append}}
 \index{append@{append}!file@{file}}
 \subsubsection{append()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily append (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{v\+\_\+data\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -63,15 +63,15 @@ Append binary array.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Write status \begin{DoxyItemize}
+Write status \begin{DoxyItemize}
 \item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classfile_acbc04e63b90204ea300106e633edfff9}} 
+\mbox{\label{classfile_ab1a8d867119100f7ac4367fd12aa6a27}} 
 \index{file@{file}!append@{append}}
 \index{append@{append}!file@{file}}
 \subsubsection{append()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool append (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{string}]{data\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily append (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{data\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -92,15 +92,15 @@ Append text string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Write status \begin{DoxyItemize}
+Write status \begin{DoxyItemize}
 \item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classfile_aa7cd42652ec367d983a3de4892df6617}} 
+\mbox{\label{classfile_a7ba8178900de6cda9eca9355e366f159}} 
 \index{file@{file}!read@{read}}
 \index{read@{read}!file@{file}}
 \subsubsection{read()}
-{\footnotesize\ttfamily string read (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily read (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -119,13 +119,13 @@ Read string from text file.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Read string 
+Read string 
 \end{DoxyReturn}
-\mbox{\label{classfile_a59d4760da225a342eab9465ccbd4226d}} 
+\mbox{\label{classfile_a68c4cc92742b766d90aa7ec340a680a0}} 
 \index{file@{file}!read\_b@{read\_b}}
 \index{read\_b@{read\_b}!file@{file}}
 \subsubsection{read\_b()}
-{\footnotesize\ttfamily vector$<$double$>$\& read\+\_\+b (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily read\+\_\+b (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -144,13 +144,13 @@ Read array from binary file.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string \+: Read string 
+Read data array 
 \end{DoxyReturn}
-\mbox{\label{classfile_afb167410f8b055155d582a7877028661}} 
+\mbox{\label{classfile_aef7a3e8afdf710c845a0cd9461dc0263}} 
 \index{file@{file}!write@{write}}
 \index{write@{write}!file@{file}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool write (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{vector$<$ double $>$ \&}]{v\+\_\+data\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{v\+\_\+data\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -175,15 +175,15 @@ Write binary array.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Write status \begin{DoxyItemize}
+Write status \begin{DoxyItemize}
 \item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classfile_a66dabb055fac6400295f47d855d74b31}} 
+\mbox{\label{classfile_aaf117f090d9f4647b6f61bba28aa109c}} 
 \index{file@{file}!write@{write}}
 \index{write@{write}!file@{file}}
 \subsubsection{write()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool write (\begin{DoxyParamCaption}\item[{string}]{path\+\_\+str,  }\item[{string}]{data\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{path\+\_\+str}]{,  }\item[{data\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -204,7 +204,7 @@ Write text string.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Write status \begin{DoxyItemize}
+Write status \begin{DoxyItemize}
 \item 0 \+: Write failed \item 1 \+: Write success \end{DoxyItemize}
 
 \end{DoxyReturn}

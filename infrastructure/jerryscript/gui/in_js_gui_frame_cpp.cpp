@@ -27,8 +27,12 @@
 #include "ap_uart_terminal_frame_h.h"
 
 /**
-  * @defgroup Application
-  * @brief Application layer
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -291,6 +295,10 @@ void gui_frame::on_js_quit_wxmenu_selected(wxCommandEvent& event)
     }
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

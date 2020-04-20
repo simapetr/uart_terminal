@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('in__jerryscript__port__cpp_8cpp.html',
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">in_jerryscript_port_cpp.cpp File Reference</div>  </div>
@@ -100,6 +101,8 @@ $(document).ready(function(){initNavTree('in__jerryscript__port__cpp_8cpp.html',
 <div class="textblock"><code>#include &lt;wx/utils.h&gt;</code><br />
 <code>#include &lt;wx/msgdlg.h&gt;</code><br />
 <code>#include &lt;wx/time.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="in__jerryscript__port__h_8h_source.html">in_jerryscript_port_h.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="in__jerryscript__core__h_8h_source.html">in_jerryscript_core_h.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="in__jerryscript__debugger__h_8h_source.html">in_jerryscript_debugger_h.h</a>&quot;</code><br />
@@ -109,65 +112,87 @@ Include dependency graph for in_jerryscript_port_cpp.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="in__jerryscript__port__cpp_8cpp__incl.png" border="0" usemap="#_d_1_2project_2uart__terminal_2infrastructure_2jerryscript_2in__jerryscript__port__cpp_8cpp" alt=""/></div>
 <map name="_d_1_2project_2uart__terminal_2infrastructure_2jerryscript_2in__jerryscript__port__cpp_8cpp" id="_d_1_2project_2uart__terminal_2infrastructure_2jerryscript_2in__jerryscript__port__cpp_8cpp">
-<area shape="rect"  title="JavaScript interpreter port." alt="" coords="433,5,615,61"/>
-<area shape="rect"  title=" " alt="" coords="109,109,187,136"/>
-<area shape="rect"  title=" " alt="" coords="211,109,306,136"/>
-<area shape="rect"  title=" " alt="" coords="330,109,409,136"/>
-<area shape="rect"  href="in__jerryscript__port__h_8h.html" title="JavaScript interpreter port." alt="" coords="1566,184,1717,211"/>
-<area shape="rect"  href="in__jerryscript__core__h_8h.html" title="JavaScript interpreter core function." alt="" coords="134,184,287,211"/>
-<area shape="rect"  href="in__jerryscript__debugger__h_8h.html" title="JavaScript interpreter core function." alt="" coords="433,109,615,136"/>
-<area shape="rect"  href="ap__uart__terminal__frame__h_8h.html" title="Application window component creator." alt="" coords="3355,109,3538,136"/>
-<area shape="rect"  title=" " alt="" coords="2905,266,2991,293"/>
-<area shape="rect"  title=" " alt="" coords="318,423,407,449"/>
-<area shape="rect"  href="in__js__gui__frame__h_8h.html" title="GUI window component creator." alt="" coords="2743,266,2881,293"/>
-<area shape="rect"  href="hw__dr__uart__driver__h_8h.html" title="Driver for UART communication." alt="" coords="2455,348,2601,375"/>
-<area shape="rect"  href="in__js__class__time__js__h_8h.html" title="JerryScript wrapper for time." alt="" coords="482,266,643,293"/>
-<area shape="rect"  href="in__js__class__file__js__h_8h.html" title="JerryScript wrapper for wxfile class." alt="" coords="2415,266,2567,293"/>
-<area shape="rect"  href="in__js__class__uart__js__h_8h.html" title="JerryScript wrapper for uart_port class." alt="" coords="299,266,458,293"/>
-<area shape="rect"  href="in__js__class__main__frame__js__h_8h.html" title="JerryScript wrapper for main_frame class." alt="" coords="667,259,829,300"/>
-<area shape="rect"  href="in__js__class__panel__js__h_8h.html" title="JerryScript wrapper for component sizer." alt="" coords="853,266,1019,293"/>
-<area shape="rect"  href="in__js__class__sizer__js__h_8h.html" title="JerryScript wrapper for panel." alt="" coords="1043,266,1207,293"/>
-<area shape="rect"  href="in__js__class__graph__js__h_8h.html" title="JerryScript wrapper for graph class." alt="" coords="1232,266,1400,293"/>
-<area shape="rect"  href="in__js__class__button__js__h_8h.html" title="JerryScript wrapper for component button." alt="" coords="1424,259,1555,300"/>
-<area shape="rect"  href="in__js__class__slider__js__h_8h.html" title="JerryScript wrapper for component slider." alt="" coords="1579,259,1704,300"/>
-<area shape="rect"  href="in__js__class__static__text__js__h_8h.html" title="JerryScript wrapper for component static_text." alt="" coords="1729,259,1855,300"/>
-<area shape="rect"  href="in__js__class__textctrl__js__h_8h.html" title="JerryScript wrapper for component textctrl." alt="" coords="1879,259,2014,300"/>
-<area shape="rect"  href="in__js__class__check__box__js__h_8h.html" title="JerryScript wrapper for component check_box." alt="" coords="2039,259,2196,300"/>
-<area shape="rect"  href="in__js__class__gauge__js__h_8h.html" title="JerryScript wrapper for component gauge." alt="" coords="2220,266,2391,293"/>
-<area shape="rect"  title=" " alt="" coords="2821,348,2912,375"/>
-<area shape="rect"  title=" " alt="" coords="4091,348,4176,375"/>
-<area shape="rect"  title=" " alt="" coords="2664,348,2747,375"/>
-<area shape="rect"  title=" " alt="" coords="2961,348,3045,375"/>
-<area shape="rect"  title=" " alt="" coords="3679,348,3761,375"/>
-<area shape="rect"  title=" " alt="" coords="2715,423,2771,449"/>
-<area shape="rect"  title=" " alt="" coords="441,423,506,449"/>
-<area shape="rect"  title=" " alt="" coords="2527,423,2609,449"/>
-<area shape="rect"  title=" " alt="" coords="2447,423,2502,449"/>
-<area shape="rect"  href="in__thread__worker__h_8h_source.html" title=" " alt="" coords="401,348,546,375"/>
-<area shape="rect"  title=" " alt="" coords="5,266,80,293"/>
-<area shape="rect"  title=" " alt="" coords="105,266,173,293"/>
-<area shape="rect"  title=" " alt="" coords="2989,184,3078,211"/>
-<area shape="rect"  title=" " alt="" coords="3103,184,3212,211"/>
-<area shape="rect"  title=" " alt="" coords="3236,184,3327,211"/>
-<area shape="rect"  title=" " alt="" coords="3351,184,3438,211"/>
-<area shape="rect"  title=" " alt="" coords="3462,184,3533,211"/>
-<area shape="rect"  title=" " alt="" coords="3557,184,3643,211"/>
-<area shape="rect"  title=" " alt="" coords="3667,184,3765,211"/>
-<area shape="rect"  title=" " alt="" coords="3789,184,3889,211"/>
-<area shape="rect"  title=" " alt="" coords="3913,184,4007,211"/>
-<area shape="rect"  title=" " alt="" coords="4031,184,4116,211"/>
-<area shape="rect"  title=" " alt="" coords="4141,184,4233,211"/>
-<area shape="rect"  title=" " alt="" coords="4257,184,4351,211"/>
-<area shape="rect"  href="in__config__ini__wrapper__h_8h_source.html" title=" " alt="" coords="2743,184,2913,211"/>
+<area shape="rect"  title="JavaScript interpreter port." alt="" coords="355,5,538,61"/>
+<area shape="rect"  title=" " alt="" coords="5,109,83,136"/>
+<area shape="rect"  title=" " alt="" coords="107,109,202,136"/>
+<area shape="rect"  title=" " alt="" coords="226,109,305,136"/>
+<area shape="rect"  title=" " alt="" coords="329,109,393,136"/>
+<area shape="rect"  title=" " alt="" coords="417,109,476,136"/>
+<area shape="rect"  href="in__jerryscript__port__h_8h.html" title="JavaScript interpreter port." alt="" coords="1661,184,1811,211"/>
+<area shape="rect"  href="in__jerryscript__core__h_8h.html" title="JavaScript interpreter core function." alt="" coords="145,184,298,211"/>
+<area shape="rect"  href="in__jerryscript__debugger__h_8h.html" title="JavaScript interpreter core function." alt="" coords="551,109,732,136"/>
+<area shape="rect"  href="ap__uart__terminal__frame__h_8h.html" title="Application window component creator." alt="" coords="3938,109,4121,136"/>
+<area shape="rect"  title=" " alt="" coords="3252,266,3337,293"/>
+<area shape="rect"  title=" " alt="" coords="1266,348,1355,375"/>
+<area shape="rect"  href="in__js__gui__frame__h_8h.html" title="GUI window component creator." alt="" coords="4631,266,4769,293"/>
+<area shape="rect"  href="hw__dr__uart__driver__h_8h.html" title="Driver for UART communication." alt="" coords="1403,348,1549,375"/>
+<area shape="rect"  href="in__js__class__timer__js__h_8h_source.html" title=" " alt="" coords="1559,266,1724,293"/>
+<area shape="rect"  href="in__js__class__time__js__h_8h.html" title="JerryScript wrapper for time." alt="" coords="1749,266,1910,293"/>
+<area shape="rect"  href="in__js__class__file__js__h_8h.html" title="JerryScript wrapper for wxfile class." alt="" coords="1935,266,2087,293"/>
+<area shape="rect"  href="in__js__class__project__js__h_8h.html" title="JerryScript wrapper for script project." alt="" coords="2111,259,2244,300"/>
+<area shape="rect"  href="in__js__class__uart__js__h_8h.html" title="JerryScript wrapper for uart_port class." alt="" coords="1325,266,1483,293"/>
+<area shape="rect"  href="in__js__class__main__frame__js__h_8h.html" title="JerryScript wrapper for main_frame class." alt="" coords="2269,259,2430,300"/>
+<area shape="rect"  href="in__js__class__panel__js__h_8h.html" title="JerryScript wrapper for component sizer." alt="" coords="2454,266,2621,293"/>
+<area shape="rect"  href="in__js__class__sizer__js__h_8h.html" title="JerryScript wrapper for panel." alt="" coords="2645,266,2809,293"/>
+<area shape="rect"  href="in__js__class__graph__js__h_8h.html" title="JerryScript wrapper for graph class." alt="" coords="2833,266,3001,293"/>
+<area shape="rect"  href="in__js__class__button__js__h_8h.html" title="JerryScript wrapper for component button." alt="" coords="3025,259,3156,300"/>
+<area shape="rect"  href="in__js__class__slider__js__h_8h.html" title="JerryScript wrapper for component slider." alt="" coords="259,259,384,300"/>
+<area shape="rect"  href="in__js__class__static__text__js__h_8h.html" title="JerryScript wrapper for component static_text." alt="" coords="409,259,535,300"/>
+<area shape="rect"  href="in__js__class__textctrl__js__h_8h.html" title="JerryScript wrapper for component textctrl." alt="" coords="559,259,694,300"/>
+<area shape="rect"  href="in__js__class__check__box__js__h_8h.html" title="JerryScript wrapper for component check_box." alt="" coords="719,259,876,300"/>
+<area shape="rect"  href="in__js__class__gauge__js__h_8h.html" title="JerryScript wrapper for component gauge." alt="" coords="900,266,1071,293"/>
+<area shape="rect"  href="in__js__class__led__js__h_8h.html" title="JerryScript wrapper for component LED." alt="" coords="1095,266,1249,293"/>
+<area shape="rect"  title=" " alt="" coords="4765,348,4851,375"/>
+<area shape="rect"  title=" " alt="" coords="4875,348,4960,375"/>
+<area shape="rect"  title=" " alt="" coords="3915,348,3997,375"/>
+<area shape="rect"  title=" " alt="" coords="4551,348,4635,375"/>
+<area shape="rect"  title=" " alt="" coords="4659,348,4741,375"/>
+<area shape="rect"  title=" " alt="" coords="815,423,881,449"/>
+<area shape="rect"  title=" " alt="" coords="16,266,91,293"/>
+<area shape="rect"  title=" " alt="" coords="115,266,183,293"/>
+<area shape="rect"  title=" " alt="" coords="3466,184,3555,211"/>
+<area shape="rect"  title=" " alt="" coords="3580,184,3689,211"/>
+<area shape="rect"  title=" " alt="" coords="3713,184,3804,211"/>
+<area shape="rect"  title=" " alt="" coords="3829,184,3915,211"/>
+<area shape="rect"  title=" " alt="" coords="3939,184,4010,211"/>
+<area shape="rect"  title=" " alt="" coords="4034,184,4131,211"/>
+<area shape="rect"  title=" " alt="" coords="4155,184,4255,211"/>
+<area shape="rect"  title=" " alt="" coords="4280,184,4373,211"/>
+<area shape="rect"  title=" " alt="" coords="4397,184,4483,211"/>
+<area shape="rect"  title=" " alt="" coords="4507,184,4599,211"/>
+<area shape="rect"  title=" " alt="" coords="4623,184,4718,211"/>
+<area shape="rect"  href="in__config__ini__wrapper__h_8h_source.html" title=" " alt="" coords="3220,184,3391,211"/>
 </map>
 </div>
 </div>
 <p><a href="in__jerryscript__port__cpp_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structevent__buffer__t.html">event_buffer_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ga11e8aedc05744a3edca22a50f6fb1899"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#ga11e8aedc05744a3edca22a50f6fb1899">g_time_d</a></td></tr>
+<tr class="separator:ga11e8aedc05744a3edca22a50f6fb1899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd"><td class="memItemLeft" align="right" valign="top">
+double&#160;</td><td class="memItemRight" valign="bottom"><b>g_time_ms_d</b></td></tr>
+<tr class="separator:ga189cd3ebfbbd25c37e9dd8e9f7b3d3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad52187b22dd0de50cb3dfe7dae1a4e4d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___port.html#gad52187b22dd0de50cb3dfe7dae1a4e4d">l_in_js_port_gui_enable_b</a> = false</td></tr>
 <tr class="separator:gad52187b22dd0de50cb3dfe7dae1a4e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24356c34737c91bb2e0f3d0a271f10ae"><td class="memItemLeft" align="right" valign="top">
+vector&lt; <a class="el" href="structevent__buffer__t.html">event_buffer_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lv_main_event_buffer</b></td></tr>
+<tr class="separator:ga24356c34737c91bb2e0f3d0a271f10ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa29a12a818276cb4d43e6032ca8e29d5"><td class="memItemLeft" align="right" valign="top">
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_event_fct_ui32</b></td></tr>
+<tr class="separator:gaa29a12a818276cb4d43e6032ca8e29d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02c37c39af21d427d709d8cd104e798a"><td class="memItemLeft" align="right" valign="top">
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_event_fct_reg_b</b> = false</td></tr>
+<tr class="separator:ga02c37c39af21d427d709d8cd104e798a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22f54b7863fb8ecc5f92343b46c5903f"><td class="memItemLeft" align="right" valign="top">
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_exit_state_ui32</b></td></tr>
+<tr class="separator:ga22f54b7863fb8ecc5f92343b46c5903f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>JavaScript interpreter port. </p>

@@ -12,25 +12,25 @@ wx\+Button class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, string text\+\_\+str, double proportion\+\_\+d, bool expand\+\_\+b)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, text\+\_\+str, proportion\+\_\+d, expand\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new button. \end{DoxyCompactList}\item 
-bool \textbf{ reg\+\_\+event} (double button\+\_\+index\+\_\+d, string event\+\_\+fct\+\_\+str)
+\textbf{ reg\+\_\+event} (button\+\_\+index\+\_\+d, event\+\_\+fct\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Register button event. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Button class interface 
 
-Definition at line 935 of file jerryscript\+\_\+h.\+h.
+Definition at line 975 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classbutton_aa718efb3db1aa6e994d4ee0f4b31e024}} 
+\mbox{\label{classbutton_ab82d2b4bd8074db58ceb9165b163cb9c}} 
 \index{button@{button}!add@{add}}
 \index{add@{add}!button@{button}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{string}]{text\+\_\+str,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{text\+\_\+str}]{,  }\item[{proportion\+\_\+d}]{,  }\item[{expand\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -61,13 +61,13 @@ Add new button.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Button buffer index 
+Button index 
 \end{DoxyReturn}
-\mbox{\label{classbutton_a101be349b18d1cdc1a1f5bf9cf98d415}} 
+\mbox{\label{classbutton_a34819d1305faa04681491c6cd62c4daf}} 
 \index{button@{button}!reg\_event@{reg\_event}}
 \index{reg\_event@{reg\_event}!button@{button}}
 \subsubsection{reg\_event()}
-{\footnotesize\ttfamily bool reg\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{button\+\_\+index\+\_\+d,  }\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reg\+\_\+event (\begin{DoxyParamCaption}\item[{button\+\_\+index\+\_\+d}]{,  }\item[{event\+\_\+fct\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -97,7 +97,7 @@ Register button event.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Event register status \begin{DoxyItemize}
+Event register status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Event registered \end{DoxyItemize}
 
 \end{DoxyReturn}

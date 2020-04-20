@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -93,7 +93,8 @@ $(document).ready(function(){initNavTree('group___u_a_r_t.html','');});
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">UART<div class="ingroups"><a class="el" href="group___infrastructure.html">Infrastructure</a> &raquo; <a class="el" href="group___jerry_script.html">JerryScript</a> &raquo; <a class="el" href="group___class.html">Class</a><a class="el" href="group___hardware.html">Hardware</a> &raquo;  &#124; <a class="el" href="group___driver.html">Driver</a></div></div>  </div>
 </div><!--header-->
@@ -174,9 +175,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga4d3e5b08bdd2eef31fa81984aa8bb69c">reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port)</td></tr>
-<tr class="memdesc:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#ga4d3e5b08bdd2eef31fa81984aa8bb69c">More...</a><br /></td></tr>
-<tr class="separator:ga4d3e5b08bdd2eef31fa81984aa8bb69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2783e85c05c3b546af091beb46be5b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaa2783e85c05c3b546af091beb46be5b0">reg_host_class</a> (<a class="el" href="classuart__port.html">uart_port</a> *p_com_uart_port, wxCondition *p_data_wxcondition)</td></tr>
+<tr class="memdesc:gaa2783e85c05c3b546af091beb46be5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration object in to class.  <a href="#gaa2783e85c05c3b546af091beb46be5b0">More...</a><br /></td></tr>
+<tr class="separator:gaa2783e85c05c3b546af091beb46be5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8effd7f56034a13e7aa545821d729383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8effd7f56034a13e7aa545821d729383">dereg_host_class</a> (void)</td></tr>
 <tr class="memdesc:ga8effd7f56034a13e7aa545821d729383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deregistration object in to class.  <a href="#ga8effd7f56034a13e7aa545821d729383">More...</a><br /></td></tr>
 <tr class="separator:ga8effd7f56034a13e7aa545821d729383"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,66 +199,59 @@ Functions</h2></td></tr>
 <tr class="memitem:ga212f0e8c05652caad919b232392fa451"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga212f0e8c05652caad919b232392fa451">set_ctrl</a> (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)</td></tr>
 <tr class="memdesc:ga212f0e8c05652caad919b232392fa451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UART control line status (JS method "set_ctrl")  <a href="#ga212f0e8c05652caad919b232392fa451">More...</a><br /></td></tr>
 <tr class="separator:ga212f0e8c05652caad919b232392fa451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f26df9896cdb77a44c97bf86311027e"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga0f26df9896cdb77a44c97bf86311027e">call</a> (void *p_parametr_void)</td></tr>
+<tr class="memdesc:ga0f26df9896cdb77a44c97bf86311027e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call UART data RX event (Must be called form JS thread)  <a href="#ga0f26df9896cdb77a44c97bf86311027e">More...</a><br /></td></tr>
+<tr class="separator:ga0f26df9896cdb77a44c97bf86311027e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga36d847d36de2139bfc443aa38909fc7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga36d847d36de2139bfc443aa38909fc7d">uart_port</a> (void)</td></tr>
 <tr class="memdesc:ga36d847d36de2139bfc443aa38909fc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ga36d847d36de2139bfc443aa38909fc7d">More...</a><br /></td></tr>
 <tr class="separator:ga36d847d36de2139bfc443aa38909fc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae7fba3439edc5cb87b5280887027fa65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gae7fba3439edc5cb87b5280887027fa65">~uart_port</a> (void)</td></tr>
 <tr class="memdesc:gae7fba3439edc5cb87b5280887027fa65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#gae7fba3439edc5cb87b5280887027fa65">More...</a><br /></td></tr>
 <tr class="separator:gae7fba3439edc5cb87b5280887027fa65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac798621238150b1c78832fca4506500c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gac798621238150b1c78832fca4506500c">get_port</a> (void)</td></tr>
-<tr class="memdesc:gac798621238150b1c78832fca4506500c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UART port list.  <a href="#gac798621238150b1c78832fca4506500c">More...</a><br /></td></tr>
-<tr class="separator:gac798621238150b1c78832fca4506500c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8b5def1ddf2d0145b4cb954e846703b8"><td class="memItemLeft" align="right" valign="top">string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8b5def1ddf2d0145b4cb954e846703b8">get_bus_array</a> (void)</td></tr>
-<tr class="memdesc:ga8b5def1ddf2d0145b4cb954e846703b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pointer on port array.  <a href="#ga8b5def1ddf2d0145b4cb954e846703b8">More...</a><br /></td></tr>
-<tr class="separator:ga8b5def1ddf2d0145b4cb954e846703b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6b6ba665dcaaeb446acbbe9fb93f1f8"><td class="memItemLeft" align="right" valign="top">string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gae6b6ba665dcaaeb446acbbe9fb93f1f8">get_port</a> (void)</td></tr>
+<tr class="memdesc:gae6b6ba665dcaaeb446acbbe9fb93f1f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pointer on port array.  <a href="#gae6b6ba665dcaaeb446acbbe9fb93f1f8">More...</a><br /></td></tr>
+<tr class="separator:gae6b6ba665dcaaeb446acbbe9fb93f1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga264ec062ec69232b56998504a1542d3e"><td class="memItemLeft" align="right" valign="top">uart_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga264ec062ec69232b56998504a1542d3e">open</a> (<a class="el" href="structuart__cfg__t.html">uart_cfg_t</a> *p_data_uart_cfg)</td></tr>
 <tr class="memdesc:ga264ec062ec69232b56998504a1542d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open and set UART port communication.  <a href="#ga264ec062ec69232b56998504a1542d3e">More...</a><br /></td></tr>
 <tr class="separator:ga264ec062ec69232b56998504a1542d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga67b72387b99fb35706b11eeba7070bc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4">close</a> (void)</td></tr>
 <tr class="memdesc:ga67b72387b99fb35706b11eeba7070bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close UART port communication.  <a href="#ga67b72387b99fb35706b11eeba7070bc4">More...</a><br /></td></tr>
 <tr class="separator:ga67b72387b99fb35706b11eeba7070bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e385f6a6db227e39f492066967e1fc8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga5e385f6a6db227e39f492066967e1fc8">create_event</a> (<a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a> function_uart_event_fct, void *p_parametr_void)</td></tr>
-<tr class="memdesc:ga5e385f6a6db227e39f492066967e1fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate driver event function.  <a href="#ga5e385f6a6db227e39f492066967e1fc8">More...</a><br /></td></tr>
-<tr class="separator:ga5e385f6a6db227e39f492066967e1fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d455e1ba65f4dee563b13f7f744855a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga5d455e1ba65f4dee563b13f7f744855a">delete_event</a> (<a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a> function_uart_event_fct)</td></tr>
-<tr class="memdesc:ga5d455e1ba65f4dee563b13f7f744855a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete associated event function.  <a href="#ga5d455e1ba65f4dee563b13f7f744855a">More...</a><br /></td></tr>
-<tr class="separator:ga5d455e1ba65f4dee563b13f7f744855a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9459cdf9380eef6dc1b22277f769d7b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga9459cdf9380eef6dc1b22277f769d7b8">delete_event_all</a> (void)</td></tr>
-<tr class="memdesc:ga9459cdf9380eef6dc1b22277f769d7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all associated event.  <a href="#ga9459cdf9380eef6dc1b22277f769d7b8">More...</a><br /></td></tr>
-<tr class="separator:ga9459cdf9380eef6dc1b22277f769d7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21e7d2a80c82a5f9a76647ffc9ad8266"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga21e7d2a80c82a5f9a76647ffc9ad8266">set</a> (<a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a> function_uart_event_fct, void *p_parametr_void)</td></tr>
+<tr class="memdesc:ga21e7d2a80c82a5f9a76647ffc9ad8266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associate driver event function.  <a href="#ga21e7d2a80c82a5f9a76647ffc9ad8266">More...</a><br /></td></tr>
+<tr class="separator:ga21e7d2a80c82a5f9a76647ffc9ad8266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga754f82a7989318270e055e912e8b8f49"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga754f82a7989318270e055e912e8b8f49">clear</a> (<a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a> function_uart_event_fct)</td></tr>
+<tr class="memdesc:ga754f82a7989318270e055e912e8b8f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete associated event function.  <a href="#ga754f82a7989318270e055e912e8b8f49">More...</a><br /></td></tr>
+<tr class="separator:ga754f82a7989318270e055e912e8b8f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae683fe63c33c388e9ba1c6392dd477eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gae683fe63c33c388e9ba1c6392dd477eb">clear</a> (void)</td></tr>
+<tr class="memdesc:gae683fe63c33c388e9ba1c6392dd477eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all associated event.  <a href="#gae683fe63c33c388e9ba1c6392dd477eb">More...</a><br /></td></tr>
+<tr class="separator:gae683fe63c33c388e9ba1c6392dd477eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8669f54faf6db2b728afc356b565bce7"><td class="memItemLeft" align="right" valign="top">uart_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8669f54faf6db2b728afc356b565bce7">get_state</a> (void)</td></tr>
 <tr class="memdesc:ga8669f54faf6db2b728afc356b565bce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port status (call after construction object for test correct open)  <a href="#ga8669f54faf6db2b728afc356b565bce7">More...</a><br /></td></tr>
 <tr class="separator:ga8669f54faf6db2b728afc356b565bce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24df103a47da7ff360dd63bfd95979aa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga24df103a47da7ff360dd63bfd95979aa">get_last_error</a> (void)</td></tr>
-<tr class="memdesc:ga24df103a47da7ff360dd63bfd95979aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port last error.  <a href="#ga24df103a47da7ff360dd63bfd95979aa">More...</a><br /></td></tr>
-<tr class="separator:ga24df103a47da7ff360dd63bfd95979aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga793d670821e11fb2d4c66ce6fa477bd9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga793d670821e11fb2d4c66ce6fa477bd9">wait_rx_event</a> (void)</td></tr>
-<tr class="memdesc:ga793d670821e11fb2d4c66ce6fa477bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for receive data.  <a href="#ga793d670821e11fb2d4c66ce6fa477bd9">More...</a><br /></td></tr>
-<tr class="separator:ga793d670821e11fb2d4c66ce6fa477bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad11f0e7fd04d6e4c6ad5437f7dd5bfad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structuart__cfg__t.html">uart_cfg_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gad11f0e7fd04d6e4c6ad5437f7dd5bfad">get</a> (void)</td></tr>
+<tr class="memdesc:gad11f0e7fd04d6e4c6ad5437f7dd5bfad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get port configuration.  <a href="#gad11f0e7fd04d6e4c6ad5437f7dd5bfad">More...</a><br /></td></tr>
+<tr class="separator:gad11f0e7fd04d6e4c6ad5437f7dd5bfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa794a3286d40611ae62fc24176b751d1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaa794a3286d40611ae62fc24176b751d1">flush</a> (void)</td></tr>
 <tr class="memdesc:gaa794a3286d40611ae62fc24176b751d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase communication buffer.  <a href="#gaa794a3286d40611ae62fc24176b751d1">More...</a><br /></td></tr>
 <tr class="separator:gaa794a3286d40611ae62fc24176b751d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab8445a3d538e13b197f85947402017b7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gab8445a3d538e13b197f85947402017b7">write_data</a> (uint8_t data_ui8)</td></tr>
-<tr class="memdesc:gab8445a3d538e13b197f85947402017b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write character.  <a href="#gab8445a3d538e13b197f85947402017b7">More...</a><br /></td></tr>
-<tr class="separator:gab8445a3d538e13b197f85947402017b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8762971ac744aeeac19b05e0b034134c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8762971ac744aeeac19b05e0b034134c">write_data</a> (uint8_t *p_data_sui8, uint32_t len_ui32)</td></tr>
-<tr class="memdesc:ga8762971ac744aeeac19b05e0b034134c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data string.  <a href="#ga8762971ac744aeeac19b05e0b034134c">More...</a><br /></td></tr>
-<tr class="separator:ga8762971ac744aeeac19b05e0b034134c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga22e5e9630a59690dec95bfc1203485db"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga22e5e9630a59690dec95bfc1203485db">write_data</a> (vector&lt; uint8_t &gt; &amp;pv_data_sui8)</td></tr>
-<tr class="memdesc:ga22e5e9630a59690dec95bfc1203485db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data vector.  <a href="#ga22e5e9630a59690dec95bfc1203485db">More...</a><br /></td></tr>
-<tr class="separator:ga22e5e9630a59690dec95bfc1203485db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga670b388a868ac5ed4027e127092ba525"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga670b388a868ac5ed4027e127092ba525">read_data</a> (uint8_t *p_data_ui8)</td></tr>
-<tr class="memdesc:ga670b388a868ac5ed4027e127092ba525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read character.  <a href="#ga670b388a868ac5ed4027e127092ba525">More...</a><br /></td></tr>
-<tr class="separator:ga670b388a868ac5ed4027e127092ba525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6a5475b92fcee2a6fc035c94310f064b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga6a5475b92fcee2a6fc035c94310f064b">read_data</a> (string *p_data_str)</td></tr>
-<tr class="memdesc:ga6a5475b92fcee2a6fc035c94310f064b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from character buffer.  <a href="#ga6a5475b92fcee2a6fc035c94310f064b">More...</a><br /></td></tr>
-<tr class="separator:ga6a5475b92fcee2a6fc035c94310f064b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf070b0aac7f9ea22546b9e26c8a44ac4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gaf070b0aac7f9ea22546b9e26c8a44ac4">get_com_ctrl</a> (<a class="el" href="group___u_a_r_t.html#gab7285632f807ad04f00f44a206440a18">uart_com_ctrl_in_t</a> pin_uart_com_ctrl_in)</td></tr>
-<tr class="memdesc:gaf070b0aac7f9ea22546b9e26c8a44ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get com state.  <a href="#gaf070b0aac7f9ea22546b9e26c8a44ac4">More...</a><br /></td></tr>
-<tr class="separator:gaf070b0aac7f9ea22546b9e26c8a44ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1ed6cd4425396c2c3f4577057db3acb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga1ed6cd4425396c2c3f4577057db3acb9">set_com_ctrl</a> (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)</td></tr>
-<tr class="memdesc:ga1ed6cd4425396c2c3f4577057db3acb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set com state.  <a href="#ga1ed6cd4425396c2c3f4577057db3acb9">More...</a><br /></td></tr>
-<tr class="separator:ga1ed6cd4425396c2c3f4577057db3acb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga063b66236e7816050f412c5707a67f66"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga063b66236e7816050f412c5707a67f66">send</a> (uint8_t data_ui8)</td></tr>
+<tr class="memdesc:ga063b66236e7816050f412c5707a67f66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write character.  <a href="#ga063b66236e7816050f412c5707a67f66">More...</a><br /></td></tr>
+<tr class="separator:ga063b66236e7816050f412c5707a67f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22d400e8094ebe650c1125419473d058"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga22d400e8094ebe650c1125419473d058">send</a> (uint8_t *p_data_sui8, uint32_t len_ui32)</td></tr>
+<tr class="memdesc:ga22d400e8094ebe650c1125419473d058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data string.  <a href="#ga22d400e8094ebe650c1125419473d058">More...</a><br /></td></tr>
+<tr class="separator:ga22d400e8094ebe650c1125419473d058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga089c2fb9ba704c18814ccea4abfd6e13"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga089c2fb9ba704c18814ccea4abfd6e13">get</a> (<a class="el" href="group___u_a_r_t.html#gab7285632f807ad04f00f44a206440a18">uart_com_ctrl_in_t</a> pin_uart_com_ctrl_in)</td></tr>
+<tr class="memdesc:ga089c2fb9ba704c18814ccea4abfd6e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get com state.  <a href="#ga089c2fb9ba704c18814ccea4abfd6e13">More...</a><br /></td></tr>
+<tr class="separator:ga089c2fb9ba704c18814ccea4abfd6e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e68fc507e7a376c9915937b13071c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#ga8e68fc507e7a376c9915937b13071c2d">set</a> (uart_com_ctrl_out_t pin_uart_com_ctrl_out, uint8_t state_ui8)</td></tr>
+<tr class="memdesc:ga8e68fc507e7a376c9915937b13071c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set com state.  <a href="#ga8e68fc507e7a376c9915937b13071c2d">More...</a><br /></td></tr>
+<tr class="separator:ga8e68fc507e7a376c9915937b13071c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gab42ede9e408c111d6680b521a5f6b6f0"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structpacket__buffer__t.html">packet_buffer_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t.html#gab42ede9e408c111d6680b521a5f6b6f0">lv_main_packet_buffer</a></td></tr>
+<tr class="separator:gab42ede9e408c111d6680b521a5f6b6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>UART class definition. </p>
@@ -274,7 +268,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Struct </p>
+<p>Define </p>
 
 <p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00053">53</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
@@ -294,7 +288,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Type </p>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__h_8h_source.html#l00096">96</a> of file <a class="el" href="hw__dr__uart__driver__h_8h_source.html">hw_dr_uart_driver_h.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__h_8h_source.html#l00098">98</a> of file <a class="el" href="hw__dr__uart__driver__h_8h_source.html">hw_dr_uart_driver_h.h</a>.</p>
 
 </div>
 </div>
@@ -312,11 +306,110 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Enum </p>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__h_8h_source.html#l00060">60</a> of file <a class="el" href="hw__dr__uart__driver__h_8h_source.html">hw_dr_uart_driver_h.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__h_8h_source.html#l00062">62</a> of file <a class="el" href="hw__dr__uart__driver__h_8h_source.html">hw_dr_uart_driver_h.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga0f26df9896cdb77a44c97bf86311027e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f26df9896cdb77a44c97bf86311027e">&#9670;&nbsp;</a></span>call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t call </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_parametr_void</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Call UART data RX event (Must be called form JS thread) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>p_parametr_void : Handle on registered object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t : number of item in UART buffer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00542">542</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga754f82a7989318270e055e912e8b8f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga754f82a7989318270e055e912e8b8f49">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a>&#160;</td>
+          <td class="paramname"><em>function_uart_event_fct</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete associated event function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t : Status event registration <ul>
+<li>0 : Event was not associated </li>
+<li>1 : Event deleted </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00321">321</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="gae683fe63c33c388e9ba1c6392dd477eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae683fe63c33c388e9ba1c6392dd477eb">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete all associated event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00344">344</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ga363ba96e4e056bcbd74e568cf8ba2e53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga363ba96e4e056bcbd74e568cf8ba2e53">&#9670;&nbsp;</a></span>close() <span class="overload">[1/2]</span></h2>
 
@@ -375,7 +468,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00239">239</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00234">234</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -404,113 +497,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00261">261</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga5e385f6a6db227e39f492066967e1fc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5e385f6a6db227e39f492066967e1fc8">&#9670;&nbsp;</a></span>create_event()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t create_event </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a>&#160;</td>
-          <td class="paramname"><em>function_uart_event_fct</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>p_parametr_void</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Associate driver event function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
-    <tr><td class="paramname">[IN]</td><td>p_parameter_void : Input thread parameter </td></tr>
-    <tr><td class="paramname">p_parametr_void</td><td>: parameter for event function <ul>
-<li>0 : Event is registered </li>
-<li>1 : Event stored </li>
-</ul>
-</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00294">294</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga5d455e1ba65f4dee563b13f7f744855a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5d455e1ba65f4dee563b13f7f744855a">&#9670;&nbsp;</a></span>delete_event()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t delete_event </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a>&#160;</td>
-          <td class="paramname"><em>function_uart_event_fct</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Delete associated event function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : Status event registration <ul>
-<li>0 : Event was not associated </li>
-<li>1 : Event deleted </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00328">328</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga9459cdf9380eef6dc1b22277f769d7b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9459cdf9380eef6dc1b22277f769d7b8">&#9670;&nbsp;</a></span>delete_event_all()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void delete_event_all </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Delete all associated event. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00351">351</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00253">253</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -539,14 +526,14 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00171">171</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00162">162</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph.png" border="0" usemap="#group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph" alt=""/></div>
 <map name="group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph" id="group___u_a_r_t_ga8effd7f56034a13e7aa545821d729383_cgraph">
 <area shape="rect"  title="Deregistration object in to class." alt="" coords="5,5,129,32"/>
-<area shape="rect"  href="group___u_a_r_t.html#ga5d455e1ba65f4dee563b13f7f744855a" title="Delete associated event function." alt="" coords="177,5,331,32"/>
+<area shape="rect"  href="group___u_a_r_t.html#ga754f82a7989318270e055e912e8b8f49" title="Delete associated event function." alt="" coords="177,5,287,32"/>
 </map>
 </div>
 
@@ -581,18 +568,18 @@ Here is the call graph for this function:</div>
 </ul>
 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00510">510</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00383">383</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ga8b5def1ddf2d0145b4cb954e846703b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8b5def1ddf2d0145b4cb954e846703b8">&#9670;&nbsp;</a></span>get_bus_array()</h2>
+<a id="gad11f0e7fd04d6e4c6ad5437f7dd5bfad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad11f0e7fd04d6e4c6ad5437f7dd5bfad">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string * get_bus_array </td>
+          <td class="memname"><a class="el" href="structuart__cfg__t.html">uart_cfg_t</a> get </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -601,27 +588,27 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Get pointer on port array. </p>
+<p>Get port configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>string : Pointer on available port array </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structuart__cfg__t.html">uart_cfg_t</a> : Port configuration structure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00136">136</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00369">369</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="gaf070b0aac7f9ea22546b9e26c8a44ac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf070b0aac7f9ea22546b9e26c8a44ac4">&#9670;&nbsp;</a></span>get_com_ctrl()</h2>
+<a id="ga089c2fb9ba704c18814ccea4abfd6e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga089c2fb9ba704c18814ccea4abfd6e13">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t get_com_ctrl </td>
+          <td class="memname">uint8_t get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group___u_a_r_t.html#gab7285632f807ad04f00f44a206440a18">uart_com_ctrl_in_t</a>&#160;</td>
           <td class="paramname"><em>pin_uart_com_ctrl_in</em></td><td>)</td>
@@ -639,7 +626,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t : Pin state </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00685">685</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00484">484</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -701,18 +688,18 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00420">420</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00408">408</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ga24df103a47da7ff360dd63bfd95979aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga24df103a47da7ff360dd63bfd95979aa">&#9670;&nbsp;</a></span>get_last_error()</h2>
+<a id="gae6b6ba665dcaaeb446acbbe9fb93f1f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae6b6ba665dcaaeb446acbbe9fb93f1f8">&#9670;&nbsp;</a></span>get_port()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t get_last_error </td>
+          <td class="memname">string * get_port </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -721,45 +708,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Get port last error. </p>
+<p>Get pointer on port array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t : Port last error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>string : Pointer on available port array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00376">376</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="gac798621238150b1c78832fca4506500c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac798621238150b1c78832fca4506500c">&#9670;&nbsp;</a></span>get_port()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void get_port </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get UART port list. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00088">88</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00090">90</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -788,7 +746,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t : uart_status_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00364">364</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00357">357</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,7 +808,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00187">187</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00178">178</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -879,73 +837,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00148">148</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga670b388a868ac5ed4027e127092ba525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga670b388a868ac5ed4027e127092ba525">&#9670;&nbsp;</a></span>read_data() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t read_data </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>p_data_ui8</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read character. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[OUT]</td><td>p_data_ui8 : Pointer on character buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
-<li>0 : Data buffer is empty </li>
-<li>1 : Data buffer not empty </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00642">642</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga6a5475b92fcee2a6fc035c94310f064b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6a5475b92fcee2a6fc035c94310f064b">&#9670;&nbsp;</a></span>read_data() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t read_data </td>
-          <td>(</td>
-          <td class="paramtype">string *&#160;</td>
-          <td class="paramname"><em>p_data_str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read data from character buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[OUT]</td><td>p_data_str : Pointer on character string buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
-<li>0 : Data buffer is empty </li>
-<li>1 : Data buffer not empty </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00664">664</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00138">138</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -1007,12 +899,12 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00273">273</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00272">272</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ga4d3e5b08bdd2eef31fa81984aa8bb69c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4d3e5b08bdd2eef31fa81984aa8bb69c">&#9670;&nbsp;</a></span>reg_host_class()</h2>
+<a id="gaa2783e85c05c3b546af091beb46be5b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2783e85c05c3b546af091beb46be5b0">&#9670;&nbsp;</a></span>reg_host_class()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1021,8 +913,18 @@ Here is the call graph for this function:</div>
           <td class="memname">void reg_host_class </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classuart__port.html">uart_port</a> *&#160;</td>
-          <td class="paramname"><em>p_com_uart_port</em></td><td>)</td>
+          <td class="paramname"><em>p_com_uart_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">wxCondition *&#160;</td>
+          <td class="paramname"><em>p_data_wxcondition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1031,23 +933,145 @@ Here is the call graph for this function:</div>
 <p>Function</p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">[IN]</td><td>p_com_uart_port : Pointer on registered class </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_data_wxcondition : Rx data call event </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00094">94</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00090">90</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ga1ed6cd4425396c2c3f4577057db3acb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1ed6cd4425396c2c3f4577057db3acb9">&#9670;&nbsp;</a></span>set_com_ctrl()</h2>
+<a id="ga063b66236e7816050f412c5707a67f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga063b66236e7816050f412c5707a67f66">&#9670;&nbsp;</a></span>send() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void set_com_ctrl </td>
+          <td class="memname">uint8_t send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data_ui8</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write character. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>data_ui8 : Data character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
+<li>0 : Data not send </li>
+<li>1 : Data send correctly </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00397">397</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga22d400e8094ebe650c1125419473d058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga22d400e8094ebe650c1125419473d058">&#9670;&nbsp;</a></span>send() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>p_data_sui8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>len_ui32</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write data string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>p_data_sui8 : Pointer on data buffer </td></tr>
+    <tr><td class="paramname">[IN]</td><td>len_ui32 : Buffer length </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
+<li>0 : Data not send </li>
+<li>1 : Data send correctly </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00442">442</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga21e7d2a80c82a5f9a76647ffc9ad8266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21e7d2a80c82a5f9a76647ffc9ad8266">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___u_a_r_t.html#ga8f6a90ddf5e09014f2707f38c5f8ff28">uart_event_fct</a>&#160;</td>
+          <td class="paramname"><em>function_uart_event_fct</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p_parametr_void</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Associate driver event function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[IN]</td><td>function_uart_event_fct : Pointer on event function </td></tr>
+    <tr><td class="paramname">[IN]</td><td>p_parameter_void : Input thread parameter </td></tr>
+    <tr><td class="paramname">p_parametr_void</td><td>: parameter for event function <ul>
+<li>0 : Event is registered </li>
+<li>1 : Event stored </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00287">287</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ga8e68fc507e7a376c9915937b13071c2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8e68fc507e7a376c9915937b13071c2d">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set </td>
           <td>(</td>
           <td class="paramtype">uart_com_ctrl_out_t&#160;</td>
           <td class="paramname"><em>pin_uart_com_ctrl_out</em>, </td>
@@ -1076,7 +1100,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint8_t : Pin state </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00733">733</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00532">532</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -1138,7 +1162,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00485">485</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00477">477</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -1174,38 +1198,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d_cgraph.png" border="0" usemap="#group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d_cgraph" alt=""/></div>
 <map name="group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d_cgraph" id="group___u_a_r_t_ga36d847d36de2139bfc443aa38909fc7d_cgraph">
 <area shape="rect"  title="Constructor." alt="" coords="5,5,79,32"/>
-<area shape="rect"  href="group___u_a_r_t.html#gac798621238150b1c78832fca4506500c" title="Get UART port list." alt="" coords="127,5,196,32"/>
+<area shape="rect"  href="group___u_a_r_t.html#gae6b6ba665dcaaeb446acbbe9fb93f1f8" title="Get pointer on port array." alt="" coords="127,5,196,32"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="ga793d670821e11fb2d4c66ce6fa477bd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga793d670821e11fb2d4c66ce6fa477bd9">&#9670;&nbsp;</a></span>wait_rx_event()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t wait_rx_event </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Wait for receive data. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t : Com status mask </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00388">388</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -1267,117 +1262,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t : returned data </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00317">317</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="gab8445a3d538e13b197f85947402017b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab8445a3d538e13b197f85947402017b7">&#9670;&nbsp;</a></span>write_data() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t write_data </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>data_ui8</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write character. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>data_ui8 : Data character </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
-<li>0 : Data not send </li>
-<li>1 : Data send correctly </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00525">525</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga8762971ac744aeeac19b05e0b034134c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8762971ac744aeeac19b05e0b034134c">&#9670;&nbsp;</a></span>write_data() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t write_data </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>p_data_sui8</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>len_ui32</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write data string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>p_data_sui8 : Pointer on data buffer </td></tr>
-    <tr><td class="paramname">[IN]</td><td>len_ui32 : Buffer length </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
-<li>0 : Data not send </li>
-<li>1 : Data send correctly </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00556">556</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ga22e5e9630a59690dec95bfc1203485db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga22e5e9630a59690dec95bfc1203485db">&#9670;&nbsp;</a></span>write_data() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t write_data </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; uint8_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pv_data_sui8</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write data vector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">[IN]</td><td>pv_data_sui8 : Vector with data </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint8_t : status <ul>
-<li>0 : Data not send </li>
-<li>1 : Data send correctly </li>
-</ul>
-</dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00599">599</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00320">320</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>
@@ -1406,7 +1291,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00076">76</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html#l00078">78</a> of file <a class="el" href="hw__dr__uart__driver__cpp_8cpp_source.html">hw_dr_uart_driver_cpp.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1416,6 +1301,24 @@ Here is the call graph for this function:</div>
 <area shape="rect"  href="group___u_a_r_t.html#ga67b72387b99fb35706b11eeba7070bc4" title="Close UART port communication." alt="" coords="135,5,188,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="gab42ede9e408c111d6680b521a5f6b6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab42ede9e408c111d6680b521a5f6b6f0">&#9670;&nbsp;</a></span>lv_main_packet_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="structpacket__buffer__t.html">packet_buffer_t</a>&gt; lv_main_packet_buffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Local variable </p>
+
+<p class="definition">Definition at line <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html#l00074">74</a> of file <a class="el" href="in__js__class__uart__js__cpp_8cpp_source.html">in_js_class_uart_js_cpp.cpp</a>.</p>
 
 </div>
 </div>

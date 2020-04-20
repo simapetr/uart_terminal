@@ -12,29 +12,29 @@ wx\+Slider class interface
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \textbf{ add} (double sizer\+\_\+index\+\_\+d, double min\+\_\+d, double max\+\_\+d, double proportion\+\_\+d, bool expand\+\_\+b)
+\textbf{ add} (sizer\+\_\+index\+\_\+d, min\+\_\+d, max\+\_\+d, proportion\+\_\+d, expand\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Add new slider. \end{DoxyCompactList}\item 
-bool \textbf{ reg\+\_\+event} (double slider\+\_\+index\+\_\+d, string event\+\_\+fct\+\_\+str)
+\textbf{ reg\+\_\+event} (slider\+\_\+index\+\_\+d, event\+\_\+fct\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Register slider event. \end{DoxyCompactList}\item 
-double \textbf{ get} (double slider\+\_\+index\+\_\+d)
+\textbf{ get} (slider\+\_\+index\+\_\+d)
 \begin{DoxyCompactList}\small\item\em Get slider value. \end{DoxyCompactList}\item 
-void \textbf{ set} (double slider\+\_\+index\+\_\+d, double value\+\_\+b)
+\textbf{ set} (slider\+\_\+index\+\_\+d, value\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set slider value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 wx\+Slider class interface 
 
-Definition at line 1274 of file jerryscript\+\_\+h.\+h.
+Definition at line 1314 of file jerryscript\+\_\+h.\+h.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\label{classslider_aebc02dc8ce3998d9dc68eadfb58e86e8}} 
+\mbox{\label{classslider_acb93b8c322d92ee1a45baf0f01a6acb6}} 
 \index{slider@{slider}!add@{add}}
 \index{add@{add}!slider@{slider}}
 \subsubsection{add()}
-{\footnotesize\ttfamily double add (\begin{DoxyParamCaption}\item[{double}]{sizer\+\_\+index\+\_\+d,  }\item[{double}]{min\+\_\+d,  }\item[{double}]{max\+\_\+d,  }\item[{double}]{proportion\+\_\+d,  }\item[{bool}]{expand\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{sizer\+\_\+index\+\_\+d}]{,  }\item[{min\+\_\+d}]{,  }\item[{max\+\_\+d}]{,  }\item[{proportion\+\_\+d}]{,  }\item[{expand\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -67,13 +67,13 @@ Add new slider.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: slider buffer index 
+slider index 
 \end{DoxyReturn}
-\mbox{\label{classslider_ad011f267c429dfe95c8fe0151bffbbdf}} 
+\mbox{\label{classslider_a82960d99505f4a0f97e8a3c59fcface9}} 
 \index{slider@{slider}!get@{get}}
 \index{get@{get}!slider@{slider}}
 \subsubsection{get()}
-{\footnotesize\ttfamily double get (\begin{DoxyParamCaption}\item[{double}]{slider\+\_\+index\+\_\+d }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{slider\+\_\+index\+\_\+d}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -98,13 +98,13 @@ Get slider value.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double \+: Set value 
+Set value 
 \end{DoxyReturn}
-\mbox{\label{classslider_a59f385c2f6089ab49598c763f32f0c8d}} 
+\mbox{\label{classslider_a5cf578abd8ca7c77bf952990d7942bb1}} 
 \index{slider@{slider}!reg\_event@{reg\_event}}
 \index{reg\_event@{reg\_event}!slider@{slider}}
 \subsubsection{reg\_event()}
-{\footnotesize\ttfamily bool reg\+\_\+event (\begin{DoxyParamCaption}\item[{double}]{slider\+\_\+index\+\_\+d,  }\item[{string}]{event\+\_\+fct\+\_\+str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily reg\+\_\+event (\begin{DoxyParamCaption}\item[{slider\+\_\+index\+\_\+d}]{,  }\item[{event\+\_\+fct\+\_\+str}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -134,15 +134,15 @@ Register slider event.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-bool \+: Event register status \begin{DoxyItemize}
+Event register status \begin{DoxyItemize}
 \item false \+: Fail \item true \+: Event registered \end{DoxyItemize}
 
 \end{DoxyReturn}
-\mbox{\label{classslider_ac2443195b61f62cc9a960e1313e94322}} 
+\mbox{\label{classslider_a537232df47b6c915ab56ad706d35d175}} 
 \index{slider@{slider}!set@{set}}
 \index{set@{set}!slider@{slider}}
 \subsubsection{set()}
-{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{double}]{slider\+\_\+index\+\_\+d,  }\item[{double}]{value\+\_\+b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{slider\+\_\+index\+\_\+d}]{,  }\item[{value\+\_\+b}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -168,7 +168,7 @@ Set slider value.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+
 \end{DoxyReturn}
 
 

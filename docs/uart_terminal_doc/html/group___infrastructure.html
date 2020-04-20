@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="terminal.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="terminal.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UART Terminal
    &#160;<span id="projectnumber">V2.0</span>
@@ -89,9 +89,7 @@ $(document).ready(function(){initNavTree('group___infrastructure.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
 <div class="title">Infrastructure</div>  </div>
 </div><!--header-->
@@ -104,13 +102,12 @@ Collaboration diagram for Infrastructure:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="group___infrastructure.png" border="0" alt="" usemap="#group______infrastructure"/>
 <map name="group______infrastructure" id="group______infrastructure">
-<area shape="rect"  href="group__data__plot.html" title=" " alt="" coords="161,5,238,31"/>
-<area shape="rect"  title="Infrastructure layer." alt="" coords="5,129,103,155"/>
-<area shape="rect"  href="group___data__plot.html" title="Data plot graph." alt="" coords="161,55,238,80"/>
-<area shape="rect"  href="group___thread.html" title="Thread wrapper." alt="" coords="169,104,230,129"/>
-<area shape="rect"  href="group__configuration.html" title="Configuration INI wrapper." alt="" coords="151,153,248,179"/>
-<area shape="rect"  href="group___jerry_script.html" title="JavaScript interpret." alt="" coords="157,203,241,228"/>
-<area shape="rect"  href="group___main.html" title="Application entry point." alt="" coords="174,252,225,277"/>
+<area shape="rect"  href="group__data__plot.html" title="Plot real&#45;time data." alt="" coords="161,5,238,31"/>
+<area shape="rect"  title="Infrastructure layer." alt="" coords="5,104,103,129"/>
+<area shape="rect"  href="group___thread.html" title="Thread wrapper." alt="" coords="169,55,230,80"/>
+<area shape="rect"  href="group__configuration.html" title="Configuration INI wrapper." alt="" coords="151,104,248,129"/>
+<area shape="rect"  href="group___jerry_script.html" title="JavaScript interpret." alt="" coords="157,153,241,179"/>
+<area shape="rect"  href="group___main.html" title="Application entry point." alt="" coords="174,203,225,228"/>
 </map>
 </td></tr></table></center>
 </div>
@@ -120,8 +117,8 @@ Modules</h2></td></tr>
 <tr class="memitem:group__configuration"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__configuration.html">Configuration</a></td></tr>
 <tr class="memdesc:group__configuration"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration INI wrapper. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group___data__plot"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data__plot.html">Data_plot</a></td></tr>
-<tr class="memdesc:group___data__plot"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data plot graph. <br /></td></tr>
+<tr class="memitem:group__data__plot"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html">Data_plot</a></td></tr>
+<tr class="memdesc:group__data__plot"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot real-time data. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group___jerry_script"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___jerry_script.html">JerryScript</a></td></tr>
 <tr class="memdesc:group___jerry_script"><td class="mdescLeft">&#160;</td><td class="mdescRight">JavaScript interpret. <br /></td></tr>
@@ -132,29 +129,6 @@ Modules</h2></td></tr>
 <tr class="memitem:group___thread"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___thread.html">Thread</a></td></tr>
 <tr class="memdesc:group___thread"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread wrapper. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__data__plot"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__data__plot.html">Data_plot</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga7bcc2222a3a6c1766b42c11949e573e4"><td class="memItemLeft" align="right" valign="top"><a id="ga7bcc2222a3a6c1766b42c11949e573e4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>redraw_event</b> (void)</td></tr>
-<tr class="separator:ga7bcc2222a3a6c1766b42c11949e573e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gae49108e5b3e55b3f8601095bee281211"><td class="memItemLeft" align="right" valign="top"><a id="gae49108e5b3e55b3f8601095bee281211"></a>
-vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>v_buffer_data_plot_d</b></td></tr>
-<tr class="separator:gae49108e5b3e55b3f8601095bee281211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f17446680e66bcf2eab8352edd52345"><td class="memItemLeft" align="right" valign="top"><a id="ga1f17446680e66bcf2eab8352edd52345"></a>
-mpPolygon *&#160;</td><td class="memItemRight" valign="bottom"><b>p_buffer_measure_data_polygon</b></td></tr>
-<tr class="separator:ga1f17446680e66bcf2eab8352edd52345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5113f9ac4b41965cfb443ebb272386bb"><td class="memItemLeft" align="right" valign="top"><a id="ga5113f9ac4b41965cfb443ebb272386bb"></a>
-wxString&#160;</td><td class="memItemRight" valign="bottom"><b>data_signal_name_str</b></td></tr>
-<tr class="separator:ga5113f9ac4b41965cfb443ebb272386bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaed1e1395c402f34a90f3891ee7f990d"><td class="memItemLeft" align="right" valign="top"><a id="gaaed1e1395c402f34a90f3891ee7f990d"></a>
-wxPen&#160;</td><td class="memItemRight" valign="bottom"><b>data_signal_style_pen</b></td></tr>
-<tr class="separator:gaaed1e1395c402f34a90f3891ee7f990d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Infrastructure layer. </p>

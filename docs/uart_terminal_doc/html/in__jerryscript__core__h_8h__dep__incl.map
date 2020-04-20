@@ -1,18 +1,21 @@
 <map id="D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_core_h.h" name="D:/project/uart_terminal/infrastructure/jerryscript/in_jerryscript_core_h.h">
-<area shape="rect" id="node1" title="JavaScript interpreter core function." alt="" coords="1702,5,1865,61"/>
+<area shape="rect" id="node1" title="JavaScript interpreter core function." alt="" coords="2030,5,2193,61"/>
 <area shape="rect" id="node2" href="$in__js__class__button__js__cpp_8cpp.html" title="JerryScript wrapper for component button." alt="" coords="5,109,175,180"/>
 <area shape="rect" id="node3" href="$in__js__class__check__box__js__cpp_8cpp.html" title="JerryScript wrapper for component check box." alt="" coords="199,109,395,180"/>
-<area shape="rect" id="node4" href="$in__js__class__file__js__cpp_8cpp.html" title="JerryScript wrapper for for wxfile class." alt="" coords="419,117,638,173"/>
+<area shape="rect" id="node4" href="$in__js__class__file__js__cpp_8cpp.html" title="JerryScript wrapper for wxfile class." alt="" coords="419,117,638,173"/>
 <area shape="rect" id="node5" href="$in__js__class__gauge__js__cpp_8cpp.html" title="JerryScript wrapper for component gauge." alt="" coords="663,117,901,173"/>
 <area shape="rect" id="node6" href="$in__js__class__graph__js__cpp_8cpp.html" title="JerryScript wrapper for graph class." alt="" coords="926,117,1161,173"/>
-<area shape="rect" id="node7" href="$in__js__class__main__frame__js__cpp_8cpp.html" title="JerryScript wrapper for main_frame class." alt="" coords="1185,109,1385,180"/>
-<area shape="rect" id="node8" href="$in__js__class__panel__js__cpp_8cpp.html" title="JerryScript wrapper for AUI panel." alt="" coords="1409,117,1643,173"/>
-<area shape="rect" id="node9" href="$in__js__class__sizer__js__cpp_8cpp.html" title="JerryScript wrapper for component sizer." alt="" coords="1668,117,1899,173"/>
-<area shape="rect" id="node10" href="$in__js__class__slider__js__cpp_8cpp.html" title="JerryScript wrapper for component slider." alt="" coords="1923,109,2087,180"/>
-<area shape="rect" id="node11" href="$in__js__class__static__text__js__cpp_8cpp.html" title="JerryScript wrapper for component static_text." alt="" coords="2111,109,2277,180"/>
-<area shape="rect" id="node12" href="$in__js__class__textctrl__js__cpp_8cpp.html" title="JerryScript wrapper for component textctrl." alt="" coords="2301,109,2474,180"/>
-<area shape="rect" id="node13" href="$in__js__class__time__js__cpp_8cpp.html" title="JerryScript wrapper for time." alt="" coords="2499,117,2727,173"/>
-<area shape="rect" id="node14" href="$in__js__class__uart__js__cpp_8cpp.html" title="JerryScript wrapper for uart_port class." alt="" coords="2751,117,2976,173"/>
-<area shape="rect" id="node15" href="$in__jerryscript__debugger__h_8h.html" title="JavaScript interpreter core function." alt="" coords="3000,117,3185,173"/>
-<area shape="rect" id="node16" href="$in__jerryscript__port__cpp_8cpp.html" title="JavaScript interpreter port." alt="" coords="3067,228,3249,284"/>
+<area shape="rect" id="node7" href="$in__js__class__led__js__cpp_8cpp.html" title="JerryScript wrapper for component led." alt="" coords="1185,117,1405,173"/>
+<area shape="rect" id="node8" href="$in__js__class__main__frame__js__cpp_8cpp.html" title="JerryScript wrapper for main_frame class." alt="" coords="1430,109,1630,180"/>
+<area shape="rect" id="node9" href="$in__js__class__panel__js__cpp_8cpp.html" title="JerryScript wrapper for AUI panel." alt="" coords="1654,117,1889,173"/>
+<area shape="rect" id="node10" href="$in__js__class__project__js__cpp_8cpp.html" title="JerryScript wrapper for script project." alt="" coords="1913,109,2085,180"/>
+<area shape="rect" id="node11" href="$in__js__class__sizer__js__cpp_8cpp.html" title="JerryScript wrapper for component sizer." alt="" coords="2109,117,2340,173"/>
+<area shape="rect" id="node12" href="$in__js__class__slider__js__cpp_8cpp.html" title="JerryScript wrapper for component slider." alt="" coords="2364,109,2528,180"/>
+<area shape="rect" id="node13" href="$in__js__class__static__text__js__cpp_8cpp.html" title="JerryScript wrapper for component static_text." alt="" coords="2553,109,2718,180"/>
+<area shape="rect" id="node14" href="$in__js__class__textctrl__js__cpp_8cpp.html" title="JerryScript wrapper for component textctrl." alt="" coords="2742,109,2915,180"/>
+<area shape="rect" id="node15" href="$in__js__class__time__js__cpp_8cpp.html" title="JerryScript wrapper for time." alt="" coords="2940,117,3168,173"/>
+<area shape="rect" id="node16" href="$in__js__class__timer__js__cpp_8cpp.html" title="JerryScript event timer." alt="" coords="3193,117,3425,173"/>
+<area shape="rect" id="node17" href="$in__js__class__uart__js__cpp_8cpp.html" title="JerryScript wrapper for uart_port class." alt="" coords="3449,117,3675,173"/>
+<area shape="rect" id="node18" href="$in__jerryscript__debugger__h_8h.html" title="JavaScript interpreter core function." alt="" coords="3699,117,3884,173"/>
+<area shape="rect" id="node19" href="$in__jerryscript__port__cpp_8cpp.html" title="JavaScript interpreter port." alt="" coords="3765,228,3948,284"/>
 </map>

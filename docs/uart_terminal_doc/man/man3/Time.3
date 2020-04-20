@@ -1,4 +1,4 @@
-.TH "Time" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "Time" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,6 +12,9 @@ Time \- Time class definition\&.
 .in +1c
 .ti -1c
 .RI "class \fBtime_js_c\fP"
+.br
+.ti -1c
+.RI "class \fBtimer_js_c\fP"
 .br
 .in -1c
 .SS "Functions"
@@ -37,6 +40,16 @@ Time \- Time class definition\&.
 .RI "static uint32_t \fBlocal_str\fP (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)"
 .br
 .RI "Convert time in local second to local time & date string value (JS function 'local_str') "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "double \fBg_time_d\fP"
+.br
+.ti -1c
+.RI "double \fBg_time_ms_d\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -68,7 +81,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 214 of file in_js_class_time_js_cpp\&.cpp\&.
+Definition at line 235 of file in_js_class_time_js_cpp\&.cpp\&.
 .SS "uint32_t now (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -92,7 +105,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 118 of file in_js_class_time_js_cpp\&.cpp\&.
+Definition at line 127 of file in_js_class_time_js_cpp\&.cpp\&.
 .SS "uint32_t now_ms (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -116,7 +129,7 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 148 of file in_js_class_time_js_cpp\&.cpp\&.
+Definition at line 161 of file in_js_class_time_js_cpp\&.cpp\&.
 .SS "void reg_host_class (void)"
 
 .PP
@@ -134,7 +147,7 @@ void
 .PP
 
 .PP
-Definition at line 62 of file in_js_class_time_js_cpp\&.cpp\&.
+Definition at line 71 of file in_js_class_time_js_cpp\&.cpp\&.
 .SS "uint32_t str (const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t * p_args_ui32, const uint32_t args_cnt_ui32)\fC [static]\fP"
 
 .PP
@@ -158,7 +171,13 @@ uint32_t : returned data
 .PP
 
 .PP
-Definition at line 178 of file in_js_class_time_js_cpp\&.cpp\&.
+Definition at line 195 of file in_js_class_time_js_cpp\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "double g_time_d"
+Global variable 
+.PP
+Definition at line 65 of file in_jerryscript_port_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.

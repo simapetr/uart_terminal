@@ -16,6 +16,5 @@ var group___button =
     [ "add_button", "group___button.html#ga422bcf1fcda6e1ee585cfde739e53f16", null ],
     [ "reg_event", "group___button.html#gaec005a4f579a1a6d57a16392e5cdd07e", null ],
     [ "reg_host_class", "group___button.html#gac715b4a43bb361fc96ce6f1b50d68a8b", null ],
-    [ "set_button_event", "group___button.html#ga84e3f9fdd1672c20bfb0fe3aa6e5da0f", null ],
-    [ "lv_data_button_buffer", "group___button.html#ga72f70225064d049b43c0120b465cc1ec", null ]
+    [ "set_button_event", "group___button.html#ga84e3f9fdd1672c20bfb0fe3aa6e5da0f", null ]
 ];

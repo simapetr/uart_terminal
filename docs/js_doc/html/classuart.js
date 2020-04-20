@@ -1,12 +1,12 @@
 var classuart =
 [
-    [ "close", "classuart.html#a67b72387b99fb35706b11eeba7070bc4", null ],
-    [ "get_ctrl", "classuart.html#a84cca1155f5d878543d5fe04da7e9154", null ],
-    [ "open", "classuart.html#ad3c901fe01e5eb46c89975a96911e0fc", null ],
-    [ "reg_event", "classuart.html#a2a17340cdc57799ae1efa09098911396", null ],
-    [ "set_ctrl", "classuart.html#a00cc786dbdcb7eaa0ea83423ce1cc581", null ],
-    [ "write", "classuart.html#a3322f7e9a9f20fa53e6c1307ac1c75db", null ],
-    [ "write", "classuart.html#a96578e29a16d696c649260d1deb7f610", null ],
-    [ "write", "classuart.html#ac68442e2dbd073ee686220fe0b525662", null ],
-    [ "write", "classuart.html#a0be86e407bbaa1dccd550f1898dcb8ca", null ]
+    [ "close", "classuart.html#aa69c8bf1f1dcf4e72552efff1fe3e87e", null ],
+    [ "get_ctrl", "classuart.html#a8a563dc7cad903afc951acca9efc37f2", null ],
+    [ "open", "classuart.html#abe660e412aec60f8c6331dc1ecc5bd06", null ],
+    [ "reg_event", "classuart.html#ac02264b91f2868a2f44115bfb0a60cbd", null ],
+    [ "set_ctrl", "classuart.html#a14d67f9c440a2438900c40c13c7e93e6", null ],
+    [ "write", "classuart.html#a6375c10bf3a4f3aa53b2514a43b502cc", null ],
+    [ "write", "classuart.html#a5241e222abf3ac21e20c195de34746df", null ],
+    [ "write", "classuart.html#aa6c744f9ea627c18aa89f38733d5e82d", null ],
+    [ "write", "classuart.html#ab38f66cd3b846fe15f8100bd1d29b8be", null ]
 ];

@@ -1,4 +1,4 @@
 var classsizer =
 [
-    [ "add", "classsizer.html#a48f0ed15ee95563920d7e4cd551bebe8", null ]
+    [ "add", "classsizer.html#a8575f2b33c9494f4869106594b5ad1c4", null ]
 ];

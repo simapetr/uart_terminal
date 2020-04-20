@@ -1,4 +1,4 @@
-.TH "D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cpp" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,7 +13,11 @@ D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cp
 .br
 \fC#include <wx/file\&.h>\fP
 .br
+\fC#include <wx/bitmap\&.h>\fP
+.br
 \fC#include <wx/font\&.h>\fP
+.br
+\fC#include <wx/image\&.h>\fP
 .br
 \fC#include <wx/intl\&.h>\fP
 .br
@@ -23,13 +27,36 @@ D:/project/uart_terminal/application/uart_terminal/ap_uart_terminal_frame_cpp.cp
 .br
 \fC#include <wx/filename\&.h>\fP
 .br
-\fC#include 'icon/ap_ut_icon_app_xpm\&.xpm'\fP
+\fC#include 'lp_uart_terminal_xpm\&.xpm'\fP
 .br
-\fC#include 'icon/lp_play_ico_xpm\&.xpm'\fP
+\fC#include 'lp_editor_xpm\&.xpm'\fP
 .br
-\fC#include 'icon/lp_stop_ico_xpm\&.xpm'\fP
+\fC#include 'lp_open_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_quit_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_info_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_js_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_bin_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_play_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_stop_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_connect_xpm\&.xpm'\fP
+.br
+\fC#include 'lp_disconnect_xpm\&.xpm'\fP
 .br
 
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBconsole_buffer_t\fP"
+.br
+.in -1c
 .SS "Macros"
 
 .in +1c

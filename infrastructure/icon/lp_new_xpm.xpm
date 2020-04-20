@@ -1,0 +1,38 @@
+/* XPM */
+static const char *lp_new_si8[] = {
+/* width height num_colors chars_per_pixel */
+"    16    15       16            1",
+/* colors */
+"` c None",
+". c #20c040",
+"# c #000000",
+"a c #ffff00",
+"b c #208000",
+"c c #800080",
+"d c #008080",
+"e c #c0c0c0",
+"f c #c0dcc0",
+"g c #a6caf0",
+"h c #402000",
+"i c #602000",
+"j c #802000",
+"k c #a02000",
+"l c #c02000",
+"m c #ffffff",
+/* pixels */
+"````````````````",
+"```#######``````",
+"```#mmmm#m#`````",
+"```#mmmm#mm#````",
+"```#mmmm#mmm#```",
+"```#mmmm#####```",
+"```#mmmmmm...```",
+"```#mmmm...a...`",
+"```#mmmm.a.a.a.`",
+"```#mmm...aaa...",
+"```#mmm.aaaaaaa.",
+"```#mmm...aaa...",
+"```#####.a.a.a.`",
+"````````...a...`",
+"``````````...```"
+};

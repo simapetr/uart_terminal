@@ -5,7 +5,8 @@
 U\+A\+RT terminal monitor.  
 
 
-Collaboration diagram for U\+A\+R\+T\+\_\+terminal\+:\nopagebreak
+Collaboration diagram for U\+A\+R\+T\+\_\+terminal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,6 +15,8 @@ Collaboration diagram for U\+A\+R\+T\+\_\+terminal\+:\nopagebreak
 \end{figure}
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
+\item 
+struct \textbf{ console\+\_\+buffer\+\_\+t}
 \item 
 class \textbf{ main\+\_\+frame}
 \end{DoxyCompactItemize}
@@ -43,26 +46,46 @@ typedef void($\ast$ \textbf{ send\+\_\+event\+\_\+fct}) (void $\ast$p\+\_\+param
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 virtual \textbf{ $\sim$main\+\_\+frame} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \textbf{ set} (wx\+String path\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Set script path. \end{DoxyCompactList}\item 
+void \textbf{ run} (bool status\+\_\+b=true)
+\begin{DoxyCompactList}\small\item\em Run Loaded script. \end{DoxyCompactList}\item 
+wx\+String \textbf{ get} (void)
+\begin{DoxyCompactList}\small\item\em Get script path. \end{DoxyCompactList}\item 
 void \textbf{ gui} (bool status\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set frame show status. \end{DoxyCompactList}\item 
 \textbf{ config\+\_\+ini} $\ast$ \textbf{ get\+\_\+project} (void)
 \begin{DoxyCompactList}\small\item\em Get project configuration object. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+hide} (bool status\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Hide main frame from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ console\+\_\+rx\+\_\+enable} (bool status\+\_\+b)
 \begin{DoxyCompactList}\small\item\em Set RX data show status. \end{DoxyCompactList}\item 
 bool \textbf{ is\+\_\+console\+\_\+rx\+\_\+enable} (void)
 \begin{DoxyCompactList}\small\item\em Get RX console show status. \end{DoxyCompactList}\item 
-void \textbf{ printf} (wx\+String console\+\_\+text\+\_\+str)
-\begin{DoxyCompactList}\small\item\em Print string on console. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+printf} (wx\+String console\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on console from Jerry\+Script. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+status} (wx\+String status\+\_\+text\+\_\+str)
+\begin{DoxyCompactList}\small\item\em Print string on status bar from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ status} (wx\+String status\+\_\+text\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Print string on status bar. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+clear} (void)
+\begin{DoxyCompactList}\small\item\em Clear console text from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ clear} (void)
 \begin{DoxyCompactList}\small\item\em Clear console text. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+open\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Open U\+A\+RT form Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ open\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Open U\+A\+RT with G\+UI setting. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+close\+\_\+port} (void)
+\begin{DoxyCompactList}\small\item\em Close port from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ close\+\_\+port} (void)
 \begin{DoxyCompactList}\small\item\em Close port wit G\+UI setting. \end{DoxyCompactList}\item 
+uart\+\_\+status\+\_\+t \textbf{ js\+\_\+get\+\_\+open\+\_\+status} (void)
+\begin{DoxyCompactList}\small\item\em Get port open status from Jerry\+Script. \end{DoxyCompactList}\item 
 uart\+\_\+status\+\_\+t \textbf{ get\+\_\+open\+\_\+status} (void)
 \begin{DoxyCompactList}\small\item\em Get port open status. \end{DoxyCompactList}\item 
+void \textbf{ js\+\_\+set\+\_\+config} (\textbf{ uart\+\_\+cfg\+\_\+t} data\+\_\+uart\+\_\+cfg)
+\begin{DoxyCompactList}\small\item\em Set U\+A\+RT port from Jerry\+Script. \end{DoxyCompactList}\item 
 void \textbf{ set\+\_\+config} (\textbf{ uart\+\_\+cfg\+\_\+t} data\+\_\+uart\+\_\+cfg)
 \begin{DoxyCompactList}\small\item\em Set U\+A\+RT port settings in G\+UI. \end{DoxyCompactList}\item 
 \textbf{ uart\+\_\+cfg\+\_\+t} \textbf{ get\+\_\+config} (void)
@@ -75,7 +98,7 @@ void \textbf{ set\+\_\+send\+\_\+event} (\textbf{ send\+\_\+event\+\_\+fct} data
 \begin{DoxyCompactList}\small\item\em Set external event after send button click. \end{DoxyCompactList}\item 
 uint32\+\_\+t \textbf{ run\+\_\+script} (wx\+String path\+\_\+str)
 \begin{DoxyCompactList}\small\item\em Run JS script. \end{DoxyCompactList}\item 
-void \textbf{ stop\+\_\+script} (void)
+uint32\+\_\+t \textbf{ stop\+\_\+script} (void)
 \begin{DoxyCompactList}\small\item\em Stop JS script. \end{DoxyCompactList}\item 
 static void \textbf{ stop\+\_\+event} (void)
 \begin{DoxyCompactList}\small\item\em Stop JS script event. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -95,7 +118,7 @@ U\+A\+RT terminal monitor.
 
 Define 
 
-Definition at line 50 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 52 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 
 
@@ -108,7 +131,7 @@ Definition at line 50 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+c
 
 Type 
 
-Definition at line 62 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h.
+Definition at line 63 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+h.\+h.
 
 
 
@@ -133,7 +156,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 579 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 781 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga39ec9a45c5fdf3b61ef3ca88973bc07c}} 
 \index{UART\_terminal@{UART\_terminal}!close\_port@{close\_port}}
@@ -155,9 +178,10 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 683 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 919 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -184,7 +208,29 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 527 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 695 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_gad833fe8055e535b4696cfc376a286f80}} 
+\index{UART\_terminal@{UART\_terminal}!get@{get}}
+\index{get@{get}!UART\_terminal@{UART\_terminal}}
+\subsubsection{get()}
+{\footnotesize\ttfamily wx\+String get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get script path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wx\+String \+: Script path 
+\end{DoxyReturn}
+
+
+Definition at line 640 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gab5f10a8a2328c6ded33c452d6c0c8792}} 
 \index{UART\_terminal@{UART\_terminal}!get\_config@{get\_config}}
@@ -206,7 +252,7 @@ data\+\_\+uart\+\_\+cfg \+: U\+A\+RT port configuration structure
 \end{DoxyReturn}
 
 
-Definition at line 773 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1037 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gaa87c4c777f73c1b5d39793e6a75e26d6}} 
 \index{UART\_terminal@{UART\_terminal}!get\_data@{get\_data}}
@@ -228,7 +274,7 @@ wx\+String \+: Input text
 \end{DoxyReturn}
 
 
-Definition at line 812 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1076 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga4290ac6ba3f3672d077625fbd079dd9f}} 
 \index{UART\_terminal@{UART\_terminal}!get\_open\_status@{get\_open\_status}}
@@ -250,7 +296,7 @@ uart\+\_\+status\+\_\+t \+: U\+A\+RT port status
 \end{DoxyReturn}
 
 
-Definition at line 721 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 964 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gadb467188cf8181ac20594cef5f000774}} 
 \index{UART\_terminal@{UART\_terminal}!get\_project@{get\_project}}
@@ -272,7 +318,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 515 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 667 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga1986b0e4e7fba4b4af869473513e1ce9}} 
 \index{UART\_terminal@{UART\_terminal}!gui@{gui}}
@@ -294,7 +340,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 500 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 652 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga7ba59ce4eb6c8eb6bdf549389b59ef43}} 
 \index{UART\_terminal@{UART\_terminal}!is\_console\_rx\_enable@{is\_console\_rx\_enable}}
@@ -316,7 +362,183 @@ bool \+: Actual console enable status
 \end{DoxyReturn}
 
 
-Definition at line 540 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 708 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga7ba591b2947aec3954c417ad07bc8294}} 
+\index{UART\_terminal@{UART\_terminal}!js\_clear@{js\_clear}}
+\index{js\_clear@{js\_clear}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_clear()}
+{\footnotesize\ttfamily void js\+\_\+clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear console text from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 766 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga34f4e46cbbd8ec24f730805302d9f057}} 
+\index{UART\_terminal@{UART\_terminal}!js\_close\_port@{js\_close\_port}}
+\index{js\_close\_port@{js\_close\_port}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_close\_port()}
+{\footnotesize\ttfamily void js\+\_\+close\+\_\+port (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Close port from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 904 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga2424f6e22851938a5dfb5a9cc88c5d9b}} 
+\index{UART\_terminal@{UART\_terminal}!js\_get\_open\_status@{js\_get\_open\_status}}
+\index{js\_get\_open\_status@{js\_get\_open\_status}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_get\_open\_status()}
+{\footnotesize\ttfamily uart\+\_\+status\+\_\+t js\+\_\+get\+\_\+open\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get port open status from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uart\+\_\+status\+\_\+t \+: U\+A\+RT port status 
+\end{DoxyReturn}
+
+
+Definition at line 952 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga53cd6502b8c3af665a81501c82b98718}} 
+\index{UART\_terminal@{UART\_terminal}!js\_hide@{js\_hide}}
+\index{js\_hide@{js\_hide}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_hide()}
+{\footnotesize\ttfamily void js\+\_\+hide (\begin{DoxyParamCaption}\item[{bool}]{status\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Hide main frame from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & status\+\_\+b \+: Show main frame \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 679 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_gaf8d7fad0f508420ed9b9642b3152cba9}} 
+\index{UART\_terminal@{UART\_terminal}!js\_open\_port@{js\_open\_port}}
+\index{js\_open\_port@{js\_open\_port}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_open\_port()}
+{\footnotesize\ttfamily void js\+\_\+open\+\_\+port (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Open U\+A\+RT form Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 794 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga1a83f6bffb6e4e77a0615e7b0f3b96cd}} 
+\index{UART\_terminal@{UART\_terminal}!js\_printf@{js\_printf}}
+\index{js\_printf@{js\_printf}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_printf()}
+{\footnotesize\ttfamily void js\+\_\+printf (\begin{DoxyParamCaption}\item[{wx\+String}]{console\+\_\+text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Print string on console from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & console\+\_\+text\+\_\+str \+: Print text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 720 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_gad524224473a31a3b6deec56509559601}} 
+\index{UART\_terminal@{UART\_terminal}!js\_set\_config@{js\_set\_config}}
+\index{js\_set\_config@{js\_set\_config}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_set\_config()}
+{\footnotesize\ttfamily void js\+\_\+set\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ uart\+\_\+cfg\+\_\+t}}]{data\+\_\+uart\+\_\+cfg }\end{DoxyParamCaption})}
+
+
+
+Set U\+A\+RT port from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & data\+\_\+uart\+\_\+cfg \+: U\+A\+RT port configuration structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 976 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
+\mbox{\label{group___u_a_r_t__terminal_ga27bdbad8ec39cf332c440b6bd88158de}} 
+\index{UART\_terminal@{UART\_terminal}!js\_status@{js\_status}}
+\index{js\_status@{js\_status}!UART\_terminal@{UART\_terminal}}
+\subsubsection{js\_status()}
+{\footnotesize\ttfamily void js\+\_\+status (\begin{DoxyParamCaption}\item[{wx\+String}]{status\+\_\+text\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Print string on status bar from Jerry\+Script. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & console\+\_\+text\+\_\+str \+: Print text \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 737 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gac6d177669b3810c95fed339b05281e82}} 
 \index{UART\_terminal@{UART\_terminal}!main\_frame@{main\_frame}}
@@ -340,7 +562,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 127 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 163 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gaeb58113a5a9df68000116b815e75ef76}} 
 \index{UART\_terminal@{UART\_terminal}!open\_port@{open\_port}}
@@ -362,28 +584,31 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 592 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 809 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=257pt]{group___u_a_r_t__terminal_gaeb58113a5a9df68000116b815e75ef76_cgraph}
 \end{center}
 \end{figure}
-\mbox{\label{group___u_a_r_t__terminal_ga567b6dc058e91d1c6521c34673d67b7f}} 
-\index{UART\_terminal@{UART\_terminal}!printf@{printf}}
-\index{printf@{printf}!UART\_terminal@{UART\_terminal}}
-\subsubsection{printf()}
-{\footnotesize\ttfamily void printf (\begin{DoxyParamCaption}\item[{wx\+String}]{console\+\_\+text\+\_\+str }\end{DoxyParamCaption})}
+\mbox{\label{group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb}} 
+\index{UART\_terminal@{UART\_terminal}!run@{run}}
+\index{run@{run}!UART\_terminal@{UART\_terminal}}
+\subsubsection{run()}
+{\footnotesize\ttfamily void run (\begin{DoxyParamCaption}\item[{bool}]{status\+\_\+b = {\ttfamily true} }\end{DoxyParamCaption})}
 
 
 
-Print string on console. 
+Run Loaded script. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em \mbox{[}\+I\+N\mbox{]}} & console\+\_\+text\+\_\+str \+: Print text \\
+{\em \mbox{[}\+I\+N\mbox{]}} & status\+\_\+b \+: Run state \begin{DoxyItemize}
+\item true \+: Run \item false \+: Stop \end{DoxyItemize}
+\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -391,8 +616,16 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 552 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 616 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{group___u_a_r_t__terminal_ga814ef6f49245db963f3faefc8ac98efb_cgraph}
+\end{center}
+\end{figure}
 \mbox{\label{group___u_a_r_t__terminal_ga5ad6770a94d4fba50b27ae366ba4580d}} 
 \index{UART\_terminal@{UART\_terminal}!run\_script@{run\_script}}
 \index{run\_script@{run\_script}!UART\_terminal@{UART\_terminal}}
@@ -413,15 +646,38 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 865 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1129 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{group___u_a_r_t__terminal_ga5ad6770a94d4fba50b27ae366ba4580d_cgraph}
 \end{center}
 \end{figure}
+\mbox{\label{group___u_a_r_t__terminal_gafb195c4fd235aaa4c2da3815ec46eeba}} 
+\index{UART\_terminal@{UART\_terminal}!set@{set}}
+\index{set@{set}!UART\_terminal@{UART\_terminal}}
+\subsubsection{set()}
+{\footnotesize\ttfamily void set (\begin{DoxyParamCaption}\item[{wx\+String}]{path\+\_\+str }\end{DoxyParamCaption})}
+
+
+
+Set script path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & path\+\_\+str \+: Script path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 598 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+
 \mbox{\label{group___u_a_r_t__terminal_ga658464cfaff2e47e321ffa1f5245f350}} 
 \index{UART\_terminal@{UART\_terminal}!set\_config@{set\_config}}
 \index{set\_config@{set\_config}!UART\_terminal@{UART\_terminal}}
@@ -442,7 +698,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 733 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 993 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gaffd459f0ab93e19fd565f8194b5ef3a9}} 
 \index{UART\_terminal@{UART\_terminal}!set\_progress@{set\_progress}}
@@ -466,7 +722,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 832 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1096 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga40fe93386e57619826bc2f50a27dbc0c}} 
 \index{UART\_terminal@{UART\_terminal}!set\_send\_event@{set\_send\_event}}
@@ -490,7 +746,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 851 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1115 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_gac13ab4f21ab16785861da45f063ce763}} 
 \index{UART\_terminal@{UART\_terminal}!status@{status}}
@@ -512,7 +768,7 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 566 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 753 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
 \mbox{\label{group___u_a_r_t__terminal_ga61053f5526b385827ac19b86c3df0867}} 
 \index{UART\_terminal@{UART\_terminal}!stop\_event@{stop\_event}}
@@ -534,13 +790,13 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 939 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1210 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
-\mbox{\label{group___u_a_r_t__terminal_gafc1cdeea260c14de2dcb9415ebcc15f9}} 
+\mbox{\label{group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f}} 
 \index{UART\_terminal@{UART\_terminal}!stop\_script@{stop\_script}}
 \index{stop\_script@{stop\_script}!UART\_terminal@{UART\_terminal}}
 \subsubsection{stop\_script()}
-{\footnotesize\ttfamily void stop\+\_\+script (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily uint32\+\_\+t stop\+\_\+script (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -552,12 +808,20 @@ Stop JS script.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-void 
+uint32\+\_\+t \+: Stop status 
 \end{DoxyReturn}
 
 
-Definition at line 917 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 1181 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___u_a_r_t__terminal_ga1ef808eaa046bca8db8019bc788a7f3f_cgraph}
+\end{center}
+\end{figure}
 \mbox{\label{group___u_a_r_t__terminal_gaf3820c86d5633619d8e1baddfcbb5042}} 
 \index{UART\_terminal@{UART\_terminal}!````~main\_frame@{$\sim$main\_frame}}
 \index{````~main\_frame@{$\sim$main\_frame}!UART\_terminal@{UART\_terminal}}
@@ -578,9 +842,10 @@ void
 \end{DoxyReturn}
 
 
-Definition at line 432 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
+Definition at line 508 of file ap\+\_\+uart\+\_\+terminal\+\_\+frame\+\_\+cpp.\+cpp.
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

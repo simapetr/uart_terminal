@@ -22,7 +22,12 @@
 #include <wx/led.h>
 
 /**
-  * @addtogroup Application
+  * @addtogroup Infrastructure
+  * @{
+  */
+
+/**
+  * @addtogroup JerryScript
   * @{
   */
 
@@ -211,6 +216,10 @@ void gui_frame::on_clear_led(void)
     l_cnt_led_ui32 = 0;
     return;
 }
+
+/**
+* @}
+*/
 
 /**
 * @}

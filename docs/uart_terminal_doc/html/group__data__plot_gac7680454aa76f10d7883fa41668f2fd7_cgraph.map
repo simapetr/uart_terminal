@@ -1,0 +1,4 @@
+<map id="redraw" name="redraw">
+<area shape="rect" id="node1" title="Redraw new data and set time cursor." alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node2" href="$group__data__plot.html#gae5dcab1d0aea67a38b798ef5a58de49f" title="Return number of signal buffer in graph." alt="" coords="113,5,153,32"/>
+</map>

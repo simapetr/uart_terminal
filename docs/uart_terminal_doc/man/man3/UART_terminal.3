@@ -1,4 +1,4 @@
-.TH "UART_terminal" 3 "Sun Feb 16 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
+.TH "UART_terminal" 3 "Mon Apr 20 2020" "Version V2.0" "UART Terminal" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,6 +10,9 @@ UART_terminal \- UART terminal monitor\&.
 .SS "Data Structures"
 
 .in +1c
+.ti -1c
+.RI "struct \fBconsole_buffer_t\fP"
+.br
 .ti -1c
 .RI "class \fBmain_frame\fP"
 .br
@@ -49,6 +52,18 @@ UART_terminal \- UART terminal monitor\&.
 .br
 .RI "Destructor\&. "
 .ti -1c
+.RI "void \fBset\fP (wxString path_str)"
+.br
+.RI "Set script path\&. "
+.ti -1c
+.RI "void \fBrun\fP (bool status_b=true)"
+.br
+.RI "Run Loaded script\&. "
+.ti -1c
+.RI "wxString \fBget\fP (void)"
+.br
+.RI "Get script path\&. "
+.ti -1c
 .RI "void \fBgui\fP (bool status_b)"
 .br
 .RI "Set frame show status\&. "
@@ -56,6 +71,10 @@ UART_terminal \- UART terminal monitor\&.
 .RI "\fBconfig_ini\fP * \fBget_project\fP (void)"
 .br
 .RI "Get project configuration object\&. "
+.ti -1c
+.RI "void \fBjs_hide\fP (bool status_b)"
+.br
+.RI "Hide main frame from JerryScript\&. "
 .ti -1c
 .RI "void \fBconsole_rx_enable\fP (bool status_b)"
 .br
@@ -65,29 +84,53 @@ UART_terminal \- UART terminal monitor\&.
 .br
 .RI "Get RX console show status\&. "
 .ti -1c
-.RI "void \fBprintf\fP (wxString console_text_str)"
+.RI "void \fBjs_printf\fP (wxString console_text_str)"
 .br
-.RI "Print string on console\&. "
+.RI "Print string on console from JerryScript\&. "
+.ti -1c
+.RI "void \fBjs_status\fP (wxString status_text_str)"
+.br
+.RI "Print string on status bar from JerryScript\&. "
 .ti -1c
 .RI "void \fBstatus\fP (wxString status_text_str)"
 .br
 .RI "Print string on status bar\&. "
 .ti -1c
+.RI "void \fBjs_clear\fP (void)"
+.br
+.RI "Clear console text from JerryScript\&. "
+.ti -1c
 .RI "void \fBclear\fP (void)"
 .br
 .RI "Clear console text\&. "
+.ti -1c
+.RI "void \fBjs_open_port\fP (void)"
+.br
+.RI "Open UART form JerryScript\&. "
 .ti -1c
 .RI "void \fBopen_port\fP (void)"
 .br
 .RI "Open UART with GUI setting\&. "
 .ti -1c
+.RI "void \fBjs_close_port\fP (void)"
+.br
+.RI "Close port from JerryScript\&. "
+.ti -1c
 .RI "void \fBclose_port\fP (void)"
 .br
 .RI "Close port wit GUI setting\&. "
 .ti -1c
+.RI "uart_status_t \fBjs_get_open_status\fP (void)"
+.br
+.RI "Get port open status from JerryScript\&. "
+.ti -1c
 .RI "uart_status_t \fBget_open_status\fP (void)"
 .br
 .RI "Get port open status\&. "
+.ti -1c
+.RI "void \fBjs_set_config\fP (\fBuart_cfg_t\fP data_uart_cfg)"
+.br
+.RI "Set UART port from JerryScript\&. "
 .ti -1c
 .RI "void \fBset_config\fP (\fBuart_cfg_t\fP data_uart_cfg)"
 .br
@@ -113,7 +156,7 @@ UART_terminal \- UART terminal monitor\&.
 .br
 .RI "Run JS script\&. "
 .ti -1c
-.RI "void \fBstop_script\fP (void)"
+.RI "uint32_t \fBstop_script\fP (void)"
 .br
 .RI "Stop JS script\&. "
 .ti -1c
@@ -131,13 +174,13 @@ UART terminal monitor\&.
 .SS "#define d_ap_uart_terminal_tx_buffer_length   4096"
 Define 
 .PP
-Definition at line 50 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 52 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SH "Typedef Documentation"
 .PP 
 .SS "typedef void(* send_event_fct) (void *p_parametr_void, uint8_t *p_data_sui8, uint32_t length_ui32)"
 Type 
 .PP
-Definition at line 62 of file ap_uart_terminal_frame_h\&.h\&.
+Definition at line 63 of file ap_uart_terminal_frame_h\&.h\&.
 .SH "Function Documentation"
 .PP 
 .SS "void clear (void)"
@@ -157,7 +200,7 @@ void
 .PP
 
 .PP
-Definition at line 579 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 781 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void close_port (void)"
 
 .PP
@@ -175,7 +218,7 @@ void
 .PP
 
 .PP
-Definition at line 683 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 919 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void console_rx_enable (bool status_b)"
 
 .PP
@@ -193,7 +236,25 @@ void
 .PP
 
 .PP
-Definition at line 527 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 695 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "wxString get (void)"
+
+.PP
+Get script path\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+wxString : Script path 
+.RE
+.PP
+
+.PP
+Definition at line 640 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "\fBuart_cfg_t\fP get_config (void)"
 
 .PP
@@ -211,7 +272,7 @@ data_uart_cfg : UART port configuration structure
 .PP
 
 .PP
-Definition at line 773 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1037 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "wxString get_data (wxString text_str)"
 
 .PP
@@ -229,7 +290,7 @@ wxString : Input text
 .PP
 
 .PP
-Definition at line 812 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1076 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "uart_status_t get_open_status (void)"
 
 .PP
@@ -247,7 +308,7 @@ uart_status_t : UART port status
 .PP
 
 .PP
-Definition at line 721 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 964 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "\fBconfig_ini\fP * get_project (void)"
 
 .PP
@@ -265,7 +326,7 @@ void
 .PP
 
 .PP
-Definition at line 515 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 667 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void gui (bool status_b)"
 
 .PP
@@ -283,7 +344,7 @@ void
 .PP
 
 .PP
-Definition at line 500 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 652 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "bool is_console_rx_enable (void)"
 
 .PP
@@ -301,7 +362,151 @@ bool : Actual console enable status
 .PP
 
 .PP
-Definition at line 540 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 708 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_clear (void)"
+
+.PP
+Clear console text from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 766 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_close_port (void)"
+
+.PP
+Close port from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 904 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "uart_status_t js_get_open_status (void)"
+
+.PP
+Get port open status from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+uart_status_t : UART port status 
+.RE
+.PP
+
+.PP
+Definition at line 952 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_hide (bool status_b)"
+
+.PP
+Hide main frame from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP status_b : Show main frame 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 679 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_open_port (void)"
+
+.PP
+Open UART form JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvoid\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 794 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_printf (wxString console_text_str)"
+
+.PP
+Print string on console from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP console_text_str : Print text 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 720 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_set_config (\fBuart_cfg_t\fP data_uart_cfg)"
+
+.PP
+Set UART port from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP data_uart_cfg : UART port configuration structure 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 976 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void js_status (wxString status_text_str)"
+
+.PP
+Print string on status bar from JerryScript\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP console_text_str : Print text 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 737 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "\fBmain_frame\fP (wxWindow * parent, wxArrayString * p_cmd_arg_arraystring)"
 
 .PP
@@ -321,7 +526,7 @@ void
 .PP
 
 .PP
-Definition at line 127 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 163 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void open_port (void)"
 
 .PP
@@ -339,15 +544,22 @@ void
 .PP
 
 .PP
-Definition at line 592 of file ap_uart_terminal_frame_cpp\&.cpp\&.
-.SS "void printf (wxString console_text_str)"
+Definition at line 809 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void run (bool status_b = \fCtrue\fP)"
 
 .PP
-Print string on console\&. 
+Run Loaded script\&. 
 .PP
 \fBParameters:\fP
 .RS 4
-\fI[IN]\fP console_text_str : Print text 
+\fI[IN]\fP status_b : Run state 
+.PD 0
+
+.IP "\(bu" 2
+true : Run 
+.IP "\(bu" 2
+false : Stop 
+.PP
 .RE
 .PP
 \fBReturns:\fP
@@ -357,7 +569,7 @@ void
 .PP
 
 .PP
-Definition at line 552 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 616 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "uint32_t run_script (wxString path_str)"
 
 .PP
@@ -375,7 +587,25 @@ void
 .PP
 
 .PP
-Definition at line 865 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1129 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "void set (wxString path_str)"
+
+.PP
+Set script path\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI[IN]\fP path_str : Script path 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 598 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void set_config (\fBuart_cfg_t\fP data_uart_cfg)"
 
 .PP
@@ -393,7 +623,7 @@ void
 .PP
 
 .PP
-Definition at line 733 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 993 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void set_progress (wxString text_str, uint32_t progress_ui32)"
 
 .PP
@@ -413,7 +643,7 @@ void
 .PP
 
 .PP
-Definition at line 832 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1096 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void set_send_event (\fBsend_event_fct\fP data_send_event_fct, void * p_parametr_void)"
 
 .PP
@@ -433,7 +663,7 @@ void
 .PP
 
 .PP
-Definition at line 851 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1115 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void status (wxString status_text_str)"
 
 .PP
@@ -451,7 +681,7 @@ void
 .PP
 
 .PP
-Definition at line 566 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 753 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "void stop_event (void)\fC [static]\fP"
 
 .PP
@@ -469,8 +699,8 @@ void
 .PP
 
 .PP
-Definition at line 939 of file ap_uart_terminal_frame_cpp\&.cpp\&.
-.SS "void stop_script (void)"
+Definition at line 1210 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+.SS "uint32_t stop_script (void)"
 
 .PP
 Stop JS script\&. 
@@ -482,12 +712,12 @@ Stop JS script\&.
 .PP
 \fBReturns:\fP
 .RS 4
-void 
+uint32_t : Stop status 
 .RE
 .PP
 
 .PP
-Definition at line 917 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 1181 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SS "~\fBmain_frame\fP ()\fC [virtual]\fP"
 
 .PP
@@ -505,7 +735,7 @@ void
 .PP
 
 .PP
-Definition at line 432 of file ap_uart_terminal_frame_cpp\&.cpp\&.
+Definition at line 508 of file ap_uart_terminal_frame_cpp\&.cpp\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for UART Terminal from the source code\&.
