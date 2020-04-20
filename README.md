@@ -13,6 +13,7 @@ Supported function:
 - Control DTR, RTS and Tx(break) line
 - Read CTS, DSR, RING and RLSD
 - Load JavaScript
+- Edit JavaScript
 
 The project is based on:
 
@@ -29,4 +30,5 @@ Supported platforms:
 ## Screenshot
 
 ![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal.jpg)
+![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal_editor.jpg)
 ![](https://simapetr.github.io/uart_terminal/docs/img/uart_terminal_javascript_example.jpg)
