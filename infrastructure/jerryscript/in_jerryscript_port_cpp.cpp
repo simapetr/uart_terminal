@@ -253,6 +253,12 @@ jerry_value_t name_jerry_value;
     jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
     jerry_release_value(name_jerry_value);
     jerry_release_value(funct_jerry_value);
+    // Register crc callback
+    funct_jerry_value = jerry_create_external_function(this->crc);
+    name_jerry_value = jerry_create_string((const jerry_char_t*)"crc");
+    jerry_set_property(global_jerry_value, name_jerry_value, funct_jerry_value);
+    jerry_release_value(name_jerry_value);
+    jerry_release_value(funct_jerry_value);
     // Register this pointer
     jerry_set_object_native_pointer(global_jerry_value, this, NULL);
     jerry_release_value(global_jerry_value);
@@ -737,6 +743,176 @@ jerry_value_t global_jerry_value;
     }
     // Cast it back to JavaScript and return
     return jerry_create_undefined();
+}
+
+/** @brief Register CRC computation (JS function "crc")
+ *
+ * @param [IN] funct_ui32 : Unused
+ * @param [IN] this_ui32 : Pointer on construct class
+ * @param [IN] p_args_ui32 : Pointer on argument field
+ * @param [IN] args_cnt_ui32 : Argument field size
+ * @return uint32_t : returned data
+ *
+ */
+
+uint32_t jerryscript_c::crc(const uint32_t funct_ui32, const uint32_t this_ui32, const uint32_t *p_args_ui32, const uint32_t args_cnt_ui32)
+{
+void* p_arg_void;
+jerryscript_c* p_bkp_this = NULL;
+uint32_t data_cnt_ui32;
+uint8_t bit_cnt_ui8;
+uint32_t length_ui32;
+uint32_t type_ui32;
+uint32_t polynomial_ui32;
+uint8_t *p_data_bkp_sui8;
+uint8_t *p_data_sui8;
+uint8_t data_ui8;
+double crc_d = -1;
+uint32_t calc_crc_ui32;
+uint32_t bkp_crc_ui32;
+
+    if(jerry_get_object_native_pointer(jerry_get_global_object(), &p_arg_void, NULL))
+    {
+         // Extract this
+        p_bkp_this = reinterpret_cast<jerryscript_c*>(p_arg_void);
+        // Extract function argument
+        if(args_cnt_ui32 == 4 && p_bkp_this)
+        {
+            if(
+               jerry_value_is_number(p_args_ui32[0]) &&
+               jerry_value_is_number(p_args_ui32[1]) &&
+               jerry_value_is_number(p_args_ui32[2]) &&
+               jerry_value_is_array(p_args_ui32[3])
+              )
+            {
+                // Read argument
+                type_ui32 = jerry_get_number_value(p_args_ui32[0]);
+                polynomial_ui32 = jerry_get_number_value(p_args_ui32[1]);
+                calc_crc_ui32 = jerry_get_number_value(p_args_ui32[2]);
+                length_ui32 = jerry_get_array_length(p_args_ui32[3]);
+                // Alocate memory buffer
+                p_data_bkp_sui8 = new uint8_t[length_ui32];
+                p_data_sui8 = p_data_bkp_sui8;
+                for (data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
+                {
+                    p_data_sui8[data_cnt_ui32] = (uint8_t)jerry_get_number_value(jerry_get_property_by_index(p_args_ui32[3], data_cnt_ui32));
+                }
+                // Calculate CRC
+                switch(type_ui32)
+                {
+                    case 8:
+                    {
+                        while (length_ui32-- > 0)
+                        {
+                            calc_crc_ui32 = calc_crc_ui32 ^ (*p_data_sui8++ << 8);
+                            for (bit_cnt_ui8 = 0 ; bit_cnt_ui8 < 8 ; bit_cnt_ui8++)
+                            {
+                                calc_crc_ui32 = calc_crc_ui32 << 1;
+                                if (calc_crc_ui32 & 0x100)
+                                {
+                                    calc_crc_ui32 = (calc_crc_ui32 ^ polynomial_ui32) & 0xFF;
+                                }
+                            }
+                        }
+                        crc_d = (uint8_t)calc_crc_ui32;
+                    }
+                    break;
+                    case 16:
+                    {
+                        while (length_ui32-- > 0)
+                        {
+                            calc_crc_ui32 = calc_crc_ui32 ^ (*p_data_sui8++ << 8);
+                            for (bit_cnt_ui8 = 0 ; bit_cnt_ui8 < 8 ; bit_cnt_ui8++)
+                            {
+                                calc_crc_ui32 = calc_crc_ui32 << 1;
+                                if (calc_crc_ui32 & 0x10000)
+                                {
+                                    calc_crc_ui32 = (calc_crc_ui32 ^ polynomial_ui32) & 0xFFFF;
+                                }
+                            }
+                        }
+                        crc_d = (uint16_t)calc_crc_ui32;
+                    }
+                    break;
+                    case 32:
+                    {
+                        while (length_ui32-- > 0)
+                        {
+                            calc_crc_ui32 = calc_crc_ui32 ^ *p_data_sui8++;
+                            for (bit_cnt_ui8 = 0 ; bit_cnt_ui8 < 8; bit_cnt_ui8++)
+                            {
+                                if (calc_crc_ui32 & 1)
+                                {
+                                    calc_crc_ui32 = (calc_crc_ui32 >> 1) ^ polynomial_ui32;
+                                }
+                                else
+                                {
+                                    calc_crc_ui32 >>= 1;
+                                }
+                            }
+                        }
+                        crc_d = (uint32_t)calc_crc_ui32;
+                    }
+                    break;
+                    case 0xe232:
+                    {
+                        // convert 32bit array from little to big endian
+                        for(data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
+                        {
+                            if((data_cnt_ui32 & 0x00000003) == 2)
+                            {
+                                data_ui8 = p_data_sui8[data_cnt_ui32];
+                                p_data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32 - 1];
+                                p_data_sui8[data_cnt_ui32 - 1] = data_ui8;
+                            }
+                            else if((data_cnt_ui32 & 0x00000003) == 3)
+                            {
+                                data_ui8 = p_data_sui8[data_cnt_ui32];
+                                p_data_sui8[data_cnt_ui32] = p_data_sui8[data_cnt_ui32 - 3];
+                                p_data_sui8[data_cnt_ui32 - 3] = data_ui8;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        // Calculate CRC
+                        // Source https://stackoverflow.com/questions/54339800/how-to-modify-crc-32-to-crc-32-mpeg-2
+                        for(data_cnt_ui32 = 0; data_cnt_ui32 < length_ui32; data_cnt_ui32++)
+                        {
+                            // xor next byte to upper bits of CRC
+                            calc_crc_ui32 ^= (((unsigned int)p_data_sui8[data_cnt_ui32])<<24);
+                            for (bit_cnt_ui8 = 0; bit_cnt_ui8 < 8; bit_cnt_ui8++)
+                            {
+                                bkp_crc_ui32 = calc_crc_ui32>>31;
+                                calc_crc_ui32 <<= 1;
+                                calc_crc_ui32 ^= (0 - bkp_crc_ui32) & 0x04C11DB7;
+                            }
+                        }
+                        crc_d = (uint32_t)calc_crc_ui32;
+                    }
+                    break;
+                    default:
+                    {
+                        printf("Error CRC wrong parameter type\n");
+                    }
+                    break;
+                }
+                // Erase allocated memory
+                delete[] p_data_bkp_sui8;
+            }
+            else
+            {
+                printf("Error CRC wrong parameter type\n");
+            }
+        }
+        else
+        {
+            printf("Error CRC wrong parameter\n");
+        }
+    }
+    // Cast it back to JavaScript and return
+    return jerry_create_number(crc_d);
 }
 
 /**

@@ -1841,6 +1841,30 @@ gui(show_main_b, text_str, show_script_b);
 
 reg_exit(function_str);
 
+/** @brief Register exit callback
+ *
+ * @code
+ * var crc_val;
+ * var data_array;
+ * data_array.push(0x01);
+ * data_array.push(0x02);
+ * data_array.push(0x03);
+ * data_array.push(0x04);
+ * // CRC-32/MPEG-2 (32bit conversion little -> big (STM32))
+ * crc_val = crc(0xe232, 0x04C11DB7, 0xffffffff, data_array);
+ * // crc_val -> 0x1dabe74f;
+ * @endcode
+ *
+ * @param [IN] type_d : CRC type 8,16,32
+ * @param [IN] polynom_d : CRC polynomial
+ * @param [IN] init_d : CRC initialization data
+ * @param [IN] v_data_d : data
+ * @return Count CRC value
+ *
+ */
+
+crc(type_d, polynom_d, init_d, v_data_d);
+
 /**
 * @}
 */
