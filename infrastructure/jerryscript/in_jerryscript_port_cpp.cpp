@@ -884,7 +884,7 @@ uint32_t bkp_crc_ui32;
                             calc_crc_ui32 ^= (((unsigned int)p_data_sui8[data_cnt_ui32])<<24);
                             for (bit_cnt_ui8 = 0; bit_cnt_ui8 < 8; bit_cnt_ui8++)
                             {
-                                bkp_crc_ui32 = calc_crc_ui32>>31;
+                                bkp_crc_ui32 = calc_crc_ui32 >> 31;
                                 calc_crc_ui32 <<= 1;
                                 calc_crc_ui32 ^= (0 - bkp_crc_ui32) & 0x04C11DB7;
                             }
